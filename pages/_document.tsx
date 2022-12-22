@@ -6,6 +6,8 @@ export default function Document() {
     <Html lang="en">
       <Head >
         <link rel="icon" href="/favicon.ico" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6128301546730956"
+          crossOrigin="anonymous"></script>
       </Head>
       <body>
         <Main />
