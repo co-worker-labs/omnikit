@@ -41,4 +41,14 @@ export const toolsList: ToolData[] = [
         searchKeys: ['password', 'generator', 'random', 'memorable', 'pin'],
         keywords: ['password', 'generator', 'random', 'memorable', 'pin', 'gen', 'pass', 'text'],
     },
+    {
+        path: '/ascii',
+        title: 'ASCII Table',
+        description: 'Ascii character table - What is ascii - Complete tables including hex, octal, html, decimal conversions',
+        searchKeys: ['ascii'],
+        keywords: ['ascii', 'ascii table', 'ascii code', 'ascii characters', 'conversion',
+            'conversions', 'unicode', 'unicode tables', 'ascii help', 'help with ascii', 'asci',
+            'aski', 'asky', 'acii', 'askii', 'askey', 'cod', 'cde', 'tabe', 'tble', 'char', 'translation', 'translator',
+            'convert', 'character', 'text', 'textual', 'american', 'standard', 'information', 'interchange', 'extended', 'html'],
+    }
 ]
