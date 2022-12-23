@@ -34,7 +34,7 @@ function beautyPrint(code: number, radix: number, perLen: number, minLen: number
                 if (index == result.length - 1) {
                     return <span key={code + "_" + radix + "_" + index} className='text-success'>{data}</span>
                 } else {
-                    return <>{data}&nbsp;&nbsp;</>
+                    return <span key={code + "_" + radix + "_" + index}>{data}&nbsp;&nbsp;</span>
                 }
             })}
         </>
@@ -65,7 +65,8 @@ function ControlCodeChart({ list }: { list: ControlCode[] }) {
                                 <td className="text-uppercase">{beautyPrint(data.code, 16, 2, 2, '0')}</td>
                                 <td className="text-uppercase">{data.popular ? <span className="text-danger">{data.abbr}</span> : data.abbr}</td>
                                 <td>{data.popular ? <span className="text-danger">{data.desc}</span> : data.desc}</td>
-                            </tr>)
+                            </tr>
+                        )
                     })
                 }
             </tbody>
