@@ -16,7 +16,7 @@ export type HeaderPosition = 'sticky' | 'none' | 'hidden'
 // The approach used in this component shows how to build a sign in and sign out
 // component that works on pages which support both client and server side
 // rendering, and avoids any flash incorrect content on initial page load.
-export default function Header({ position }: { position: HeaderPosition }) {
+export default function Header({ position, title }: { position: HeaderPosition, title?: string }) {
   const [searchContent, setSearchContent] = useState<string>('');
   const [toolItems, setToolItems] = useState<ToolData[]>([]);
   const router = useRouter();
@@ -66,11 +66,15 @@ export default function Header({ position }: { position: HeaderPosition }) {
     <>
       <nav className={`navbar navbar-light bg-light ${clz()}`} >
         <div className="container-fluid px-lg-4">
-          <Link className="navbar-brand col-auto" href={'/'}>
-            <Image src={logoIcon} alt="Logo" height={28} width={28} className="d-inline-block align-text-top me-2" />
-            <span className={`d-none d-md-inline text-dark fw-bold`}>W3tools Online</span>
-          </Link>
-          <div className="col col-md-6 col-lg-3">
+          <div className="col-auto col-md-6 col-lg-6">
+            <Link className="navbar-brand" href={'/'}>
+              <Image src={logoIcon} alt="Logo" height={28} width={28} className="d-inline-block align-text-top me-2" />
+              <span className={`d-none d-md-inline text-dark fw-bold`}>W3tools Online</span>
+            </Link>
+            {title && <span className="d-none d-md-inline text-secondary fw-bold ms-2 text-nowrap"> @ {title}</span>}
+          </div>
+
+          <div className="col col-md-4 col-lg-3">
             <div className="input-group" role="search" onClick={() => {
               document.getElementById('searchModalBtn')?.click();
             }}>
@@ -103,7 +107,7 @@ export default function Header({ position }: { position: HeaderPosition }) {
                             <div className="card" >
                               <div className="card-body">
                                 <h5 className="card-title">{value.title}</h5>
-                                <p className="card-text" style={{'height': '3rem'}}>{value.description}</p>
+                                <p className="card-text" style={{ 'height': '3rem' }}>{value.description}</p>
                                 <div className="d-flex justify-content-center">
                                   <button type="button" className="btn btn-outline-success col-8" disabled={value.path == ''} onClick={() => {
                                     goto(value.path);

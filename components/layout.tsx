@@ -24,9 +24,9 @@ const LayoutContext: Context<LayoutSettings> = createContext<LayoutSettings>({
 });
 
 export default function Layout({
-    children, headerPosition, footerPosition, hidden, asideAds = 0,
+    children, title, headerPosition, footerPosition, hidden, asideAds,
 }: {
-    children: ReactNode, headerPosition?: HeaderPosition, footerPosition?: FooterPosition, hidden?: boolean, asideAds?: number;
+    children: ReactNode, title?: string, headerPosition?: HeaderPosition, footerPosition?: FooterPosition, hidden?: boolean, asideAds?: boolean;
 }) {
 
     const [isHidden, setIsHidden] = useState<boolean>(hidden || false);
@@ -56,10 +56,10 @@ export default function Layout({
     return (
         <LayoutContext.Provider value={config}>
             <div hidden={isHidden}>
-                <Header position={headerPos} />
+                <Header position={headerPos} title={title} />
                 <main className={`contain-fluid ${footerPos == 'fixed' ? 'pb-5' : ''}`} >
                     {
-                        asideAds && asideAds > 0 ? (
+                        asideAds ? (
                             <div className="row gx-0">
                                 <aside className="col-2 d-none d-lg-block py-5">
                                 </aside>

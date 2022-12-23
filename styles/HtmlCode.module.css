@@ -1,0 +1,13 @@
+.description p {
+  text-indent: 3rem;
+  line-height: 2rem;
+}
+
+.description pre {
+  background-color: #ededed;
+}
+
+.character p {
+  text-indent: 3rem;
+  line-height: 2rem;
+}

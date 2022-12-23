@@ -500,7 +500,7 @@ function PasswordPage({ questions, toolData }: InferGetStaticPropsType<typeof ge
     return (
         <>
             <ToolPageHeadBuilder data={toolData} />
-            <Layout asideAds={0}>
+            <Layout title='Password Generator'>
                 <Generator />
                 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6128301546730956"
                     crossOrigin="anonymous"></script>

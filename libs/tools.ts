@@ -50,5 +50,12 @@ export const toolsList: ToolData[] = [
             'conversions', 'unicode', 'unicode tables', 'ascii help', 'help with ascii', 'asci',
             'aski', 'asky', 'acii', 'askii', 'askey', 'cod', 'cde', 'tabe', 'tble', 'char', 'translation', 'translator',
             'convert', 'character', 'text', 'textual', 'american', 'standard', 'information', 'interchange', 'extended', 'html'],
+    },
+    {
+        path: '/htmlcode',
+        title:  'Html Code',
+        description: 'HTML codes and HTML special characters',
+        searchKeys: ['html', 'codes', 'special', 'characters'],
+        keywords: ['ascii', 'html code', 'ascii code', 'special characters', 'alphabet'],
     }
 ]
