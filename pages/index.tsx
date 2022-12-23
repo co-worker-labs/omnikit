@@ -43,7 +43,7 @@ function ToolCollection({ data }: { data: ToolData[] }) {
                       <div className="card" >
                         <div className="card-body">
                           <h5 className="card-title">{value.title}</h5>
-                          <p className="card-text" style={{ 'height': '3rem' }}>{value.description}</p>
+                          <p className="card-text text-truncate text-wrap" style={{ 'height': '4rem' }}>{value.description}</p>
                           <div className="d-flex justify-content-center">
                             <button type="button" className="btn btn-outline-success col-8" disabled={value.path == ''} onClick={() => {
                               router.push(value.path);
@@ -64,14 +64,19 @@ function ToolCollection({ data }: { data: ToolData[] }) {
 }
 
 export default function Home({ tools }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const keywords: string[] = [];
+  tools.forEach((value: ToolData) => {
+    keywords.push(...value.keywords);
+  });
   return (
     <>
       <Head>
         <title>W3Tools Online</title>
         <meta name="description" content="Auesome online Tools" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name='keyword' content={keywords.join(',')} />
       </Head>
-      <Layout headerPosition='none' asideAds={0}>
+      <Layout headerPosition='none'>
         <Introduce />
         <ToolCollection data={tools} />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6128301546730956"
