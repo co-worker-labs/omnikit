@@ -89,6 +89,7 @@ export default function Header({ position, title }: { position: HeaderPosition, 
         <div className="modal fade" id="searchModal" tabIndex={-1} aria-labelledby="searchModalLabel" aria-hidden="true">
           <div className="modal-dialog modal-dialog-centered  modal-xl modal-dialog-scrollable">
             <div className="modal-content">
+
               <div className="modal-header">
                 <input id="searchInput" type="search" role="search" className="form-control form-control-lg" placeholder="Search"
                   value={searchContent} onChange={(e) => {
@@ -96,6 +97,7 @@ export default function Header({ position, title }: { position: HeaderPosition, 
                     setSearchContent(value);
                     doSearch(value);
                   }} />
+                <button id="searchModalCloseBtn" type="button" className="btn-close d-block d-md-none" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div className="modal-body">
                 <div className="row text-center">
@@ -103,11 +105,11 @@ export default function Header({ position, title }: { position: HeaderPosition, 
                     {
                       toolItems.length > 0 ? toolItems.map((value, index) => {
                         return (
-                          <div className="col-12 col-md-6 col-lg-4 px-2 py-2" key={index}>
+                          <div className="col-12 col-md-6 col-lg-3 px-2 py-2" key={index}>
                             <div className="card" >
                               <div className="card-body">
-                                <h5 className="card-title">{value.title}</h5>
-                                <p className="card-text text-truncate text-wrap" style={{ 'height': '4rem' }}>{value.description}</p>
+                                <h5 className="card-title text-primary fw-bold">{value.title}</h5>
+                                <p className="card-text text-truncate text-wrap text-muted" style={{ 'height': '2.8rem' }}>{value.description}</p>
                                 <div className="d-flex justify-content-center">
                                   <button type="button" className="btn btn-outline-success col-8" disabled={value.path == ''} onClick={() => {
                                     goto(value.path);
@@ -121,9 +123,6 @@ export default function Header({ position, title }: { position: HeaderPosition, 
                     }
                   </>
                 </div>
-              </div>
-              <div className="modal-footer justify-content-center">
-                <button id="searchModalCloseBtn" type="button" className="btn btn btn-outline-secondary col-6 col-lg-3" data-bs-dismiss="modal">Done</button>
               </div>
             </div>
           </div>

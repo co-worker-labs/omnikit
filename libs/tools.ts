@@ -20,11 +20,9 @@ export function listMatchedTools(filter: string): ToolData[] {
     }
     filter = filter.toLocaleLowerCase();
     const filterWords = filter.split(/\s+/);
-    console.log(filterWords);
     return toolsList.filter((data) => {
         for (var fw of filterWords) {
             let found = data.searchKeys.filter(it => it.includes(fw));
-            console.log(fw + ' => ' + found);
             if (found.length == 0) {
                 return false;
             }
@@ -53,9 +51,9 @@ export const toolsList: ToolData[] = [
     },
     {
         path: '/htmlcode',
-        title:  'Html Code',
+        title: 'Html Code',
         description: 'HTML codes and HTML special characters',
         searchKeys: ['html', 'codes', 'special', 'characters'],
         keywords: ['ascii', 'html code', 'ascii code', 'special characters', 'alphabet'],
-    }
+    },
 ]

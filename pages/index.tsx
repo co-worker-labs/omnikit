@@ -39,11 +39,11 @@ function ToolCollection({ data }: { data: ToolData[] }) {
               {
                 data.map((value, index) => {
                   return (
-                    <div className="col-12 col-md-6 col-lg-4 px-2 py-2" key={index}>
+                    <div className="col-12 col-md-6 col-lg-3 px-2 py-2" key={index}>
                       <div className="card" >
                         <div className="card-body">
-                          <h5 className="card-title">{value.title}</h5>
-                          <p className="card-text text-truncate text-wrap" style={{ 'height': '4rem' }}>{value.description}</p>
+                          <h5 className="card-title text-dark fw-bold">{value.title}</h5>
+                          <p className="card-text text-truncate text-wrap text-muted" style={{ 'height': '2.8rem' }}>{value.description}</p>
                           <div className="d-flex justify-content-center">
                             <button type="button" className="btn btn-outline-success col-8" disabled={value.path == ''} onClick={() => {
                               router.push(value.path);
