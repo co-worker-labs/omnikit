@@ -318,15 +318,15 @@ function Generator() {
         <section id="generator" className={`container-fluid ${styles.generator}`}>
             <div className='container py-4'>
                 <div className='row justify-content-center'>
-                    <div className='col-12 col-lg-8 px-0'>
+                    <div className='col-12 col-lg-11 px-0'>
                         <div className='row justify-content-center text-center text-dark'>
-                            <div className='col-12 col-md-10'>
+                            <div className='col-11'>
                                 <p className='fw-bold fs-2'>Need a random password? Try it.</p>
                                 <p className='fs-4 fw-light fst-italic' >Generate secure, random, memorable passwords to stay safe online.</p>
                             </div>
                         </div>
                         <div className='row fw-bold fs-4 mt-3 px-3 text-dark mb-2'>
-                            Generated Password:
+                            Generated password:
                         </div>
                         <div className='bg-white text-dark card'>
                             <div className={`row gx-0 ${styles.passDisplay} position-relative`}>
@@ -467,7 +467,7 @@ function Question({ data }: { data: QuestionData[] }) {
                 What makes a password strong?
             </p>
             <div className='row justify-content-center mt-5'>
-                <div className="col-12 col-lg-8 accordion" id="questionCollapse">
+                <div className="col-12 col-lg-10 accordion" id="questionCollapse">
                     <>
                         {
                             data.map((v, index) => {

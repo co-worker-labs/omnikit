@@ -25,5 +25,25 @@
 }
 
 .toolCollectionTitle {
-    font-size: 3rem;
+  font-size: 3rem;
+}
+
+@media (max-width: 767.98px) {
+  .introduce {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+    color: white;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(https://static.npmjs.com/abf53a31b2da4657a1a004ee9358551c.png);
+  }
+
+  .introduceTitle {
+    font-size: 4rem;
+  }
+
+  .toolCollectionTitle {
+    font-size: 2.5rem;
+  }
 }
