@@ -15,7 +15,7 @@ function printEntityName(code: string | undefined) {
 
 function PronunciationPrinter({ desc, list }: { list: PronunciationCharacterData[], desc: string }) {
     return (
-        <div className={`${styles.character}`}>
+        <div className={`${styles.character}`} style={{'top': '3rem'}}>
             <p>
                 {desc}
             </p>
@@ -60,7 +60,7 @@ function CharacterPrinter({ desc, list }: { list: CharacterData[], desc: string 
                 {desc}
             </p>
             <table className="table text-center table-striped table-hover table-bordered">
-                <thead className="table-dark sticky-top">
+                <thead className="table-dark sticky-top" style={{'top': '3rem'}}>
                     <tr className="text-uppercase">
                         <th scope="col">Character</th>
                         <th scope="col">Entity name</th>
@@ -110,7 +110,7 @@ function PrintLetters({ list }: { list: CharacterData[] }) {
                 </div>
             </div>
             <table className="table text-center table-striped table-hover table-bordered">
-                <thead className="table-dark sticky-top">
+                <thead className="table-dark sticky-top" style={{'top': '3rem'}}>
                     <tr className="text-uppercase">
                         <th scope="col">Character</th>
                         <th scope="col">Entity name</th>
@@ -225,7 +225,7 @@ function HtmlCodePage({ toolData, letters, punctuations, currencies, mathematica
                                     </div>
                                     <div className="tab-pane fade" id="pronunciations-tab-pane" role="tabpanel" aria-labelledby="pronunciations-tab" tabIndex={4}>
                                         <PronunciationPrinter desc={
-                                            "Pronunciation characters will help the readers of a text understand how a word should be spoken. Below you’ll find all HTML pronunciation characters which you can use in your HTML."
+                                            "Pronunciation characters will help the readers of a text understand how a word should be spoken. Below you'll find all HTML pronunciation characters which you can use in your HTML."
                                         } list={pronunciations} />
                                     </div>
                                     <div className="tab-pane fade" id="diacritics-tab-pane" role="tabpanel" aria-labelledby="diacritics-tab" tabIndex={5}>
