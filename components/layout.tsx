@@ -1,7 +1,8 @@
-import { CSSProperties, ReactNode } from "react";
+import { CSSProperties, ReactNode, useEffect } from "react";
 import Footer, { FooterPosition } from "./footer";
 import Header, { HeaderPosition } from "./header";
 import { Context, createContext, useContext, useState } from "react";
+import styles from './Layout.module.css'
 
 interface LayoutSettings {
     reset: () => void;
@@ -53,10 +54,28 @@ export default function Layout({
         },
     }
 
+    useEffect(() => {
+        window.addEventListener('scroll', (e) => {
+            const el = document.getElementById('backtopbtn');
+            if (el) {
+                if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+                    if (el.hasAttribute('hidden')) {
+                        el.removeAttribute('hidden');
+                    }
+                } else {
+                    if (!el.hasAttribute('hidden')) {
+                        el.setAttribute('hidden', 'true');
+                    }
+                }
+            }
+        })
+    }, []);
+
     return (
         <LayoutContext.Provider value={config}>
-            <div hidden={isHidden} className={`${footerPos == 'fixed' ? 'pb-5' : ''} ${bodyClassName ? bodyClassName : ''}`} style={bodyStyle} >
+            <div hidden={isHidden} className={` ${footerPos == 'fixed' ? 'pb-5' : ''} ${bodyClassName ? bodyClassName : ''}`} style={bodyStyle} >
                 <Header position={headerPos} title={title} />
+                <a href="#" className={`btn rounded-circle ${styles.backUpBtn} btn-dark`} id="backtopbtn" hidden ><i className="bi bi-arrow-bar-up fs-4"></i></a>
                 <main className={`${className ? className : ''}`} style={style} >
                     {
                         asideAds ? (

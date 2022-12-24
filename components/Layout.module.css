@@ -1,0 +1,13 @@
+.backUpBtn {
+  position: fixed;
+  bottom: 4rem;
+  right: 2rem;
+}
+
+@media (max-width: 575.98px) {
+  .backUpBtn {
+    position: fixed;
+    bottom: 3rem;
+    right: 1rem;
+  }
+}
