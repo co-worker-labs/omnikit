@@ -56,4 +56,11 @@ export const toolsList: ToolData[] = [
         searchKeys: ['html', 'codes', 'special', 'characters'],
         keywords: ['ascii', 'html code', 'ascii code', 'special characters', 'alphabet'],
     },
+    {
+        path: '/base64',
+        title: 'Base64 Encode/Decode',
+        description: 'Base64 Encode or Decode, Basic Authentication',
+        searchKeys: ['base64', 'decode', 'encode', 'basic authentication'],
+        keywords: ['base64 encode', 'base64', 'base64 decode', 'basic authentication', 'basicauth'],
+    },
 ]

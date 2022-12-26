@@ -1,10 +1,10 @@
 
-export type ToastType = 'danger' | 'success' | 'info' | 'warning'
+export type ToastType = 'danger' | 'success' | 'info' | 'warning' | 'default'
 
 export const timeout_never = 0;
 export const timeout_default = 3000; // 3s
 
-export function showToast(message: string, type: ToastType, timeout = timeout_default, tid = '') {
+export function showToast(message: string, type: ToastType = 'default', timeout: number = timeout_default, tid: string = '') {
     const template = document.getElementById('toastTemplate');
     if (template) {
         if (tid != '') {
@@ -21,12 +21,14 @@ export function showToast(message: string, type: ToastType, timeout = timeout_de
         }
         if (type == 'danger') {
             temp.classList.add('text-bg-danger');
-        } else if(type == 'success') {
+        } else if (type == 'success') {
             temp.classList.add('text-bg-success');
-        } else if(type == 'info') {
+        } else if (type == 'info') {
             temp.classList.add('text-bg-info');
-        } else if(type == 'warning') {
+        } else if (type == 'warning') {
             temp.classList.add('text-bg-warning');
+        } else if (type == 'default') {
+            temp.classList.add('text-bg-primary');
         }
         temp.classList.add('show');
         const body = temp.getElementsByClassName('toast-body');
@@ -42,6 +44,6 @@ export function showToast(message: string, type: ToastType, timeout = timeout_de
                 temp.getElementsByTagName('button')[0].click();
             }, timeout);
         }
-        
+
     }
 }
