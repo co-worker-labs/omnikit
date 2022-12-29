@@ -70,4 +70,11 @@ export const toolsList: ToolData[] = [
         searchKeys: ['text', 'analytic', 'analyze', 'counter', 'character', 'insight'],
         keywords: ['word counter', 'counter', 'text analytic', 'analyze text', 'character counter'],
     },
+    {
+        path: '/generator/hash',
+        title: 'Hash Calculator',
+        description: 'Hashing Algorithms: MD5, SHA1, SHA2-256, SHA2-512, SHA3-256, SHA3-512',
+        searchKeys: ['md5', 'sha-1', 'sha1', 'sha256', 'sha2-256', 'sha3-256', 'sha384', 'sha2-384', 'sha3-384', 'sha512', 'sha2-512', 'sha3-512', 'calculator', 'generator', 'text content', 'file', 'algorithm', 'digest'],
+        keywords: ['md5', 'sha-1', 'sha1', 'sha256', 'sha2-256', 'sha3-256', 'sha384', 'sha2-384', 'sha3-384', 'sha512', 'sha2-512', 'sha3-512', 'hashing', 'hashing algorithms', 'message-digest algorithm', 'cryptographic protocol', 'digital signatures'],
+    },
 ]
