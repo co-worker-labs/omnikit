@@ -9,7 +9,7 @@ function Introduce() {
   return (
     <div className={`${styles.introduce}`}>
       <div className='container text-center'>
-        <span className={`h1 text-capitalize fw-bolder ${styles.introduceTitle}`}>Explore amazing Tools</span>
+        <span className={`h1 text-capitalize fw-bolder ${styles.introduceTitle}`}>Explore Awesome Tools</span>
         {/* <p className='mt-5 fs-5'>
           We offer those to the community for free, but our day job is building and selling useful tools for developers like you.
         </p> */}
@@ -22,13 +22,13 @@ function ToolCollection({ data }: { data: ToolData[] }) {
   const router = useRouter();
   return (
     <div className='container text-center px-3 mb-5'>
-      <div className={`h1 text-capitalize fw-bolder mt-5 ${styles.toolCollectionTitle}`}>
+      {/* <div className={`h1 text-capitalize fw-bolder mt-5 ${styles.toolCollectionTitle}`}>
         Tools Collection
       </div>
       <div className='mb-3 mt-3'>
         <i className="bi bi-heart-pulse me-2 fs-4 text-primary"></i>
-      </div>
-      <div className="row">
+      </div> */}
+      <div className="row mt-5">
         <>
           {
             data.map((value, index) => {
@@ -64,13 +64,13 @@ export default function Home({ tools }: InferGetStaticPropsType<typeof getStatic
     <>
       <Head>
         <title>W3Tools Online</title>
-        <meta name="description" content="Auesome online Tools" />
+        <meta name="description" content="Online awesome Tools" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name='keyword' content={keywords.join(',')} />
       </Head>
       <Layout headerPosition='none' asideAds={false}>
-          <Introduce />
-          <ToolCollection data={tools} />
+        <Introduce />
+        <ToolCollection data={tools} />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6128301546730956"
           crossOrigin="anonymous"></script>
         <ins className="adsbygoogle"
