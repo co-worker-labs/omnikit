@@ -71,11 +71,11 @@ export const toolsList: ToolData[] = [
         keywords: ['word counter', 'counter', 'text analytic', 'analyze text', 'character counter'],
     },
     {
-        path: '/generator/hash',
-        title: 'Hash Calculator',
-        description: 'Hashing Algorithms: MD5, SHA1, SHA2-256, SHA2-512, SHA3-256, SHA3-512',
-        searchKeys: ['md5', 'sha-1', 'sha1', 'sha256', 'sha2-256', 'sha3-256', 'sha384', 'sha2-384', 'sha3-384', 'sha512', 'sha2-512', 'sha3-512', 'calculator', 'generator', 'text content', 'file', 'algorithm', 'digest'],
-        keywords: ['md5', 'sha-1', 'sha1', 'sha256', 'sha2-256', 'sha3-256', 'sha384', 'sha2-384', 'sha3-384', 'sha512', 'sha2-512', 'sha3-512', 'hashing', 'hashing algorithms', 'message-digest algorithm', 'cryptographic protocol', 'digital signatures'],
+        path: '/hashing',
+        title: 'Text Hashing',
+        description: 'Algorithms: MD5, SHA1, SHA-224, SHA256, SHA348, SHA512, SHA3-224, SHA3-256, SHA3-384, SHA3-512, keccak, ripemd-160',
+        searchKeys: ['keccak', 'md5', 'sha-1', 'sha1', 'sha224', 'sha2-224', 'sha3-224', 'sha256', 'sha2-256', 'sha3-256', 'sha384', 'sha2-384', 'sha3-384', 'sha512', 'sha2-512', 'sha3-512', 'ripemd-160', 'text hashing', 'algorithm', 'digest'],
+        keywords: ['keccak', 'md5', 'sha-1', 'sha1', 'sha224', 'sha2-224', 'sha3-224', 'sha256', 'sha2-256', 'sha3-256', 'sha384', 'sha2-384', 'sha3-384', 'sha512', 'sha2-512', 'sha3-512', 'ripemd-160', 'text hashing', 'hasing', 'hashing algorithms', 'message-digest algorithm', 'cryptographic protocol', 'digital signatures'],
     },
     {
         path: '/checksum',
