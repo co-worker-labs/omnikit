@@ -77,4 +77,11 @@ export const toolsList: ToolData[] = [
         searchKeys: ['md5', 'sha-1', 'sha1', 'sha256', 'sha2-256', 'sha3-256', 'sha384', 'sha2-384', 'sha3-384', 'sha512', 'sha2-512', 'sha3-512', 'calculator', 'generator', 'text content', 'file', 'algorithm', 'digest'],
         keywords: ['md5', 'sha-1', 'sha1', 'sha256', 'sha2-256', 'sha3-256', 'sha384', 'sha2-384', 'sha3-384', 'sha512', 'sha2-512', 'sha3-512', 'hashing', 'hashing algorithms', 'message-digest algorithm', 'cryptographic protocol', 'digital signatures'],
     },
+    {
+        path: '/checksum',
+        title: 'File Checksum',
+        description: 'Supports an unlimited number of files and unlimited file size',
+        searchKeys: ['file checksum', 'checksum', 'file', 'keccak', 'md5', 'sha-1', 'sha1', 'sha224', 'sha2-224', 'sha3-224', 'sha256', 'sha2-256', 'sha3-256', 'sha384', 'sha2-384', 'sha3-384', 'sha512', 'sha2-512', 'sha3-512', 'ripemd-160'],
+        keywords: ['file checksum', 'checksum', 'keccak', 'md5', 'sha-1', 'sha1', 'sha224', 'sha2-224', 'sha3-224', 'sha256', 'sha2-256', 'sha3-256', 'sha384', 'sha2-384', 'sha3-384', 'sha512', 'sha2-512', 'sha3-512', 'ripemd-160', 'hashing', 'hashing algorithms', 'message-digest algorithm', 'cryptographic protocol', 'digital signatures'],
+    },
 ]
