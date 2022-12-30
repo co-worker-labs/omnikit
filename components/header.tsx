@@ -71,9 +71,12 @@ export default function Header({ position, title }: { position: HeaderPosition, 
               <Image src={logoIcon} alt="Logo" height={28} width={28} className="d-inline-block align-text-top me-2" />
               <span className={`d-none d-md-inline text-dark fw-bold`}>W3tools Online</span>
             </Link>
-            {title && <span className="d-none d-md-inline text-secondary fw-bold ms-2 text-nowrap">@{title}</span>}
+            {title && <Link className="nav-link active d-none d-md-inline text-secondary fw-bold text-nowrap" aria-current="page" href={'#'}>
+              @{title}
+            </Link>
+            }
           </div>
-
+          
           <div className="col col-md-4 col-lg-3">
             <div className="input-group" role="search" onClick={() => {
               document.getElementById('searchModalBtn')?.click();
