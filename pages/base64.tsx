@@ -1,6 +1,7 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import Image from "next/image";
 import { useState } from "react";
+import { CopyButton } from "../components/copybtn";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
 import { showToast } from "../libs/toast";
@@ -10,6 +11,7 @@ import styles from '../styles/Base64.module.css'
 
 function Conversion() {
     const [rawContent, setRawContent] = useState<string>('');
+    const [isTrimRaw, setIsTrimRaw] = useState<boolean>(true);
     const [rawCharset, setRawCharset] = useState<BufferEncoding>('utf-8');
     const [encodedContent, setEncodedContent] = useState<string>('');
     const [basicAuthEnabled, setBasicAuthEnabled] = useState<boolean>(false);
@@ -41,12 +43,11 @@ function Conversion() {
     }
 
     function doEncode() {
-        console.log('current charset: ' + rawCharset);
-        const raw = rawContent.trim()
+        const raw = isTrimRaw ? rawContent.trim() : rawContent;
         const encoded = Buffer.from(raw, rawCharset).toString('base64');
         updateEncodedContent(encoded);
         updateRawContent(raw);
-        showToast('Encoded', 'default', 2000);
+        showToast('Encoded', 'success', 2000);
     }
 
     function doDecode() {
@@ -60,6 +61,21 @@ function Conversion() {
         updateEncodedContent(encoded);
         updateRawContent(raw);
         showToast('Decoded', 'success', 2000);
+    }
+
+    function isDisabledEncode(): boolean {
+        const raw = isTrimRaw ? rawContent.trim() : rawContent;
+        return !raw;
+    }
+
+    function isDiabledDecode(): boolean {
+        return !encodedContent.trim()
+    }
+
+    function isDiabledClear(): boolean {
+        const raw = isTrimRaw ? rawContent.trim() : rawContent;
+        const encoded = encodedContent.trim();
+        return !raw && !encoded
     }
 
     function toggleCopyIcon(element: HTMLElement, timeout: number) {
@@ -84,19 +100,27 @@ function Conversion() {
     return (
         <section id="conversion">
             <div>
-                <label htmlFor="rawContentTextarea" className="form-label"><span className="fw-bold text-primary">Raw Content</span><a href="#" className={`text-danger ms-2 ${styles.clearLink}`}
-                    onClick={() => updateRawContent('')}>Clear</a></label>
+                <div className="row justify-content-between">
+                    <label htmlFor="rawContentTextarea" className="form-label col-auto">
+                        <span className="fw-bold text-primary">Plain Text</span>
+                        <a href="#" className={`text-danger ms-2 ${styles.clearLink}`} onClick={() => {
+                            updateRawContent('')
+                            showToast('Cleared', 'danger', 2000)
+                        }}>Clear</a>
+                    </label>
+                    <div className="form-check col-auto">
+                        <input className="form-check-input" type="checkbox" aria-label="Removes the leading and trailing white space and line terminator characters from a string." id="isTrimCheck" checked={isTrimRaw}
+                            onChange={(e) => { setIsTrimRaw(e.target.checked) }} />
+                        <label className="form-check-label" htmlFor="isTrimCheck">
+                            Trim white space
+                        </label>
+                    </div>
+                </div>
                 <div className="position-relative">
-                    <textarea className="form-control form-control-lg" id="rawContentTextarea" rows={5} value={rawContent} onChange={(e) => {
+                    <textarea className="form-control form-control-lg" id="rawContentTextarea" placeholder="Paster or type the plain text here" rows={5} value={rawContent} onChange={(e) => {
                         updateRawContent(e.target.value)
                     }}></textarea>
-                    <button type='button' className='btn btn-sm flex-col position-absolute end-0 top-0' data-toggle="tooltip" data-placement="right" title="Copy"
-                        onClick={(e) => {
-                            onCopy(e, rawContent);
-                        }}
-                    >
-                        <i className="bi bi-clipboard fs-5"></i>
-                    </button>
+                    <CopyButton getContent={() => rawContent} className='position-absolute end-0 top-0' />
                 </div>
             </div>
             <div className="mt-2">
@@ -119,34 +143,34 @@ function Conversion() {
             </div>
             <div className="row justify-content-start mb-3">
                 <div className="col-auto mt-3 pe-0">
-                    <select className="form-select form-select-sm" aria-label="Raw Content Charset" value={rawCharset} onChange={(e) => {
+                    <select className="form-select form-select-sm" aria-label="Plain Content Charset" value={rawCharset} onChange={(e) => {
                         setRawCharset(e.target.value as BufferEncoding);
                     }}>
-                        <option value="ascii" selected={rawCharset == 'ascii'}>ASCII</option>
-                        <option value="utf-8" selected={rawCharset == 'utf-8'}>UTF-8</option>
+                        <option value="ascii">ASCII</option>
+                        <option value="utf-8">UTF-8</option>
                     </select>
                 </div>
-                <button type="button" className="btn btn-sm btn-primary col-auto ms-1 mt-3" onClick={doEncode}>Encode<i className="bi bi-chevron-double-down ms-1"></i></button>
-                <button type="button" className="btn btn-sm btn-success col-auto ms-1 mt-3" onClick={doDecode}>Decode<i className="bi bi-chevron-double-up ms-1"></i></button>
-                <button type="button" className="btn btn-sm btn-danger col-auto ms-1 mt-3" onClick={() => {
+                <button type="button" className="btn btn-sm btn-primary col-auto ms-1 mt-3" disabled={isDisabledEncode()} onClick={doEncode}>Encode<i className="bi bi-chevron-double-down ms-1"></i></button>
+                <button type="button" className="btn btn-sm btn-success col-auto ms-1 mt-3" disabled={isDiabledDecode()} onClick={doDecode}>Decode<i className="bi bi-chevron-double-up ms-1"></i></button>
+                <button type="button" className="btn btn-sm btn-danger col-auto ms-1 mt-3" disabled={isDiabledClear()} onClick={() => {
                     updateRawContent('')
                     updateEncodedContent('');
-                    showToast('Clear All', 'danger', 2000);
+                    showToast('All Cleared', 'danger', 2000);
                 }}>Clear All<i className="bi bi-x ms-1"></i></button>
             </div>
             <div className="mb-3">
-                <label htmlFor="encodedContentTextarea" className="form-label"><span className="fw-bold text-primary">Encoded Content</span><a href="#" className={`text-danger ms-2 ${styles.clearLink}`} onClick={() => setEncodedContent('')}>Clear</a></label>
+                <label htmlFor="encodedContentTextarea" className="form-label">
+                    <span className="fw-bold text-success">Encoded Text</span>
+                    <a href="#" className={`text-danger ms-2 ${styles.clearLink}`} onClick={() => {
+                        setEncodedContent('')
+                        showToast('Cleared', 'danger', 2000);
+                    }}>Clear</a>
+                </label>
                 <div className="position-relative">
-                    <textarea className="form-control form-control-lg" id="encodedContentTextarea" rows={5} value={encodedContent} onChange={(e) => {
+                    <textarea className="form-control form-control-lg" id="encodedContentTextarea" placeholder="Encoded Output" rows={5} value={encodedContent} onChange={(e) => {
                         updateEncodedContent(e.target.value)
                     }}></textarea>
-                    <button type='button' className='btn btn-sm flex-col position-absolute end-0 top-0' data-toggle="tooltip" data-placement="right" title="Copy"
-                        onClick={(e) => {
-                            onCopy(e, encodedContent);
-                        }}
-                    >
-                        <i className="bi bi-clipboard fs-5"></i>
-                    </button>
+                    <CopyButton getContent={() => encodedContent} className='position-absolute end-0 top-0' />
                 </div>
             </div>
         </section>
@@ -217,7 +241,10 @@ function Base64Page({ toolData }: InferGetStaticPropsType<typeof getStaticProps>
         <>
             <ToolPageHeadBuilder data={toolData} />
             <Layout title="Base64 Encode/Decode">
-                <div className="container pt-5">
+                <div className="container pt-3">
+                    <div className="alert alert-danger py-3 my-lg-4" role="alert">
+                        * Your text is not transferred to the server. All calculations are performed directly in the browser
+                    </div>
                     <Conversion />
                     <Description />
                 </div>
