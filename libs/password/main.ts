@@ -1,5 +1,5 @@
 import { randomInt, sum } from "../../utils/math";
-import { agsyllables, agwordlist } from './password_wordlist'
+import { agsyllables, agwordlist } from './wordlist'
 
 export const random_uppercase_checked = 1;
 export const random_lowercase_checked = 1 << 1;

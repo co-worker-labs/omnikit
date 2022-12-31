@@ -6,6 +6,7 @@ import { showToast } from "../libs/toast";
 import { findTool, ToolData } from "../libs/tools";
 import { formatBytes } from "../utils/storage";
 import { CopyButton } from "../components/copybtn";
+import styles from '../styles/Hashing.module.css'
 
 const CryptoJS = require("crypto-js");
 
@@ -193,7 +194,7 @@ function TextHashing() {
                     sha3_224: types.includes('sha3-224') ? CryptoJS.SHA3(raw, { outputLength: 224 }).toString() : '',
                     sha3_256: types.includes('sha3-256') ? CryptoJS.SHA3(raw, { outputLength: 256 }).toString() : '',
                     sha3_384: types.includes('sha3-384') ? CryptoJS.SHA3(raw, { outputLength: 384 }).toString() : '',
-                    sha3_512: types.includes('sha512') ? CryptoJS.SHA3(raw, { outputLength: 512 }).toString() : '',
+                    sha3_512: types.includes('sha3-512') ? CryptoJS.SHA3(raw, { outputLength: 512 }).toString() : '',
                     RIPEMD160: types.includes('RIPEMD160') ? CryptoJS.RIPEMD160(raw).toString() : '',
                 }
             )
@@ -230,32 +231,58 @@ function TextHashing() {
     }, [content, isTrim, storageUnit, passphrase, types])
 
     return (
-        <section id="calculator" className="mt-4">
-            <textarea className="form-control form-control-lg" placeholder="Paste or type the text here" rows={5} value={content} onChange={(e) => {
-                setContent(e.target.value);
-            }}></textarea>
-            <textarea className="form-control form-control-lg mt-3" placeholder="Secret Passphrase for HMAC" rows={2} value={passphrase} onChange={(e) => {
-                setPassphrase(e.target.value);
-            }}></textarea>
-
+        <section id="calculator">
+            <div className="mt-4">
+                <div className="row justify-content-between">
+                    <label htmlFor="contentTextarea" className="form-label col-auto">
+                        <span className="fw-bold text-primary">Plain Text</span>
+                        <a href="#" className={`text-danger ms-2 ${styles.clearLink}`} onClick={() => {
+                            setContent('')
+                            showToast('Cleared', 'danger', 2000)
+                        }}>Clear</a>
+                    </label>
+                    <div className="form-check col-auto">
+                        <input className="form-check-input" type="checkbox" aria-label="Removes the leading and trailing white space and line terminator characters from a string." id="isTrimCheck" checked={isTrim}
+                            onChange={(e) => { setIsTrim(e.target.checked) }} />
+                        <label className="form-check-label" htmlFor="isTrimCheck">
+                            Trim white space
+                        </label>
+                    </div>
+                </div>
+                <div className="position-relative">
+                    <textarea className="form-control" id="contentTextarea" placeholder="Paster or type the plain text here" rows={5} value={content} onChange={(e) => {
+                        setContent(e.target.value);
+                    }}></textarea>
+                    <CopyButton getContent={() => isTrim ? content.trim() : content} className='position-absolute end-0 top-0' />
+                </div>
+            </div>
+            <div className="mt-3">
+                <label htmlFor="passphraseTextarea" className="form-label col-auto">
+                    <span className="fw-bold text-secondary">Secret Passphrase</span>
+                    <a href="#" className={`text-danger ms-2 ${styles.clearLink}`} onClick={() => {
+                        setPassphrase('')
+                        showToast('Cleared', 'danger', 2000)
+                    }}>Clear</a>
+                </label>
+                <div className="position-relative">
+                    <textarea className="form-control" id="passphraseTextarea" placeholder="Paster or type the secret passphrase for HMAC here" rows={2} value={passphrase} onChange={(e) => {
+                        setPassphrase(e.target.value);
+                    }}></textarea>
+                    <CopyButton getContent={() => passphrase.trim()} className='position-absolute end-0 top-0' />
+                </div>
+            </div>
             <div className="mt-3 text-center">
                 <button type="button" disabled={!content && !passphrase} className={`btn btn-sm btn-danger col-8 col-lg-3 rounded-pill text-uppercase`} onClick={() => {
                     setContent('')
                     setPassphrase('')
-                    showToast('Cleared', 'danger', 2000);
-                }}>{'Clear'}</button>
+                    showToast('All Cleared', 'danger', 2000);
+                }}>{'Clear All'}</button>
             </div>
 
-            <div className="row justify-content-start px-3">
-                <div className="form-check col-auto mt-3">
-                    <input className="form-check-input" type="checkbox" aria-label="Removes the leading and trailing white space and line terminator characters from a string." id="basicAuthFlag" checked={isTrim}
-                        onChange={(e) => { setIsTrim(e.target.checked) }} />
-                    <label className="form-check-label" htmlFor="basicAuthFlag">
-                        Trim white space
-                    </label>
-                </div>
-                <div className="col-auto mt-3">
-                    <select className="form-select form-select-sm" aria-label="Storage Unit" value={storageUnit} onChange={(e) => {
+            <div className="row mt-3">
+                <div className="col-auto d-flex align-items-center justify-content-start">
+                    <label className="fw-bolder col-auto">Storage Unit: </label>
+                    <select className="form-select form-select-sm col ms-2" aria-label="Storage Unit" value={storageUnit} onChange={(e) => {
                         setStorageUnit(parseInt(e.target.value) as (1000 | 1024));
                     }}>
                         <option value="1000">1K = 1000 Bytes</option>

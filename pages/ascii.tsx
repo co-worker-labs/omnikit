@@ -127,44 +127,40 @@ function AsciiPage({ toolData, printableCharacters, controlCodes }: InferGetStat
     return (
         <>
             <ToolPageHeadBuilder data={toolData} />
-            <Layout title="ASCII Table">
+            <Layout title={toolData.title}>
                 <div className="container py-4">
-                    <div className="row justify-content-center">
-                        <div className="col-12 col-lg-10">
-                            <section id="description" className="py-3">
-                                <p className={`${styles.description}`}>
-                                    ASCII stands for American Standard Code for Information Interchange.
-                                    Computers can only understand numbers, so an ASCII code is the numerical representation of a character such as &lsquo;a&lsquo; or &lsquo;@&lsquo; or an action of some sort.
-                                    ASCII was developed a long time ago and now the non-printing characters are rarely used for their original purpose.
-                                    Below is the ASCII character table and this includes descriptions of the first 32 non-printing characters.
-                                    ASCII was actually designed for use with teletypes and so the descriptions are somewhat obscure.
-                                    If someone says they want your CV however in ASCII format, all this means is they want &lsquo;plain&lsquo; text with no formatting such as tabs, bold or underscoring - the raw format that any computer can understand.
-                                    This is usually so they can easily import the file into their own applications without issues.
-                                    Notepad.exe creates ASCII text, or in MS Word you can save a file as &lsquo;text only&lsquo;
-                                </p>
-                            </section>
-                            <section>
-                                <ul className="nav nav-tabs" id="myTab" role="tablist">
-                                    <li className="nav-item" role="presentation">
-                                        <button className="nav-link active fw-bold" id="home-tab" data-bs-toggle="tab"
-                                            data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Printable Characters</button>
-                                    </li>
-                                    <li className="nav-item" role="presentation">
-                                        <button className="nav-link fw-bold" id="profile-tab" data-bs-toggle="tab"
-                                            data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Control Code Charts</button>
-                                    </li>
-                                </ul>
-                                <div className="tab-content mt-2" id="myTabContent">
-                                    <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabIndex={0}>
-                                        <PrintableCharacters list={printableCharacters} />
-                                    </div>
-                                    <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex={1}>
-                                        <ControlCodeChart list={controlCodes} />
-                                    </div>
-                                </div>
-                            </section>
+                    <section id="description" className="py-3">
+                        <p className={`${styles.description}`}>
+                            ASCII stands for American Standard Code for Information Interchange.
+                            Computers can only understand numbers, so an ASCII code is the numerical representation of a character such as &lsquo;a&lsquo; or &lsquo;@&lsquo; or an action of some sort.
+                            ASCII was developed a long time ago and now the non-printing characters are rarely used for their original purpose.
+                            Below is the ASCII character table and this includes descriptions of the first 32 non-printing characters.
+                            ASCII was actually designed for use with teletypes and so the descriptions are somewhat obscure.
+                            If someone says they want your CV however in ASCII format, all this means is they want &lsquo;plain&lsquo; text with no formatting such as tabs, bold or underscoring - the raw format that any computer can understand.
+                            This is usually so they can easily import the file into their own applications without issues.
+                            Notepad.exe creates ASCII text, or in MS Word you can save a file as &lsquo;text only&lsquo;
+                        </p>
+                    </section>
+                    <section>
+                        <ul className="nav nav-tabs" id="myTab" role="tablist">
+                            <li className="nav-item" role="presentation">
+                                <button className="nav-link active fw-bold" id="home-tab" data-bs-toggle="tab"
+                                    data-bs-target="#home-tab-pane" type="button" role="tab" aria-controls="home-tab-pane" aria-selected="true">Printable Characters</button>
+                            </li>
+                            <li className="nav-item" role="presentation">
+                                <button className="nav-link fw-bold" id="profile-tab" data-bs-toggle="tab"
+                                    data-bs-target="#profile-tab-pane" type="button" role="tab" aria-controls="profile-tab-pane" aria-selected="false">Control Code Charts</button>
+                            </li>
+                        </ul>
+                        <div className="tab-content mt-2" id="myTabContent">
+                            <div className="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabIndex={0}>
+                                <PrintableCharacters list={printableCharacters} />
+                            </div>
+                            <div className="tab-pane fade" id="profile-tab-pane" role="tabpanel" aria-labelledby="profile-tab" tabIndex={1}>
+                                <ControlCodeChart list={controlCodes} />
+                            </div>
                         </div>
-                    </div>
+                    </section>
                 </div>
             </Layout>
         </>
