@@ -14,6 +14,7 @@ import { showToast } from "../libs/toast";
 import Layout from '../components/layout';
 import { findTool, ToolData } from '../libs/tools';
 import { ToolPageHeadBuilder } from '../components/head_builder';
+import Link from 'next/link';
 
 const default_type = 'Random'
 
@@ -121,7 +122,8 @@ function ComparisonList({ list, delCallback, clearAll }: { list: Array<Compariso
     }, []);
 
     return (
-        <div className={`row mt-3 justify-content-center`} hidden={list.length == 0}>
+        <div id='comparision' className={`row mt-3 justify-content-center`} hidden={list.length == 0}>
+            <Link id='comparisionGotoBtn' href={'#comparision'} hidden />
             <a className="col-auto text-primary fw-bold" style={{ 'textDecoration': 'none' }} data-bs-toggle="collapse" href="#comparisionCollapse" role="button" aria-expanded="true" aria-controls="comparisionCollapse">
                 Comparison<i id='comparisionCollapseIndict' className="ms-2 bi bi-chevron-double-up"></i>
             </a>
@@ -192,6 +194,7 @@ function Generator() {
 
     const [password, setPassword] = useState<string[]>(['']);
     const [comparisons, setComparisons] = useState<ComparisonData[]>([]);
+    const [firstSave, setFirstSave] = useState<boolean>(true);
 
     function onTypeChange(event: ChangeEvent<HTMLInputElement>) {
         let type: PasswordType = event.target.checked ? 'Memorable' : 'Random';
@@ -299,19 +302,24 @@ function Generator() {
             }];
             comparisonsTemp.push(...comparisons);
             setComparisons(comparisonsTemp);
-        }
 
-        const bagIcons = document.getElementsByClassName('bagIcon');
-        if (bagIcons) {
-            for (var i = 0; i < bagIcons.length; i++) {
-                let bagIcon = bagIcons.item(i) as HTMLElement;
-                bagIcon.classList.add('text-success');
-                setTimeout(() => {
-                    bagIcon.classList.remove('text-success');
-                }, alert_comparison_timeout);
+            const bagIcons = document.getElementsByClassName('bagIcon');
+            if (bagIcons) {
+                for (var i = 0; i < bagIcons.length; i++) {
+                    let bagIcon = bagIcons.item(i) as HTMLElement;
+                    bagIcon.classList.add('text-success');
+                    setTimeout(() => {
+                        bagIcon.classList.remove('text-success');
+                    }, alert_comparison_timeout);
+                }
+            }
+            showToast('Saved to comparision', 'success', alert_comparison_timeout);
+
+            if (firstSave) {
+                document.getElementById('comparisionGotoBtn')?.click()
+                setFirstSave(false);
             }
         }
-        showToast('Saved to comparision', 'success', alert_comparison_timeout);
     }
 
     return (
