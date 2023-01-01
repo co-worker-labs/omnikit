@@ -2,7 +2,7 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
 import { getLetters, CharacterData, getPunctuations, getCurrencies, getMathematical, getDiacritics, getAscii, getIcons, getPronunciations, PronunciationCharacterData } from "../libs/htmlcode";
-import { findTool, ToolData } from "../libs/tools";
+import { findTool, listRelatedTools, ToolData } from "../libs/tools";
 import styles from '../styles/HtmlCode.module.css'
 
 function printEntityName(code: string | undefined) {
@@ -158,12 +158,12 @@ function Description() {
     )
 }
 
-function HtmlCodePage({ toolData, letters, punctuations, currencies, mathematical, diacritics, ascii, icons, pronunciations }
+function HtmlCodePage({ toolData, relatedTools, letters, punctuations, currencies, mathematical, diacritics, ascii, icons, pronunciations }
     : InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <>
             <ToolPageHeadBuilder data={toolData} />
-            <Layout title={toolData.title}>
+            <Layout title={toolData.title} relatedTools={relatedTools}>
                 <div className="container py-4">
                     <Description />
                     <section>
@@ -249,7 +249,9 @@ function HtmlCodePage({ toolData, letters, punctuations, currencies, mathematica
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const toolData: ToolData = findTool('/htmlcode');
+    const path = '/htmlcode'
+    const toolData: ToolData = findTool(path);
+    const relatedTools: ToolData[] = listRelatedTools(path);
     const letters = getLetters();
     const punctuations = getPunctuations();
     const currencies = getCurrencies();
@@ -261,6 +263,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return {
         props: {
             toolData,
+            relatedTools,
             letters,
             punctuations,
             currencies,

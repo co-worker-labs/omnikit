@@ -2,7 +2,7 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout"
 import { ControlCode, getControlCodes, getPrintableCharacters } from "../libs/ascii";
-import { findTool, ToolData } from "../libs/tools";
+import { findTool, listRelatedTools, ToolData } from "../libs/tools";
 import styles from '../styles/Ascii.module.css'
 
 function beautyPrint(code: number, radix: number, perLen: number, minLen: number, fillChar: string) {
@@ -123,11 +123,11 @@ function PrintableCharacters({ list }: { list: number[] }) {
     )
 }
 
-function AsciiPage({ toolData, printableCharacters, controlCodes }: InferGetStaticPropsType<typeof getStaticProps>) {
+function AsciiPage({ toolData, relatedTools, printableCharacters, controlCodes }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <>
             <ToolPageHeadBuilder data={toolData} />
-            <Layout title={toolData.title}>
+            <Layout title={toolData.title} relatedTools={relatedTools}>
                 <div className="container py-4">
                     <section id="description" className="py-3">
                         <p className={`${styles.description}`}>
@@ -168,13 +168,16 @@ function AsciiPage({ toolData, printableCharacters, controlCodes }: InferGetStat
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const toolData: ToolData = findTool('/ascii');
+    const path = '/ascii'
+    const toolData: ToolData = findTool(path);
+    const relatedTools: ToolData[] = listRelatedTools(path);
     const printableCharacters: number[] = getPrintableCharacters();
     const controlCodes: ControlCode[] = getControlCodes();
 
     return {
         props: {
             toolData: toolData,
+            relatedTools: relatedTools,
             printableCharacters: printableCharacters,
             controlCodes: controlCodes,
         }

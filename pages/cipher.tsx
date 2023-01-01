@@ -4,7 +4,7 @@ import { CopyButton } from "../components/copybtn";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
 import { showToast } from "../libs/toast";
-import { findTool, ToolData } from "../libs/tools";
+import { findTool, listRelatedTools, ToolData } from "../libs/tools";
 import styles from '../styles/Cipher.module.css'
 
 const CryptoJS = require("crypto-js");
@@ -365,14 +365,14 @@ function Description() {
     )
 }
 
-function CipherPage({ toolData }: InferGetStaticPropsType<typeof getStaticProps>) {
+function CipherPage({ toolData, relatedTools }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <>
             <ToolPageHeadBuilder data={toolData} />
-            <Layout title={toolData.title}>
+            <Layout title={toolData.title} relatedTools={relatedTools}>
                 <div className="container pt-4">
                     <div className="alert alert-danger py-3" role="alert">
-                        * Your inputed content are not transferred to the server. All calculations are performed directly in the browser
+                        * Your content are not transferred to the server. All calculations are performed directly in the browser
                     </div>
                     <Conversion />
                     <Description />
@@ -383,10 +383,13 @@ function CipherPage({ toolData }: InferGetStaticPropsType<typeof getStaticProps>
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const toolData: ToolData = findTool('/cipher');
+    const path = '/cipher'
+    const toolData: ToolData = findTool(path);
+    const relatedTools: ToolData[] = listRelatedTools(path);
     return {
         props: {
             toolData,
+            relatedTools,
         }
     }
 }

@@ -3,11 +3,11 @@ import { useState } from "react";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
 import { showToast } from "../libs/toast";
-import { findTool, ToolData } from "../libs/tools";
+import { findTool, listRelatedTools, ToolData } from "../libs/tools";
 import styles from '../styles/Counter.module.css'
 import { formatBytes } from "../utils/storage";
 
-function TextCounterPage({ toolData }: InferGetStaticPropsType<typeof getStaticProps>) {
+function TextCounterPage({ toolData, relatedTools }: InferGetStaticPropsType<typeof getStaticProps>) {
     const [content, setContent] = useState<string>('');
     const [delimiter, setDelimiter] = useState<string>('');
     const [delimiterCustomFlag, setDelimiterCustomFlag] = useState<boolean>(false);
@@ -85,7 +85,7 @@ function TextCounterPage({ toolData }: InferGetStaticPropsType<typeof getStaticP
     return (
         <>
             <ToolPageHeadBuilder data={toolData} />
-            <Layout title={toolData.title}>
+            <Layout title={toolData.title} relatedTools={relatedTools}>
                 <div className="container py-3">
                     <div className="alert alert-danger py-4 my-lg-4" role="alert">
                         * Your content are not transferred to the server. All calculations are performed directly in the browser
@@ -243,10 +243,13 @@ function TextCounterPage({ toolData }: InferGetStaticPropsType<typeof getStaticP
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const toolData: ToolData = findTool('/counter');
+    const path = '/counter'
+    const toolData: ToolData = findTool(path);
+    const relatedTools: ToolData[] = listRelatedTools(path);
     return {
         props: {
             toolData,
+            relatedTools,
         }
     }
 }

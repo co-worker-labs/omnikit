@@ -66,26 +66,28 @@ export default function Header({ position, title }: { position: HeaderPosition, 
     <>
       <nav className={`navbar navbar-light bg-light ${clz()}`} >
         <div className="container-fluid px-lg-4">
-          <div className="col-auto col-md-6 col-lg-6">
-            <Link className="navbar-brand" href={'/'}>
-              <Image src={logoIcon} alt="Logo" height={28} width={28} className="d-inline-block align-text-top me-2" />
-              <span className={`d-none d-md-inline text-dark fw-bold`}>W3tools Online</span>
-            </Link>
-            {title && <Link className="nav-link active d-none d-md-inline text-secondary fw-bold text-nowrap" aria-current="page" href={''} onClick={() => {
-              router.reload();
-            }}>
-              @{title}
-            </Link>
-            }
-          </div>
-
-          <div className="col col-md-4 col-lg-3">
-            <div className="input-group" role="search" onClick={() => {
+          <Link className="navbar-brand col-auto col-md" href={'/'}>
+            <Image src={logoIcon} alt="Logo" height={28} width={28} className="d-inline-block align-text-top me-2" />
+            <span className={`text-dark fw-bold ${!title ? '' : ' d-none d-md-inline'}`}>W3tools Online</span>
+          </Link>
+          {title && <Link className="nav-link active text-secondary fw-bold text-nowrap col text-center text-truncate" aria-current="page" href={''} onClick={() => {
+            router.reload();
+          }}>
+            {title}
+          </Link>
+          }
+          <div className="col-auto col-md d-flex justify-content-end">
+            <div className="input-group d-none d-md-flex w-75" role="search" onClick={() => {
               document.getElementById('searchModalBtn')?.click();
             }}>
               <input type="search" className="form-control" placeholder="Search" aria-label="Search" aria-describedby="search-addon" value={searchContent} onChange={() => { }} />
               <button className="btn btn-outline-success" type="button" id="search-addon"> <i className="bi bi-search"></i></button>
             </div>
+            <button className="btn d-inline d-md-none" type="button" onClick={() => {
+              document.getElementById('searchModalBtn')?.click();
+            }}>
+              <i className="bi bi-search"></i>
+            </button>
           </div>
         </div>
       </nav>

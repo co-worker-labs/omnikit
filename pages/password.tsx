@@ -12,7 +12,7 @@ import {
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { showToast } from "../libs/toast";
 import Layout from '../components/layout';
-import { findTool, ToolData } from '../libs/tools';
+import { findTool, listRelatedTools, ToolData } from '../libs/tools';
 import { ToolPageHeadBuilder } from '../components/head_builder';
 import Link from 'next/link';
 
@@ -325,7 +325,7 @@ function Generator() {
     return (
         <section id="generator" >
             <div className="alert alert-danger py-3" role="alert">
-                * The generated passwords are not transferred or saved to the server. All generations are performed directly in the browser
+                * All generated passwords are not transferred or saved to the server. All generations are performed directly in the browser
             </div>
             <div className='row justify-content-center text-center text-dark'>
                 <div className='col-11'>
@@ -499,11 +499,11 @@ function Question({ data }: { data: QuestionData[] }) {
     )
 }
 
-function PasswordPage({ questions, toolData }: InferGetStaticPropsType<typeof getStaticProps>) {
+function PasswordPage({ questions, toolData, relatedTools }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <>
             <ToolPageHeadBuilder data={toolData} />
-            <Layout title='Password Generator'>
+            <Layout title={toolData.title} relatedTools={relatedTools}>
                 <div className='container pt-4'>
                     <Generator />
                     <Question data={questions} />
@@ -514,7 +514,9 @@ function PasswordPage({ questions, toolData }: InferGetStaticPropsType<typeof ge
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const toolData: ToolData = findTool('/password');
+    const path = '/password'
+    const toolData: ToolData = findTool(path);
+    const relatedTools: ToolData[] = listRelatedTools(path);
 
     const questions: QuestionData[] = [
         {
@@ -535,6 +537,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
         props: {
             questions,
             toolData,
+            relatedTools,
         }
     }
 }
