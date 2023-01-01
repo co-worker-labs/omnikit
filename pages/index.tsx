@@ -71,17 +71,6 @@ export default function Home({ tools }: InferGetStaticPropsType<typeof getStatic
       <Layout headerPosition='none' asideAds={false}>
         <Introduce />
         <ToolCollection data={tools} />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6128301546730956"
-          crossOrigin="anonymous"></script>
-        <ins className="adsbygoogle"
-          style={{ 'display': 'block' }}
-          data-ad-client="ca-pub-6128301546730956"
-          data-ad-slot="2810295936"
-          data-ad-format="auto"
-          data-full-width-responsive="true"></ins>
-        <script>
-          {`(adsbygoogle = window.adsbygoogle || []).push({ });`}
-        </script>
       </Layout>
     </>
   )
