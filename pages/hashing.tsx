@@ -3,7 +3,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
 import { showToast } from "../libs/toast";
-import { findTool, ToolData } from "../libs/tools";
+import { findTool, listRelatedTools, ToolData } from "../libs/tools";
 import { formatBytes } from "../utils/storage";
 import { CopyButton } from "../components/copybtn";
 import styles from '../styles/Hashing.module.css'
@@ -422,11 +422,11 @@ function Description() {
     )
 }
 
-function HashingPage({ toolData }: InferGetStaticPropsType<typeof getStaticProps>) {
+function HashingPage({ toolData, relatedTools }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <>
             <ToolPageHeadBuilder data={toolData} />
-            <Layout title={toolData.title}>
+            <Layout title={toolData.title} relatedTools={relatedTools}>
                 <div className="container py-3">
                     <div className="alert alert-danger py-3 my-lg-4" role="alert">
                         * Your content are not transferred to the server. All calculations are performed directly in the browser
@@ -440,10 +440,13 @@ function HashingPage({ toolData }: InferGetStaticPropsType<typeof getStaticProps
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const toolData: ToolData = findTool('/hashing');
+    const path = '/hashing'
+    const toolData: ToolData = findTool(path);
+    const relatedTools: ToolData[] = listRelatedTools(path);
     return {
         props: {
             toolData,
+            relatedTools,
         }
     }
 }

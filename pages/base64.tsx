@@ -5,7 +5,7 @@ import { CopyButton } from "../components/copybtn";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
 import { showToast } from "../libs/toast";
-import { findTool, ToolData } from "../libs/tools";
+import { findTool, listRelatedTools, ToolData } from "../libs/tools";
 import codingTableImg from '../public/base64/decimal-to-base64-table.png'
 import styles from '../styles/Base64.module.css'
 
@@ -236,11 +236,11 @@ function Description() {
     )
 }
 
-function Base64Page({ toolData }: InferGetStaticPropsType<typeof getStaticProps>) {
+function Base64Page({ toolData, relatedTools }: InferGetStaticPropsType<typeof getStaticProps>) {
     return (
         <>
             <ToolPageHeadBuilder data={toolData} />
-            <Layout title="Base64 Encode/Decode">
+            <Layout title={toolData.title} relatedTools={relatedTools}>
                 <div className="container pt-3">
                     <div className="alert alert-danger py-3 my-lg-4" role="alert">
                         * Your text is not transferred to the server. All calculations are performed directly in the browser
@@ -254,10 +254,13 @@ function Base64Page({ toolData }: InferGetStaticPropsType<typeof getStaticProps>
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-    const toolData: ToolData = findTool('/base64');
+    const path = '/base64'
+    const toolData: ToolData = findTool(path);
+    const relatedTools: ToolData[] = listRelatedTools(path);
     return {
         props: {
             toolData,
+            relatedTools,
         }
     }
 }

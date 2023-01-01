@@ -29,7 +29,7 @@ export async function logAccess(path: string) {
     }
 }
 
-export function listRecents(current: string): ToolData[] {
+export function listRecents(exclude: string[]): ToolData[] {
     const str = localStorage.getItem(key);
     if (!str) {
         return [];
@@ -49,7 +49,7 @@ export function listRecents(current: string): ToolData[] {
 
         for (var i = 0; i < finalArr.length && result.length < recent_size; i++) {
             const router = finalArr[i].path;
-            if (router != current) {
+            if (!exclude.includes(router)) {
                 const data = findTool(router);
                 result.push(data);
             }

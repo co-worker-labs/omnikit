@@ -1,4 +1,4 @@
-import { CSSProperties, ReactNode, useEffect } from "react";
+import { CSSProperties, ReactNode, useEffect, useMemo } from "react";
 import Footer, { FooterPosition } from "./footer";
 import Header, { HeaderPosition } from "./header";
 import { Context, createContext, useContext, useState } from "react";
@@ -22,9 +22,13 @@ const LayoutContext: Context<LayoutSettings> = createContext<LayoutSettings>({
 });
 
 export default function Layout({
-    children, title, headerPosition, footerPosition, hidden, aside = true, className, style, bodyClassName, bodyStyle
+    children, title, relatedTools, headerPosition, footerPosition, hidden, aside = true, className, style, bodyClassName, bodyStyle
 }: {
-    children: ReactNode, title?: string, headerPosition?: HeaderPosition, footerPosition?: FooterPosition, hidden?: boolean, aside?: boolean, className?: string, style?: CSSProperties, bodyClassName?: string, bodyStyle?: CSSProperties
+    children: ReactNode,
+    title?: string, relatedTools?: ToolData[],
+    headerPosition?: HeaderPosition, footerPosition?: FooterPosition,
+    hidden?: boolean, aside?: boolean,
+    className?: string, style?: CSSProperties, bodyClassName?: string, bodyStyle?: CSSProperties
 }) {
 
     const [isHidden, setIsHidden] = useState<boolean>(hidden || false);
@@ -62,8 +66,9 @@ export default function Layout({
             }
         })
         logAccess(path);
-        setRecent(listRecents(path));
-    }, [path]);
+        const excludePaths = relatedTools && relatedTools.length > 0 ? relatedTools.map((data) => data.path).concat(path) : [path];
+        setRecent(listRecents(excludePaths));
+    }, [path, relatedTools]);
 
     return (
         <LayoutContext.Provider value={config}>
@@ -75,19 +80,41 @@ export default function Layout({
                         aside ? (
                             <div className="row justify-content-center px-0 gx-0">
                                 <div className="col d-none d-lg-block">
-                                    <div className="w-100 d-flex justify-content-center ps-2 mt-2">
+                                    <div className="w-100 row justify-content-center ps-2 mt-2">
                                         {
                                             recent.length > 0 && (
-                                                <div className={`${styles.asideRecent} mt-3 px-2`}>
+                                                <div className={`${styles.asideContent} mt-3 px-2 mb-2`}>
                                                     <div className="h5 fw-bolder text-danger text-uppercase">Recent</div>
                                                     <hr />
                                                     {
                                                         recent.map((data, index) => {
                                                             return (
                                                                 <div className="card mt-3 text-center" key={index}>
-                                                                    <div className="card-body" >
+                                                                    <div className="card-body py-2" >
                                                                         <Link href={data.path}>
-                                                                            <h5 className="card-title text-primary fw-bold">{data.title}</h5>
+                                                                            <h5 className="card-title text-secondary fw-bold">{data.title}</h5>
+                                                                            <p className="card-text text-truncate text-wrap text-muted" style={{ 'maxHeight': '2.8rem' }}>{data.description}</p>
+                                                                        </Link>
+                                                                    </div>
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            )
+                                        }
+                                        {
+                                            relatedTools && relatedTools.length > 0 && (
+                                                <div className={`${styles.asideContent} mt-3 px-2`}>
+                                                    <div className="h5 fw-bolder text-success text-uppercase">Relate</div>
+                                                    <hr />
+                                                    {
+                                                        relatedTools.map((data, index) => {
+                                                            return (
+                                                                <div className="card mt-3 text-center" key={index}>
+                                                                    <div className="card-body py-2" >
+                                                                        <Link href={data.path}>
+                                                                            <h5 className="card-title text-secondary fw-bold">{data.title}</h5>
                                                                             <p className="card-text text-truncate text-wrap text-muted" style={{ 'maxHeight': '2.8rem' }}>{data.description}</p>
                                                                         </Link>
                                                                     </div>
@@ -104,6 +131,9 @@ export default function Layout({
                                     {children}
                                 </div>
                                 <div className="col d-none d-lg-block">
+                                    <div className="w-100 row justify-content-center ps-2 mt-2">
+
+                                    </div>
                                 </div>
                             </div>
                         ) : <>{children}</>
