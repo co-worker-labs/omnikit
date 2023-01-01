@@ -3,6 +3,11 @@ import Footer, { FooterPosition } from "./footer";
 import Header, { HeaderPosition } from "./header";
 import { Context, createContext, useContext, useState } from "react";
 import styles from './Layout.module.css'
+import { ToolData } from "../libs/tools";
+import { useRouter } from "next/router";
+import { listRecents, logAccess } from "../libs/recent";
+import { pathTrim } from "../utils/path";
+import Link from "next/link";
 
 interface LayoutSettings {
     reset: () => void;
@@ -33,6 +38,11 @@ export default function Layout({
     const [isHidden, setIsHidden] = useState<boolean>(hidden || false);
     const [headerPos, setHeaderPos] = useState<HeaderPosition>(headerPosition || 'sticky');
     const [footerPos, setFooterPos] = useState<FooterPosition>(footerPosition || 'none');
+    const [recent, setRecent] = useState<ToolData[]>([]);
+
+    const router = useRouter();
+    const path = pathTrim(router.asPath);
+
 
     const config = {
         reset: () => {
@@ -69,7 +79,9 @@ export default function Layout({
                 }
             }
         })
-    }, []);
+        logAccess(path);
+        setRecent(listRecents(path));
+    }, [path]);
 
     return (
         <LayoutContext.Provider value={config}>
@@ -81,6 +93,30 @@ export default function Layout({
                         asideAds ? (
                             <div className="row justify-content-center px-0 gx-0">
                                 <div className="col d-none d-lg-block">
+                                    <div className="w-100 d-flex justify-content-center ps-2 mt-2">
+                                        {
+                                            recent.length > 0 && (
+                                                <div className={`${styles.asideRecent} mt-3 px-2`}>
+                                                    <div className="h5 fw-bolder text-danger text-uppercase">Recent</div>
+                                                    <hr />
+                                                    {
+                                                        recent.map((data, index) => {
+                                                            return (
+                                                                <div className="card mt-3 text-center" key={index}>
+                                                                    <div className="card-body" >
+                                                                        <Link href={data.path}>
+                                                                            <h5 className="card-title text-primary fw-bold">{data.title}</h5>
+                                                                            <p className="card-text text-truncate text-wrap text-muted" style={{ 'maxHeight': '2.8rem' }}>{data.description}</p>
+                                                                        </Link>
+                                                                    </div>
+                                                                </div>
+                                                            )
+                                                        })
+                                                    }
+                                                </div>
+                                            )
+                                        }
+                                    </div>
                                 </div>
                                 <div className={`col col-lg-7`} >
                                     {children}
