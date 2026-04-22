@@ -1,27 +1,29 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
-import Layout from '../components/layout'
-import { listMatchedTools, ToolData } from '../libs/tools'
-import { useRouter } from 'next/router'
-import { GetStaticProps, InferGetStaticPropsType } from 'next'
+import Head from "next/head";
+import styles from "../styles/Home.module.css";
+import Layout from "../components/layout";
+import { listMatchedTools, ToolData } from "../libs/tools";
+import { useRouter } from "next/router";
+import { GetStaticProps, InferGetStaticPropsType } from "next";
 
 function Introduce() {
   return (
     <div className={`${styles.introduce}`}>
-      <div className='container text-center'>
-        <span className={`h1 text-capitalize fw-bolder ${styles.introduceTitle}`}>Explore Awesome Tools</span>
+      <div className="container text-center">
+        <span className={`h1 text-capitalize fw-bolder ${styles.introduceTitle}`}>
+          Explore Awesome Tools
+        </span>
         {/* <p className='mt-5 fs-5'>
           We offer those to the community for free, but our day job is building and selling useful tools for developers like you.
         </p> */}
       </div>
     </div>
-  )
+  );
 }
 
 function ToolCollection({ data }: { data: ToolData[] }) {
   const router = useRouter();
   return (
-    <div className='container text-center px-3 mb-5'>
+    <div className="container text-center px-3 mb-5">
       {/* <div className={`h1 text-capitalize fw-bolder mt-5 ${styles.toolCollectionTitle}`}>
         Tools Collection
       </div>
@@ -30,29 +32,39 @@ function ToolCollection({ data }: { data: ToolData[] }) {
       </div> */}
       <div className="row mt-5">
         <>
-          {
-            data.map((value, index) => {
-              return (
-                <div className="col-12 col-md-6 col-lg-3 px-2 py-2" key={index}>
-                  <div className="card" >
-                    <div className="card-body">
-                      <h5 className="card-title text-dark fw-bold">{value.title}</h5>
-                      <p className="card-text text-truncate text-wrap text-muted" style={{ 'height': '2.8rem' }}>{value.description}</p>
-                      <div className="d-flex justify-content-center">
-                        <button type="button" className="btn btn-outline-success col-8" disabled={value.path == ''} onClick={() => {
+          {data.map((value, index) => {
+            return (
+              <div className="col-12 col-md-6 col-lg-3 px-2 py-2" key={index}>
+                <div className="card">
+                  <div className="card-body">
+                    <h5 className="card-title fw-bold">{value.title}</h5>
+                    <p
+                      className="card-text text-truncate text-wrap text-muted"
+                      style={{ height: "2.8rem" }}
+                    >
+                      {value.description}
+                    </p>
+                    <div className="d-flex justify-content-center">
+                      <button
+                        type="button"
+                        className="btn btn-outline-success col-8"
+                        disabled={value.path == ""}
+                        onClick={() => {
                           router.push(value.path);
-                        }}>{value.path == '' ? 'Coming Soon' : 'Goto'}</button>
-                      </div>
+                        }}
+                      >
+                        {value.path == "" ? "Coming Soon" : "Goto"}
+                      </button>
                     </div>
                   </div>
                 </div>
-              )
-            })
-          }
+              </div>
+            );
+          })}
         </>
       </div>
     </div>
-  )
+  );
 }
 
 export default function Home({ tools }: InferGetStaticPropsType<typeof getStaticProps>) {
@@ -62,7 +74,7 @@ export default function Home({ tools }: InferGetStaticPropsType<typeof getStatic
       if (!keywords.includes(kw)) {
         keywords.push(kw);
       }
-    })
+    });
   });
   return (
     <>
@@ -70,22 +82,21 @@ export default function Home({ tools }: InferGetStaticPropsType<typeof getStatic
         <title>W3Tools Online</title>
         <meta name="description" content="Online awesome Tools" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name='keyword' content={keywords.join(',')} />
+        <meta name="keyword" content={keywords.join(",")} />
       </Head>
-      <Layout headerPosition='none' aside={false}>
+      <Layout headerPosition="none" aside={false}>
         <Introduce />
         <ToolCollection data={tools} />
       </Layout>
     </>
-  )
+  );
 }
 
-
 export const getStaticProps: GetStaticProps = async (context) => {
-  const tools: ToolData[] = listMatchedTools('');
+  const tools: ToolData[] = listMatchedTools("");
   return {
     props: {
       tools,
-    }
-  }
-}
+    },
+  };
+};
