@@ -52,7 +52,7 @@ function Display({ data }: { data: Result }) {
         />
         <button
           type="button"
-          className="btn btn-sm text-danger flex-col absolute end-0 top-0 font-bold"
+          className="px-3 py-1 text-sm text-red-400 font-bold absolute end-0 top-0 hover:text-red-300 transition-colors"
           title={t("common:common.clear")}
           onClick={() => {
             setTestChecksum("");
