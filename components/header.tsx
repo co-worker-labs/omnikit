@@ -1,9 +1,7 @@
-import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { LayoutGrid, Sun, Moon } from "lucide-react";
 import { getTranslatedTools } from "../libs/tools";
-import logoIcon from "../public/favicon.ico";
 import { useTheme } from "../libs/theme";
 import { useTranslation } from "next-i18next/pages";
 import LanguageSwitcher from "./language_switcher";
@@ -39,7 +37,7 @@ export default function Header({ position, title }: { position: HeaderPosition; 
             href="/"
             className="flex shrink-0 items-center gap-2 text-fg-primary hover:text-accent-cyan transition-colors"
           >
-            <Image src={logoIcon} alt="Logo" height={28} width={28} />
+            <img src="/favicon.svg" alt="Logo" height={28} width={28} />
             <span className={`font-bold ${!title ? "" : "hidden md:inline"}`}>
               {t("nav.brand")}
             </span>
