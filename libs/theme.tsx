@@ -1,4 +1,11 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useSyncExternalStore,
+  useState,
+  ReactNode,
+} from "react";
 
 export type Theme = "light" | "dark";
 
@@ -14,8 +21,7 @@ const ThemeContext = createContext<ThemeContextValue>({
 
 const STORAGE_KEY = "bytecraft-theme";
 
-function getInitialTheme(): Theme {
-  if (typeof window === "undefined") return "light";
+function readStoredTheme(): Theme {
   const stored = localStorage.getItem(STORAGE_KEY);
   if (stored === "dark" || stored === "light") return stored;
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
@@ -29,20 +35,36 @@ function applyTheme(theme: Theme) {
   }
 }
 
+let listeners: Array<() => void> = [];
+
+function subscribe(listener: () => void) {
+  listeners.push(listener);
+  return () => {
+    listeners = listeners.filter((l) => l !== listener);
+  };
+}
+
+function getSnapshot(): Theme {
+  return readStoredTheme();
+}
+
+function getServerSnapshot(): Theme {
+  return "light";
+}
+
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const storedTheme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+  const [theme, setTheme] = useState<Theme>(storedTheme);
 
   useEffect(() => {
+    if (theme !== storedTheme) return;
     applyTheme(theme);
-    localStorage.setItem(STORAGE_KEY, theme);
-  }, [theme]);
+  }, [theme, storedTheme]);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     const handler = (e: MediaQueryListEvent) => {
-      // Only follow system preference if user hasn't explicitly chosen
-      const stored = localStorage.getItem(STORAGE_KEY);
-      if (!stored) {
+      if (!localStorage.getItem(STORAGE_KEY)) {
         setTheme(e.matches ? "dark" : "light");
       }
     };
@@ -51,7 +73,10 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "light" ? "dark" : "light"));
+    const next = theme === "light" ? "dark" : "light";
+    localStorage.setItem(STORAGE_KEY, next);
+    setTheme(next);
+    listeners.forEach((l) => l());
   };
 
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
