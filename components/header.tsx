@@ -25,6 +25,7 @@ export default function Header({ position, title }: { position: HeaderPosition; 
 
   const tools = getTranslatedTools(t);
   const currentTool = tools.find((tool) => tool.path === router.asPath);
+  const isHome = router.pathname === "/";
 
   if (position == "hidden") {
     return <></>;
@@ -65,35 +66,37 @@ export default function Header({ position, title }: { position: HeaderPosition; 
             </Link>
           )}
           <div className="col-auto col-md d-flex justify-content-end align-items-center">
-            <div className="dropdown">
-              <button
-                className="btn btn-outline-secondary dropdown-toggle"
-                type="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i className="bi bi-grid-3x3-gap"></i>
-                <span className="d-none d-md-inline ms-2">
-                  {currentTool?.title || t("nav.tools")}
-                </span>
-              </button>
-              <ul className="dropdown-menu dropdown-menu-end">
-                {tools.map((tool) => (
-                  <li key={tool.path}>
-                    <a
-                      className={`dropdown-item ${tool.path === router.asPath ? "active" : ""}`}
-                      href="#"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        router.push(tool.path);
-                      }}
-                    >
-                      {tool.title}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            {!isHome && (
+              <div className="dropdown">
+                <button
+                  className="btn btn-outline-secondary dropdown-toggle"
+                  type="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i className="bi bi-grid-3x3-gap"></i>
+                  <span className="d-none d-md-inline ms-2">
+                    {currentTool?.title || t("nav.tools")}
+                  </span>
+                </button>
+                <ul className="dropdown-menu dropdown-menu-end">
+                  {tools.map((tool) => (
+                    <li key={tool.path}>
+                      <a
+                        className={`dropdown-item ${tool.path === router.asPath ? "active" : ""}`}
+                        href="#"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          router.push(tool.path);
+                        }}
+                      >
+                        {tool.title}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
             <button
               type="button"
               className="btn btn-outline-secondary ms-2"
