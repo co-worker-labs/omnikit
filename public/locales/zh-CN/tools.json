@@ -1,0 +1,34 @@
+{
+  "password": {
+    "title": "密码生成器",
+    "description": "生成安全、随机、易记的密码，保护您的在线安全。"
+  },
+  "ascii": {
+    "title": "ASCII 表",
+    "description": "ASCII 字符表，包含十六进制、八进制、HTML、十进制等完整对照表"
+  },
+  "htmlcode": {
+    "title": "HTML 代码",
+    "description": "HTML 代码和 HTML 特殊字符"
+  },
+  "base64": {
+    "title": "Base64 编码/解码",
+    "description": "Base64 编码或解码，支持 Basic 认证"
+  },
+  "hashing": {
+    "title": "文本哈希",
+    "description": "支持算法：MD5、SHA1、SHA-224、SHA256、SHA348、SHA512、SHA3-224、SHA3-256、SHA3-384、SHA3-512、keccak、ripemd-160"
+  },
+  "checksum": {
+    "title": "文件校验",
+    "description": "支持不限数量的文件和不限大小的文件"
+  },
+  "cipher": {
+    "title": "文本加密/解密",
+    "description": "AES、DES、Triple DES、Rabbit、RC4、RC4Drop"
+  },
+  "storageunit": {
+    "title": "存储单位转换",
+    "description": "在多种数据单位之间进行转换，如字节、千字节、兆字节、太字节、拍字节等"
+  }
+}

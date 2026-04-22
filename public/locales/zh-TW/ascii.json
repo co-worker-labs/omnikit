@@ -1,0 +1,15 @@
+{
+  "printableCharacters": "可列印字元",
+  "controlCodeCharts": "控制碼表",
+  "description": "ASCII 是 American Standard Code for Information Interchange（美國資訊交換標準代碼）的縮寫。電腦只能理解數字，因此 ASCII 代碼是字元（例如 'a' 或 '@'）或某種動作的數值表示。ASCII 很久以前就被開發出來了，現在其中非列印字元已很少用於原始目的。下方是 ASCII 字元表，包含前 32 個非列印字元的說明。ASCII 其實是為電傳打字機設計的，所以這些說明有些晦澀。如果有人說需要您的履歷以 ASCII 格式提供，意思就是他們需要不含格式的「純文字」，沒有定位點、粗體或底線等任何格式，也就是任何電腦都能理解的原始格式。這通常是為了方便將檔案匯入他們自己的應用程式。Notepad.exe 建立的就是 ASCII 文字，或者在 MS Word 中您可以將檔案另存為「純文字」。",
+  "tableHeaders": {
+    "decimal": "十進位",
+    "binary": "二進位",
+    "oct": "八進位",
+    "hex": "十六進位",
+    "abbr": "縮寫",
+    "desc": "說明",
+    "html": "HTML",
+    "glyph": "字元"
+  }
+}

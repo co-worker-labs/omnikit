@@ -1,5 +1,7 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { ChangeEvent, useEffect, useRef, useState } from "react";
+import { useTranslation } from "next-i18next/pages";
+import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
 import { showToast } from "../libs/toast";
@@ -31,6 +33,7 @@ interface HashResult {
 }
 
 function ChecksumDisplay({ data, types }: { data: HashResult; types: string[] }) {
+  const { t } = useTranslation(["checksum", "common"]);
   const [testChecksum, setTestChecksum] = useState<string>("");
 
   return (
@@ -38,7 +41,7 @@ function ChecksumDisplay({ data, types }: { data: HashResult; types: string[] })
       <div className="position-relative">
         <textarea
           className="form-control"
-          placeholder="Compare to checksum"
+          placeholder={t("checksum:compareToChecksum")}
           rows={3}
           value={testChecksum}
           onChange={(e) => {
@@ -50,18 +53,18 @@ function ChecksumDisplay({ data, types }: { data: HashResult; types: string[] })
           className="btn btn-sm text-danger flex-col position-absolute end-0 top-0 fw-bold"
           data-toggle="tooltip"
           data-placement="right"
-          title="Clear"
+          title={t("common:common.clear")}
           onClick={(e) => {
             setTestChecksum("");
           }}
         >
-          Clear
+          {t("common:common.clear")}
         </button>
       </div>
       <table className="table table-hover table-striped caption-top text-break mt-2">
         <tbody>
           <tr>
-            <th scope="row">Size</th>
+            <th scope="row">{t("common:common.size")}</th>
             <td>{data.size}</td>
           </tr>
           <tr hidden={!types.includes("md5")}>
@@ -169,6 +172,7 @@ function ChecksumDisplay({ data, types }: { data: HashResult; types: string[] })
 }
 
 function FileCalculator() {
+  const { t } = useTranslation(["checksum", "common"]);
   const fileRef = useRef(null);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [hashResList, setHashResList] = useState<HashResult[]>([]);
@@ -260,7 +264,7 @@ function FileCalculator() {
           ) : (
             <>
               <i className="bi bi-plus me-1"></i>
-              <span className="fw-bold">Drop files here or click to select</span>
+              <span className="fw-bold">{t("checksum:dropFilesHere")}</span>
             </>
           )}
         </div>
@@ -285,7 +289,10 @@ function FileCalculator() {
               }
               setSelectedFiles(files);
               showToast(
-                "Selected " + files.length + (files.length > 1 ? " files" : " file"),
+                t("checksum:selectedFiles", {
+                  count: files.length,
+                  files: files.length > 1 ? " files" : " file",
+                }),
                 "info",
                 3000
               );
@@ -308,10 +315,12 @@ function FileCalculator() {
               const t = fileRef.current as any;
               t.value = null;
             }
-            showToast("Deselected", "danger", 2000);
+            showToast(t("common:common.deselected"), "danger", 2000);
           }}
         >
-          {selectedFiles.length > 0 ? `Deselect(${selectedFiles.length})` : "No file chosen"}
+          {selectedFiles.length > 0
+            ? t("checksum:deselect", { count: selectedFiles.length })
+            : t("checksum:noFileChosen")}
         </button>
       </div>
       <div className="row justify-content-start mt-3">
@@ -325,8 +334,8 @@ function FileCalculator() {
               setHashResList([]);
             }}
           >
-            <option value="1000">1K = 1000 Bytes</option>
-            <option value="1024">1K = 1024 Bytes</option>
+            <option value="1000">{t("checksum:storageUnit1000")}</option>
+            <option value="1024">{t("checksum:storageUnit1024")}</option>
           </select>
         </div>
       </div>
@@ -488,7 +497,7 @@ function FileCalculator() {
       </div>
       {calculating && (
         <div className="spinner-grow text-primary align-self-center mt-4" role="status">
-          <span className="visually-hidden1 ms-5">Calculating...</span>
+          <span className="visually-hidden1 ms-5">{t("common:common.calculating")}</span>
         </div>
       )}
       {hashResList.length == 0 ? (
@@ -496,7 +505,7 @@ function FileCalculator() {
           className="border rounded w-100 d-flex justify-content-center align-items-center mt-4 fs-4 text-muted fw-bold bg-light"
           style={{ height: "8rem" }}
         >
-          Checksum Output
+          {t("checksum:checksumOutput")}
         </div>
       ) : (
         <div className="accordion mt-4" id={`hashResultList`}>
@@ -539,58 +548,42 @@ function FileCalculator() {
 }
 
 function Description() {
+  const { t } = useTranslation("checksum");
   return (
     <section id="description" className="mt-5 paragraph">
       <div>
-        <h5>MD5</h5>
-        <p>
-          MD5 is a widely used hash function. It&#39;s been used in a variety of security
-          applications and is also commonly used to check the integrity of files. Though, MD5 is not
-          collision resistant, and it isn&#39;t suitable for applications like SSL certificates or
-          digital signatures that rely on this property.
-        </p>
+        <h5>{t("descriptions.md5Title")}</h5>
+        <p>{t("descriptions.md5")}</p>
       </div>
       <div>
-        <h5>SHA-1</h5>
-        <p>
-          The SHA hash functions were designed by the National Security Agency (NSA). SHA-1 is the
-          most established of the existing SHA hash functions, and it&#39;s used in a variety of
-          security applications and protocols. Though, SHA-1&#39;s collision resistance has been
-          weakening as new attacks are discovered or improved.
-        </p>
+        <h5>{t("descriptions.sha1Title")}</h5>
+        <p>{t("descriptions.sha1")}</p>
       </div>
       <div>
-        <h5>SHA-2</h5>
-        <p>
-          SHA-256 is one of the four variants in the SHA-2 set. It isn&#39;t as widely used as
-          SHA-1, though it appears to provide much better security.
-        </p>
-        <p>SHA-512 is largely identical to SHA-256 but operates on 64-bit words rather than 32.</p>
+        <h5>{t("descriptions.sha2Title")}</h5>
+        <p>{t("descriptions.sha2")}</p>
+        <p>{t("descriptions.sha2extra")}</p>
       </div>
       <div>
-        <h5>SHA-3</h5>
-        <p>
-          SHA-3 is the winner of a five-year competition to select a new cryptographic hash
-          algorithm where 64 competing designs were evaluated.
-        </p>
+        <h5>{t("descriptions.sha3Title")}</h5>
+        <p>{t("descriptions.sha3")}</p>
       </div>
     </section>
   );
 }
 
 function HashCalculatorPage({ toolData }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { t } = useTranslation("common");
   return (
     <>
-      <ToolPageHeadBuilder data={toolData} />
+      <ToolPageHeadBuilder toolPath="/checksum" />
       <Layout title={toolData.title}>
         <div className="container py-3">
           <div className="alert alert-danger py-3 my-lg-4" role="alert">
-            * Your selected files are not transferred to the server. All calculations are performed
-            directly in the browser
+            {t("alert.filesNotTransferred")}
           </div>
           <div className="alert alert-info py-3" role="alert">
-            This is html5 file online checksum, which supports an unlimited number of files and
-            unlimited file size.
+            {t("alert.checksumInfo")}
           </div>
           <FileCalculator />
           <Description />
@@ -601,11 +594,13 @@ function HashCalculatorPage({ toolData }: InferGetStaticPropsType<typeof getStat
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const locale = context.locale || "en";
   const path = "/checksum";
   const toolData: ToolData = findTool(path);
   return {
     props: {
       toolData,
+      ...(await serverSideTranslations(locale, ["common", "checksum"])),
     },
   };
 };

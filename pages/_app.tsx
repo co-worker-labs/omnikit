@@ -3,8 +3,9 @@ import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 import { useEffect } from "react";
 import { ThemeProvider } from "../libs/theme";
+import { appWithTranslation } from "next-i18next/pages";
 
-export default function App({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
   }, []);
@@ -15,3 +16,5 @@ export default function App({ Component, pageProps }: AppProps) {
     </ThemeProvider>
   );
 }
+
+export default appWithTranslation(App);

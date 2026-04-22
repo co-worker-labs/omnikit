@@ -1,0 +1,37 @@
+{
+  "description": {
+    "p1": "你可能会在网站内容中使用很多不同的字母、字符、特殊字符、符号和图标，但直接使用时它们可能无法正确显示。为确保正确显示，你需要使用 HTML 代码。每个字母、字符、符号和图标都有对应的 HTML 代码，只需将其放入 HTML 中即可。我们整理了所有 HTML 代码的完整列表，涵盖各种字符、特殊字符、字母、符号和图标。你可以轻松复制这些 HTML 代码并粘贴到你的 HTML 中，使其在网站内容中正确显示。在可用的情况下，我们提供了友好的 HTML 代码（实体名称）、数字 HTML 代码（实体编号）和 HEX 代码，方便你找到所需的代码。",
+    "p2": "在网站中使用以下代码之前，请确保你的 HTML 文档使用了正确的编码，以保证 HTML 代码和 HTML 特殊字符能够正确显示。要确保 HTML 使用正确的编码，应使用 Unicode 字符集。该 Unicode 字符集必须在 HTML 文档的 head 部分设置。具体做法是使用带有 charset 属性且值为 UTF-8 的 meta 标签。只需将以下 meta 标签复制粘贴到你的 head 部分，所有 HTML 字符就能完美显示。"
+  },
+  "tabs": {
+    "letters": "字母",
+    "punctuation": "标点符号",
+    "currencies": "货币符号",
+    "mathematical": "数学符号",
+    "pronunciations": "注音符号",
+    "diacritics": "变音符号",
+    "ascii": "ASCII",
+    "icons": "图标"
+  },
+  "tabDescriptions": {
+    "punctuation": "标点符号是文本中用于提高可读性的字符。标点符号有时也指示句子的朗读方式，或某个词、某句话的含义。",
+    "currencies": "多种货币有各自的 HTML 字符，你可以在网站中使用。从下面的 HTML 货币代码列表中找到所需的货币字符。",
+    "mathematical": "有相当多的数学 HTML 字符可供你在网站中使用。此 HTML 数学字符列表可帮你找到在 HTML 中显示所需的数学字符。",
+    "pronunciations": "注音字符可帮助读者理解单词的发音方式。以下列出了所有可在 HTML 中使用的注音字符。",
+    "diacritics": "许多字母和字符附加了字形标记或重音符号。这些变音符号可以改变单词的发音或含义。此 HTML 变音符号列表可帮助你在网站上正确显示变音符号。",
+    "ascii": "Unicode 中的 ASCII（美国信息交换标准代码）子集包含数字、字母和最常用的基本字符。ASCII 子集包括数字 0 到 9、小写字母 a 到 z、大写字母 A 到 Z 以及一些基本标点和控制码。以下是 ASCII 子集的所有 Unicode HTML 代码。",
+    "icons": "HTML 还提供了可在 HTML 中使用的特殊字符。例如心形、性别图标、音符或箭头。你可以自由使用以下 HTML 图标和特殊字符列表中的图标和字符。"
+  },
+  "tableHeaders": {
+    "character": "字符",
+    "entityName": "实体名称",
+    "entityNumber": "实体编号",
+    "hexCode": "十六进制代码",
+    "description": "描述",
+    "entityCode": "实体代码",
+    "ipa": "IPA",
+    "ipaEntityName": "IPA 实体名称",
+    "ipaEntityCode": "IPA 实体代码",
+    "example": "示例"
+  }
+}

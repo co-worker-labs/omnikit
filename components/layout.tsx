@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import { listRecents, logAccess } from "../libs/recent";
 import { pathTrim } from "../utils/path";
 import Link from "next/link";
+import { useTranslation } from "next-i18next/pages";
 
 interface LayoutSettings {
   reset: () => void;
@@ -50,6 +51,7 @@ export default function Layout({
 
   const router = useRouter();
   const path = pathTrim(router.asPath);
+  const { t } = useTranslation(["common", "tools"]);
 
   const recent = useMemo(() => {
     if (typeof window === "undefined") return [];
@@ -107,7 +109,9 @@ export default function Layout({
                 <div className="w-100 row justify-content-center ps-2 mt-2">
                   {recent.length > 0 && (
                     <div className={`${styles.asideContent} mt-3 px-2 mb-2`}>
-                      <div className="h5 fw-bolder text-danger text-uppercase">Recent &gt;&gt;</div>
+                      <div className="h5 fw-bolder text-danger text-uppercase">
+                        {t("common:layout.recent")}
+                      </div>
                       <hr />
                       {recent.map((data, index) => {
                         return (

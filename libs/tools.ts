@@ -1,9 +1,36 @@
+import { TFunction } from "i18next";
+
 export interface ToolData {
   path: string;
   title: string;
   description: string;
   searchKeys: string[];
   keywords: string[];
+}
+
+function pathToToolKey(path: string): string {
+  return path.replace("/", "").replace(/-/g, "");
+}
+
+export function getTranslatedTools(t: TFunction): ToolData[] {
+  return toolsList.map((tool) => {
+    const key = pathToToolKey(tool.path);
+    return {
+      ...tool,
+      title: t(`tools:${key}.title`),
+      description: t(`tools:${key}.description`),
+    };
+  });
+}
+
+export function getTranslatedTool(t: TFunction, path: string): ToolData {
+  const tool = findTool(path);
+  const key = pathToToolKey(path);
+  return {
+    ...tool,
+    title: t(`tools:${key}.title`),
+    description: t(`tools:${key}.description`),
+  };
 }
 
 export function findTool(path: string): ToolData {

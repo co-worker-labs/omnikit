@@ -1,0 +1,37 @@
+{
+  "description": {
+    "p1": "有許多不同的字母、字元、特殊字元、符號和圖示可能會想在您的網站內容中使用，但使用的時候卻無法正確顯示。為了確保它們能正確顯示，您需要使用 HTML 代碼。每個字母、字元、符號和圖示都有各自的 HTML 代碼，只需將其放入 HTML 中即可。我們建立了完整的 HTML 代碼清單，涵蓋各種字元、特殊字元、字母、符號和圖示。您可以輕鬆複製這些 HTML 代碼並貼到您的 HTML 中，讓它們在網站內容中正確顯示。在可用之處，我們加上了易記的 HTML 代碼（實體名稱）、數值 HTML 代碼（實體編號）和 HEX 代碼，讓您總是能找到所需的代碼。",
+    "p2": "在網站上使用以下代碼之前，請確保您的 HTML 文件使用了正確的編碼，以確保 HTML 代碼和 HTML 特殊代碼能正確顯示。為了確保 HTML 使用正確的編碼，您應該確認使用了 Unicode 字元集。此 Unicode 字元集必須設定在 HTML 文件的 head 區段中。方法是使用帶有 charset 屬性和 UTF-8 值的 meta 標籤。只需將以下 meta 標籤複製並貼到您的 head 區段中，下方的所有 HTML 字元就能完美顯示。"
+  },
+  "tabs": {
+    "letters": "字母",
+    "punctuation": "標點符號",
+    "currencies": "貨幣符號",
+    "mathematical": "數學符號",
+    "pronunciations": "發音符號",
+    "diacritics": "變音符號",
+    "ascii": "ASCII",
+    "icons": "圖示"
+  },
+  "tabDescriptions": {
+    "punctuation": "標點符號是用於文字中的字元，可以提升文字的可讀性。標點符號有時也指示句子應如何發音，或者某個單字或句子的含義。",
+    "currencies": "多種貨幣有各自的 HTML 字元，您可以在網站上使用。請從下方的 HTML 貨幣代碼清單中找出所需的 HTML 字元。",
+    "mathematical": "有相當多的數學 HTML 字元可供您在網站上使用。這份 HTML 數學字元清單可以幫助您找到正確的數學字元在 HTML 中顯示。",
+    "pronunciations": "發音符號可以幫助讀者了解單字應如何發音。下方列出所有 HTML 發音符號，您可以在 HTML 中使用。",
+    "diacritics": "有許多字母和字元帶有附加的字形或重音符號。這些變音符號可能改變單字的發音或含義。這份 HTML 變音符號清單可讓您在網站上顯示正確的變音符號。",
+    "ascii": "Unicode 中的 ASCII（American Standard Code for Information Interchange）子集包含了數字、字母和字元，基本上是最廣為人知的字元。ASCII 子集包括數字 0 到 9、小寫字母 a 到 z、大寫字母 A 到 Z，以及一些基本的標點符號和控制碼。以下的 ASCII HTML 清單包含所有 ASCII 子集的 Unicode HTML 代碼。",
+    "icons": "HTML 還提供了特殊字元供您在 HTML 中使用。例如愛心、性別圖示、音符或箭頭。您可以自由使用下方 HTML 圖示清單中的特殊字元和圖示。"
+  },
+  "tableHeaders": {
+    "character": "字元",
+    "entityName": "實體名稱",
+    "entityNumber": "實體編號",
+    "hexCode": "Hex 代碼",
+    "description": "說明",
+    "entityCode": "實體代碼",
+    "ipa": "IPA",
+    "ipaEntityName": "IPA 實體名稱",
+    "ipaEntityCode": "IPA 實體代碼",
+    "example": "範例"
+  }
+}

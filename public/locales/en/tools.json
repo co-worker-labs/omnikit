@@ -1,0 +1,34 @@
+{
+  "password": {
+    "title": "Password Generator",
+    "description": "Generate secure, random, memorable passwords to stay safe online."
+  },
+  "ascii": {
+    "title": "ASCII Table",
+    "description": "Ascii character table - What is ascii - Complete tables including hex, octal, html, decimal conversions"
+  },
+  "htmlcode": {
+    "title": "Html Code",
+    "description": "HTML codes and HTML special characters"
+  },
+  "base64": {
+    "title": "Base64 Encode/Decode",
+    "description": "Base64 Encode or Decode, Basic Authentication"
+  },
+  "hashing": {
+    "title": "Text Hashing",
+    "description": "Algorithms: MD5, SHA1, SHA-224, SHA256, SHA348, SHA512, SHA3-224, SHA3-256, SHA3-384, SHA3-512, keccak, ripemd-160"
+  },
+  "checksum": {
+    "title": "File Checksum",
+    "description": "Supports an unlimited number of files and unlimited file size"
+  },
+  "cipher": {
+    "title": "Text Encrypt/Decrypt",
+    "description": "AES, DES, Triple DES, Rabbit, RC4, RC4Drop"
+  },
+  "storageunit": {
+    "title": "Storage Unit Conversion",
+    "description": "Make conversions between a great number of various data units like byte, kilobyte, megabyte, terabyte, petabyte, and many other"
+  }
+}

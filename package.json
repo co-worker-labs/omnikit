@@ -13,10 +13,13 @@
     "bootstrap-icons": "^1.13.1",
     "crypto-js": "^4.2.0",
     "file-selector": "^2.1.2",
+    "i18next": "^26.0.6",
     "next": "16.2.4",
+    "next-i18next": "^16.0.5",
     "rc-slider": "^11.1.9",
     "react": "^19.2.5",
-    "react-dom": "^19.2.5"
+    "react-dom": "^19.2.5",
+    "react-i18next": "^17.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^20.5.0",

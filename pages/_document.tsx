@@ -3,7 +3,7 @@ import { ToastContainer } from "../components/toast";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <script

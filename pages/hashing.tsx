@@ -3,10 +3,11 @@ import { ChangeEvent, useMemo, useState } from "react";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
 import { showToast } from "../libs/toast";
-import { findTool, ToolData } from "../libs/tools";
 import { formatBytes } from "../utils/storage";
 import { CopyButton } from "../components/copybtn";
 import styles from "../styles/Hashing.module.css";
+import { useTranslation } from "next-i18next/pages";
+import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 
 const CryptoJS = require("crypto-js");
 
@@ -31,6 +32,7 @@ interface Result {
 }
 
 function Display({ data }: { data: Result }) {
+  const { t } = useTranslation(["common", "hashing"]);
   const [testChecksum, setTestChecksum] = useState<string>("");
 
   return (
@@ -38,7 +40,7 @@ function Display({ data }: { data: Result }) {
       <div className="position-relative mt-2">
         <textarea
           className="form-control"
-          placeholder="Paste to compare"
+          placeholder={t("hashing:pasteToCompare")}
           rows={3}
           value={testChecksum}
           onChange={(e) => {
@@ -50,18 +52,18 @@ function Display({ data }: { data: Result }) {
           className="btn btn-sm text-danger flex-col position-absolute end-0 top-0 fw-bold"
           data-toggle="tooltip"
           data-placement="right"
-          title="Clear"
+          title={t("common:common.clear")}
           onClick={(e) => {
             setTestChecksum("");
           }}
         >
-          Clear
+          {t("common:common.clear")}
         </button>
       </div>
       <table className="table table-hover table-striped caption-top text-break mt-4">
         <tbody>
           <tr>
-            <th scope="row">Size</th>
+            <th scope="row">{t("common:common.size")}</th>
             <td>{data.size}</td>
           </tr>
           {data.md5 && (
@@ -191,6 +193,7 @@ function Display({ data }: { data: Result }) {
 }
 
 function TextHashing() {
+  const { t } = useTranslation(["common", "hashing"]);
   const [types, setTypes] = useState<string[]>(["md5", "sha1", "sha256", "sha512"]);
   const [storageUnit, setStorageUnit] = useState<1000 | 1024>(1000);
   const [content, setContent] = useState<string>("");
@@ -261,11 +264,11 @@ function TextHashing() {
     const checked = event.target.checked;
     const value = event.target.value;
     if (checked) {
-      const t = [...types];
-      t.push(value);
-      setTypes(t);
+      const newTypes = [...types];
+      newTypes.push(value);
+      setTypes(newTypes);
     } else {
-      setTypes(types.filter((t) => t != value));
+      setTypes(types.filter((it) => it != value));
     }
   }
 
@@ -274,16 +277,16 @@ function TextHashing() {
       <div className="mt-4">
         <div className="row justify-content-between">
           <label htmlFor="contentTextarea" className="form-label col-auto">
-            <span className="fw-bold text-primary">Plain Text</span>
+            <span className="fw-bold text-primary">{t("hashing:plainText")}</span>
             <a
               href="#"
               className={`text-danger ms-2 ${styles.clearLink}`}
               onClick={() => {
                 setContent("");
-                showToast("Cleared", "danger", 2000);
+                showToast(t("common:common.cleared"), "danger", 2000);
               }}
             >
-              Clear
+              {t("common:common.clear")}
             </a>
           </label>
           <div className="form-check col-auto">
@@ -298,7 +301,7 @@ function TextHashing() {
               }}
             />
             <label className="form-check-label" htmlFor="isTrimCheck">
-              Trim white space
+              {t("common:common.trimWhiteSpace")}
             </label>
           </div>
         </div>
@@ -321,23 +324,23 @@ function TextHashing() {
       </div>
       <div className="mt-3">
         <label htmlFor="passphraseTextarea" className="form-label col-auto">
-          <span className="fw-bold text-secondary">Secret Passphrase</span>
+          <span className="fw-bold text-secondary">{t("hashing:secretPassphrase")}</span>
           <a
             href="#"
             className={`text-danger ms-2 ${styles.clearLink}`}
             onClick={() => {
               setPassphrase("");
-              showToast("Cleared", "danger", 2000);
+              showToast(t("common:common.cleared"), "danger", 2000);
             }}
           >
-            Clear
+            {t("common:common.clear")}
           </a>
         </label>
         <div className="position-relative">
           <textarea
             className="form-control"
             id="passphraseTextarea"
-            placeholder="Paster or type the secret passphrase for HMAC here"
+            placeholder={t("hashing:passphrasePlaceholder")}
             rows={2}
             value={passphrase}
             onChange={(e) => {
@@ -358,16 +361,16 @@ function TextHashing() {
           onClick={() => {
             setContent("");
             setPassphrase("");
-            showToast("All Cleared", "danger", 2000);
+            showToast(t("common:common.allCleared"), "danger", 2000);
           }}
         >
-          {"Clear All"}
+          {t("common:common.clearAll")}
         </button>
       </div>
 
       <div className="row mt-3">
         <div className="col-auto d-flex align-items-center justify-content-start">
-          <label className="fw-bolder col-auto">Storage Unit: </label>
+          <label className="fw-bolder col-auto">{t("common:common.storageUnit")} </label>
           <select
             className="form-select form-select-sm col ms-2"
             aria-label="Storage Unit"
@@ -376,8 +379,8 @@ function TextHashing() {
               setStorageUnit(parseInt(e.target.value) as 1000 | 1024);
             }}
           >
-            <option value="1000">1K = 1000 Bytes</option>
-            <option value="1024">1K = 1024 Bytes</option>
+            <option value="1000">{t("hashing:storageUnit1000")}</option>
+            <option value="1024">{t("hashing:storageUnit1024")}</option>
           </select>
         </div>
       </div>
@@ -551,7 +554,7 @@ function TextHashing() {
                 aria-controls="hashing-tab-pane"
                 aria-selected="true"
               >
-                Hashing
+                {t("common:common.hashing")}
               </button>
             </li>
             {hmacRes && (
@@ -566,7 +569,7 @@ function TextHashing() {
                   aria-controls="hmac-tab-pane"
                   aria-selected="false"
                 >
-                  HMAC
+                  {t("common:common.hmac")}
                 </button>
               </li>
             )}
@@ -600,61 +603,45 @@ function TextHashing() {
 }
 
 function Description() {
+  const { t } = useTranslation("hashing");
   return (
     <section id="description" className="mt-5 paragraph">
       <div>
-        <h5>MD5</h5>
-        <p>
-          MD5 is a widely used hash function. It&#39;s been used in a variety of security
-          applications and is also commonly used to check the integrity of files. Though, MD5 is not
-          collision resistant, and it isn&#39;t suitable for applications like SSL certificates or
-          digital signatures that rely on this property.
-        </p>
+        <h5>{t("descriptions.md5Title")}</h5>
+        <p>{t("descriptions.md5")}</p>
       </div>
       <div>
-        <h5>SHA-1</h5>
-        <p>
-          The SHA hash functions were designed by the National Security Agency (NSA). SHA-1 is the
-          most established of the existing SHA hash functions, and it&#39;s used in a variety of
-          security applications and protocols. Though, SHA-1&#39;s collision resistance has been
-          weakening as new attacks are discovered or improved.
-        </p>
+        <h5>{t("descriptions.sha1Title")}</h5>
+        <p>{t("descriptions.sha1")}</p>
       </div>
       <div>
-        <h5>SHA-2</h5>
-        <p>
-          SHA-256 is one of the four variants in the SHA-2 set. It isn&#39;t as widely used as
-          SHA-1, though it appears to provide much better security.
-        </p>
-        <p>SHA-512 is largely identical to SHA-256 but operates on 64-bit words rather than 32.</p>
+        <h5>{t("descriptions.sha2Title")}</h5>
+        <p>{t("descriptions.sha2")}</p>
+        <p>{t("descriptions.sha2extra")}</p>
       </div>
       <div>
-        <h5>SHA-3</h5>
-        <p>
-          SHA-3 is the winner of a five-year competition to select a new cryptographic hash
-          algorithm where 64 competing designs were evaluated.
-        </p>
+        <h5>{t("descriptions.sha3Title")}</h5>
+        <p>{t("descriptions.sha3")}</p>
       </div>
       <div>
-        <h5>HMAC</h5>
-        <p>
-          Keyed-hash message authentication codes (HMAC) is a mechanism for message authentication
-          using cryptographic hash functions.
-        </p>
+        <h5>{t("descriptions.hmacTitle")}</h5>
+        <p>{t("descriptions.hmac")}</p>
       </div>
     </section>
   );
 }
 
-function HashingPage({ toolData }: InferGetStaticPropsType<typeof getStaticProps>) {
+function HashingPage() {
+  const { t } = useTranslation(["common", "tools"]);
+  const title = t("tools:hashing.title");
+
   return (
     <>
-      <ToolPageHeadBuilder data={toolData} />
-      <Layout title={toolData.title}>
+      <ToolPageHeadBuilder toolPath="/hashing" />
+      <Layout title={title}>
         <div className="container py-3">
           <div className="alert alert-danger py-3 my-lg-4" role="alert">
-            * Your content are not transferred to the server. All calculations are performed
-            directly in the browser
+            {t("common:alert.notTransferred")}
           </div>
           <TextHashing />
           <Description />
@@ -665,11 +652,10 @@ function HashingPage({ toolData }: InferGetStaticPropsType<typeof getStaticProps
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const path = "/hashing";
-  const toolData: ToolData = findTool(path);
+  const locale = context.locale || "en";
   return {
     props: {
-      toolData,
+      ...(await serverSideTranslations(locale, ["common", "hashing", "tools"])),
     },
   };
 };

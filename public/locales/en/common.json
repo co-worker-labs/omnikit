@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "brand": "W3tools Online",
+    "search": "Search",
+    "searchPlaceholder": "Search",
+    "switchToLight": "Switch to light mode",
+    "switchToDark": "Switch to dark mode"
+  },
+  "footer": {
+    "home": "Home",
+    "terms": "Terms",
+    "privacy": "Privacy",
+    "copyright": "© {{year}} by w3tools.online. All Rights Reserved."
+  },
+  "layout": {
+    "recent": "Recent >>"
+  },
+  "common": {
+    "comingSoon": "Coming Soon",
+    "goto": "Goto",
+    "clear": "Clear",
+    "clearAll": "Clear All",
+    "allCleared": "All Cleared",
+    "copied": "Copied",
+    "cleared": "Cleared",
+    "clearedClipboard": "Cleared clipboard",
+    "generated": "Generated",
+    "encoded": "Encoded",
+    "decoded": "Decoded",
+    "encrypted": "Encrypted",
+    "decrypted": "Decrypted",
+    "deselected": "Deselected",
+    "savedToComparison": "Saved to comparison",
+    "deleted": "Deleted",
+    "noData": "No Data",
+    "copy": "Copy",
+    "generate": "Generate",
+    "compare": "Compare",
+    "trimWhiteSpace": "Trim white space",
+    "plainText": "Plain Text",
+    "encodedText": "Encoded Text",
+    "storageUnit": "Storage Unit:",
+    "hashing": "Hashing",
+    "hmac": "HMAC",
+    "size": "Size",
+    "calculating": "Calculating...",
+    "close": "Close",
+    "language": "Language"
+  },
+  "alert": {
+    "notTransferred": "* Your content are not transferred to the server. All calculations are performed directly in the browser",
+    "filesNotTransferred": "* Your selected files are not transferred to the server. All calculations are performed directly in the browser",
+    "checksumInfo": "This is html5 file online checksum, which supports an unlimited number of files and unlimited file size.",
+    "invalidCipher": "Invalid ciphertext, passphrase or settings"
+  }
+}

@@ -23,9 +23,10 @@ import {
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { showToast } from "../libs/toast";
 import Layout from "../components/layout";
-import { findTool, ToolData } from "../libs/tools";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Link from "next/link";
+import { useTranslation } from "next-i18next/pages";
+import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 
 const default_type = "Random";
 
@@ -104,21 +105,23 @@ function ComparisonList({
   delCallback: (index: number) => void;
   clearAll: () => void;
 }) {
+  const { t } = useTranslation(["common", "password"]);
+
   function onCopy(e: React.MouseEvent<HTMLElement>, index: number) {
     const iconEle = e.currentTarget.getElementsByTagName("i")[0];
     toggleCopyIcon(iconEle, alert_copy_timeout);
     navigator.clipboard.writeText(copyPassword(list[index].type, list[index].password));
-    showToast("Copied", "success", alert_copy_timeout);
+    showToast(t("common:common.copied"), "success", alert_copy_timeout);
   }
 
   function onDel(index: number) {
     delCallback(index);
-    showToast("Deleted", "danger", alert_del_timeout);
+    showToast(t("common:common.deleted"), "danger", alert_del_timeout);
   }
 
   function onClearAll() {
     clearAll();
-    showToast("Cleared", "danger", alert_del_timeout);
+    showToast(t("common:common.cleared"), "danger", alert_del_timeout);
   }
 
   function listenComparisonCollapse() {
@@ -152,7 +155,8 @@ function ComparisonList({
         aria-expanded="true"
         aria-controls="comparisionCollapse"
       >
-        Comparison<i id="comparisionCollapseIndict" className="ms-2 bi bi-chevron-double-up"></i>
+        {t("password:comparison")}
+        <i id="comparisionCollapseIndict" className="ms-2 bi bi-chevron-double-up"></i>
       </a>
       <div className={`collapse show ${styles.comparisonBody}`} id="comparisionCollapse">
         <div className="text-end me-1">
@@ -161,7 +165,7 @@ function ComparisonList({
             style={{ textDecoration: "none" }}
             onClick={onClearAll}
           >
-            Clear All<span className="text-dark ms-1">({list.length})</span>
+            {t("password:clearAllWithCount", { count: list.length })}
           </a>
         </div>
         <>
@@ -183,7 +187,7 @@ function ComparisonList({
                       className="btn btn-sm flex-col"
                       data-toggle="tooltip"
                       data-placement="right"
-                      title="Copy"
+                      title={t("common:common.copy")}
                       onClick={(e) => {
                         onCopy(e, index);
                       }}
@@ -195,7 +199,7 @@ function ComparisonList({
                       className="btn btn-sm flex-col"
                       data-toggle="tooltip"
                       data-placement="right"
-                      title="Generate"
+                      title={t("common:common.generate")}
                       onClick={() => {
                         onDel(index);
                       }}
@@ -247,6 +251,7 @@ function ComparisonList({
 }
 
 function Generator() {
+  const { t } = useTranslation(["common", "password"]);
   const [passwordType, setPasswordType] = useState<PasswordType>(default_type);
   const [characters, setCharacters] = useState<number>(defaultCharacters(default_type));
   const [passwordLength, setPasswordLength] = useState<PasswordLength>(defaultLength(default_type));
@@ -321,13 +326,13 @@ function Generator() {
         toggleCopyIcon(icons.item(i) as HTMLElement, alert_copy_timeout);
       }
     }
-    showToast("Copied", "success", alert_copy_timeout);
+    showToast(t("common:common.copied"), "success", alert_copy_timeout);
   }
 
   function generateAction() {
     const password = generate(passwordType, characters, passwordLength.current);
     setPassword(password);
-    showToast("Generated", "info", alert_gen_timeout, "generatedAlert");
+    showToast(t("common:common.generated"), "info", alert_gen_timeout, "generatedAlert");
   }
 
   function setLength(length: number) {
@@ -376,7 +381,7 @@ function Generator() {
           }, alert_comparison_timeout);
         }
       }
-      showToast("Saved to comparision", "success", alert_comparison_timeout);
+      showToast(t("common:common.savedToComparison"), "success", alert_comparison_timeout);
 
       if (firstSave) {
         document.getElementById("comparisionGotoBtn")?.click();
@@ -388,18 +393,17 @@ function Generator() {
   return (
     <section id="generator">
       <div className="alert alert-danger py-3" role="alert">
-        * All generated passwords are not transferred or saved to the server. All generations are
-        performed directly in the browser
+        {t("password:alertNotTransferred")}
       </div>
       <div className="row justify-content-center text-center text-dark">
         <div className="col-11">
-          <p className="fw-bold fs-2">Need a random password? Try it.</p>
-          <p className="fs-4 fw-light fst-italic">
-            Generate secure, random, memorable passwords to stay safe online.
-          </p>
+          <p className="fw-bold fs-2">{t("password:needRandom")}</p>
+          <p className="fs-4 fw-light fst-italic">{t("password:generateSubtext")}</p>
         </div>
       </div>
-      <div className="row fw-bold fs-4 mt-3 px-3 mb-2 text-secondary">Generated password:</div>
+      <div className="row fw-bold fs-4 mt-3 px-3 mb-2 text-secondary">
+        {t("password:generatedPassword")}
+      </div>
       <div className="bg-white1 text-dark card" style={{ backgroundColor: "#caedf7" }}>
         <div className={`row gx-0 ${styles.passDisplay} position-relative`}>
           <div
@@ -413,7 +417,7 @@ function Generator() {
               onClick={copyAction}
               data-toggle="tooltip"
               data-placement="right"
-              title="Copy"
+              title={t("common:common.copy")}
             >
               <i className="copyIcon bi bi-clipboard fs-3"></i>
             </button>
@@ -423,7 +427,7 @@ function Generator() {
               onClick={generateAction}
               data-toggle="tooltip"
               data-placement="right"
-              title="Generate"
+              title={t("common:common.generate")}
             >
               <i className="bi bi-arrow-clockwise fs-3"></i>
             </button>
@@ -435,7 +439,7 @@ function Generator() {
             onClick={addComparisionAction}
             data-toggle="tooltip"
             data-placement="right"
-            title="Compare"
+            title={t("common:common.compare")}
           >
             <i className="bagIcon bi bi-save"></i>
           </button>
@@ -456,7 +460,7 @@ function Generator() {
           className="btn btn-lg  col-10  btn-primary rounded-pill fw-bold"
           onClick={generateAction}
         >
-          Generate Password
+          {t("password:generatePassword")}
         </button>
         <button
           type="button"
@@ -464,12 +468,14 @@ function Generator() {
           onClick={copyAction}
         >
           {" "}
-          Copy Password
+          {t("password:copyPassword")}
         </button>
       </div>
       <div className="mt-4 bg-white text-dark card p-md-4  p-3">
         <div className="row align-items-center justify-content-end justify-content-md-between mb-2">
-          <span className="fs-4 fw-bold col-12 col-md-auto mt-2">Customize your password</span>
+          <span className="fs-4 fw-bold col-12 col-md-auto mt-2">
+            {t("password:customizeYourPassword")}
+          </span>
           <div className="form-check form-switch col-auto mt-2">
             <input
               className="form-check-input"
@@ -480,14 +486,14 @@ function Generator() {
               onChange={onTypeChange}
             />
             <label className="form-check-label fw-bold text-danger" htmlFor="memorableSwitch">
-              Memorable
+              {t("password:memorable")}
             </label>
           </div>
         </div>
         <div className="w-100 pt-1 bg-light"></div>
         <div className="row px-3">
           <div className="col-lg-6 col-12 mt-3 gx-0">
-            <label className="fs-5">Password Length</label>
+            <label className="fs-5">{t("password:passwordLength")}</label>
             <div className="row justify-content-start align-items-center mt-2">
               <div className="col-4">
                 <input
@@ -539,7 +545,7 @@ function Generator() {
                   onChange={onCheckBoxChange}
                 />
                 <label className="form-check-label" htmlFor="uppercaseCheck">
-                  Uppercase
+                  {t("password:uppercase")}
                 </label>
               </div>
               <div className="form-check form-control-lg col-6 d-flex align-items-center">
@@ -552,7 +558,7 @@ function Generator() {
                   onChange={onCheckBoxChange}
                 />
                 <label className="form-check-label" htmlFor="lowercaseCheck">
-                  Lowercase
+                  {t("password:lowercase")}
                 </label>
               </div>
               <div className="form-check form-control-lg col-6 d-flex align-items-center">
@@ -565,7 +571,7 @@ function Generator() {
                   onChange={onCheckBoxChange}
                 />
                 <label className="form-check-label" htmlFor="numbersCheck">
-                  Numbers
+                  {t("password:numbers")}
                 </label>
               </div>
               <div className="form-check form-control-lg col-6 d-flex align-items-center">
@@ -578,7 +584,7 @@ function Generator() {
                   onChange={onCheckBoxChange}
                 />
                 <label className="form-check-label" htmlFor="symoblsCheck">
-                  Symobls
+                  {t("password:symbols")}
                 </label>
               </div>
               <div className="form-check form-control-lg col-auto d-flex align-items-center">
@@ -591,7 +597,7 @@ function Generator() {
                   onChange={onCheckBoxChange}
                 />
                 <label className="form-check-label" htmlFor="avoidAmibugousCheck">
-                  Avoid Amibugous
+                  {t("password:avoidAmbiguous")}
                 </label>
               </div>
             </div>
@@ -606,7 +612,7 @@ function Generator() {
                   onChange={onCheckBoxChange}
                 />
                 <label className="form-check-label" htmlFor="capitalizeCheck">
-                  Capitalize
+                  {t("password:capitalize")}
                 </label>
               </div>
               <div className="form-check form-control-lg col-auto d-flex align-items-center">
@@ -619,7 +625,7 @@ function Generator() {
                   onChange={onCheckBoxChange}
                 />
                 <label className="form-check-label" htmlFor="fullwordsCheck">
-                  Full Words
+                  {t("password:fullWords")}
                 </label>
               </div>
             </div>
@@ -632,7 +638,7 @@ function Generator() {
           className="btn btn-lg col-md-7 col-lg-4 col-10  btn-danger rounded-pill fw-bold"
           onClick={copyAction}
         >
-          Copy Password
+          {t("password:copyPassword")}
         </button>
       </div>
       <div className="row mt-4 justify-content-center">
@@ -641,10 +647,10 @@ function Generator() {
           className="btn btn-lg col-md-7 col-lg-4 col-10  btn-dark rounded-pill fw-bold"
           onClick={(e) => {
             navigator.clipboard.writeText("");
-            showToast("Cleared clipboard", "danger", 1000);
+            showToast(t("common:common.clearedClipboard"), "danger", 1000);
           }}
         >
-          Clear Clipboard
+          {t("password:clearClipboard")}
         </button>
       </div>
 
@@ -668,13 +674,17 @@ interface QuestionData {
   body: string;
 }
 
-function Question({ data }: { data: QuestionData[] }) {
+function Question() {
+  const { t } = useTranslation("password");
+   
+  const questions: QuestionData[] = t("questions", { returnObjects: true }) as any;
+
   return (
     <section className="my-5 text-center">
-      <p className="fw-bold fs-1">What makes a password strong?</p>
+      <p className="fw-bold fs-1">{t("strongPasswordTitle")}</p>
       <div className="accordion mt-5" id="questionCollapse">
         <>
-          {data.map((v, index) => {
+          {questions.map((v, index) => {
             const headerId = "collapse-" + index + "-header";
             const collapseId = "collapse-" + index;
             return (
@@ -710,14 +720,17 @@ function Question({ data }: { data: QuestionData[] }) {
   );
 }
 
-function PasswordPage({ questions, toolData }: InferGetStaticPropsType<typeof getStaticProps>) {
+function PasswordPage() {
+  const { t } = useTranslation("tools");
+  const title = t("password.title");
+
   return (
     <>
-      <ToolPageHeadBuilder data={toolData} />
-      <Layout title={toolData.title}>
+      <ToolPageHeadBuilder toolPath="/password" />
+      <Layout title={title}>
         <div className="container pt-4">
           <Generator />
-          <Question data={questions} />
+          <Question />
         </div>
       </Layout>
     </>
@@ -725,28 +738,10 @@ function PasswordPage({ questions, toolData }: InferGetStaticPropsType<typeof ge
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const path = "/password";
-  const toolData: ToolData = findTool(path);
-
-  const questions: QuestionData[] = [
-    {
-      title: "Strong passwords are unique and random.",
-      body: "Humans aren't very good at coming up with passwords that are either of those things, let alone both. So we created the Strong Password Generator to create secure passwords for you. 81% of data breaches are caused by reused or weak passwords, so random, unique passwords are your best defense against online threats.",
-    },
-    {
-      title: "Why should my password be unique?",
-      body: "If you use the same password for both your email account and your bank account login, an attacker only needs to steal one password to get access to both accounts, doubling your exposure. If you've used that same password for 14 different accounts, you're making the attacker's job very, very easy. You can protect yourself by using a generator to create unique passwords that are easy to remember.",
-    },
-    {
-      title: "Why should my password be random?",
-      body: "Random passwords are hard to guess and harder for computer programs to crack. If there's a discernible pattern, the odds of an attacker using a brute force attack and gaining access to your account goes up exponentially. Random passwords might contain a jumble of unrelated characters, but combining unrelated words also works. That's how the Strong Password Generator creates passwords that are easy to remember but still cryptographically strong.",
-    },
-  ];
-
+  const locale = context.locale || "en";
   return {
     props: {
-      questions,
-      toolData,
+      ...(await serverSideTranslations(locale, ["common", "password", "tools"])),
     },
   };
 };

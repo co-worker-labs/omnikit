@@ -1,5 +1,7 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { useState } from "react";
+import { useTranslation } from "next-i18next/pages";
+import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { CopyButton } from "../components/copybtn";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
@@ -14,6 +16,7 @@ type BlockMode = "CBC" | "CFB" | "CTR" | "OFB" | "ECB";
 type PaddingScheme = "Pkcs7" | "Iso97971" | "AnsiX923" | "Iso10126" | "ZeroPadding" | "NoPadding";
 
 function Conversion() {
+  const { t } = useTranslation(["cipher", "common"]);
   const [rawContent, setRawContent] = useState<string>("");
   const [isTrimRaw, setIsTrimRaw] = useState<boolean>(true);
   const [passphrase, setPassphrase] = useState<string>("");
@@ -127,7 +130,7 @@ function Conversion() {
       setRawContent(raw);
       console.log(encrypted);
       setEncryptedContent(encrypted.toString());
-      showToast("Encrypted", "success", 3000);
+      showToast(t("common:common.encrypted"), "success", 3000);
     }
   }
 
@@ -180,10 +183,10 @@ function Conversion() {
       console.log(decrypted);
       try {
         setRawContent(decrypted.toString(CryptoJS.enc.Utf8));
-        showToast("Decrypted", "success", 3000);
+        showToast(t("common:common.decrypted"), "success", 3000);
       } catch (e) {
         console.error(e);
-        showToast("Invalid ciphertext, passphrase or settings", "danger", 3000);
+        showToast(t("common:alert.invalidCipher"), "danger", 3000);
       }
     }
   }
@@ -193,16 +196,16 @@ function Conversion() {
       <div>
         <div className="row justify-content-between">
           <label htmlFor="rawContentTextarea" className="form-label col-auto">
-            <span className="fw-bold text-primary">Plaintext</span>
+            <span className="fw-bold text-primary">{t("cipher:plaintext")}</span>
             <a
               href="#"
               className={`text-danger ms-2 ${styles.clearLink}`}
               onClick={() => {
                 setRawContent("");
-                showToast("Cleared", "danger", 2000);
+                showToast(t("common:common.cleared"), "danger", 2000);
               }}
             >
-              Clear
+              {t("common:common.clear")}
             </a>
           </label>
           <div className="form-check col-auto">
@@ -217,7 +220,7 @@ function Conversion() {
               }}
             />
             <label className="form-check-label" htmlFor="isTrimCheck">
-              Trim white space
+              {t("common:common.trimWhiteSpace")}
             </label>
           </div>
         </div>
@@ -225,7 +228,7 @@ function Conversion() {
           <textarea
             className="form-control"
             id="rawContentTextarea"
-            placeholder="Paste or type the plaintext here"
+            placeholder={t("cipher:plaintextPlaceholder")}
             rows={5}
             value={rawContent}
             onChange={(e) => {
@@ -238,23 +241,23 @@ function Conversion() {
 
       <div className="mt-3">
         <label htmlFor="passphraseTextarea" className="form-label">
-          <span className="fw-bold text-primary">Secret Passphrase</span>
+          <span className="fw-bold text-primary">{t("cipher:secretPassphrase")}</span>
           <a
             href="#"
             className={`text-danger ms-2 ${styles.clearLink}`}
             onClick={() => {
               setPassphrase("");
-              showToast("Cleared", "danger", 2000);
+              showToast(t("common:common.cleared"), "danger", 2000);
             }}
           >
-            Clear
+            {t("common:common.clear")}
           </a>
         </label>
         <div className="position-relative">
           <textarea
             className="form-control"
             id="passphraseTextarea"
-            placeholder="Paste or type the passphrase here"
+            placeholder={t("cipher:passphrasePlaceholder")}
             rows={3}
             value={passphrase}
             onChange={(e) => {
@@ -270,7 +273,7 @@ function Conversion() {
       <div className="row">
         <div className="col-6 col-lg-4 mt-3">
           <label htmlFor="passphraseTextarea" className="form-label col-auto">
-            Algorithms:
+            {t("cipher:algorithms")}
           </label>
           <select
             className="form-select form-select-sm"
@@ -293,7 +296,7 @@ function Conversion() {
         </div>
         <div className="col-6 col-lg-4 mt-3">
           <label htmlFor="passphraseTextarea" className="form-label col-auto">
-            Block Mode:
+            {t("cipher:blockMode")}
           </label>
           <select
             className="form-select form-select-sm"
@@ -312,7 +315,7 @@ function Conversion() {
         </div>
         <div className="col-6 col-lg-4 mt-3">
           <label htmlFor="passphraseTextarea" className="form-label col-auto">
-            Padding Scheme:
+            {t("cipher:paddingScheme")}
           </label>
           <select
             className="form-select form-select-sm"
@@ -332,7 +335,7 @@ function Conversion() {
         </div>
         <div className="col-6 col-lg-4 mt-3" hidden={algorithm != "RC4Drop"}>
           <label htmlFor="droppedWords" className="form-label col-auto">
-            Dropped words:
+            {t("cipher:droppedWords")}
           </label>
           <input
             type="number"
@@ -354,7 +357,8 @@ function Conversion() {
           disabled={isDisabledEncrypt()}
           onClick={doEncrypt}
         >
-          Encrypt<i className="bi bi-chevron-double-down ms-1"></i>
+          {t("common:common.encrypted")}
+          <i className="bi bi-chevron-double-down ms-1"></i>
         </button>
         <button
           type="button"
@@ -362,7 +366,8 @@ function Conversion() {
           disabled={isDisabledDecrypt()}
           onClick={doDecrypt}
         >
-          Decrypt<i className="bi bi-chevron-double-up ms-1"></i>
+          {t("common:common.decrypted")}
+          <i className="bi bi-chevron-double-up ms-1"></i>
         </button>
         <button
           type="button"
@@ -372,31 +377,32 @@ function Conversion() {
             setRawContent("");
             setEncryptedContent("");
             setPassphrase("");
-            showToast("All Cleared", "danger", 2000);
+            showToast(t("common:common.allCleared"), "danger", 2000);
           }}
         >
-          Clear All<i className="bi bi-x ms-1"></i>
+          {t("common:common.clearAll")}
+          <i className="bi bi-x ms-1"></i>
         </button>
       </div>
       <div className="mt-3">
         <label htmlFor="encryptedContentTextarea" className="form-label">
-          <span className="fw-bold text-success">Ciphertext</span>
+          <span className="fw-bold text-success">{t("cipher:ciphertext")}</span>
           <a
             href="#"
             className={`text-danger ms-2 ${styles.clearLink}`}
             onClick={() => {
               setEncryptedContent("");
-              showToast("Cleared", "danger", 2000);
+              showToast(t("common:common.cleared"), "danger", 2000);
             }}
           >
-            Clear
+            {t("common:common.clear")}
           </a>
         </label>
         <div className="position-relative">
           <textarea
             className="form-control"
             id="encryptedContentTextarea"
-            placeholder="Ciphertext output"
+            placeholder={t("cipher:ciphertextOutput")}
             rows={5}
             value={encryptedContent}
             onChange={(e) => {
@@ -414,65 +420,41 @@ function Conversion() {
 }
 
 function Description() {
+  const { t } = useTranslation("cipher");
   return (
     <section id="description" className="mt-4 sentence">
       <div>
-        <h5>AES</h5>
-        <p>
-          The Advanced Encryption Standard (AES) is a U.S. Federal Information Processing Standard
-          (FIPS). It was selected after a 5-year process where 15 competing designs were evaluated.
-        </p>
+        <h5>{t("descriptions.aesTitle")}</h5>
+        <p>{t("descriptions.aes")}</p>
       </div>
       <div>
-        <h5>DES, Triple DES</h5>
-        <p>
-          DES is a previously dominant algorithm for encryption, and was published as an official
-          Federal Information Processing Standard (FIPS). DES is now considered to be insecure due
-          to the small key size.
-        </p>
-        <p>
-          Triple DES applies DES three times to each block to increase the key size. The algorithm
-          is believed to be secure in this form.
-        </p>
+        <h5>{t("descriptions.desTitle")}</h5>
+        <p>{t("descriptions.des")}</p>
+        <p>{t("descriptions.tripleDes")}</p>
       </div>
       <div>
-        <h5>Rabbit</h5>
-        <p>
-          Rabbit is a high-performance stream cipher and a finalist in the eSTREAM Portfolio. It is
-          one of the four designs selected after a 3 1/2-year process where 22 designs were
-          evaluated.
-        </p>
+        <h5>{t("descriptions.rabbitTitle")}</h5>
+        <p>{t("descriptions.rabbit")}</p>
       </div>
       <div>
-        <h5>RC4, RC4Drop</h5>
-        <p>
-          RC4 is a widely-used stream cipher. It&#39;s used in popular protocols such as SSL and
-          WEP. Although remarkable for its simplicity and speed, the algorithm&#39;s history
-          doesn&#39;t inspire confidence in its security.
-        </p>
-        <p>
-          It was discovered that the first few bytes of keystream are strongly non-random and leak
-          information about the key. We can defend against this attack by discarding the initial
-          portion of the keystream. This modified algorithm is traditionally called RC4-drop.
-        </p>
-        <p>
-          By default, 192 words (768 bytes) are dropped, but you can configure the algorithm to drop
-          any number of words.
-        </p>
+        <h5>{t("descriptions.rc4Title")}</h5>
+        <p>{t("descriptions.rc4")}</p>
+        <p>{t("descriptions.rc4drop")}</p>
+        <p>{t("descriptions.rc4dropConfig")}</p>
       </div>
     </section>
   );
 }
 
 function CipherPage({ toolData }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { t } = useTranslation("common");
   return (
     <>
-      <ToolPageHeadBuilder data={toolData} />
+      <ToolPageHeadBuilder toolPath="/cipher" />
       <Layout title={toolData.title}>
         <div className="container pt-4">
           <div className="alert alert-danger py-3" role="alert">
-            * Your content are not transferred to the server. All calculations are performed
-            directly in the browser
+            {t("alert.notTransferred")}
           </div>
           <Conversion />
           <Description />
@@ -483,11 +465,13 @@ function CipherPage({ toolData }: InferGetStaticPropsType<typeof getStaticProps>
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const locale = context.locale || "en";
   const path = "/cipher";
   const toolData: ToolData = findTool(path);
   return {
     props: {
       toolData,
+      ...(await serverSideTranslations(locale, ["common", "cipher"])),
     },
   };
 };

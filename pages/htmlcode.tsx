@@ -1,4 +1,6 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { useTranslation } from "next-i18next/pages";
+import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
 import {
@@ -31,19 +33,20 @@ function PronunciationPrinter({
   list: PronunciationCharacterData[];
   desc: string;
 }) {
+  const { t } = useTranslation("htmlcode");
   return (
     <div className={`${styles.character}`} style={{ top: "3rem" }}>
       <p>{desc}</p>
       <table className="table text-center table-striped table-hover table-bordered">
         <thead className="table-dark sticky-top">
           <tr className="text-uppercase">
-            <th scope="col">Character</th>
-            <th scope="col">Entity name</th>
-            <th scope="col">Entity code</th>
-            <th scope="col">IPA</th>
-            <th scope="col">IPA Entity name</th>
-            <th scope="col">IPA Entity code</th>
-            <th scope="col">Example</th>
+            <th scope="col">{t("tableHeaders.character")}</th>
+            <th scope="col">{t("tableHeaders.entityName")}</th>
+            <th scope="col">{t("tableHeaders.entityCode")}</th>
+            <th scope="col">{t("tableHeaders.ipa")}</th>
+            <th scope="col">{t("tableHeaders.ipaEntityName")}</th>
+            <th scope="col">{t("tableHeaders.ipaEntityCode")}</th>
+            <th scope="col">{t("tableHeaders.example")}</th>
           </tr>
         </thead>
         <tbody className="table-group-divider">
@@ -77,17 +80,18 @@ function PronunciationPrinter({
 }
 
 function CharacterPrinter({ desc, list }: { list: CharacterData[]; desc: string }) {
+  const { t } = useTranslation("htmlcode");
   return (
     <div className={`${styles.character}`}>
       <p>{desc}</p>
       <table className="table text-center table-striped table-hover table-bordered">
         <thead className="table-dark sticky-top" style={{ top: "3rem" }}>
           <tr className="text-uppercase">
-            <th scope="col">Character</th>
-            <th scope="col">Entity name</th>
-            <th scope="col">Entity number</th>
-            <th scope="col">Hex Code</th>
-            <th scope="col">Description</th>
+            <th scope="col">{t("tableHeaders.character")}</th>
+            <th scope="col">{t("tableHeaders.entityName")}</th>
+            <th scope="col">{t("tableHeaders.entityNumber")}</th>
+            <th scope="col">{t("tableHeaders.hexCode")}</th>
+            <th scope="col">{t("tableHeaders.description")}</th>
           </tr>
         </thead>
         <tbody className="table-group-divider">
@@ -111,6 +115,7 @@ function CharacterPrinter({ desc, list }: { list: CharacterData[]; desc: string 
 }
 
 function PrintLetters({ list }: { list: CharacterData[] }) {
+  const { t } = useTranslation("htmlcode");
   const letters = [];
   for (var i = "A".charCodeAt(0); i <= "Z".charCodeAt(0); i++) {
     letters.push(i);
@@ -137,11 +142,11 @@ function PrintLetters({ list }: { list: CharacterData[] }) {
       <table className="table text-center table-striped table-hover table-bordered">
         <thead className="table-dark sticky-top" style={{ top: "3rem" }}>
           <tr className="text-uppercase">
-            <th scope="col">Character</th>
-            <th scope="col">Entity name</th>
-            <th scope="col">Entity number</th>
-            <th scope="col">Hex Code</th>
-            <th scope="col">Description</th>
+            <th scope="col">{t("tableHeaders.character")}</th>
+            <th scope="col">{t("tableHeaders.entityName")}</th>
+            <th scope="col">{t("tableHeaders.entityNumber")}</th>
+            <th scope="col">{t("tableHeaders.hexCode")}</th>
+            <th scope="col">{t("tableHeaders.description")}</th>
           </tr>
         </thead>
         <tbody className="table-group-divider">
@@ -164,28 +169,11 @@ function PrintLetters({ list }: { list: CharacterData[] }) {
 }
 
 function Description() {
+  const { t } = useTranslation("htmlcode");
   return (
     <section id="description" className={`mt-3 text-break ${styles.description}`}>
-      <p>
-        There are a lot of different letters, characters, special characters, symbols and icons
-        which you may want to use in your website content but when you do, they don’t display as
-        they should. To make sure they do display correctly, you need to use HTML codes. Every
-        single letter, character, symbol and icon has its own HTML code which you just need to place
-        in your HTML. We’ve created a complete list of all HTML codes for the various characters,
-        special characters, letters, symbols and icons. You can easily copy these HTML codes and
-        past them into your HTML so they show up correctly within the contents on your website.
-        Where available, we’ve added the friendly HTML code (entity name), the numerical HTML code
-        (entity number) and the HEX code so you&lsquo;ll always find the right code you need.
-      </p>
-      <p>
-        Before you use one of the below codes on your website, make sure your HTML document uses the
-        correct encoding so you are sure that the HTML codes and HTML special codes are displayed
-        properly. To make sure your HTML uses the correct encoding, you should make sure that you
-        use the Unicode character set. This Unicode character set must be set in the head section of
-        your HTML document. This is done by using a meta with the charset attribute and the value
-        UTF-8. Just copy and paste the following meta into your head section and all the below HTML
-        characters will be displayed perfectly so you’re good to go.
-      </p>
+      <p>{t("description.p1")}</p>
+      <p>{t("description.p2")}</p>
       <div className="row justify-content-start">
         <pre className="border col-auto rounded py-2 px-5 ms-md-4">
           &lt;meta charset=&quot;utf-8&quot; &gt;
@@ -206,9 +194,10 @@ function HtmlCodePage({
   icons,
   pronunciations,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { t } = useTranslation("htmlcode");
   return (
     <>
-      <ToolPageHeadBuilder data={toolData} />
+      <ToolPageHeadBuilder toolPath="/htmlcode" />
       <Layout title={toolData.title}>
         <div className="container py-4">
           <Description />
@@ -225,7 +214,7 @@ function HtmlCodePage({
                   aria-controls="letters-tab-pane"
                   aria-selected="true"
                 >
-                  Letters
+                  {t("tabs.letters")}
                 </button>
               </li>
               <li className="nav-item" role="presentation">
@@ -239,7 +228,7 @@ function HtmlCodePage({
                   aria-controls="Punctuation-tab-pane"
                   aria-selected="false"
                 >
-                  Punctuation
+                  {t("tabs.punctuation")}
                 </button>
               </li>
               <li className="nav-item" role="presentation">
@@ -253,7 +242,7 @@ function HtmlCodePage({
                   aria-controls="currencies-tab-pane"
                   aria-selected="false"
                 >
-                  Currencies
+                  {t("tabs.currencies")}
                 </button>
               </li>
               <li className="nav-item" role="presentation">
@@ -267,7 +256,7 @@ function HtmlCodePage({
                   aria-controls="mathematical-tab-pane"
                   aria-selected="false"
                 >
-                  Mathematical
+                  {t("tabs.mathematical")}
                 </button>
               </li>
               <li className="nav-item" role="presentation">
@@ -281,7 +270,7 @@ function HtmlCodePage({
                   aria-controls="pronunciations-tab-pane"
                   aria-selected="false"
                 >
-                  Pronunciations
+                  {t("tabs.pronunciations")}
                 </button>
               </li>
               <li className="nav-item" role="presentation">
@@ -295,7 +284,7 @@ function HtmlCodePage({
                   aria-controls="diacritics-tab-pane"
                   aria-selected="false"
                 >
-                  Diacritics
+                  {t("tabs.diacritics")}
                 </button>
               </li>
               <li className="nav-item" role="presentation">
@@ -309,7 +298,7 @@ function HtmlCodePage({
                   aria-controls="ascii-tab-pane"
                   aria-selected="false"
                 >
-                  ASCII
+                  {t("tabs.ascii")}
                 </button>
               </li>
               <li className="nav-item" role="presentation">
@@ -323,7 +312,7 @@ function HtmlCodePage({
                   aria-controls="icons-tab-pane"
                   aria-selected="false"
                 >
-                  Icons
+                  {t("tabs.icons")}
                 </button>
               </li>
             </ul>
@@ -344,12 +333,7 @@ function HtmlCodePage({
                 aria-labelledby="Punctuation-tab"
                 tabIndex={1}
               >
-                <CharacterPrinter
-                  desc={
-                    "Punctuations are characters that are used in texts so the readability of texts become better. Punctuation sometimes also indicates how a sentence should be pronounced, or what a word or sentence means."
-                  }
-                  list={punctuations}
-                />
+                <CharacterPrinter desc={t("tabDescriptions.punctuation")} list={punctuations} />
               </div>
               <div
                 className="tab-pane fade"
@@ -358,12 +342,7 @@ function HtmlCodePage({
                 aria-labelledby="currencies-tab"
                 tabIndex={2}
               >
-                <CharacterPrinter
-                  desc={
-                    "Several currencies have their own HTML character which you can use on your website. Find the HTML character from the HTML currency code list below."
-                  }
-                  list={currencies}
-                />
+                <CharacterPrinter desc={t("tabDescriptions.currencies")} list={currencies} />
               </div>
               <div
                 className="tab-pane fade"
@@ -372,12 +351,7 @@ function HtmlCodePage({
                 aria-labelledby="mathematical-tab"
                 tabIndex={3}
               >
-                <CharacterPrinter
-                  desc={
-                    "There are quite a few mathematical HTML characters which you can use on your website. This list of HTML mathematical characters will help you find the right mathematical character to display in your HTML."
-                  }
-                  list={mathematical}
-                />
+                <CharacterPrinter desc={t("tabDescriptions.mathematical")} list={mathematical} />
               </div>
               <div
                 className="tab-pane fade"
@@ -387,9 +361,7 @@ function HtmlCodePage({
                 tabIndex={4}
               >
                 <PronunciationPrinter
-                  desc={
-                    "Pronunciation characters will help the readers of a text understand how a word should be spoken. Below you'll find all HTML pronunciation characters which you can use in your HTML."
-                  }
+                  desc={t("tabDescriptions.pronunciations")}
                   list={pronunciations}
                 />
               </div>
@@ -400,12 +372,7 @@ function HtmlCodePage({
                 aria-labelledby="diacritics-tab"
                 tabIndex={5}
               >
-                <CharacterPrinter
-                  desc={
-                    "There are a lot of letters and characters that have a glyph or accent added to the letter or character. These diacritics can make the pronunciation or meaning of a word different. This HTML diacritics list will allow you to display the right diacritic on your website."
-                  }
-                  list={diacritics}
-                />
+                <CharacterPrinter desc={t("tabDescriptions.diacritics")} list={diacritics} />
               </div>
               <div
                 className="tab-pane fade"
@@ -414,12 +381,7 @@ function HtmlCodePage({
                 aria-labelledby="ascii-tab"
                 tabIndex={6}
               >
-                <CharacterPrinter
-                  desc={
-                    "The ASCII (American Standard Code for Information Interchange) subset of Unicode includes the numbers, letters and characters which are basically the most-known characters. The ASCII subset includes the numbers 0 to 9, the lower case letters a to z, upper case letters A to Z and some basic punctuation and control codes. The following ASCII HTML list includes all ASCII subset Unicode HTML codes."
-                  }
-                  list={ascii}
-                />
+                <CharacterPrinter desc={t("tabDescriptions.ascii")} list={ascii} />
               </div>
               <div
                 className="tab-pane fade"
@@ -428,12 +390,7 @@ function HtmlCodePage({
                 aria-labelledby="icons-tab"
                 tabIndex={7}
               >
-                <CharacterPrinter
-                  desc={
-                    "HTML also offers special characters which you can use in your HTML. For example, a heart, a gender icon, musical notes or arrows. Use the special characters and icons from the below HTML icon list and special characters freely on your website."
-                  }
-                  list={icons}
-                />
+                <CharacterPrinter desc={t("tabDescriptions.icons")} list={icons} />
               </div>
             </div>
           </section>
@@ -444,6 +401,7 @@ function HtmlCodePage({
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const locale = context.locale || "en";
   const path = "/htmlcode";
   const toolData: ToolData = findTool(path);
   const letters = getLetters();
@@ -465,6 +423,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       ascii,
       icons,
       pronunciations,
+      ...(await serverSideTranslations(locale, ["common", "htmlcode"])),
     },
   };
 };

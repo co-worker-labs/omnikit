@@ -1,0 +1,34 @@
+{
+  "password": {
+    "title": "密碼產生器",
+    "description": "產生安全、隨機且好記的密碼，守護您的網路安全。"
+  },
+  "ascii": {
+    "title": "ASCII 對照表",
+    "description": "ASCII 字元對照表，包含十六進位、八進位、HTML、十進位等完整轉換表"
+  },
+  "htmlcode": {
+    "title": "HTML 特殊字元代碼",
+    "description": "HTML 代碼與 HTML 特殊字元對照"
+  },
+  "base64": {
+    "title": "Base64 編碼/解碼",
+    "description": "Base64 編碼或解碼，支援 Basic Authentication"
+  },
+  "hashing": {
+    "title": "文字雜湊",
+    "description": "演算法：MD5, SHA1, SHA-224, SHA256, SHA348, SHA512, SHA3-224, SHA3-256, SHA3-384, SHA3-512, keccak, ripemd-160"
+  },
+  "checksum": {
+    "title": "檔案校驗碼",
+    "description": "支援不限數量的檔案及不限大小的檔案"
+  },
+  "cipher": {
+    "title": "文字加密/解密",
+    "description": "AES, DES, Triple DES, Rabbit, RC4, RC4Drop"
+  },
+  "storageunit": {
+    "title": "儲存單位換算",
+    "description": "在多種資料單位之間進行換算，例如 byte、kilobyte、megabyte、terabyte、petabyte 等等"
+  }
+}

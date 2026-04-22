@@ -1,0 +1,21 @@
+{
+  "dropFilesHere": "Drop files here or click to select",
+  "deselect": "Deselect ({{count}})",
+  "noFileChosen": "No file chosen",
+  "selectedFiles": "Selected {{count}} {{files}}",
+  "selectedFile": "Selected {{count}} file",
+  "checksumOutput": "Checksum Output",
+  "storageUnit1000": "1K = 1000 Bytes",
+  "storageUnit1024": "1K = 1024 Bytes",
+  "descriptions": {
+    "md5Title": "MD5",
+    "md5": "MD5 is a widely used hash function. It's been used in a variety of security applications and is also commonly used to check the integrity of files. Though, MD5 is not collision resistant, and it isn't suitable for applications like SSL certificates or digital signatures that rely on this property.",
+    "sha1Title": "SHA-1",
+    "sha1": "The SHA hash functions were designed by the National Security Agency (NSA). SHA-1 is the most established of the existing SHA hash functions, and it's used in a variety of security applications and protocols. Though, SHA-1's collision resistance has been weakening as new attacks are discovered or improved.",
+    "sha2Title": "SHA-2",
+    "sha2": "SHA-256 is one of the four variants in the SHA-2 set. It isn't as widely used as SHA-1, though it appears to provide much better security.",
+    "sha2extra": "SHA-512 is largely identical to SHA-256 but operates on 64-bit words rather than 32.",
+    "sha3Title": "SHA-3",
+    "sha3": "SHA-3 is the winner of a five-year competition to select a new cryptographic hash algorithm where 64 competing designs were evaluated."
+  }
+}

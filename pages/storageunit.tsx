@@ -1,5 +1,7 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { ChangeEvent, useMemo, useState } from "react";
+import { useTranslation } from "next-i18next/pages";
+import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { CopyButton } from "../components/copybtn";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
@@ -27,6 +29,7 @@ function formatByComma(value: string): string {
 }
 
 function Conversion() {
+  const { t } = useTranslation("storageunit");
   const [current, setCurrent] = useState<number>(1);
   const [selectedUnit, setSelectedUnit] = useState<string>("GB");
 
@@ -73,7 +76,7 @@ function Conversion() {
     <section id="conversion">
       <div className="mt-4">
         <label htmlFor="currentInput" className="form-label h5 text-primary fw-bolder ">
-          {selectedUnitData?.title} Conversion
+          {t("conversion", { unit: selectedUnitData?.title })}
         </label>
         <input
           type="number"
@@ -118,7 +121,7 @@ function Conversion() {
                 onChange={toggleMeasurementTypes}
               />
               <label className="form-check-label" htmlFor="decimalCheck">
-                Decimal
+                {t("decimal")}
               </label>
             </div>
             <div className="form-check col-auto form-control-lg">
@@ -131,7 +134,7 @@ function Conversion() {
                 onChange={toggleMeasurementTypes}
               />
               <label className="form-check-label" htmlFor="binaryCheck">
-                Binary
+                {t("binary")}
               </label>
             </div>
             <div className="form-check col-auto form-control-lg">
@@ -144,7 +147,7 @@ function Conversion() {
                 onChange={toggleMeasurementTypes}
               />
               <label className="form-check-label" htmlFor="bitCheck">
-                Bit
+                {t("bit")}
               </label>
             </div>
           </div>
@@ -153,11 +156,11 @@ function Conversion() {
 
       <div className="table-responsive mt-3">
         <table className="table caption-top table-striped table-hover table-bordered align-middle text-start">
-          <caption>Conversion Output</caption>
+          <caption>{t("conversionOutput")}</caption>
           <thead className="table-dark">
             <tr>
-              <th>Measurement</th>
-              <th>Conversion</th>
+              <th>{t("measurement")}</th>
+              <th>{t("conversionCol")}</th>
             </tr>
           </thead>
           <tbody className="table-group-divider">
@@ -306,13 +309,14 @@ function MostConversionList() {
   );
 }
 function StorageUnitPage({ toolData }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { t } = useTranslation("storageunit");
   return (
     <>
-      <ToolPageHeadBuilder data={toolData} />
+      <ToolPageHeadBuilder toolPath="/storageunit" />
       <Layout title={toolData.title}>
         <div className="container pt-3">
           <Conversion />
-          <div className="text-center h5 mt-4 text-uppercase">Common Conversion Table</div>
+          <div className="text-center h5 mt-4 text-uppercase">{t("commonConversionTable")}</div>
           <hr className="text-danger" />
           <MostConversionList />
         </div>
@@ -322,11 +326,13 @@ function StorageUnitPage({ toolData }: InferGetStaticPropsType<typeof getStaticP
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const locale = context.locale || "en";
   const path = "/storageunit";
   const toolData: ToolData = findTool(path);
   return {
     props: {
       toolData,
+      ...(await serverSideTranslations(locale, ["common", "storageunit"])),
     },
   };
 };

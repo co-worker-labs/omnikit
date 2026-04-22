@@ -1,0 +1,22 @@
+{
+  "plainText": "純文字",
+  "secretPassphrase": "密鑰短語",
+  "passphrasePlaceholder": "在此貼上或輸入 HMAC 的密鑰短語",
+  "pasteToCompare": "貼上以比較",
+  "compareToChecksum": "與校驗碼比較",
+  "storageUnit1000": "1K = 1000 Bytes",
+  "storageUnit1024": "1K = 1024 Bytes",
+  "descriptions": {
+    "md5Title": "MD5",
+    "md5": "MD5 是一種廣泛使用的雜湊函式。它曾被用於多種安全應用，也常被用來檢查檔案的完整性。不過，MD5 不具備抗碰撞能力，不適合用於依賴此特性的應用，例如 SSL 憑證或數位簽章。",
+    "sha1Title": "SHA-1",
+    "sha1": "SHA 雜湊函式由美國國家安全局（NSA）設計。SHA-1 是現有 SHA 雜湊函式中歷史最悠久的，被廣泛用於各種安全應用和通訊協定中。不過，隨著新型攻擊方式不斷被發現或改良，SHA-1 的抗碰撞能力正持續減弱。",
+    "sha2Title": "SHA-2",
+    "sha2": "SHA-256 是 SHA-2 家族中的四種變體之一。雖然不如 SHA-1 普及，但它提供了更好的安全性。",
+    "sha2extra": "SHA-512 與 SHA-256 基本相同，但以 64 位元字組運算，而非 32 位元。",
+    "sha3Title": "SHA-3",
+    "sha3": "SHA-3 是一場為期五年的密碼學雜湊演算法競賽的優勝者，共有 64 個參賽設計接受評估。",
+    "hmacTitle": "HMAC",
+    "hmac": "金鑰雜湊訊息認證碼（HMAC）是一種使用密碼學雜湊函式進行訊息認證的機制。"
+  }
+}

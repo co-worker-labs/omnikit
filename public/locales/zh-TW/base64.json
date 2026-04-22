@@ -1,0 +1,32 @@
+{
+  "plainText": "純文字",
+  "encodedText": "已編碼文字",
+  "encodedOutput": "編碼結果",
+  "plainTextPlaceholder": "在此貼上或輸入純文字",
+  "basicAuthentication": "Basic Authentication",
+  "username": "使用者名稱",
+  "password": "密碼",
+  "encode": "編碼",
+  "decode": "解碼",
+  "descriptions": {
+    "whatIsTitle": "什麼是 Base64 編碼？",
+    "whatIsP1": "Base64 編碼是一種將資料（通常是二進位）轉換為 ASCII 字元集的方式。需要特別說明的是，Base64 並非加密或壓縮技術，雖然它看起來像是在遮蔽資料，但有時會被誤認為加密。事實上，Base64 編碼後的資料大小是原始資料的 1.3333 倍。",
+    "whatIsP2": "Base64 是最廣泛使用的基底編碼技術，另外兩種常用的編碼方案是 Base16 和 Base32。",
+    "whatIsP3": "Base64 編碼是將二進位資料轉換為純 ASCII 文字最常見的方式之一。對於無法輕易處理二進位資料的系統之間的通訊來說，這是非常實用的格式，例如 HTML 標記中的圖片或網路請求。",
+    "howTitle": "Base64 是如何運作的？",
+    "howP1": "將資料轉換為 Base64 是一個多步驟的過程。以下是針對文字字串的運作方式：",
+    "howStep1": "計算輸入文字的 8 位元二進位版本",
+    "howStep2": "將 8 位元的資料重新分組為多個 6 位元的區塊",
+    "howStep3": "找出每個 6 位元二進位區塊對應的十進位數值",
+    "howStep4": "透過 Base64 對照表找出每個十進位數值對應的 Base64 符號",
+    "whyTitle": "為什麼要使用 Base64 編碼？",
+    "whyP1": "以二進位格式傳送資訊有時會有風險，因為並非所有應用程式或網路系統都能處理原始的二進位資料。另一方面，ASCII 字元集廣為人知，大多數系統都能輕鬆處理。",
+    "whyP2": "舉例來說，電子郵件伺服器預期接收文字資料，因此通常使用 ASCII。所以，如果您想將圖片或其他二進位檔案傳送至電子郵件伺服器，必須先將其編碼為文字格式，最好是 ASCII。這正是 Base64 編碼派上用場的地方，能將二進位資料轉換為正確的格式。",
+    "useCasesTitle": "探索 Base64 的常見用途",
+    "useCasesP1": "您也可以使用 Base64 以相容於 HTML、JavaScript 和 CSS 的方式來表示二進位資料。例如，您可以使用 Base64 將圖片直接嵌入 CSS 或 JavaScript 檔案中。",
+    "useCasesP2": "可以使用 Base64 將表單資料或 JSON 等輸入轉換為字元集更精簡且 URL 安全的字串。不過，由於某些伺服器可能會對加號（+）和斜線（/）字元有特殊解讀，建議使用 encodeURIComponent 替代。",
+    "limitationsTitle": "了解 Base64 的限制",
+    "limitationsP1": "Base64 絕不是一種安全的加密方式。",
+    "limitationsP2": "Base64 也不是壓縮方式。將字串編碼為 Base64 通常會使輸出長度增加 33%。"
+  }
+}

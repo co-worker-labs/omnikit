@@ -5,11 +5,13 @@ import { CopyButton } from "../components/copybtn";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
 import { showToast } from "../libs/toast";
-import { findTool, ToolData } from "../libs/tools";
 import codingTableImg from "../public/base64/decimal-to-base64-table.png";
 import styles from "../styles/Base64.module.css";
+import { useTranslation } from "next-i18next/pages";
+import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 
 function Conversion() {
+  const { t } = useTranslation(["common", "base64"]);
   const [rawContent, setRawContent] = useState<string>("");
   const [isTrimRaw, setIsTrimRaw] = useState<boolean>(true);
   const [rawCharset, setRawCharset] = useState<BufferEncoding>("utf-8");
@@ -47,7 +49,7 @@ function Conversion() {
     const encoded = Buffer.from(raw, rawCharset).toString("base64");
     updateEncodedContent(encoded);
     updateRawContent(raw);
-    showToast("Encoded", "success", 2000);
+    showToast(t("common:common.encoded"), "success", 2000);
   }
 
   function doDecode() {
@@ -60,7 +62,7 @@ function Conversion() {
     const raw = Buffer.from(encoded, "base64").toString(rawCharset);
     updateEncodedContent(encoded);
     updateRawContent(raw);
-    showToast("Decoded", "success", 2000);
+    showToast(t("common:common.decoded"), "success", 2000);
   }
 
   function isDisabledEncode(): boolean {
@@ -79,7 +81,6 @@ function Conversion() {
   }
 
   function toggleCopyIcon(element: HTMLElement, timeout: number) {
-    // bi-clipboard bi-clipboard-check
     element.classList.remove("bi-clipboard");
     element.classList.add("bi-clipboard-check");
     element.classList.add("text-success");
@@ -94,7 +95,7 @@ function Conversion() {
     const iconEle = e.currentTarget.getElementsByTagName("i")[0];
     toggleCopyIcon(iconEle, 2000);
     navigator.clipboard.writeText(content);
-    showToast("Copied", "success", 2000);
+    showToast(t("common:common.copied"), "success", 2000);
   }
 
   return (
@@ -102,16 +103,16 @@ function Conversion() {
       <div>
         <div className="row justify-content-between">
           <label htmlFor="rawContentTextarea" className="form-label col-auto">
-            <span className="fw-bold text-primary">Plain Text</span>
+            <span className="fw-bold text-primary">{t("base64:plainText")}</span>
             <a
               href="#"
               className={`text-danger ms-2 ${styles.clearLink}`}
               onClick={() => {
                 updateRawContent("");
-                showToast("Cleared", "danger", 2000);
+                showToast(t("common:common.cleared"), "danger", 2000);
               }}
             >
-              Clear
+              {t("common:common.clear")}
             </a>
           </label>
           <div className="form-check col-auto">
@@ -126,7 +127,7 @@ function Conversion() {
               }}
             />
             <label className="form-check-label" htmlFor="isTrimCheck">
-              Trim white space
+              {t("common:common.trimWhiteSpace")}
             </label>
           </div>
         </div>
@@ -134,7 +135,7 @@ function Conversion() {
           <textarea
             className="form-control"
             id="rawContentTextarea"
-            placeholder="Paster or type the plain text here"
+            placeholder={t("base64:plainTextPlaceholder")}
             rows={5}
             value={rawContent}
             onChange={(e) => {
@@ -155,15 +156,15 @@ function Conversion() {
             onChange={(e) => setBasicAuthEnabled(e.target.checked)}
           />
           <label className="form-check-label" htmlFor="basicAuthFlag">
-            Basic Authentication
+            {t("base64:basicAuthentication")}
           </label>
         </div>
         <div className="input-group mt-2" hidden={!basicAuthEnabled}>
           <input
             type="text"
             className="form-control"
-            placeholder="Username"
-            aria-label="Username"
+            placeholder={t("base64:username")}
+            aria-label={t("base64:username")}
             value={username}
             onChange={(e) => {
               updateRawContent(buildBasicAuth(e.target.value, password));
@@ -173,8 +174,8 @@ function Conversion() {
           <input
             type="text"
             className="form-control"
-            placeholder="Password"
-            aria-label="Password"
+            placeholder={t("base64:password")}
+            aria-label={t("base64:password")}
             value={password}
             onChange={(e) => {
               updateRawContent(buildBasicAuth(username, e.target.value));
@@ -202,7 +203,8 @@ function Conversion() {
           disabled={isDisabledEncode()}
           onClick={doEncode}
         >
-          Encode<i className="bi bi-chevron-double-down ms-1"></i>
+          {t("base64:encode")}
+          <i className="bi bi-chevron-double-down ms-1"></i>
         </button>
         <button
           type="button"
@@ -210,7 +212,8 @@ function Conversion() {
           disabled={isDiabledDecode()}
           onClick={doDecode}
         >
-          Decode<i className="bi bi-chevron-double-up ms-1"></i>
+          {t("base64:decode")}
+          <i className="bi bi-chevron-double-up ms-1"></i>
         </button>
         <button
           type="button"
@@ -219,31 +222,32 @@ function Conversion() {
           onClick={() => {
             updateRawContent("");
             updateEncodedContent("");
-            showToast("All Cleared", "danger", 2000);
+            showToast(t("common:common.allCleared"), "danger", 2000);
           }}
         >
-          Clear All<i className="bi bi-x ms-1"></i>
+          {t("common:common.clearAll")}
+          <i className="bi bi-x ms-1"></i>
         </button>
       </div>
       <div className="mb-3">
         <label htmlFor="encodedContentTextarea" className="form-label">
-          <span className="fw-bold text-success">Encoded Text</span>
+          <span className="fw-bold text-success">{t("base64:encodedText")}</span>
           <a
             href="#"
             className={`text-danger ms-2 ${styles.clearLink}`}
             onClick={() => {
               setEncodedContent("");
-              showToast("Cleared", "danger", 2000);
+              showToast(t("common:common.cleared"), "danger", 2000);
             }}
           >
-            Clear
+            {t("common:common.clear")}
           </a>
         </label>
         <div className="position-relative">
           <textarea
             className="form-control"
             id="encodedContentTextarea"
-            placeholder="Encoded Output"
+            placeholder={t("base64:encodedOutput")}
             rows={5}
             value={encodedContent}
             onChange={(e) => {
@@ -258,90 +262,56 @@ function Conversion() {
 }
 
 function Description() {
+  const { t } = useTranslation("base64");
   return (
     <section id="description" className="mt-4 sentence">
       <div>
-        <h3>What is Base64 Encoding?</h3>
-        <p>
-          Base64 encoding is a way to convert data (typically binary) into the ASCII character set.
-          It is important to mention here that Base64 is not an encryption or compression technique,
-          although it can sometimes be confused as encryption due to the way it seems to obscure
-          data. In fact, size of a Base64 encoded piece of information is 1.3333 times the actual
-          size of your original data.
-        </p>
-        <p>
-          Base64 is the most widely used base encoding technique with Base16 and Base32 being the
-          other two commonly used encoding schemes.
-        </p>
-        <p>
-          Base64 encoding is one of the most common ways of converting binary data into plain ASCII
-          text. It is a very useful format for communicating between one or more systems that cannot
-          easily handle binary data, like images in HTML markup or web requests
-        </p>
+        <h3>{t("descriptions.whatIsTitle")}</h3>
+        <p>{t("descriptions.whatIsP1")}</p>
+        <p>{t("descriptions.whatIsP2")}</p>
+        <p>{t("descriptions.whatIsP3")}</p>
       </div>
       <div>
-        <h3>How Does Base64 Work?</h3>
-        <p>
-          Converting data to base64 is a multistep process. Here is how it works for strings of
-          text:
-        </p>
+        <h3>{t("descriptions.howTitle")}</h3>
+        <p>{t("descriptions.howP1")}</p>
         <ol>
-          <li>Calculate the 8 bit binary version of the input text</li>
-          <li>Re-group the 8 bit version of the data into multiple chunks of 6 bits</li>
-          <li>Find the decimal version of each of the 6 bit binary chunk</li>
-          <li>Find the Base64 symbol for each of the decimal values via a Base64 lookup table</li>
+          <li>{t("descriptions.howStep1")}</li>
+          <li>{t("descriptions.howStep2")}</li>
+          <li>{t("descriptions.howStep3")}</li>
+          <li>{t("descriptions.howStep4")}</li>
         </ol>
         <Image src={codingTableImg} alt="" />
       </div>
       <div>
-        <h3>Why use Base64 Encoding?</h3>
-        <p>
-          Sending information in binary format can sometimes be risky since not all applications or
-          network systems can handle raw binary. On the other hand, the ASCII character set is
-          widely known and very simple to handle for most systems.
-        </p>
-        <p>
-          For instance email servers expect textual data, so ASCII is typically used. Therefore, if
-          you want to send images or any other binary file to an email server you first need to
-          encode it in text-based format, preferably ASCII. This is where Base64 encoding comes
-          extremely handy in converting binary data to the correct formats.
-        </p>
+        <h3>{t("descriptions.whyTitle")}</h3>
+        <p>{t("descriptions.whyP1")}</p>
+        <p>{t("descriptions.whyP2")}</p>
       </div>
       <div>
-        <h3>Exploring Common Use Cases for Base64</h3>
-        <p>
-          You can also use Base64 to represent binary data in a way that is compatible with HTML,
-          JavaScript, and CSS. For example, you can embed an image inline in a CSS or JavaScript
-          file using Base64.
-        </p>
-        <p>
-          It is possible to use Base64 to convert input, like form data or JSON, to a string with a
-          reduced character set that is URL-safe. However, due to how certain servers may interpret
-          plus (+) and forward-slash (/) characters, it is recommended to use encodeURIComponent
-          instead.
-        </p>
+        <h3>{t("descriptions.useCasesTitle")}</h3>
+        <p>{t("descriptions.useCasesP1")}</p>
+        <p>{t("descriptions.useCasesP2")}</p>
       </div>
       <div>
-        <h3>Understanding the Limitations of Base64</h3>
-        <p>Base64 is in no way meant to be a secure encryption method.</p>
-        <p>
-          Base64 is also not a compression method. Encoding a string to Base64 typically results in
-          33% longer output.
-        </p>
+        <h3>{t("descriptions.limitationsTitle")}</h3>
+        <p>{t("descriptions.limitationsP1")}</p>
+        <p>{t("descriptions.limitationsP2")}</p>
       </div>
     </section>
   );
 }
 
-function Base64Page({ toolData }: InferGetStaticPropsType<typeof getStaticProps>) {
+function Base64Page() {
+  const { t } = useTranslation(["common", "tools"]);
+  const title = t("tools:base64.title");
+
   return (
     <>
-      <ToolPageHeadBuilder data={toolData} />
-      <Layout title={toolData.title}>
+      <ToolPageHeadBuilder toolPath="/base64" />
+      <Layout title={title}>
         <div className="container pt-3">
           <div className="alert alert-danger py-3 my-lg-4" role="alert">
-            * Your content are not transferred to the server. All calculations are performed
-            directly in the browser
+            {t("common:alert.notTransferred")}
           </div>
           <Conversion />
           <Description />
@@ -352,11 +322,10 @@ function Base64Page({ toolData }: InferGetStaticPropsType<typeof getStaticProps>
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const path = "/base64";
-  const toolData: ToolData = findTool(path);
+  const locale = context.locale || "en";
   return {
     props: {
-      toolData,
+      ...(await serverSideTranslations(locale, ["common", "base64", "tools"])),
     },
   };
 };

@@ -1,0 +1,25 @@
+{
+  "plaintext": "明文",
+  "ciphertext": "密文",
+  "secretPassphrase": "密碼短語",
+  "plaintextPlaceholder": "在此貼上或輸入明文",
+  "passphrasePlaceholder": "在此貼上或輸入密碼短語",
+  "ciphertextOutput": "密文輸出",
+  "algorithms": "演算法：",
+  "blockMode": "區塊模式：",
+  "paddingScheme": "填充方案：",
+  "droppedWords": "捨棄字組數：",
+  "descriptions": {
+    "aesTitle": "AES",
+    "aes": "進階加密標準（AES）是一項美國聯邦資訊處理標準（FIPS）。它是經過為期 5 年的評選過程，從 15 個參賽設計中脫穎而出。",
+    "desTitle": "DES, Triple DES",
+    "des": "DES 曾是主流的加密演算法，並被發布為官方的聯邦資訊處理標準（FIPS）。由於金鑰長度過短，DES 現已被認為不安全。",
+    "tripleDes": "Triple DES 對每個區塊執行三次 DES 以增加金鑰長度。此演算法在此形式下被認為是安全的。",
+    "rabbitTitle": "Rabbit",
+    "rabbit": "Rabbit 是一種高效能的串流加密演算法，也是 eSTREAM 組合的入選者之一。它是經過為期 3 年半、從 22 個設計中評選出的四個設計之一。",
+    "rc4Title": "RC4, RC4Drop",
+    "rc4": "RC4 是一種廣泛使用的串流加密演算法，被用於 SSL 和 WEP 等常見通訊協定中。雖然以其簡潔和速度著稱，但此演算法的安全歷史並不令人放心。",
+    "rc4drop": "研究發現金鑰串流的前幾個位元組具有強烈的非隨機性，會洩漏金鑰資訊。我們可以透過捨棄金鑰串流的初始部分來防禦此攻擊。這種修改後的演算法傳統上稱為 RC4-drop。",
+    "rc4dropConfig": "預設會捨棄 192 個字組（768 位元組），但您可以設定演算法捨棄任意數量的字組。"
+  }
+}

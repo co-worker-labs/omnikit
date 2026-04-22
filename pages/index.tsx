@@ -4,32 +4,30 @@ import Layout from "../components/layout";
 import { listMatchedTools, ToolData } from "../libs/tools";
 import { useRouter } from "next/router";
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { useTranslation } from "next-i18next/pages";
+import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
+import { getTranslatedTools } from "../libs/tools";
 
 function Introduce() {
+  const { t } = useTranslation("home");
   return (
     <div className={`${styles.introduce}`}>
       <div className="container text-center">
         <span className={`h1 text-capitalize fw-bolder ${styles.introduceTitle}`}>
-          Explore Awesome Tools
+          {t("exploreTitle")}
         </span>
-        {/* <p className='mt-5 fs-5'>
-          We offer those to the community for free, but our day job is building and selling useful tools for developers like you.
-        </p> */}
       </div>
     </div>
   );
 }
 
-function ToolCollection({ data }: { data: ToolData[] }) {
+function ToolCollection() {
   const router = useRouter();
+  const { t } = useTranslation(["common", "tools"]);
+  const data = getTranslatedTools(t);
+
   return (
     <div className="container text-center px-3 mb-5">
-      {/* <div className={`h1 text-capitalize fw-bolder mt-5 ${styles.toolCollectionTitle}`}>
-        Tools Collection
-      </div>
-      <div className='mb-3 mt-3'>
-        <i className="bi bi-heart-pulse me-2 fs-4 text-primary"></i>
-      </div> */}
       <div className="row mt-5">
         <>
           {data.map((value, index) => {
@@ -53,7 +51,7 @@ function ToolCollection({ data }: { data: ToolData[] }) {
                           router.push(value.path);
                         }}
                       >
-                        {value.path == "" ? "Coming Soon" : "Goto"}
+                        {value.path == "" ? t("common:common.comingSoon") : t("common:common.goto")}
                       </button>
                     </div>
                   </div>
@@ -68,6 +66,7 @@ function ToolCollection({ data }: { data: ToolData[] }) {
 }
 
 export default function Home({ tools }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { t } = useTranslation(["home", "tools"]);
   const keywords: string[] = [];
   tools.forEach((value: ToolData) => {
     value.keywords.forEach((kw) => {
@@ -79,24 +78,26 @@ export default function Home({ tools }: InferGetStaticPropsType<typeof getStatic
   return (
     <>
       <Head>
-        <title>W3Tools Online</title>
-        <meta name="description" content="Online awesome Tools" />
+        <title>{t("home:title")}</title>
+        <meta name="description" content={t("home:metaDescription")} />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="keyword" content={keywords.join(",")} />
       </Head>
       <Layout headerPosition="none" aside={false}>
         <Introduce />
-        <ToolCollection data={tools} />
+        <ToolCollection />
       </Layout>
     </>
   );
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const locale = context.locale || "en";
   const tools: ToolData[] = listMatchedTools("");
   return {
     props: {
       tools,
+      ...(await serverSideTranslations(locale, ["common", "home", "tools"])),
     },
   };
 };

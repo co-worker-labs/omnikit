@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "brand": "W3tools Online",
+    "search": "搜尋",
+    "searchPlaceholder": "搜尋",
+    "switchToLight": "切換至淺色模式",
+    "switchToDark": "切換至深色模式"
+  },
+  "footer": {
+    "home": "首頁",
+    "terms": "使用條款",
+    "privacy": "隱私權政策",
+    "copyright": "© {{year}} by w3tools.online. 保留所有權利。"
+  },
+  "layout": {
+    "recent": "近期 >>"
+  },
+  "common": {
+    "comingSoon": "即將推出",
+    "goto": "前往",
+    "clear": "清除",
+    "clearAll": "全部清除",
+    "allCleared": "已全部清除",
+    "copied": "已複製",
+    "cleared": "已清除",
+    "clearedClipboard": "已清除剪貼簿",
+    "generated": "已產生",
+    "encoded": "已編碼",
+    "decoded": "已解碼",
+    "encrypted": "已加密",
+    "decrypted": "已解密",
+    "deselected": "已取消選取",
+    "savedToComparison": "已儲存至比較",
+    "deleted": "已刪除",
+    "noData": "無資料",
+    "copy": "複製",
+    "generate": "產生",
+    "compare": "比較",
+    "trimWhiteSpace": "移除空白字元",
+    "plainText": "純文字",
+    "encodedText": "已編碼文字",
+    "storageUnit": "儲存單位：",
+    "hashing": "雜湊",
+    "hmac": "HMAC",
+    "size": "大小",
+    "calculating": "計算中...",
+    "close": "關閉",
+    "language": "語言"
+  },
+  "alert": {
+    "notTransferred": "* 您的內容不會傳送至伺服器。所有計算皆在瀏覽器中直接執行",
+    "filesNotTransferred": "* 您選取的檔案不會傳送至伺服器。所有計算皆在瀏覽器中直接執行",
+    "checksumInfo": "此為 HTML5 線上檔案校驗碼工具，支援不限數量的檔案及不限大小的檔案。",
+    "invalidCipher": "無效的密文、密碼短語或設定"
+  }
+}

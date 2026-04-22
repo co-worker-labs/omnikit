@@ -1,4 +1,6 @@
 import { GetStaticProps, InferGetStaticPropsType } from "next";
+import { useTranslation } from "next-i18next/pages";
+import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
 import { ControlCode, getControlCodes, getPrintableCharacters } from "../libs/ascii";
@@ -54,16 +56,17 @@ function beautyPrint(
 }
 
 function ControlCodeChart({ list }: { list: ControlCode[] }) {
+  const { t } = useTranslation("ascii");
   return (
     <table className="table text-center table-striped table-hover table-bordered">
       <thead className="table-dark sticky-top" style={{ top: "3rem" }}>
         <tr className="text-uppercase">
-          <th scope="col">Decimal</th>
-          <th scope="col">Binary</th>
-          <th scope="col">Oct</th>
-          <th scope="col">Hex</th>
-          <th scope="col">Abbr</th>
-          <th scope="col">Desc</th>
+          <th scope="col">{t("tableHeaders.decimal")}</th>
+          <th scope="col">{t("tableHeaders.binary")}</th>
+          <th scope="col">{t("tableHeaders.oct")}</th>
+          <th scope="col">{t("tableHeaders.hex")}</th>
+          <th scope="col">{t("tableHeaders.abbr")}</th>
+          <th scope="col">{t("tableHeaders.desc")}</th>
         </tr>
       </thead>
       <tbody className="table-group-divider">
@@ -87,6 +90,7 @@ function ControlCodeChart({ list }: { list: ControlCode[] }) {
 }
 
 function PrintableCharacters({ list }: { list: number[] }) {
+  const { t } = useTranslation("ascii");
   function printGlyph(code: number) {
     let char = String.fromCharCode(code);
 
@@ -106,12 +110,12 @@ function PrintableCharacters({ list }: { list: number[] }) {
     <table className="table text-center table-striped table-hover table-bordered">
       <thead className="table-dark sticky-top" style={{ top: "3rem" }}>
         <tr className="text-uppercase">
-          <th scope="col">Decimal</th>
-          <th scope="col">Binary</th>
-          <th scope="col">Oct</th>
-          <th scope="col">Hex</th>
-          <th scope="col">Html</th>
-          <th scope="col">Glyph</th>
+          <th scope="col">{t("tableHeaders.decimal")}</th>
+          <th scope="col">{t("tableHeaders.binary")}</th>
+          <th scope="col">{t("tableHeaders.oct")}</th>
+          <th scope="col">{t("tableHeaders.hex")}</th>
+          <th scope="col">{t("tableHeaders.html")}</th>
+          <th scope="col">{t("tableHeaders.glyph")}</th>
         </tr>
       </thead>
       <tbody className="table-group-divider">
@@ -139,26 +143,14 @@ function AsciiPage({
   printableCharacters,
   controlCodes,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const { t } = useTranslation(["ascii", "common"]);
   return (
     <>
-      <ToolPageHeadBuilder data={toolData} />
+      <ToolPageHeadBuilder toolPath="/ascii" />
       <Layout title={toolData.title}>
         <div className="container py-4">
           <section id="description" className="py-3">
-            <p className={`${styles.description}`}>
-              ASCII stands for American Standard Code for Information Interchange. Computers can
-              only understand numbers, so an ASCII code is the numerical representation of a
-              character such as &lsquo;a&lsquo; or &lsquo;@&lsquo; or an action of some sort. ASCII
-              was developed a long time ago and now the non-printing characters are rarely used for
-              their original purpose. Below is the ASCII character table and this includes
-              descriptions of the first 32 non-printing characters. ASCII was actually designed for
-              use with teletypes and so the descriptions are somewhat obscure. If someone says they
-              want your CV however in ASCII format, all this means is they want &lsquo;plain&lsquo;
-              text with no formatting such as tabs, bold or underscoring - the raw format that any
-              computer can understand. This is usually so they can easily import the file into their
-              own applications without issues. Notepad.exe creates ASCII text, or in MS Word you can
-              save a file as &lsquo;text only&lsquo;
-            </p>
+            <p className={`${styles.description}`}>{t("ascii:description")}</p>
           </section>
           <section>
             <ul className="nav nav-tabs" id="myTab" role="tablist">
@@ -173,7 +165,7 @@ function AsciiPage({
                   aria-controls="home-tab-pane"
                   aria-selected="true"
                 >
-                  Printable Characters
+                  {t("ascii:printableCharacters")}
                 </button>
               </li>
               <li className="nav-item" role="presentation">
@@ -187,7 +179,7 @@ function AsciiPage({
                   aria-controls="profile-tab-pane"
                   aria-selected="false"
                 >
-                  Control Code Charts
+                  {t("ascii:controlCodeCharts")}
                 </button>
               </li>
             </ul>
@@ -219,6 +211,7 @@ function AsciiPage({
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const locale = context.locale || "en";
   const path = "/ascii";
   const toolData: ToolData = findTool(path);
   const printableCharacters: number[] = getPrintableCharacters();
@@ -229,6 +222,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       toolData: toolData,
       printableCharacters: printableCharacters,
       controlCodes: controlCodes,
+      ...(await serverSideTranslations(locale, ["common", "ascii"])),
     },
   };
 };

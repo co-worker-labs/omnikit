@@ -1,0 +1,25 @@
+{
+  "plaintext": "明文",
+  "ciphertext": "密文",
+  "secretPassphrase": "密钥短语",
+  "plaintextPlaceholder": "在此粘贴或输入明文",
+  "passphrasePlaceholder": "在此粘贴或输入密钥短语",
+  "ciphertextOutput": "密文输出",
+  "algorithms": "算法：",
+  "blockMode": "分组模式：",
+  "paddingScheme": "填充方案：",
+  "droppedWords": "丢弃字数：",
+  "descriptions": {
+    "aesTitle": "AES",
+    "aes": "高级加密标准 (AES) 是一项美国联邦信息处理标准 (FIPS)。它是在为期 5 年的评估过程中，从 15 个竞争方案中选拔出来的。",
+    "desTitle": "DES、Triple DES",
+    "des": "DES 是曾经占主导地位的加密算法，曾被发布为联邦信息处理标准 (FIPS)。由于密钥长度过短，DES 现已被认为不够安全。",
+    "tripleDes": "Triple DES 对每个数据块执行三次 DES 运算以增加密钥长度。该算法在此形式下被认为是安全的。",
+    "rabbitTitle": "Rabbit",
+    "rabbit": "Rabbit 是一种高性能流密码，也是 eSTREAM 项目组合的入围方案之一。它是在 3 年半的评估过程中，从 22 个参选方案中选出的四个设计之一。",
+    "rc4Title": "RC4、RC4Drop",
+    "rc4": "RC4 是一种广泛使用的流密码，常见于 SSL 和 WEP 等协议中。尽管它以简单和高速著称，但其安全历史并不能令人放心。",
+    "rc4drop": "研究发现，RC4 密钥流的前几个字节具有明显的非随机性，会泄露密钥信息。我们可以通过丢弃密钥流的初始部分来防御此类攻击。这种改进后的算法通常被称为 RC4-drop。",
+    "rc4dropConfig": "默认情况下丢弃 192 个字（768 字节），但你也可以配置算法丢弃任意数量的字。"
+  }
+}

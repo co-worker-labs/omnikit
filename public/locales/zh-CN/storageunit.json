@@ -1,0 +1,10 @@
+{
+  "conversion": "{{unit}} 转换",
+  "decimal": "十进制",
+  "binary": "二进制",
+  "bit": "比特",
+  "conversionOutput": "转换结果",
+  "measurement": "度量",
+  "conversionCol": "转换",
+  "commonConversionTable": "常用转换对照表"
+}

@@ -2,10 +2,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { listMatchedTools, ToolData } from "../libs/tools";
+import { listMatchedTools, getTranslatedTools, ToolData } from "../libs/tools";
 import logoIcon from "../public/favicon.ico";
 import NoData from "./nodata";
 import { useTheme } from "../libs/theme";
+import { useTranslation } from "next-i18next/pages";
+import LanguageSwitcher from "./language_switcher";
 
 export type HeaderPosition = "sticky" | "none" | "hidden";
 
@@ -14,6 +16,7 @@ export default function Header({ position, title }: { position: HeaderPosition; 
   const [toolItems, setToolItems] = useState<ToolData[]>([]);
   const router = useRouter();
   const { theme, toggleTheme } = useTheme();
+  const { t } = useTranslation("common");
 
   const clz = (): string => {
     switch (position) {
@@ -38,7 +41,7 @@ export default function Header({ position, title }: { position: HeaderPosition; 
     const searchModal = document.getElementById("searchModal");
     if (searchModal) {
       searchModal.addEventListener("shown.bs.modal", (event) => {
-        const tools = listMatchedTools("");
+        const tools = getTranslatedTools(t);
         setToolItems(tools);
         document.getElementById("searchInput")?.focus();
       });
@@ -70,7 +73,9 @@ export default function Header({ position, title }: { position: HeaderPosition; 
               width={28}
               className="d-inline-block align-text-top me-2"
             />
-            <span className={`fw-bold ${!title ? "" : " d-none d-md-inline"}`}>W3tools Online</span>
+            <span className={`fw-bold ${!title ? "" : " d-none d-md-inline"}`}>
+              {t("nav.brand")}
+            </span>
           </Link>
           {title && (
             <Link
@@ -95,7 +100,7 @@ export default function Header({ position, title }: { position: HeaderPosition; 
               <input
                 type="search"
                 className="form-control"
-                placeholder="Search"
+                placeholder={t("nav.search")}
                 aria-label="Search"
                 aria-describedby="search-addon"
                 value={searchContent}
@@ -119,10 +124,11 @@ export default function Header({ position, title }: { position: HeaderPosition; 
               type="button"
               className="btn btn-outline-secondary ms-2"
               onClick={toggleTheme}
-              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+              aria-label={t(theme === "dark" ? "nav.switchToLight" : "nav.switchToDark")}
             >
               <i className={`bi ${theme === "dark" ? "bi-sun" : "bi-moon"}`}></i>
             </button>
+            <LanguageSwitcher />
           </div>
         </div>
       </nav>
@@ -150,7 +156,7 @@ export default function Header({ position, title }: { position: HeaderPosition; 
                   type="search"
                   role="search"
                   className="form-control form-control-lg"
-                  placeholder="Search"
+                  placeholder={t("nav.search")}
                   value={searchContent}
                   onChange={(e) => {
                     const value = e.target.value;
@@ -191,7 +197,7 @@ export default function Header({ position, title }: { position: HeaderPosition; 
                                       goto(value.path);
                                     }}
                                   >
-                                    {value.path == "" ? "Coming Soon" : "Goto"}
+                                    {value.path == "" ? t("common.comingSoon") : t("common.goto")}
                                   </button>
                                 </div>
                               </div>

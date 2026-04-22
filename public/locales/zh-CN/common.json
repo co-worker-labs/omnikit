@@ -1,0 +1,56 @@
+{
+  "nav": {
+    "brand": "W3tools Online",
+    "search": "搜索",
+    "searchPlaceholder": "搜索",
+    "switchToLight": "切换到浅色模式",
+    "switchToDark": "切换到深色模式"
+  },
+  "footer": {
+    "home": "首页",
+    "terms": "服务条款",
+    "privacy": "隐私政策",
+    "copyright": "© {{year}} w3tools.online 版权所有"
+  },
+  "layout": {
+    "recent": "最近使用 >>"
+  },
+  "common": {
+    "comingSoon": "即将推出",
+    "goto": "前往",
+    "clear": "清除",
+    "clearAll": "全部清除",
+    "allCleared": "已全部清除",
+    "copied": "已复制",
+    "cleared": "已清除",
+    "clearedClipboard": "剪贴板已清空",
+    "generated": "已生成",
+    "encoded": "已编码",
+    "decoded": "已解码",
+    "encrypted": "已加密",
+    "decrypted": "已解密",
+    "deselected": "已取消选择",
+    "savedToComparison": "已保存到对比",
+    "deleted": "已删除",
+    "noData": "暂无数据",
+    "copy": "复制",
+    "generate": "生成",
+    "compare": "对比",
+    "trimWhiteSpace": "去除空白字符",
+    "plainText": "纯文本",
+    "encodedText": "编码文本",
+    "storageUnit": "存储单位：",
+    "hashing": "哈希",
+    "hmac": "HMAC",
+    "size": "大小",
+    "calculating": "计算中...",
+    "close": "关闭",
+    "language": "语言"
+  },
+  "alert": {
+    "notTransferred": "* 您的内容不会传输到服务器，所有计算均在浏览器中直接完成",
+    "filesNotTransferred": "* 您选择的文件不会传输到服务器，所有计算均在浏览器中直接完成",
+    "checksumInfo": "这是一个基于 HTML5 的在线校验工具，支持不限数量的文件和不限大小的文件。",
+    "invalidCipher": "无效的密文、密码或设置"
+  }
+}

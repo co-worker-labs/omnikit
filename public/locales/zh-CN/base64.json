@@ -1,0 +1,32 @@
+{
+  "plainText": "纯文本",
+  "encodedText": "编码文本",
+  "encodedOutput": "编码输出",
+  "plainTextPlaceholder": "在此粘贴或输入纯文本",
+  "basicAuthentication": "Basic 认证",
+  "username": "用户名",
+  "password": "密码",
+  "encode": "编码",
+  "decode": "解码",
+  "descriptions": {
+    "whatIsTitle": "什么是 Base64 编码？",
+    "whatIsP1": "Base64 编码是一种将数据（通常是二进制数据）转换为 ASCII 字符集的方法。需要指出的是，Base64 不是加密或压缩技术，尽管它看似会遮蔽数据，有时会被误认为是加密。实际上，Base64 编码后的数据大小约为原始数据的 1.3333 倍。",
+    "whatIsP2": "Base64 是最广泛使用的基础编码技术，其他两种常用的编码方案是 Base16 和 Base32。",
+    "whatIsP3": "Base64 编码是将二进制数据转换为纯 ASCII 文本最常用的方式之一。对于无法直接处理二进制数据的系统（例如 HTML 标记中的图片或网络请求），它是一种非常实用的通信格式。",
+    "howTitle": "Base64 是如何工作的？",
+    "howP1": "将数据转换为 Base64 是一个多步骤过程。以下以文本字符串为例说明其工作原理：",
+    "howStep1": "计算输入文本的 8 位二进制表示",
+    "howStep2": "将 8 位数据重新分组为多个 6 位的块",
+    "howStep3": "查找每个 6 位二进制块的十进制值",
+    "howStep4": "通过 Base64 对照表查找每个十进制值对应的 Base64 符号",
+    "whyTitle": "为什么要使用 Base64 编码？",
+    "whyP1": "以二进制格式传输信息有时是有风险的，因为并非所有应用程序或网络系统都能处理原始二进制数据。而 ASCII 字符集广为人知，大多数系统都能轻松处理。",
+    "whyP2": "例如，邮件服务器需要的是文本数据，因此通常使用 ASCII。如果你想将图片或其他二进制文件发送到邮件服务器，需要先将其编码为文本格式，最好是 ASCII。Base64 编码在将二进制数据转换为合适格式方面非常实用。",
+    "useCasesTitle": "Base64 的常见用途",
+    "useCasesP1": "你还可以使用 Base64 以兼容 HTML、JavaScript 和 CSS 的方式表示二进制数据。例如，可以在 CSS 或 JavaScript 文件中使用 Base64 内联嵌入图片。",
+    "useCasesP2": "Base64 可用于将表单数据或 JSON 等输入转换为字符集更精简且 URL 安全的字符串。不过，由于某些服务器可能对加号 (+) 和斜杠 (/) 字符有特殊处理，建议使用 encodeURIComponent 替代。",
+    "limitationsTitle": "Base64 的局限性",
+    "limitationsP1": "Base64 并非一种安全的加密方式。",
+    "limitationsP2": "Base64 也不是一种压缩方式。将字符串编码为 Base64 通常会使输出长度增加 33%。"
+  }
+}
