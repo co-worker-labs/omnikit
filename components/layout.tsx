@@ -94,7 +94,7 @@ export default function Layout({
           <ArrowUp size={18} />
         </button>
 
-        <main className={`flex-1 ${className || ""}`} style={style}>
+        <main className={`flex-1 mb-6 ${className || ""}`} style={style}>
           {children}
         </main>
 
