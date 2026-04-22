@@ -27,7 +27,7 @@ export default function Header({ position, title }: { position: HeaderPosition; 
     active: tool.path === currentPath,
   }));
 
-  const positionClass = position === "sticky" ? "sticky top-0 z-50" : "";
+  const positionClass = position === "sticky" ? "sticky top-0 z-50" : "relative z-40";
 
   return (
     <>
