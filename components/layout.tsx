@@ -1,8 +1,8 @@
-import { CSSProperties, ReactNode, useEffect } from "react";
+import { CSSProperties, ReactNode, useCallback, useEffect } from "react";
 import Footer, { FooterPosition } from "./footer";
 import Header, { HeaderPosition } from "./header";
 import { Context, createContext, useContext, useState } from "react";
-import styles from "./Layout.module.css";
+import { ArrowUp } from "lucide-react";
 import { useRouter } from "next/router";
 import { pathTrim } from "../utils/path";
 
@@ -42,6 +42,7 @@ export default function Layout({
   bodyStyle?: CSSProperties;
 }) {
   const [isHidden, setIsHidden] = useState<boolean>(hidden || false);
+  const [showBackTop, setShowBackTop] = useState(false);
 
   const footerPos = footerPosition || "none";
   const headerPos = headerPosition || "sticky";
@@ -59,54 +60,45 @@ export default function Layout({
     },
   };
 
+  const handleScroll = useCallback(() => {
+    setShowBackTop(window.scrollY > 400);
+  }, []);
+
   useEffect(() => {
-    window.addEventListener("scroll", (e) => {
-      const el = document.getElementById("backtopbtn");
-      if (el) {
-        if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
-          if (el.hasAttribute("hidden")) {
-            el.removeAttribute("hidden");
-          }
-        } else {
-          if (!el.hasAttribute("hidden")) {
-            el.setAttribute("hidden", "true");
-          }
-        }
-      }
-    });
-  }, [path]);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [handleScroll, path]);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
     <LayoutContext.Provider value={config}>
       <div
         hidden={isHidden}
-        className={` ${footerPos == "fixed" ? "pb-5" : ""} ${bodyClassName ? bodyClassName : ""}`}
+        className={`${footerPos === "fixed" ? "pb-5" : ""} ${bodyClassName || ""}`}
         style={bodyStyle}
       >
         <Header position={headerPos} title={title} />
-        <a
-          href="#"
-          className={`btn rounded-circle ${styles.backUpBtn} btn-dark`}
-          id="backtopbtn"
-          hidden
+
+        <button
+          type="button"
+          onClick={scrollToTop}
+          aria-label="Back to top"
+          className={`fixed bottom-16 right-8 z-50 flex h-10 w-10 items-center justify-center rounded-full border border-border-default bg-bg-surface text-fg-secondary shadow-card hover:text-accent-cyan hover:border-accent-cyan/40 transition-all duration-300 sm:right-8 sm:bottom-16 max-sm:right-4 max-sm:bottom-12 ${
+            showBackTop
+              ? "translate-y-0 opacity-100 pointer-events-auto"
+              : "translate-y-4 opacity-0 pointer-events-none"
+          }`}
         >
-          <i className="bi bi-arrow-bar-up fs-4"></i>
-        </a>
-        <main className={`${className ? className : ""}`} style={style}>
-          {aside ? (
-            <div className="row justify-content-center px-0 gx-0">
-              <div className="col d-none d-lg-block">
-                <div className="w-100 row justify-content-center ps-2 mt-2"></div>
-              </div>
-              <div className={`col col-lg-7`}>{children}</div>
-              <div className="col d-none d-lg-block">
-                <div className="w-100 row justify-content-center ps-2 mt-2"></div>
-              </div>
-            </div>
-          ) : (
-            <>{children}</>
-          )}
+          <ArrowUp size={18} />
+        </button>
+
+        <main className={className} style={style}>
+          {aside ? <div className="mx-auto max-w-3xl px-4">{children}</div> : <>{children}</>}
         </main>
+
         <Footer position={footerPos} />
       </div>
     </LayoutContext.Provider>
