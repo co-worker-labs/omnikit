@@ -93,7 +93,7 @@ function Conversion() {
           className="mt-1 text-lg"
         />
       </div>
-      <div className="flex flex-wrap">
+      <div className="flex flex-wrap items-center">
         <div className="w-full lg:w-1/2 mt-4">
           <StyledSelect
             value={selectedUnit}
@@ -111,7 +111,7 @@ function Conversion() {
             })}
           </StyledSelect>
         </div>
-        <div className="w-full lg:w-1/2 mt-4">
+        <div className="w-full lg:w-1/2 mt-4 lg:pl-6">
           <div className="flex justify-start items-center gap-4">
             <StyledCheckbox
               label={t("decimal")}
@@ -188,12 +188,11 @@ function ConversionTable({ list }: { list: { from: string; target: string }[] })
           let valueView = formatByComma(value.toString());
           return (
             <tr key={index} className="even:bg-bg-elevated/50 hover:bg-bg-elevated/80">
-              <th scope="row" className="py-2 px-3 border border-border-default text-sm">
+              <th scope="row" className="py-2 px-3 border border-border-default text-sm w-[120px]">
                 1 <span className="text-accent-cyan">{cnv.from}</span>
               </th>
               <td className="py-2 px-3 border border-border-default text-sm text-left">
                 {valueView} <span className="text-accent-cyan font-bold">{cnv.target}</span>
-                <CopyButton className="" getContent={() => value.toString()} />
               </td>
             </tr>
           );
