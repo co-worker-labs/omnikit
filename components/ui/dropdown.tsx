@@ -25,7 +25,7 @@ export function Dropdown({ trigger, items, className = "" }: DropdownProps) {
           <MenuItem key={index} disabled={item.disabled}>
             {({ focus }) => (
               <button
-                className={`w-full text-left px-4 py-2.5 text-sm transition-colors ${focus ? "bg-accent-cyan-dim text-accent-cyan" : "text-fg-primary"} ${item.active ? "text-accent-cyan font-medium" : ""} ${item.disabled ? "opacity-40 pointer-events-none" : ""}`}
+                className={`w-full text-left px-4 py-2.5 text-sm transition-colors border-l-2 ${item.active ? "border-accent-cyan text-accent-cyan font-medium" : "border-transparent"} ${focus && item.active ? "bg-accent-cyan-dim" : ""} ${focus && !item.active ? "bg-accent-cyan-dim text-accent-cyan" : ""} ${!focus && item.active ? "bg-accent-cyan/10" : ""} ${!focus && !item.active ? "text-fg-primary" : ""} ${item.disabled ? "opacity-40 pointer-events-none" : ""}`}
                 onClick={item.onClick}
               >
                 {item.label}
