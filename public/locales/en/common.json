@@ -1,6 +1,6 @@
 {
   "nav": {
-    "brand": "W3tools Online",
+    "brand": "ByteCraft",
     "search": "Search",
     "searchPlaceholder": "Search",
     "switchToLight": "Switch to light mode",
@@ -10,7 +10,7 @@
     "home": "Home",
     "terms": "Terms",
     "privacy": "Privacy",
-    "copyright": "© {{year}} by w3tools.online. All Rights Reserved."
+    "copyright": "© {{year}} ByteCraft. All Rights Reserved."
   },
   "layout": {},
   "common": {

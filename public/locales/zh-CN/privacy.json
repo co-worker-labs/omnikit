@@ -1,6 +1,6 @@
 {
   "title": "关于隐私",
-  "privacyStatementTitle": "W3tools 隐私声明",
+  "privacyStatementTitle": "字节工坊 隐私声明",
   "privacyStatementP1": "本隐私政策描述了你访问或购买 w3tools.online（以下简称\"本站\"）时，我们如何收集、使用和共享你的个人信息。",
   "personalInfoTitle": "我们收集的个人信息",
   "personalInfoP1": "当你访问本站时，我们会自动收集有关你设备的某些信息，包括你的网络浏览器、IP 地址、时区以及设备上安装的某些 Cookie 的信息。此外，当你浏览本站时，我们会收集你查看的单个网页或产品信息、引导你访问本站的网站或搜索词，以及你与本站互动的相关信息。我们将这些自动收集的信息称为\"设备信息\"。",
@@ -42,9 +42,9 @@
   "googleDriveP1": "我们的 Tryit 编辑器允许用户将代码存储到 Google Drive 或从 Google Drive 导入代码。",
   "googleDriveP2": "这允许用户：",
   "googleDriveList": ["将示例/代码存储到他们的 Google Drive", "通过 Google Drive 分享示例/代码"],
-  "googleDriveP3": "W3tools 不会为自己保留此信息，也不会与第三方共享此信息。",
+  "googleDriveP3": "字节工坊 不会为自己保留此信息，也不会与第三方共享此信息。",
   "linksTitle": "链接",
-  "linksP1": "W3tools 包含指向其他网站的链接。我们不对这些网站的隐私做法或内容负责。本隐私文件仅适用于 W3tools。",
+  "linksP1": "字节工坊 包含指向其他网站的链接。我们不对这些网站的隐私做法或内容负责。本隐私文件仅适用于 字节工坊。",
   "contactTitle": "联系我们",
   "contactP1": "如需了解更多关于我们隐私做法的信息，如果你有任何问题，或想提出投诉，请通过电子邮件联系我们：help@w3tools.online"
 }

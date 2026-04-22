@@ -15,7 +15,7 @@ export default function Document() {
       <body>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('w3tools-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-bs-theme',t)}else if(window.matchMedia('(prefers-color-scheme:dark)').matches){document.documentElement.setAttribute('data-bs-theme','dark')}}catch(e){}})()`,
+            __html: `(function(){try{var t=localStorage.getItem('bytecraft-theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-bs-theme',t)}else if(window.matchMedia('(prefers-color-scheme:dark)').matches){document.documentElement.setAttribute('data-bs-theme','dark')}}catch(e){}})()`,
           }}
         />
         <Main />

@@ -1,6 +1,6 @@
 {
   "title": "About Privacy",
-  "privacyStatementTitle": "Privacy Statement for W3tools",
+  "privacyStatementTitle": "Privacy Statement for ByteCraft",
   "privacyStatementP1": "This Privacy Policy describes how your personal information is collected, used, and shared when you visit or make a purchase from w3tools.online (the \"Site\").",
   "personalInfoTitle": "Personal information we collect",
   "personalInfoP1": "When you visit the Site, we automatically collect certain information about your device, including information about your web browser, IP address, time zone, and some of the cookies that are installed on your device. Additionally, as you browse the Site, we collect information about the individual web pages or products that you view, what websites or search terms referred you to the Site, and information about how you interact with the Site. We refer to this automatically-collected information as \"Device Information\".",
@@ -42,9 +42,9 @@
   "googleDriveP1": "Our Tryit Editor allows users to store code to, or import code from, Google Drive.",
   "googleDriveP2": "This allows users to:",
   "googleDriveList": ["Store examples/code to their Google Drive", "Share examples/code through Google Drive"],
-  "googleDriveP3": "W3tools does not keep for ourselves, or share this information with third parties.",
+  "googleDriveP3": "ByteCraft does not keep for ourselves, or share this information with third parties.",
   "linksTitle": "Links",
-  "linksP1": "W3tools contains links to other sites. We are not responsible for the privacy practices or the content of such Web sites. This privacy document applies only to W3tools.",
+  "linksP1": "ByteCraft contains links to other sites. We are not responsible for the privacy practices or the content of such Web sites. This privacy document applies only to ByteCraft.",
   "contactTitle": "Contact us",
   "contactP1": "For more information about our privacy practices, if you have questions, or if you would like to make a complaint, please contact us by e‑mail at help@w3tools.online"
 }

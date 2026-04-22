@@ -12,7 +12,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   toggleTheme: () => {},
 });
 
-const STORAGE_KEY = "w3tools-theme";
+const STORAGE_KEY = "bytecraft-theme";
 
 function getInitialTheme(): Theme {
   if (typeof window === "undefined") return "light";

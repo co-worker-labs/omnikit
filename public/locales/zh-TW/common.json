@@ -1,6 +1,6 @@
 {
   "nav": {
-    "brand": "W3tools Online",
+    "brand": "字节工坊",
     "search": "搜尋",
     "searchPlaceholder": "搜尋",
     "switchToLight": "切換至淺色模式",
@@ -10,7 +10,7 @@
     "home": "首頁",
     "terms": "使用條款",
     "privacy": "隱私權政策",
-    "copyright": "© {{year}} by w3tools.online. 保留所有權利。"
+    "copyright": "© {{year}} 字节工坊. 保留所有權利。"
   },
   "layout": {},
   "common": {
