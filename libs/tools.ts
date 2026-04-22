@@ -1,134 +1,317 @@
 export interface ToolData {
-    path: string;
-    title: string;
-    description: string;
-    searchKeys: string[];
-    keywords: string[];
-    related: string[];
+  path: string;
+  title: string;
+  description: string;
+  searchKeys: string[];
+  keywords: string[];
+  related: string[];
 }
 
 export function findTool(path: string): ToolData {
-    const result = toolsList.find((v) => v.path === path);
-    if (!result) {
-        throw 'Invalid page path: ' + path;
-    }
-    return result;
+  const result = toolsList.find((v) => v.path === path);
+  if (!result) {
+    throw "Invalid page path: " + path;
+  }
+  return result;
 }
 
 export function listMatchedTools(filter: string): ToolData[] {
-    if (filter == '') {
-        return toolsList;
+  if (filter == "") {
+    return toolsList;
+  }
+  filter = filter.toLocaleLowerCase();
+  const filterWords = filter.split(/\s+/);
+  return toolsList.filter((data) => {
+    for (var fw of filterWords) {
+      let found = data.searchKeys.filter((it) => it.includes(fw));
+      if (found.length == 0) {
+        return false;
+      }
     }
-    filter = filter.toLocaleLowerCase();
-    const filterWords = filter.split(/\s+/);
-    return toolsList.filter((data) => {
-        for (var fw of filterWords) {
-            let found = data.searchKeys.filter(it => it.includes(fw));
-            if (found.length == 0) {
-                return false;
-            }
-        }
-        return true;
-    })
+    return true;
+  });
 }
 
 export function listRelatedTools(path: string): ToolData[] {
-    const tool = toolsList.find((v) => v.path === path);
-    if (!tool) {
-        throw 'Invalid page path: ' + path;
+  const tool = toolsList.find((v) => v.path === path);
+  if (!tool) {
+    throw "Invalid page path: " + path;
+  }
+  const result: ToolData[] = [];
+  for (var i = 0; i < tool.related.length; i++) {
+    let tPath = tool.related[i];
+    let tTool = toolsList.find((v) => v.path == tPath);
+    if (!tTool) {
+      throw "Invalid page path: " + path;
     }
-    const result: ToolData[] = [];
-    for (var i = 0; i < tool.related.length; i++) {
-        let tPath = tool.related[i];
-        let tTool = toolsList.find((v) => v.path == tPath);
-        if (!tTool) {
-            throw 'Invalid page path: ' + path;
-        }
-        result.push(tTool);
-    }
-    return result;
+    result.push(tTool);
+  }
+  return result;
 }
 
 export const toolsList: ToolData[] = [
-    {
-        path: '/password',
-        title: 'Password Generator',
-        description: 'Generate secure, random, memorable passwords to stay safe online.',
-        searchKeys: ['password', 'generator', 'random', 'memorable', 'pin'],
-        keywords: ['password', 'generator', 'random', 'memorable', 'pin', 'gen', 'pass', 'text'],
-        related: ['/cipher'],
-    },
-    {
-        path: '/ascii',
-        title: 'ASCII Table',
-        description: 'Ascii character table - What is ascii - Complete tables including hex, octal, html, decimal conversions',
-        searchKeys: ['ascii'],
-        keywords: ['ascii', 'ascii table', 'ascii code', 'ascii characters', 'conversion',
-            'conversions', 'unicode', 'unicode tables', 'ascii help', 'help with ascii', 'asci',
-            'aski', 'asky', 'acii', 'askii', 'askey', 'cod', 'cde', 'tabe', 'tble', 'char', 'translation', 'translator',
-            'convert', 'character', 'text', 'textual', 'american', 'standard', 'information', 'interchange', 'extended', 'html'],
-        related: ['/htmlcode'],
-    },
-    {
-        path: '/htmlcode',
-        title: 'Html Code',
-        description: 'HTML codes and HTML special characters',
-        searchKeys: ['html', 'codes', 'special', 'characters'],
-        keywords: ['ascii', 'html code', 'ascii code', 'special characters', 'alphabet'],
-        related: ['/ascii'],
-    },
-    {
-        path: '/base64',
-        title: 'Base64 Encode/Decode',
-        description: 'Base64 Encode or Decode, Basic Authentication',
-        searchKeys: ['base64', 'decode', 'encode', 'basic authentication'],
-        keywords: ['base64 encode', 'base64', 'base64 decode', 'basic authentication', 'basicauth'],
-        related: ['/hashing', '/cipher', '/checksum'],
-    },
-    {
-        path: '/counter',
-        title: 'Text Counter',
-        description: 'Count text instantly - Count words, characters and lines',
-        searchKeys: ['text counter', 'words', 'characters', 'insight'],
-        keywords: ['words counter', 'counter', 'text counter', 'character counter'],
-        related: ['/hashing', '/storageunit'],
-    },
-    {
-        path: '/hashing',
-        title: 'Text Hashing',
-        description: 'Algorithms: MD5, SHA1, SHA-224, SHA256, SHA348, SHA512, SHA3-224, SHA3-256, SHA3-384, SHA3-512, keccak, ripemd-160',
-        searchKeys: ['keccak', 'md5', 'sha-1', 'sha1', 'sha224', 'sha2-224', 'sha3-224', 'sha256', 'sha2-256', 'sha3-256', 'sha384', 'sha2-384', 'sha3-384', 'sha512', 'sha2-512', 'sha3-512', 'ripemd-160', 'text hashing', 'algorithm', 'digest'],
-        keywords: ['keccak', 'md5', 'sha-1', 'sha1', 'sha224', 'sha2-224', 'sha3-224', 'sha256', 'sha2-256', 'sha3-256', 'sha384', 'sha2-384', 'sha3-384', 'sha512', 'sha2-512', 'sha3-512', 'ripemd-160', 'text hashing', 'hasing', 'hashing algorithms', 'message-digest algorithm', 'cryptographic protocol', 'digital signatures'],
-        related: ['/checksum', '/cipher', '/base64'],
-    },
-    {
-        path: '/checksum',
-        title: 'File Checksum',
-        description: 'Supports an unlimited number of files and unlimited file size',
-        searchKeys: ['file checksum', 'checksum', 'file', 'keccak', 'md5', 'sha-1', 'sha1', 'sha224', 'sha2-224', 'sha3-224', 'sha256', 'sha2-256', 'sha3-256', 'sha384', 'sha2-384', 'sha3-384', 'sha512', 'sha2-512', 'sha3-512', 'ripemd-160'],
-        keywords: ['file checksum', 'checksum', 'keccak', 'md5', 'sha-1', 'sha1', 'sha224', 'sha2-224', 'sha3-224', 'sha256', 'sha2-256', 'sha3-256', 'sha384', 'sha2-384', 'sha3-384', 'sha512', 'sha2-512', 'sha3-512', 'ripemd-160', 'hashing', 'hashing algorithms', 'message-digest algorithm', 'cryptographic protocol', 'digital signatures'],
-        related: ['/hashing', '/cipher', '/base64'],
-    },
-    {
-        path: '/cipher',
-        title: 'Text Encrypt/Decrypt',
-        description: 'AES, DES, Triple DES, Rabbit, RC4, RC4Drop',
-        searchKeys: ['text encrypt', 'text decrypt', 'aes', 'des', 'triple des', 'rabbit', 'rc4', 'rc4drop', 'cipher'],
-        keywords: ['cipher', 'text encrypt', 'encrypt', 'text decrypt', 'decrypt', 'aes', 'des', 'triple des', 'rabbit', 'rc4', 'rc4drop'],
-        related: ['/hashing', '/base64', '/password'],
-    },
-    {
-        path: '/storageunit',
-        title: 'Storage Unit Conversion',
-        description: 'Make conversions between a great number of various data units like byte, kilobyte, megabyte, terabyte, petabyte, and many other',
-        searchKeys: ['conversion', 'storage unit',
-            'byte', 'bit', 'kilobyte', 'megabyte', 'gigabyte', 'terabyte', 'petabyte',
-            'kb', 'mb', 'gb', 'tb', 'pb', 'kib', 'mib', 'gib', 'tib', 'pib',
-            'kilobit', 'megabit', 'gibabit', 'terabit', 'petabit'],
-        keywords: ['conversion', 'storage unit',
-            'byte', 'bit', 'kilobyte', 'megabyte', 'gigabyte', 'terabyte', 'petabyte',
-            'kb', 'mb', 'gb', 'tb', 'pb', 'kib', 'mib', 'gib', 'tib', 'pib',
-            'kilobit', 'megabit', 'gibabit', 'terabit', 'petabit'],
-        related: ['/counter', '/checksum'],
-    },
-]
+  {
+    path: "/password",
+    title: "Password Generator",
+    description: "Generate secure, random, memorable passwords to stay safe online.",
+    searchKeys: ["password", "generator", "random", "memorable", "pin"],
+    keywords: ["password", "generator", "random", "memorable", "pin", "gen", "pass", "text"],
+    related: ["/cipher"],
+  },
+  {
+    path: "/ascii",
+    title: "ASCII Table",
+    description:
+      "Ascii character table - What is ascii - Complete tables including hex, octal, html, decimal conversions",
+    searchKeys: ["ascii"],
+    keywords: [
+      "ascii",
+      "ascii table",
+      "ascii code",
+      "ascii characters",
+      "conversion",
+      "conversions",
+      "unicode",
+      "unicode tables",
+      "ascii help",
+      "help with ascii",
+      "asci",
+      "aski",
+      "asky",
+      "acii",
+      "askii",
+      "askey",
+      "cod",
+      "cde",
+      "tabe",
+      "tble",
+      "char",
+      "translation",
+      "translator",
+      "convert",
+      "character",
+      "text",
+      "textual",
+      "american",
+      "standard",
+      "information",
+      "interchange",
+      "extended",
+      "html",
+    ],
+    related: ["/htmlcode"],
+  },
+  {
+    path: "/htmlcode",
+    title: "Html Code",
+    description: "HTML codes and HTML special characters",
+    searchKeys: ["html", "codes", "special", "characters"],
+    keywords: ["ascii", "html code", "ascii code", "special characters", "alphabet"],
+    related: ["/ascii"],
+  },
+  {
+    path: "/base64",
+    title: "Base64 Encode/Decode",
+    description: "Base64 Encode or Decode, Basic Authentication",
+    searchKeys: ["base64", "decode", "encode", "basic authentication"],
+    keywords: ["base64 encode", "base64", "base64 decode", "basic authentication", "basicauth"],
+    related: ["/hashing", "/cipher", "/checksum"],
+  },
+  {
+    path: "/hashing",
+    title: "Text Hashing",
+    description:
+      "Algorithms: MD5, SHA1, SHA-224, SHA256, SHA348, SHA512, SHA3-224, SHA3-256, SHA3-384, SHA3-512, keccak, ripemd-160",
+    searchKeys: [
+      "keccak",
+      "md5",
+      "sha-1",
+      "sha1",
+      "sha224",
+      "sha2-224",
+      "sha3-224",
+      "sha256",
+      "sha2-256",
+      "sha3-256",
+      "sha384",
+      "sha2-384",
+      "sha3-384",
+      "sha512",
+      "sha2-512",
+      "sha3-512",
+      "ripemd-160",
+      "text hashing",
+      "algorithm",
+      "digest",
+    ],
+    keywords: [
+      "keccak",
+      "md5",
+      "sha-1",
+      "sha1",
+      "sha224",
+      "sha2-224",
+      "sha3-224",
+      "sha256",
+      "sha2-256",
+      "sha3-256",
+      "sha384",
+      "sha2-384",
+      "sha3-384",
+      "sha512",
+      "sha2-512",
+      "sha3-512",
+      "ripemd-160",
+      "text hashing",
+      "hasing",
+      "hashing algorithms",
+      "message-digest algorithm",
+      "cryptographic protocol",
+      "digital signatures",
+    ],
+    related: ["/checksum", "/cipher", "/base64"],
+  },
+  {
+    path: "/checksum",
+    title: "File Checksum",
+    description: "Supports an unlimited number of files and unlimited file size",
+    searchKeys: [
+      "file checksum",
+      "checksum",
+      "file",
+      "keccak",
+      "md5",
+      "sha-1",
+      "sha1",
+      "sha224",
+      "sha2-224",
+      "sha3-224",
+      "sha256",
+      "sha2-256",
+      "sha3-256",
+      "sha384",
+      "sha2-384",
+      "sha3-384",
+      "sha512",
+      "sha2-512",
+      "sha3-512",
+      "ripemd-160",
+    ],
+    keywords: [
+      "file checksum",
+      "checksum",
+      "keccak",
+      "md5",
+      "sha-1",
+      "sha1",
+      "sha224",
+      "sha2-224",
+      "sha3-224",
+      "sha256",
+      "sha2-256",
+      "sha3-256",
+      "sha384",
+      "sha2-384",
+      "sha3-384",
+      "sha512",
+      "sha2-512",
+      "sha3-512",
+      "ripemd-160",
+      "hashing",
+      "hashing algorithms",
+      "message-digest algorithm",
+      "cryptographic protocol",
+      "digital signatures",
+    ],
+    related: ["/hashing", "/cipher", "/base64"],
+  },
+  {
+    path: "/cipher",
+    title: "Text Encrypt/Decrypt",
+    description: "AES, DES, Triple DES, Rabbit, RC4, RC4Drop",
+    searchKeys: [
+      "text encrypt",
+      "text decrypt",
+      "aes",
+      "des",
+      "triple des",
+      "rabbit",
+      "rc4",
+      "rc4drop",
+      "cipher",
+    ],
+    keywords: [
+      "cipher",
+      "text encrypt",
+      "encrypt",
+      "text decrypt",
+      "decrypt",
+      "aes",
+      "des",
+      "triple des",
+      "rabbit",
+      "rc4",
+      "rc4drop",
+    ],
+    related: ["/hashing", "/base64", "/password"],
+  },
+  {
+    path: "/storageunit",
+    title: "Storage Unit Conversion",
+    description:
+      "Make conversions between a great number of various data units like byte, kilobyte, megabyte, terabyte, petabyte, and many other",
+    searchKeys: [
+      "conversion",
+      "storage unit",
+      "byte",
+      "bit",
+      "kilobyte",
+      "megabyte",
+      "gigabyte",
+      "terabyte",
+      "petabyte",
+      "kb",
+      "mb",
+      "gb",
+      "tb",
+      "pb",
+      "kib",
+      "mib",
+      "gib",
+      "tib",
+      "pib",
+      "kilobit",
+      "megabit",
+      "gibabit",
+      "terabit",
+      "petabit",
+    ],
+    keywords: [
+      "conversion",
+      "storage unit",
+      "byte",
+      "bit",
+      "kilobyte",
+      "megabyte",
+      "gigabyte",
+      "terabyte",
+      "petabyte",
+      "kb",
+      "mb",
+      "gb",
+      "tb",
+      "pb",
+      "kib",
+      "mib",
+      "gib",
+      "tib",
+      "pib",
+      "kilobit",
+      "megabit",
+      "gibabit",
+      "terabit",
+      "petabit",
+    ],
+    related: ["/checksum"],
+  },
+];
