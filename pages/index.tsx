@@ -8,29 +8,60 @@ import { serverSideTranslations } from "next-i18next/pages/serverSideTranslation
 import { getTranslatedTools } from "../libs/tools";
 import { Card } from "../components/ui/card";
 import { Button } from "../components/ui/button";
-import { Hash, FileCode, Lock, KeyRound, FileCheck, Type, Code, HardDrive } from "lucide-react";
+import {
+  Hash,
+  FileCode,
+  Lock,
+  KeyRound,
+  FileCheck,
+  Type,
+  Code,
+  HardDrive,
+  Terminal,
+} from "lucide-react";
 
 const toolIcons: Record<string, React.ReactNode> = {
-  "/hashing": <Hash size={32} className="text-accent-cyan" />,
-  "/base64": <FileCode size={32} className="text-accent-cyan" />,
-  "/cipher": <Lock size={32} className="text-accent-cyan" />,
-  "/password": <KeyRound size={32} className="text-accent-cyan" />,
-  "/checksum": <FileCheck size={32} className="text-accent-cyan" />,
-  "/ascii": <Type size={32} className="text-accent-cyan" />,
-  "/htmlcode": <Code size={32} className="text-accent-cyan" />,
-  "/storageunit": <HardDrive size={32} className="text-accent-cyan" />,
+  "/hashing": <Hash size={28} className="text-accent-cyan" />,
+  "/base64": <FileCode size={28} className="text-accent-cyan" />,
+  "/cipher": <Lock size={28} className="text-accent-cyan" />,
+  "/password": <KeyRound size={28} className="text-accent-cyan" />,
+  "/checksum": <FileCheck size={28} className="text-accent-cyan" />,
+  "/ascii": <Type size={28} className="text-accent-cyan" />,
+  "/htmlcode": <Code size={28} className="text-accent-cyan" />,
+  "/storageunit": <HardDrive size={28} className="text-accent-cyan" />,
 };
 
 function Introduce() {
   const { t } = useTranslation("home");
   return (
-    <div className="bg-gradient-to-b from-bg-base to-[#1a1040] bg-grid-pattern py-40 md:py-60">
-      <div className="container mx-auto px-4 text-center">
-        <h1 className="text-4xl md:text-6xl font-mono font-bold text-accent-cyan text-shadow-glow">
+    <section className="relative overflow-hidden bg-gradient-to-b from-bg-base via-bg-base to-bg-surface">
+      <div className="bg-grid-pattern absolute inset-0" />
+      <div
+        className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-[400px] w-[600px] rounded-full bg-accent-cyan/5 blur-3xl"
+        aria-hidden="true"
+      />
+
+      <div className="relative container mx-auto px-4 py-20 md:py-28 text-center">
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-accent-cyan/20 bg-accent-cyan/5 px-4 py-1.5 text-sm text-accent-cyan">
+          <Terminal size={14} />
+          <span>{t("badge")}</span>
+        </div>
+
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-mono font-bold text-fg-primary tracking-tight">
           {t("exploreTitle")}
         </h1>
+
+        <p className="mx-auto mt-4 max-w-xl text-lg text-fg-secondary leading-relaxed">
+          {t("subtitle")}
+        </p>
+
+        <div className="mx-auto mt-8 flex items-center justify-center gap-3">
+          <span className="h-px w-12 bg-gradient-to-r from-transparent to-accent-cyan/40" />
+          <span className="h-1.5 w-1.5 rounded-full bg-accent-cyan/60" />
+          <span className="h-px w-12 bg-gradient-to-l from-transparent to-accent-cyan/40" />
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
@@ -40,43 +71,54 @@ function ToolCollection() {
   const data = getTranslatedTools(t);
 
   return (
-    <div className="container mx-auto px-4 text-center mb-20">
-      <div className="flex flex-wrap mt-8 -mx-2">
+    <section className="container mx-auto px-4 pb-20 pt-12">
+      <div className="mb-10 text-center">
+        <h2 className="text-2xl md:text-3xl font-bold text-fg-primary">{t("toolsSectionTitle")}</h2>
+        <p className="mt-2 text-fg-secondary">{t("toolsSectionSubtitle")}</p>
+      </div>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {data.map((value, index) => {
           const isDisabled = value.path == "";
           const icon = toolIcons[value.path];
           return (
-            <div className="w-full md:w-1/2 lg:w-1/4 px-2 py-2" key={index}>
-              <Card hover={!isDisabled} className={isDisabled ? "opacity-50" : ""}>
-                <div className="p-2">
-                  {icon && <div className="mb-3 flex justify-center">{icon}</div>}
-                  <h5 className="font-semibold text-fg-primary">{value.title}</h5>
-                  <p
-                    className="text-sm text-fg-secondary mt-1"
-                    style={{ height: "2.8rem", overflow: "hidden" }}
-                  >
-                    {value.description}
-                  </p>
-                  <div className="flex justify-center mt-3">
-                    <Button
-                      variant={isDisabled ? "outline" : "primary"}
-                      size="sm"
-                      disabled={isDisabled}
-                      onClick={() => {
-                        if (value.path) router.push(value.path);
-                      }}
-                      className="w-3/4"
-                    >
-                      {isDisabled ? t("common:common.comingSoon") : t("common:common.goto")}
-                    </Button>
+            <Card
+              key={index}
+              hover={!isDisabled}
+              className={`group flex flex-col ${isDisabled ? "opacity-50" : ""}`}
+            >
+              <div className="flex flex-1 flex-col items-center p-5">
+                {icon && (
+                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-accent-cyan/10 transition-colors group-hover:bg-accent-cyan/15">
+                    {icon}
                   </div>
+                )}
+
+                <h3 className="font-semibold text-fg-primary text-center">{value.title}</h3>
+
+                <p className="mt-2 line-clamp-3 text-sm text-fg-secondary text-center leading-relaxed">
+                  {value.description}
+                </p>
+
+                <div className="mt-auto w-full pt-4">
+                  <Button
+                    variant={isDisabled ? "outline" : "primary"}
+                    size="sm"
+                    disabled={isDisabled}
+                    onClick={() => {
+                      if (value.path) router.push(value.path);
+                    }}
+                    className="w-full"
+                  >
+                    {isDisabled ? t("common:common.comingSoon") : t("common:common.goto")}
+                  </Button>
                 </div>
-              </Card>
-            </div>
+              </div>
+            </Card>
           );
         })}
       </div>
-    </div>
+    </section>
   );
 }
 

@@ -1,5 +1,9 @@
 {
-  "title": "字节工坊",
+  "title": "字節工坊",
   "metaDescription": "實用的線上工具集合",
-  "exploreTitle": "探索實用工具"
+  "exploreTitle": "探索實用工具",
+  "badge": "免費 · 開源",
+  "subtitle": "一組實用的瀏覽器端開發工具，無需註冊、無需追蹤，即開即用。",
+  "toolsSectionTitle": "全部工具",
+  "toolsSectionSubtitle": "選擇下方任意工具即可開始使用。"
 }

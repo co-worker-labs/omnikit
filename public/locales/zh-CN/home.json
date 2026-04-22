@@ -1,5 +1,9 @@
 {
   "title": "字节工坊",
   "metaDescription": "优质在线工具集合",
-  "exploreTitle": "探索实用工具"
+  "exploreTitle": "探索实用工具",
+  "badge": "免费 · 开源",
+  "subtitle": "一组实用的浏览器端开发工具，无需注册、无需追踪，即开即用。",
+  "toolsSectionTitle": "全部工具",
+  "toolsSectionSubtitle": "选择下方任意工具即可开始使用。"
 }
