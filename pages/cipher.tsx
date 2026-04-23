@@ -7,10 +7,7 @@ import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
 import { showToast } from "../libs/toast";
 import { findTool, ToolData } from "../libs/tools";
-import { StyledTextarea } from "../components/ui/input";
-import { StyledInput } from "../components/ui/input";
-import { StyledSelect } from "../components/ui/input";
-import { StyledCheckbox } from "../components/ui/input";
+import { StyledTextarea, StyledInput, StyledSelect, StyledCheckbox } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { ChevronsDown, ChevronsUp, X } from "lucide-react";
 
@@ -197,30 +194,34 @@ function Conversion() {
     <section id="conversion">
       <div>
         <div className="flex flex-wrap justify-between items-center">
-          <label htmlFor="rawContentTextarea" className="col-auto">
-            <span className="font-bold text-accent-cyan">{t("cipher:plaintext")}</span>
-            <a
-              href="#"
-              className="text-danger text-xs ms-2"
-              onClick={(e) => {
-                e.preventDefault();
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-accent-cyan/60" />
+            <span className="font-mono text-sm font-semibold text-accent-cyan">
+              {t("cipher:plaintext")}
+            </span>
+          </div>
+          <div className="flex items-center gap-3">
+            <StyledCheckbox
+              label={t("common:common.trimWhiteSpace")}
+              id="isTrimCheck"
+              checked={isTrimRaw}
+              onChange={(e) => {
+                setIsTrimRaw(e.target.checked);
+              }}
+            />
+            <button
+              type="button"
+              className="text-danger text-xs hover:text-danger/80 transition-colors cursor-pointer"
+              onClick={() => {
                 setRawContent("");
                 showToast(t("common:common.cleared"), "danger", 2000);
               }}
             >
               {t("common:common.clear")}
-            </a>
-          </label>
-          <StyledCheckbox
-            label={t("common:common.trimWhiteSpace")}
-            id="isTrimCheck"
-            checked={isTrimRaw}
-            onChange={(e) => {
-              setIsTrimRaw(e.target.checked);
-            }}
-          />
+            </button>
+          </div>
         </div>
-        <div className="relative">
+        <div className="relative mt-1">
           <StyledTextarea
             id="rawContentTextarea"
             placeholder={t("cipher:plaintextPlaceholder")}
@@ -229,27 +230,32 @@ function Conversion() {
             onChange={(e) => {
               setRawContent(e.target.value);
             }}
+            className="font-mono text-sm"
           />
-          <CopyButton className="absolute end-0 top-0" getContent={() => rawContent} />
+          <CopyButton getContent={() => rawContent} className="absolute end-2 top-2" />
         </div>
       </div>
 
-      <div className="mt-3">
-        <label htmlFor="passphraseTextarea" className="block mb-1">
-          <span className="font-bold text-accent-cyan">{t("cipher:secretPassphrase")}</span>
-          <a
-            href="#"
-            className="text-danger text-xs ms-2"
-            onClick={(e) => {
-              e.preventDefault();
+      <div className="mt-4">
+        <div className="flex flex-wrap justify-between items-center">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-accent-purple/60" />
+            <span className="font-mono text-sm font-semibold text-accent-purple">
+              {t("cipher:secretPassphrase")}
+            </span>
+          </div>
+          <button
+            type="button"
+            className="text-danger text-xs hover:text-danger/80 transition-colors cursor-pointer"
+            onClick={() => {
               setPassphrase("");
               showToast(t("common:common.cleared"), "danger", 2000);
             }}
           >
             {t("common:common.clear")}
-          </a>
-        </label>
-        <div className="relative">
+          </button>
+        </div>
+        <div className="relative mt-1">
           <StyledTextarea
             id="passphraseTextarea"
             placeholder={t("cipher:passphrasePlaceholder")}
@@ -258,108 +264,129 @@ function Conversion() {
             onChange={(e) => {
               setPassphrase(e.target.value);
             }}
+            className="font-mono text-sm"
           />
-          <CopyButton className="absolute end-0 top-0" getContent={() => passphrase.trim()} />
+          <CopyButton getContent={() => passphrase.trim()} className="absolute end-2 top-2" />
         </div>
-      </div>
-      <div className="flex flex-wrap">
-        <div className="w-1/2 lg:w-1/4 mt-3 pe-2">
-          <label className="block text-sm text-fg-secondary mb-1">{t("cipher:algorithms")}</label>
-          <StyledSelect
-            aria-label="Cipher Algorithms"
-            value={algorithm}
-            onChange={(e) => {
-              setAlgorithm(e.target.value as Algorithms);
-              if ((e.target.value as Algorithms) == "RC4Drop") {
-                setDroppedWords(192);
-              }
-            }}
-          >
-            <option value="AES">AES</option>
-            <option value="DES">DES</option>
-            <option value="Triple DES">Triple DES</option>
-            <option value="Rabbit">Rabbit</option>
-            <option value="RC4">RC4</option>
-            <option value="RC4Drop">RC4Drop</option>
-          </StyledSelect>
-        </div>
-        <div className="w-1/2 lg:w-1/4 mt-3 pe-2">
-          <label className="block text-sm text-fg-secondary mb-1">{t("cipher:blockMode")}</label>
-          <StyledSelect
-            aria-label="Block Mode"
-            value={mode}
-            onChange={(e) => {
-              setMode(e.target.value as BlockMode);
-            }}
-          >
-            <option value="CBC">CBC</option>
-            <option value="CFB">CFB</option>
-            <option value="CTR">CTR</option>
-            <option value="OFB">OFB</option>
-            <option value="ECB">ECB</option>
-          </StyledSelect>
-        </div>
-        <div className="w-1/2 lg:w-1/4 mt-3 pe-2">
-          <label className="block text-sm text-fg-secondary mb-1">
-            {t("cipher:paddingScheme")}
-          </label>
-          <StyledSelect
-            aria-label="Padding Scheme"
-            value={paddingScheme}
-            onChange={(e) => {
-              setPaddingScheme(e.target.value as PaddingScheme);
-            }}
-          >
-            <option value="Pkcs7">Pkcs7</option>
-            <option value="Iso97971">Iso97971</option>
-            <option value="AnsiX923">AnsiX923</option>
-            <option value="Iso10126">Iso10126</option>
-            <option value="ZeroPadding">ZeroPadding</option>
-            <option value="NoPadding">NoPadding</option>
-          </StyledSelect>
-        </div>
-        {algorithm == "RC4Drop" && (
-          <div className="w-1/2 lg:w-1/4 mt-3 pe-2">
-            <label htmlFor="droppedWords" className="block text-sm text-fg-secondary mb-1">
-              {t("cipher:droppedWords")}
-            </label>
-            <StyledInput
-              type="number"
-              id="droppedWords"
-              min={1}
-              value={droppedWords}
-              onChange={(e) => {
-                setDroppedWords(parseInt(e.target.value));
-              }}
-            />
-          </div>
-        )}
       </div>
 
-      <div className="flex flex-wrap px-2 mt-3">
+      <div className="mt-4">
+        <div className="flex items-center gap-2 mb-3">
+          <span className="w-1.5 h-4 rounded-full bg-accent-cyan" />
+          <span className="font-mono text-xs font-semibold text-fg-muted uppercase tracking-wider">
+            Settings
+          </span>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div className="flex items-center gap-3 sm:flex-col sm:items-stretch sm:gap-0">
+            <label className="shrink-0 w-28 text-xs text-fg-muted font-mono uppercase tracking-wider sm:w-auto sm:mb-1.5">
+              {t("cipher:algorithms")}
+            </label>
+            <StyledSelect
+              aria-label="Cipher Algorithms"
+              value={algorithm}
+              onChange={(e) => {
+                setAlgorithm(e.target.value as Algorithms);
+                if ((e.target.value as Algorithms) == "RC4Drop") {
+                  setDroppedWords(192);
+                }
+              }}
+              className="appearance-none rounded-full font-bold text-center flex-1 sm:w-full"
+            >
+              <option value="AES">AES</option>
+              <option value="DES">DES</option>
+              <option value="Triple DES">Triple DES</option>
+              <option value="Rabbit">Rabbit</option>
+              <option value="RC4">RC4</option>
+              <option value="RC4Drop">RC4Drop</option>
+            </StyledSelect>
+          </div>
+          <div className="flex items-center gap-3 sm:flex-col sm:items-stretch sm:gap-0">
+            <label className="shrink-0 w-28 text-xs text-fg-muted font-mono uppercase tracking-wider sm:w-auto sm:mb-1.5">
+              {t("cipher:blockMode")}
+            </label>
+            <StyledSelect
+              aria-label="Block Mode"
+              value={mode}
+              onChange={(e) => {
+                setMode(e.target.value as BlockMode);
+              }}
+              className="appearance-none rounded-full font-bold text-center flex-1 sm:w-full"
+            >
+              <option value="CBC">CBC</option>
+              <option value="CFB">CFB</option>
+              <option value="CTR">CTR</option>
+              <option value="OFB">OFB</option>
+              <option value="ECB">ECB</option>
+            </StyledSelect>
+          </div>
+          <div className="flex items-center gap-3 sm:flex-col sm:items-stretch sm:gap-0">
+            <label className="shrink-0 w-28 text-xs text-fg-muted font-mono uppercase tracking-wider sm:w-auto sm:mb-1.5">
+              {t("cipher:paddingScheme")}
+            </label>
+            <StyledSelect
+              aria-label="Padding Scheme"
+              value={paddingScheme}
+              onChange={(e) => {
+                setPaddingScheme(e.target.value as PaddingScheme);
+              }}
+              className="appearance-none rounded-full font-bold text-center flex-1 sm:w-full"
+            >
+              <option value="Pkcs7">Pkcs7</option>
+              <option value="Iso97971">Iso97971</option>
+              <option value="AnsiX923">AnsiX923</option>
+              <option value="Iso10126">Iso10126</option>
+              <option value="ZeroPadding">ZeroPadding</option>
+              <option value="NoPadding">NoPadding</option>
+            </StyledSelect>
+          </div>
+          {algorithm == "RC4Drop" && (
+            <div className="flex items-center gap-3 sm:flex-col sm:items-stretch sm:gap-0">
+              <label
+                htmlFor="droppedWords"
+                className="shrink-0 w-28 text-xs text-fg-muted font-mono uppercase tracking-wider sm:w-auto sm:mb-1.5"
+              >
+                {t("cipher:droppedWords")}
+              </label>
+              <StyledInput
+                type="number"
+                id="droppedWords"
+                min={1}
+                value={droppedWords}
+                onChange={(e) => {
+                  setDroppedWords(parseInt(e.target.value));
+                }}
+                className="rounded-full font-bold text-center flex-1 sm:w-full"
+              />
+            </div>
+          )}
+        </div>
+      </div>
+
+      <div className="mt-4 grid grid-cols-2 gap-3 md:grid-cols-3">
         <Button
           variant="primary"
-          size="sm"
+          size="md"
           disabled={isDisabledEncrypt()}
           onClick={doEncrypt}
-          className="ms-1"
+          className="rounded-full font-bold"
         >
           {t("common:common.encrypted")}
           <ChevronsDown size={16} className="ms-1" />
         </Button>
         <Button
           variant="primary"
-          size="sm"
+          size="md"
           disabled={isDisabledDecrypt()}
           onClick={doDecrypt}
-          className="ms-1"
+          className="rounded-full font-bold"
         >
           {t("common:common.decrypted")}
           <ChevronsUp size={16} className="ms-1" />
         </Button>
         <Button
           variant="danger"
-          size="sm"
+          size="md"
           disabled={isDisabledClear()}
           onClick={() => {
             setRawContent("");
@@ -367,28 +394,33 @@ function Conversion() {
             setPassphrase("");
             showToast(t("common:common.allCleared"), "danger", 2000);
           }}
-          className="ms-1"
+          className="rounded-full font-bold col-span-2 md:col-span-1"
         >
           {t("common:common.clearAll")}
           <X size={16} className="ms-1" />
         </Button>
       </div>
-      <div className="mt-3">
-        <label htmlFor="encryptedContentTextarea" className="block mb-1">
-          <span className="font-bold text-accent-cyan">{t("cipher:ciphertext")}</span>
-          <a
-            href="#"
-            className="text-danger text-xs ms-2"
-            onClick={(e) => {
-              e.preventDefault();
+
+      <div className="mt-4">
+        <div className="flex flex-wrap justify-between items-center">
+          <div className="flex items-center gap-2">
+            <span className="w-2.5 h-2.5 rounded-full bg-accent-purple/60" />
+            <span className="font-mono text-sm font-semibold text-accent-purple">
+              {t("cipher:ciphertext")}
+            </span>
+          </div>
+          <button
+            type="button"
+            className="text-danger text-xs hover:text-danger/80 transition-colors cursor-pointer"
+            onClick={() => {
               setEncryptedContent("");
               showToast(t("common:common.cleared"), "danger", 2000);
             }}
           >
             {t("common:common.clear")}
-          </a>
-        </label>
-        <div className="relative">
+          </button>
+        </div>
+        <div className="relative mt-1">
           <StyledTextarea
             id="encryptedContentTextarea"
             placeholder={t("cipher:ciphertextOutput")}
@@ -397,8 +429,9 @@ function Conversion() {
             onChange={(e) => {
               setEncryptedContent(e.target.value);
             }}
+            className="font-mono text-sm"
           />
-          <CopyButton className="absolute end-0 top-0" getContent={() => encryptedContent.trim()} />
+          <CopyButton getContent={() => encryptedContent.trim()} className="absolute end-2 top-2" />
         </div>
       </div>
     </section>
@@ -408,25 +441,31 @@ function Conversion() {
 function Description() {
   const { t } = useTranslation("cipher");
   return (
-    <section id="description" className="mt-4">
+    <section id="description" className="mt-8">
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary">{t("descriptions.aesTitle")}</h5>
-        <p className="text-fg-secondary mt-1">{t("descriptions.aes")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.aesTitle")}</h5>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.aes")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary">{t("descriptions.desTitle")}</h5>
-        <p className="text-fg-secondary mt-1">{t("descriptions.des")}</p>
-        <p className="text-fg-secondary mt-1">{t("descriptions.tripleDes")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.desTitle")}</h5>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.des")}</p>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">
+          {t("descriptions.tripleDes")}
+        </p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary">{t("descriptions.rabbitTitle")}</h5>
-        <p className="text-fg-secondary mt-1">{t("descriptions.rabbit")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.rabbitTitle")}</h5>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.rabbit")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary">{t("descriptions.rc4Title")}</h5>
-        <p className="text-fg-secondary mt-1">{t("descriptions.rc4")}</p>
-        <p className="text-fg-secondary mt-1">{t("descriptions.rc4drop")}</p>
-        <p className="text-fg-secondary mt-1">{t("descriptions.rc4dropConfig")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.rc4Title")}</h5>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.rc4")}</p>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">
+          {t("descriptions.rc4drop")}
+        </p>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">
+          {t("descriptions.rc4dropConfig")}
+        </p>
       </div>
     </section>
   );
@@ -438,9 +477,11 @@ function CipherPage({ toolData }: InferGetStaticPropsType<typeof getStaticProps>
     <>
       <ToolPageHeadBuilder toolPath="/cipher" />
       <Layout title={t("tools:cipher.title")}>
-        <div className="container mx-auto px-4 pt-4">
-          <div className="bg-accent-cyan-dim/20 border border-accent-cyan/30 rounded-xl p-3 text-fg-secondary text-sm my-4">
-            {t("alert.notTransferred")}
+        <div className="container mx-auto px-4 pt-3 pb-6">
+          <div className="flex items-start gap-2 border-l-2 border-accent-cyan bg-accent-cyan-dim/30 rounded-r-lg p-3 my-4">
+            <span className="text-sm text-fg-secondary leading-relaxed">
+              {t("common:alert.notTransferred")}
+            </span>
           </div>
           <Conversion />
           <Description />
