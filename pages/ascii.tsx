@@ -2,7 +2,7 @@ import { GetStaticProps, InferGetStaticPropsType } from "next";
 import { useState, useMemo } from "react";
 import { useTranslation } from "next-i18next/pages";
 import { serverSideTranslations } from "next-i18next/pages/serverSideTranslations";
-import { Search } from "lucide-react";
+import { Search, ChevronDown, ChevronUp } from "lucide-react";
 import { ToolPageHeadBuilder } from "../components/head_builder";
 import Layout from "../components/layout";
 import { ControlCode, getControlCodes, getPrintableCharacters } from "../libs/ascii";
@@ -273,15 +273,44 @@ function AsciiPage({
   controlCodes,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   const { t } = useTranslation(["ascii", "common", "tools"]);
+  const [expanded, setExpanded] = useState(false);
   return (
     <>
       <ToolPageHeadBuilder toolPath="/ascii" />
       <Layout title={t("tools:ascii.title")}>
         <div className="container mx-auto px-4 pt-3 pb-6">
           <section id="description" className="py-3">
-            <p className="text-fg-secondary text-sm leading-8 indent-12">
-              {t("ascii:description")}
-            </p>
+            <div className="relative">
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  expanded ? "max-h-[500px]" : "max-h-20"
+                }`}
+              >
+                <p className="text-fg-secondary text-sm leading-8 indent-12">
+                  {t("ascii:description.text")}
+                </p>
+              </div>
+              {!expanded && (
+                <div className="absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-bg-base to-transparent pointer-events-none" />
+              )}
+            </div>
+            <button
+              type="button"
+              onClick={() => setExpanded(!expanded)}
+              className="mt-1 flex items-center gap-1 text-xs text-accent-cyan hover:text-accent-cyan/80 transition-colors"
+            >
+              {expanded ? (
+                <>
+                  <ChevronUp size={14} />
+                  {t("ascii:description.showLess")}
+                </>
+              ) : (
+                <>
+                  <ChevronDown size={14} />
+                  {t("ascii:description.showMore")}
+                </>
+              )}
+            </button>
           </section>
           <div className="flex items-start gap-2 border-l-2 border-accent-cyan bg-accent-cyan-dim/30 rounded-r-lg p-3 my-4">
             <span className="text-sm text-fg-secondary leading-relaxed">{t("ascii:tip")}</span>
