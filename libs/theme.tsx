@@ -1,11 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useSyncExternalStore,
-  useState,
-  ReactNode,
-} from "react";
+import { createContext, useContext, useEffect, useSyncExternalStore, ReactNode } from "react";
 
 export type Theme = "light" | "dark";
 
@@ -44,6 +37,10 @@ function subscribe(listener: () => void) {
   };
 }
 
+function emit() {
+  listeners.forEach((l) => l());
+}
+
 function getSnapshot(): Theme {
   return readStoredTheme();
 }
@@ -53,20 +50,14 @@ function getServerSnapshot(): Theme {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const storedTheme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-  const [theme, setTheme] = useState<Theme>(storedTheme);
-
-  useEffect(() => {
-    if (theme !== storedTheme) return;
-    applyTheme(theme);
-  }, [theme, storedTheme]);
+  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     const handler = (e: MediaQueryListEvent) => {
-      if (!localStorage.getItem(STORAGE_KEY)) {
-        setTheme(e.matches ? "dark" : "light");
-      }
+      if (localStorage.getItem(STORAGE_KEY)) return;
+      applyTheme(e.matches ? "dark" : "light");
+      emit();
     };
     mq.addEventListener("change", handler);
     return () => mq.removeEventListener("change", handler);
@@ -75,8 +66,8 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const toggleTheme = () => {
     const next = theme === "light" ? "dark" : "light";
     localStorage.setItem(STORAGE_KEY, next);
-    setTheme(next);
-    listeners.forEach((l) => l());
+    applyTheme(next);
+    emit();
   };
 
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
