@@ -127,6 +127,16 @@ function SavedPasswords({
     showToast(t("common:common.cleared"), "danger", alert_del_timeout);
   }
 
+  function toggleAllVisibility() {
+    const rids = list.map((r) => passwordHash(r.password, r.type));
+    const allVisible = rids.every((rid) => visibleMap[rid] === true);
+    const newMap = { ...visibleMap };
+    rids.forEach((rid) => {
+      newMap[rid] = !allVisible;
+    });
+    setVisibleMap(newMap);
+  }
+
   return (
     <div className="mt-6" hidden={list.length == 0}>
       <div className="flex items-center justify-between mb-3">
@@ -135,6 +145,22 @@ function SavedPasswords({
           <span className="font-mono text-xs font-semibold text-fg-muted uppercase tracking-wider">
             {t("password:savedTitle")}
           </span>
+          <button
+            type="button"
+            className="text-fg-muted hover:text-accent-cyan bg-fg-muted/10 hover:bg-accent-cyan/10 transition-colors cursor-pointer ml-1 rounded p-1"
+            title={
+              list.every((r) => visibleMap[passwordHash(r.password, r.type)] === true)
+                ? t("password:hidePassword")
+                : t("password:showPassword")
+            }
+            onClick={toggleAllVisibility}
+          >
+            {list.every((r) => visibleMap[passwordHash(r.password, r.type)] === true) ? (
+              <EyeOff size={14} />
+            ) : (
+              <Eye size={14} />
+            )}
+          </button>
         </div>
         <button
           className="text-danger text-xs hover:text-danger/80 transition-colors cursor-pointer"
@@ -318,7 +344,7 @@ function Generator({
           password: password,
           characters: characters,
           timestamp: new Date().getTime(),
-          visible: visible,
+          visible: false,
         },
       ];
       savedTemp.push(...saved);
