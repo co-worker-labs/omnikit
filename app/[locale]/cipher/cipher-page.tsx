@@ -134,7 +134,7 @@ function Conversion() {
       setPassphrase(phrase);
       setRawContent(raw);
       setEncryptedContent(encrypted.toString());
-      showToast(tc("common.encrypted"), "success", 3000);
+      showToast(tc("encrypted"), "success", 3000);
     }
   }
 
@@ -186,7 +186,7 @@ function Conversion() {
       setPassphrase(phrase);
       try {
         setRawContent(decrypted.toString(CryptoJS.enc.Utf8));
-        showToast(tc("common.decrypted"), "success", 3000);
+        showToast(tc("decrypted"), "success", 3000);
       } catch (e) {
         showToast(tc("alert.invalidCipher"), "danger", 3000);
       }
@@ -205,7 +205,7 @@ function Conversion() {
           </div>
           <div className="flex items-center gap-3">
             <StyledCheckbox
-              label={tc("common.trimWhiteSpace")}
+              label={tc("trimWhiteSpace")}
               id="isTrimCheck"
               checked={isTrimRaw}
               onChange={(e) => {
@@ -217,10 +217,10 @@ function Conversion() {
               className="text-danger text-xs hover:text-danger/80 transition-colors cursor-pointer"
               onClick={() => {
                 setRawContent("");
-                showToast(tc("common.cleared"), "danger", 2000);
+                showToast(tc("cleared"), "danger", 2000);
               }}
             >
-              {tc("common.clear")}
+              {tc("clear")}
             </button>
           </div>
         </div>
@@ -252,10 +252,10 @@ function Conversion() {
             className="text-danger text-xs hover:text-danger/80 transition-colors cursor-pointer"
             onClick={() => {
               setPassphrase("");
-              showToast(tc("common.cleared"), "danger", 2000);
+              showToast(tc("cleared"), "danger", 2000);
             }}
           >
-            {tc("common.clear")}
+            {tc("clear")}
           </button>
         </div>
         <div className="relative mt-1">
@@ -374,7 +374,7 @@ function Conversion() {
           onClick={doEncrypt}
           className="rounded-full font-bold"
         >
-          {tc("common.encrypted")}
+          {tc("encrypted")}
           <ChevronsDown size={16} className="ms-1" />
         </Button>
         <Button
@@ -384,7 +384,7 @@ function Conversion() {
           onClick={doDecrypt}
           className="rounded-full font-bold"
         >
-          {tc("common.decrypted")}
+          {tc("decrypted")}
           <ChevronsUp size={16} className="ms-1" />
         </Button>
         <Button
@@ -395,11 +395,11 @@ function Conversion() {
             setRawContent("");
             setEncryptedContent("");
             setPassphrase("");
-            showToast(tc("common.allCleared"), "danger", 2000);
+            showToast(tc("allCleared"), "danger", 2000);
           }}
           className="rounded-full font-bold col-span-2 md:col-span-1"
         >
-          {tc("common.clearAll")}
+          {tc("clearAll")}
           <X size={16} className="ms-1" />
         </Button>
       </div>
@@ -417,10 +417,10 @@ function Conversion() {
             className="text-danger text-xs hover:text-danger/80 transition-colors cursor-pointer"
             onClick={() => {
               setEncryptedContent("");
-              showToast(tc("common.cleared"), "danger", 2000);
+              showToast(tc("cleared"), "danger", 2000);
             }}
           >
-            {tc("common.clear")}
+            {tc("clear")}
           </button>
         </div>
         <div className="relative mt-1">

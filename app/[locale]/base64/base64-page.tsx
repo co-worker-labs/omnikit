@@ -55,7 +55,7 @@ function Conversion() {
     const encoded = Buffer.from(raw, rawCharset).toString("base64");
     updateEncodedContent(encoded);
     updateRawContent(raw);
-    showToast(tc("common.encoded"), "success", 2000);
+    showToast(tc("encoded"), "success", 2000);
   }
 
   function doDecode() {
@@ -68,7 +68,7 @@ function Conversion() {
     const raw = Buffer.from(encoded, "base64").toString(rawCharset);
     updateEncodedContent(encoded);
     updateRawContent(raw);
-    showToast(tc("common.decoded"), "success", 2000);
+    showToast(tc("decoded"), "success", 2000);
   }
 
   function isDisabledEncode(): boolean {
@@ -98,7 +98,7 @@ function Conversion() {
           </div>
           <div className="flex items-center gap-3">
             <StyledCheckbox
-              label={tc("common.trimWhiteSpace")}
+              label={tc("trimWhiteSpace")}
               id="isTrimCheck"
               checked={isTrimRaw}
               onChange={(e) => {
@@ -110,10 +110,10 @@ function Conversion() {
               className="text-danger text-xs hover:text-danger/80 transition-colors cursor-pointer"
               onClick={() => {
                 updateRawContent("");
-                showToast(tc("common.cleared"), "danger", 2000);
+                showToast(tc("cleared"), "danger", 2000);
               }}
             >
-              {tc("common.clear")}
+              {tc("clear")}
             </button>
           </div>
         </div>
@@ -207,11 +207,11 @@ function Conversion() {
           onClick={() => {
             updateRawContent("");
             updateEncodedContent("");
-            showToast(tc("common.allCleared"), "danger", 2000);
+            showToast(tc("allCleared"), "danger", 2000);
           }}
           className="rounded-full font-bold"
         >
-          {tc("common.clearAll")}
+          {tc("clearAll")}
           <X size={16} className="ms-1" />
         </Button>
       </div>
@@ -229,10 +229,10 @@ function Conversion() {
             className="text-danger text-xs hover:text-danger/80 transition-colors cursor-pointer"
             onClick={() => {
               setEncodedContent("");
-              showToast(tc("common.cleared"), "danger", 2000);
+              showToast(tc("cleared"), "danger", 2000);
             }}
           >
-            {tc("common.clear")}
+            {tc("clear")}
           </button>
         </div>
         <div className="relative mt-1">
@@ -281,7 +281,8 @@ function Description() {
             alt=""
             width={600}
             height={400}
-            className="h-auto max-w-full"
+            style={{ width: "auto", height: "auto" }}
+            className="max-w-full"
           />
         </div>
       </div>

@@ -102,7 +102,7 @@ function Display({ data }: { data: Result }) {
           <button
             type="button"
             className="px-2.5 py-0.5 text-xs text-danger hover:text-danger/80 font-medium absolute end-2 top-2 transition-colors cursor-pointer"
-            title={tc("common.clear")}
+            title={tc("clear")}
             onClick={() => {
               setTestChecksum("");
             }}
@@ -116,7 +116,7 @@ function Display({ data }: { data: Result }) {
           <tbody>
             <tr className="border-b border-border-default bg-bg-elevated/40">
               <th className="py-2 px-4 text-fg-muted text-xs font-mono font-medium text-left whitespace-nowrap uppercase tracking-wider">
-                {tc("common.size")}
+                {tc("size")}
               </th>
               <td className="py-2 text-sm text-fg-secondary font-mono">{data.size}</td>
             </tr>
@@ -245,7 +245,7 @@ function TextHashing() {
           </div>
           <div className="flex items-center gap-3">
             <StyledCheckbox
-              label={tc("common.trimWhiteSpace")}
+              label={tc("trimWhiteSpace")}
               id="isTrimCheck"
               checked={isTrim}
               onChange={(e) => {
@@ -257,10 +257,10 @@ function TextHashing() {
               className="text-danger text-xs hover:text-danger/80 transition-colors cursor-pointer"
               onClick={() => {
                 setContent("");
-                showToast(tc("common.cleared"), "danger", 2000);
+                showToast(tc("cleared"), "danger", 2000);
               }}
             >
-              {tc("common.clear")}
+              {tc("clear")}
             </button>
           </div>
         </div>
@@ -292,10 +292,10 @@ function TextHashing() {
             className="text-danger text-xs hover:text-danger/80 transition-colors cursor-pointer"
             onClick={() => {
               setPassphrase("");
-              showToast(tc("common.cleared"), "danger", 2000);
+              showToast(tc("cleared"), "danger", 2000);
             }}
           >
-            {tc("common.clear")}
+            {tc("clear")}
           </button>
         </div>
         <div className="relative mt-1">
@@ -316,7 +316,7 @@ function TextHashing() {
       <div className="flex flex-col-reverse sm:flex-row sm:items-center gap-3 mt-4">
         <div className="flex items-center gap-2 sm:w-1/2">
           <label className="font-mono text-xs font-medium text-fg-muted uppercase tracking-wider whitespace-nowrap">
-            {tc("common.storageUnit")}
+            {tc("storageUnit")}
           </label>
           <div className="flex-1">
             <StyledSelect
@@ -340,11 +340,11 @@ function TextHashing() {
             onClick={() => {
               setContent("");
               setPassphrase("");
-              showToast(tc("common.allCleared"), "danger", 2000);
+              showToast(tc("allCleared"), "danger", 2000);
             }}
             className="rounded-full uppercase font-bold w-full sm:w-auto"
           >
-            {tc("common.clearAll")}
+            {tc("clearAll")}
             <X size={14} className="ms-1" />
           </Button>
         </div>
@@ -376,15 +376,13 @@ function TextHashing() {
           <NeonTabs
             tabs={[
               {
-                label: <span className="font-mono text-sm font-bold">{tc("common.hashing")}</span>,
+                label: <span className="font-mono text-sm font-bold">{tc("hashing")}</span>,
                 content: <Display data={hashRes} />,
               },
               ...(hmacRes
                 ? [
                     {
-                      label: (
-                        <span className="font-mono text-sm font-bold">{tc("common.hmac")}</span>
-                      ),
+                      label: <span className="font-mono text-sm font-bold">{tc("hmac")}</span>,
                       content: <Display data={hmacRes} />,
                     },
                   ]

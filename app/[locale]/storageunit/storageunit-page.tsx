@@ -93,10 +93,10 @@ function Conversion() {
             className="text-danger text-xs hover:text-danger/80 transition-colors cursor-pointer"
             onClick={() => {
               setCurrent(1);
-              showToast(tc("common.reset"), "success", 2000);
+              showToast(tc("reset"), "success", 2000);
             }}
           >
-            {tc("common.reset")}
+            {tc("reset")}
           </button>
         </div>
         <div className="flex items-center gap-3 mt-1">

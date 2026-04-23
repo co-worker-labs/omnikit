@@ -111,12 +111,12 @@ function SavedPasswords({
 
   function onDel(index: number) {
     delCallback(index);
-    showToast(tc("common.deleted"), "danger", alert_del_timeout);
+    showToast(tc("deleted"), "danger", alert_del_timeout);
   }
 
   function onClearAll() {
     clearAll();
-    showToast(tc("common.cleared"), "danger", alert_del_timeout);
+    showToast(tc("cleared"), "danger", alert_del_timeout);
   }
 
   function toggleAllVisibility() {
@@ -188,7 +188,7 @@ function SavedPasswords({
                   <button
                     type="button"
                     className="text-fg-muted hover:text-danger transition-colors cursor-pointer p-1"
-                    title={tc("common.delete")}
+                    title={tc("delete")}
                     onClick={() => onDel(index)}
                   >
                     <Trash2 size={14} />
@@ -306,13 +306,13 @@ function Generator({
 
   function copyAction() {
     navigator.clipboard.writeText(copyPassword(passwordType, password));
-    showToast(tc("common.copied"), "success", alert_copy_timeout);
+    showToast(tc("copied"), "success", alert_copy_timeout);
   }
 
   function generateAction() {
     const password = generate(passwordType, characters, passwordLength.current);
     setPassword(password);
-    showToast(tc("common.generated"), "info", alert_gen_timeout, "generatedAlert");
+    showToast(tc("generated"), "info", alert_gen_timeout, "generatedAlert");
   }
 
   function setLength(length: number) {
@@ -337,7 +337,7 @@ function Generator({
       ];
       savedTemp.push(...saved);
       setSaved(savedTemp);
-      showToast(tc("common.bookmarked"), "success", alert_saved_timeout);
+      showToast(tc("bookmarked"), "success", alert_saved_timeout);
     }
   }
 
@@ -373,7 +373,7 @@ function Generator({
               type="button"
               className="text-fg-muted hover:text-accent-cyan transition-colors cursor-pointer p-2"
               onClick={copyAction}
-              title={tc("common.copy")}
+              title={tc("copy")}
             >
               <Clipboard size={18} />
             </button>
@@ -393,9 +393,11 @@ function Generator({
                 style={{ backgroundColor: levelStyle.backgroundColor }}
               />
             )}
-            <span className="text-sm font-semibold" style={{ color: levelStyle.backgroundColor }}>
-              {t(`${levelStyle.strengthLabel}`)}
-            </span>
+            {levelStyle.strengthLabel && (
+              <span className="text-sm font-semibold" style={{ color: levelStyle.backgroundColor }}>
+                {t(levelStyle.strengthLabel)}
+              </span>
+            )}
           </div>
           <div className="flex items-center gap-2">
             <span className="text-sm text-fg-muted">{levelStyle.entropy} bits</span>
@@ -595,7 +597,7 @@ function Generator({
           size="lg"
           onClick={() => {
             navigator.clipboard.writeText("");
-            showToast(tc("common.clearedClipboard"), "danger", 1000);
+            showToast(tc("clearedClipboard"), "danger", 1000);
           }}
           className="w-full rounded-full font-bold !border-danger !text-danger hover:!bg-danger/10"
         >

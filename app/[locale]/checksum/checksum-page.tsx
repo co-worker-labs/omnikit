@@ -190,7 +190,7 @@ function ChecksumDisplay({ data, types }: { data: HashResult; types: string[] })
           <button
             type="button"
             className="px-2.5 py-0.5 text-xs text-danger hover:text-danger/80 font-medium absolute end-2 top-2 transition-colors cursor-pointer"
-            title={tc("common.clear")}
+            title={tc("clear")}
             onClick={() => {
               setTestChecksum("");
             }}
@@ -204,7 +204,7 @@ function ChecksumDisplay({ data, types }: { data: HashResult; types: string[] })
           <tbody>
             <tr className="border-b border-border-default bg-bg-elevated/40">
               <th className="py-2 px-4 text-fg-muted text-xs font-mono font-medium text-left whitespace-nowrap uppercase tracking-wider">
-                {tc("common.size")}
+                {tc("size")}
               </th>
               <td className="py-2 text-sm text-fg-secondary font-mono">{data.size}</td>
             </tr>
@@ -356,7 +356,7 @@ function FileCalculator() {
         <div className="absolute inset-0 z-10 bg-bg-base/75 rounded-xl flex flex-col items-center justify-center gap-4">
           <div className="w-8 h-8 border-2 border-accent-cyan border-t-transparent rounded-full animate-spin" />
           <span className="text-fg-secondary text-sm">
-            {tc("common.calculating")} · {formatElapsed(elapsed)}
+            {tc("calculating")} · {formatElapsed(elapsed)}
           </span>
           <Button
             variant="danger"
@@ -365,7 +365,7 @@ function FileCalculator() {
             className="rounded-full uppercase font-bold px-10"
           >
             <X size={14} className="me-1" />
-            {tc("common.cancel")}
+            {tc("cancel")}
           </Button>
         </div>
       )}
@@ -419,7 +419,7 @@ function FileCalculator() {
       <div className="flex flex-col-reverse sm:flex-row sm:items-center gap-3 mt-4">
         <div className="flex items-center gap-2 sm:w-1/2">
           <label className="font-mono text-xs font-medium text-fg-muted uppercase tracking-wider whitespace-nowrap">
-            {tc("common.storageUnit")}
+            {tc("storageUnit")}
           </label>
           <div className="flex-1">
             <StyledSelect
@@ -483,7 +483,7 @@ function FileCalculator() {
             if (fileRef.current) {
               fileRef.current.value = "";
             }
-            showToast(tc("common.deselected"), "danger", 2000);
+            showToast(tc("deselected"), "danger", 2000);
           }}
           className="rounded-full uppercase font-bold flex-1"
         >
