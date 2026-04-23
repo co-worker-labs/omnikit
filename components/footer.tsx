@@ -27,7 +27,7 @@ export default function Footer({ position }: { position: FooterPosition }) {
     <footer className={`bg-bg-surface border-t border-border-default py-2 px-4 ${positionClass}`}>
       <div className="flex flex-col items-center justify-between gap-1 sm:flex-row">
         <p className="text-fg-muted text-xs">
-          {t("footer.copyright", { year: new Date().getFullYear() })}
+          © {t("footer.copyright", { year: new Date().getFullYear() })}
         </p>
         <nav className="flex items-center gap-3">
           <Link href="/" className="text-fg-muted text-xs hover:text-accent-cyan transition-colors">

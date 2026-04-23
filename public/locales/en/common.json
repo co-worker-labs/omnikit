@@ -10,7 +10,7 @@
     "home": "Home",
     "terms": "Terms",
     "privacy": "Privacy",
-    "copyright": "© {{year}} ByteCraft. All Rights Reserved."
+    "copyright": "{{year}} ByteCraft. All Rights Reserved."
   },
   "layout": {},
   "common": {

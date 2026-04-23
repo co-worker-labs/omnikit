@@ -10,7 +10,7 @@
     "home": "首页",
     "terms": "服务条款",
     "privacy": "隐私政策",
-    "copyright": "© {{year}} 字节工坊 版权所有"
+    "copyright": "{{year}} 字节工坊 版权所有"
   },
   "layout": {},
   "common": {

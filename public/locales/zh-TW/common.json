@@ -10,7 +10,7 @@
     "home": "首頁",
     "terms": "使用條款",
     "privacy": "隱私權政策",
-    "copyright": "© {{year}} 字节工坊. 保留所有權利。"
+    "copyright": "{{year}} 字节工坊. 保留所有權利。"
   },
   "layout": {},
   "common": {
