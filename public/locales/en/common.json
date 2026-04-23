@@ -4,13 +4,14 @@
     "search": "Search",
     "searchPlaceholder": "Search",
     "switchToLight": "Switch to light mode",
-    "switchToDark": "Switch to dark mode"
+    "switchToDark": "Switch to dark mode",
+    "tools": "Tools"
   },
   "footer": {
     "home": "Home",
     "terms": "Terms",
     "privacy": "Privacy",
-    "copyright": "{{year}} ByteCraft. All Rights Reserved."
+    "copyright": "{year} ByteCraft. All Rights Reserved."
   },
   "layout": {},
   "common": {

@@ -1,5 +1,5 @@
 {
-  "conversion": "{{unit}} 換算",
+  "conversion": "{unit} 換算",
   "decimal": "十進位",
   "binary": "二進位",
   "bit": "位元",

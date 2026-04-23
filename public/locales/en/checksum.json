@@ -1,9 +1,9 @@
 {
   "dropFilesHere": "Drop files here or click to select",
-  "deselect": "Deselect ({{count}})",
+  "deselect": "Deselect ({count})",
   "noFileChosen": "No file chosen",
-  "selectedFiles": "Selected {{count}} {{files}}",
-  "selectedFile": "Selected {{count}} file",
+  "selectedFiles": "Selected {count} {files}",
+  "selectedFile": "Selected {count} file",
   "checksumOutput": "Checksum Output",
   "storageUnit1000": "1K = 1000 Bytes",
   "storageUnit1024": "1K = 1024 Bytes",

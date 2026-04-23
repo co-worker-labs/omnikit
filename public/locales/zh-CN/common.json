@@ -4,13 +4,14 @@
     "search": "搜索",
     "searchPlaceholder": "搜索",
     "switchToLight": "切换到浅色模式",
-    "switchToDark": "切换到深色模式"
+    "switchToDark": "切换到深色模式",
+    "tools": "工具"
   },
   "footer": {
     "home": "首页",
     "terms": "服务条款",
     "privacy": "隐私政策",
-    "copyright": "{{year}} 字节工坊 版权所有"
+    "copyright": "{year} 字节工坊 版权所有"
   },
   "layout": {},
   "common": {

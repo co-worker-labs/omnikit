@@ -1,5 +1,5 @@
 {
-  "conversion": "{{unit}} Conversion",
+  "conversion": "{unit} Conversion",
   "decimal": "Decimal",
   "binary": "Binary",
   "bit": "Bit",

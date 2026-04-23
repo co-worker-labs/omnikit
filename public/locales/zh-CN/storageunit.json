@@ -1,5 +1,5 @@
 {
-  "conversion": "{{unit}} 转换",
+  "conversion": "{unit} 转换",
   "decimal": "十进制",
   "binary": "二进制",
   "bit": "比特",

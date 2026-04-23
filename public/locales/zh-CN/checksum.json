@@ -1,9 +1,9 @@
 {
   "dropFilesHere": "将文件拖放到此处，或点击选择文件",
-  "deselect": "取消选择 ({{count}})",
+  "deselect": "取消选择 ({count})",
   "noFileChosen": "未选择文件",
-  "selectedFiles": "已选择 {{count}} 个文件",
-  "selectedFile": "已选择 {{count}} 个文件",
+  "selectedFiles": "已选择 {count} 个文件",
+  "selectedFile": "已选择 {count} 个文件",
   "checksumOutput": "校验输出",
   "storageUnit1000": "1K = 1000 字节",
   "storageUnit1024": "1K = 1024 字节",

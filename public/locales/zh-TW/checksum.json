@@ -1,9 +1,9 @@
 {
   "dropFilesHere": "將檔案拖曳至此處或點擊選取",
-  "deselect": "取消選取 ({{count}})",
+  "deselect": "取消選取 ({count})",
   "noFileChosen": "未選取檔案",
-  "selectedFiles": "已選取 {{count}} 個{{files}}",
-  "selectedFile": "已選取 {{count}} 個檔案",
+  "selectedFiles": "已選取 {count} 個{files}",
+  "selectedFile": "已選取 {count} 個檔案",
   "checksumOutput": "校驗碼結果",
   "storageUnit1000": "1K = 1000 Bytes",
   "storageUnit1024": "1K = 1024 Bytes",
