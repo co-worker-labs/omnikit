@@ -11,5 +11,7 @@
     "desc": "Desc",
     "html": "Html",
     "glyph": "Glyph"
-  }
+  },
+  "tip": "💡 Hover over any row for details. Use the search bar to quickly find characters by decimal, hex, or glyph.",
+  "searchPlaceholder": "Search by decimal, hex, or character..."
 }
