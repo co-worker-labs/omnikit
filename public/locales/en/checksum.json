@@ -7,6 +7,8 @@
   "checksumOutput": "Checksum Output",
   "storageUnit1000": "1K = 1000 Bytes",
   "storageUnit1024": "1K = 1024 Bytes",
+  "algoTip": "For large files, select only the algorithms you need to reduce processing time.",
+  "calculate": "Calculate",
   "descriptions": {
     "md5Title": "MD5",
     "md5": "MD5 is a widely used hash function. It's been used in a variety of security applications and is also commonly used to check the integrity of files. Though, MD5 is not collision resistant, and it isn't suitable for applications like SSL certificates or digital signatures that rely on this property.",

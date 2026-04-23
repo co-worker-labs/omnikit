@@ -7,6 +7,8 @@
   "checksumOutput": "校验输出",
   "storageUnit1000": "1K = 1000 字节",
   "storageUnit1024": "1K = 1024 字节",
+  "algoTip": "处理大文件时，请仅勾选所需的算法以减少计算耗时。",
+  "calculate": "开始计算",
   "descriptions": {
     "md5Title": "MD5",
     "md5": "MD5 是一种广泛使用的哈希函数，在多种安全应用中被采用，也常用于校验文件完整性。不过，MD5 不具备抗碰撞性，不适用于依赖此特性的 SSL 证书或数字签名等应用。",

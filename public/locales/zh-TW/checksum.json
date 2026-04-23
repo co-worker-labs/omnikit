@@ -7,6 +7,8 @@
   "checksumOutput": "校驗碼結果",
   "storageUnit1000": "1K = 1000 Bytes",
   "storageUnit1024": "1K = 1024 Bytes",
+  "algoTip": "處理大檔案時，請僅勾選所需的演算法以減少計算耗時。",
+  "calculate": "開始計算",
   "descriptions": {
     "md5Title": "MD5",
     "md5": "MD5 是一種廣泛使用的雜湊函式。它曾被用於多種安全應用，也常被用來檢查檔案的完整性。不過，MD5 不具備抗碰撞能力，不適合用於依賴此特性的應用，例如 SSL 憑證或數位簽章。",
