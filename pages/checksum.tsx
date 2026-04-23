@@ -14,7 +14,7 @@ import { StyledSelect } from "../components/ui/input";
 import { StyledCheckbox } from "../components/ui/input";
 import { Button } from "../components/ui/button";
 import { Accordion } from "../components/ui/accordion";
-import { Plus } from "lucide-react";
+import { Plus, X, Play } from "lucide-react";
 
 const CryptoJS = require("crypto-js");
 
@@ -38,197 +38,222 @@ interface HashResult {
   RIPEMD160: string;
 }
 
+const hashEntries: { key: keyof Omit<HashResult, "title" | "size">; label: string }[] = [
+  { key: "md5", label: "MD5" },
+  { key: "sha1", label: "SHA-1" },
+  { key: "sha224", label: "SHA-224" },
+  { key: "sha256", label: "SHA-256" },
+  { key: "sha384", label: "SHA-384" },
+  { key: "sha512", label: "SHA-512" },
+  { key: "sha3_224", label: "SHA3-224" },
+  { key: "sha3_256", label: "SHA3-256" },
+  { key: "sha3_384", label: "SHA3-384" },
+  { key: "sha3_512", label: "SHA3-512" },
+  { key: "RIPEMD160", label: "RIPEMD-160" },
+];
+
+function createHasher(type: string) {
+  switch (type) {
+    case "md5":
+      return CryptoJS.algo.MD5.create();
+    case "sha1":
+      return CryptoJS.algo.SHA1.create();
+    case "sha224":
+      return CryptoJS.algo.SHA224.create();
+    case "sha256":
+      return CryptoJS.algo.SHA256.create();
+    case "sha384":
+      return CryptoJS.algo.SHA384.create();
+    case "sha512":
+      return CryptoJS.algo.SHA512.create();
+    case "sha3-224":
+      return CryptoJS.algo.SHA3.create({ outputLength: 224 });
+    case "sha3-256":
+      return CryptoJS.algo.SHA3.create({ outputLength: 256 });
+    case "sha3-384":
+      return CryptoJS.algo.SHA3.create({ outputLength: 384 });
+    case "sha3-512":
+      return CryptoJS.algo.SHA3.create({ outputLength: 512 });
+    case "RIPEMD160":
+      return CryptoJS.algo.RIPEMD160.create();
+    default:
+      return null;
+  }
+}
+
+async function computeFileHashes(
+  file: File,
+  activeTypes: string[],
+  storageUnit: 1000 | 1024,
+  signal?: AbortSignal
+): Promise<HashResult> {
+  const hashers = new Map<string, any>();
+  for (const type of activeTypes) {
+    const hasher = createHasher(type);
+    if (hasher) hashers.set(type, hasher);
+  }
+
+  const reader = file.stream().getReader();
+  let processedBytes = 0;
+  const YIELD_INTERVAL = 1024 * 1024;
+  let nextYieldAt = YIELD_INTERVAL;
+
+  try {
+    while (true) {
+      if (signal?.aborted) throw new DOMException("Aborted", "AbortError");
+      const { done, value } = await reader.read();
+      if (done) break;
+      const wordArray = CryptoJS.lib.WordArray.create(value);
+      for (const h of hashers.values()) {
+        h.update(wordArray);
+      }
+      processedBytes += value.byteLength;
+      if (processedBytes >= nextYieldAt) {
+        nextYieldAt += YIELD_INTERVAL;
+        await new Promise((resolve) => setTimeout(resolve, 0));
+      }
+    }
+  } finally {
+    reader.releaseLock();
+  }
+
+  const result: HashResult = {
+    title: file.name,
+    size: `(${file.type}) - ${formatBytes(file.size, storageUnit)}`,
+    md5: "",
+    sha1: "",
+    sha224: "",
+    sha256: "",
+    sha384: "",
+    sha512: "",
+    sha3_224: "",
+    sha3_256: "",
+    sha3_384: "",
+    sha3_512: "",
+    RIPEMD160: "",
+  };
+
+  for (const [type, hasher] of hashers) {
+    const key = type.replace("-", "_") as keyof Omit<HashResult, "title" | "size">;
+    (result as any)[key] = hasher.finalize().toString();
+  }
+
+  return result;
+}
+
+function HashResultRow({
+  label,
+  value,
+  isMatch,
+}: {
+  label: string;
+  value: string;
+  isMatch: boolean;
+}) {
+  return (
+    <tr
+      className={`border-b border-border-default transition-all duration-200 ${
+        isMatch ? "bg-accent-cyan-dim/60 text-accent-cyan" : "hover:bg-bg-elevated/60"
+      }`}
+    >
+      <th className="py-2.5 px-4 text-fg-secondary text-xs font-mono font-medium text-left whitespace-nowrap uppercase tracking-wider">
+        {label}
+      </th>
+      <td className={`py-2.5 font-mono text-sm break-all ${isMatch ? "font-semibold" : ""}`}>
+        <span className="text-fg-muted mr-0 select-none">{isMatch ? "✓ " : "  "}</span>
+        {value}
+        <CopyButton
+          getContent={() => value}
+          className="ms-1.5 opacity-60 hover:opacity-100 transition-opacity"
+        />
+      </td>
+    </tr>
+  );
+}
+
 function ChecksumDisplay({ data, types }: { data: HashResult; types: string[] }) {
   const { t } = useTranslation(["checksum", "common"]);
   const [testChecksum, setTestChecksum] = useState<string>("");
 
   return (
     <>
-      <div className="relative">
+      <div className="relative mt-1">
         <StyledTextarea
           placeholder={t("checksum:compareToChecksum")}
-          rows={3}
+          rows={2}
           value={testChecksum}
           onChange={(e) => {
             setTestChecksum(e.target.value);
           }}
+          className="font-mono text-xs"
         />
-        <button
-          type="button"
-          className="text-danger font-bold text-sm absolute end-0 top-0 bg-transparent border-none cursor-pointer"
-          title={t("common:common.clear")}
-          onClick={() => {
-            setTestChecksum("");
-          }}
-        >
-          {t("common:common.clear")}
-        </button>
+        {testChecksum && (
+          <button
+            type="button"
+            className="px-2.5 py-0.5 text-xs text-danger hover:text-danger/80 font-medium absolute end-2 top-2 transition-colors cursor-pointer"
+            title={t("common:common.clear")}
+            onClick={() => {
+              setTestChecksum("");
+            }}
+          >
+            <X size={14} />
+          </button>
+        )}
       </div>
-      <table className="w-full mt-2">
-        <tbody>
-          <tr className="border-b border-border-default even:bg-bg-elevated/50">
-            <th className="py-2 pr-4 text-fg-secondary text-sm text-left whitespace-nowrap">
-              {t("common:common.size")}
-            </th>
-            <td className="py-2 text-sm">{data.size}</td>
-          </tr>
-          {types.includes("md5") && (
-            <tr
-              className={`border-b border-border-default even:bg-bg-elevated/50 ${data.md5 == testChecksum ? "bg-accent-cyan-dim text-accent-cyan font-semibold" : ""}`}
-            >
-              <th className="py-2 pr-4 text-fg-secondary text-sm text-left whitespace-nowrap">
-                MD5
+      <div className="mt-3 rounded-lg border border-border-default overflow-hidden">
+        <table className="w-full">
+          <tbody>
+            <tr className="border-b border-border-default bg-bg-elevated/40">
+              <th className="py-2 px-4 text-fg-muted text-xs font-mono font-medium text-left whitespace-nowrap uppercase tracking-wider">
+                {t("common:common.size")}
               </th>
-              <td className="py-2 font-mono text-sm break-all">
-                {data.md5}
-                <CopyButton getContent={() => data.md5} className="ms-1" />
-              </td>
+              <td className="py-2 text-sm text-fg-secondary font-mono">{data.size}</td>
             </tr>
-          )}
-          {types.includes("sha1") && (
-            <tr
-              className={`border-b border-border-default even:bg-bg-elevated/50 ${data.sha1 == testChecksum ? "bg-accent-cyan-dim text-accent-cyan font-semibold" : ""}`}
-            >
-              <th className="py-2 pr-4 text-fg-secondary text-sm text-left whitespace-nowrap">
-                SHA-1
-              </th>
-              <td className="py-2 font-mono text-sm break-all">
-                {data.sha1}
-                <CopyButton getContent={() => data.sha1} className="ms-1" />
-              </td>
-            </tr>
-          )}
-          {types.includes("sha224") && (
-            <tr
-              className={`border-b border-border-default even:bg-bg-elevated/50 ${data.sha224 == testChecksum ? "bg-accent-cyan-dim text-accent-cyan font-semibold" : ""}`}
-            >
-              <th className="py-2 pr-4 text-fg-secondary text-sm text-left whitespace-nowrap">
-                SHA-224
-              </th>
-              <td className="py-2 font-mono text-sm break-all">
-                {data.sha224}
-                <CopyButton getContent={() => data.sha224} className="ms-1" />
-              </td>
-            </tr>
-          )}
-          {types.includes("sha256") && (
-            <tr
-              className={`border-b border-border-default even:bg-bg-elevated/50 ${data.sha256 == testChecksum ? "bg-accent-cyan-dim text-accent-cyan font-semibold" : ""}`}
-            >
-              <th className="py-2 pr-4 text-fg-secondary text-sm text-left whitespace-nowrap">
-                SHA-256
-              </th>
-              <td className="py-2 font-mono text-sm break-all">
-                {data.sha256}
-                <CopyButton getContent={() => data.sha256} className="ms-1" />
-              </td>
-            </tr>
-          )}
-          {types.includes("sha384") && (
-            <tr
-              className={`border-b border-border-default even:bg-bg-elevated/50 ${data.sha384 == testChecksum ? "bg-accent-cyan-dim text-accent-cyan font-semibold" : ""}`}
-            >
-              <th className="py-2 pr-4 text-fg-secondary text-sm text-left whitespace-nowrap">
-                SHA-384
-              </th>
-              <td className="py-2 font-mono text-sm break-all">
-                {data.sha384}
-                <CopyButton getContent={() => data.sha384} className="ms-1" />
-              </td>
-            </tr>
-          )}
-          {types.includes("sha512") && (
-            <tr
-              className={`border-b border-border-default even:bg-bg-elevated/50 ${data.sha512 == testChecksum ? "bg-accent-cyan-dim text-accent-cyan font-semibold" : ""}`}
-            >
-              <th className="py-2 pr-4 text-fg-secondary text-sm text-left whitespace-nowrap">
-                SHA-512
-              </th>
-              <td className="py-2 font-mono text-sm break-all">
-                {data.sha512}
-                <CopyButton getContent={() => data.sha512} className="ms-1" />
-              </td>
-            </tr>
-          )}
-          {types.includes("sha3-224") && (
-            <tr
-              className={`border-b border-border-default even:bg-bg-elevated/50 ${data.sha3_224 == testChecksum ? "bg-accent-cyan-dim text-accent-cyan font-semibold" : ""}`}
-            >
-              <th className="py-2 pr-4 text-fg-secondary text-sm text-left whitespace-nowrap">
-                SHA3-224
-              </th>
-              <td className="py-2 font-mono text-sm break-all">
-                {data.sha3_224}
-                <CopyButton getContent={() => data.sha3_224} className="ms-1" />
-              </td>
-            </tr>
-          )}
-          {types.includes("sha3-256") && (
-            <tr
-              className={`border-b border-border-default even:bg-bg-elevated/50 ${data.sha3_256 == testChecksum ? "bg-accent-cyan-dim text-accent-cyan font-semibold" : ""}`}
-            >
-              <th className="py-2 pr-4 text-fg-secondary text-sm text-left whitespace-nowrap">
-                SHA3-256
-              </th>
-              <td className="py-2 font-mono text-sm break-all">
-                {data.sha3_256}
-                <CopyButton getContent={() => data.sha3_256} className="ms-1" />
-              </td>
-            </tr>
-          )}
-          {types.includes("sha3-384") && (
-            <tr
-              className={`border-b border-border-default even:bg-bg-elevated/50 ${data.sha3_384 == testChecksum ? "bg-accent-cyan-dim text-accent-cyan font-semibold" : ""}`}
-            >
-              <th className="py-2 pr-4 text-fg-secondary text-sm text-left whitespace-nowrap">
-                SHA3-384
-              </th>
-              <td className="py-2 font-mono text-sm break-all">
-                {data.sha3_384}
-                <CopyButton getContent={() => data.sha3_384} className="ms-1" />
-              </td>
-            </tr>
-          )}
-          {types.includes("sha3-512") && (
-            <tr
-              className={`border-b border-border-default even:bg-bg-elevated/50 ${data.sha3_512 == testChecksum ? "bg-accent-cyan-dim text-accent-cyan font-semibold" : ""}`}
-            >
-              <th className="py-2 pr-4 text-fg-secondary text-sm text-left whitespace-nowrap">
-                SHA3-512
-              </th>
-              <td className="py-2 font-mono text-sm break-all">
-                {data.sha3_512}
-                <CopyButton getContent={() => data.sha3_512} className="ms-1" />
-              </td>
-            </tr>
-          )}
-          {types.includes("RIPEMD160") && (
-            <tr
-              className={`border-b border-border-default even:bg-bg-elevated/50 ${data.RIPEMD160 == testChecksum ? "bg-accent-cyan-dim text-accent-cyan font-semibold" : ""}`}
-            >
-              <th className="py-2 pr-4 text-fg-secondary text-sm text-left whitespace-nowrap">
-                RIPEMD-160
-              </th>
-              <td className="py-2 font-mono text-sm break-all">
-                {data.RIPEMD160}
-                <CopyButton getContent={() => data.RIPEMD160} className="ms-1" />
-              </td>
-            </tr>
-          )}
-        </tbody>
-      </table>
+            {hashEntries.map((entry) => {
+              const value = data[entry.key];
+              if (!value) return null;
+              return (
+                <HashResultRow
+                  key={entry.key}
+                  label={entry.label}
+                  value={value}
+                  isMatch={value === testChecksum}
+                />
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
     </>
   );
 }
 
 function FileCalculator() {
   const { t } = useTranslation(["checksum", "common"]);
-  const fileRef = useRef(null);
+  const fileRef = useRef<HTMLInputElement>(null);
+  const dropZoneRef = useRef<HTMLDivElement>(null);
   const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
   const [hashResList, setHashResList] = useState<HashResult[]>([]);
-  const [types, setTypes] = useState<string[]>(["md5", "sha1", "sha256", "sha512"]);
+  const [types, setTypes] = useState<string[]>(["md5"]);
   const [storageUnit, setStorageUnit] = useState<1000 | 1024>(1000);
-  const calculating = selectedFiles.length > 0 && hashResList.length === 0;
+  const [calculating, setCalculating] = useState(false);
+  const [elapsed, setElapsed] = useState(0);
+
+  useEffect(() => {
+    if (!calculating) return;
+    const start = Date.now();
+    const timer = setInterval(() => {
+      setElapsed(Math.floor((Date.now() - start) / 1000));
+    }, 200);
+    return () => clearInterval(timer);
+  }, [calculating]);
+
+  function formatElapsed(seconds: number): string {
+    if (seconds < 60) return `${seconds}s`;
+    const m = Math.floor(seconds / 60);
+    const s = seconds % 60;
+    return `${m}m ${s}s`;
+  }
 
   function onToggleCheck(event: ChangeEvent<HTMLInputElement>) {
     const checked = event.target.checked;
@@ -240,58 +265,75 @@ function FileCalculator() {
     } else {
       setTypes(types.filter((it) => it != value));
     }
-    setHashResList([]);
   }
 
   function filenames(files: File[]): string {
     return files.map((f) => f.name).join(", ");
   }
 
-  useEffect(() => {
-    if (selectedFiles && selectedFiles.length > 0) {
-      const length = selectedFiles.length;
-      const resArr: HashResult[] = [];
-      selectedFiles.forEach((f) => {
-        const reader = new FileReader();
-        reader.onload = (e) => {
-          var bin = e.target?.result;
-          resArr.push({
-            title: f.name,
-            size: "(" + f.type + ") - " + formatBytes(f.size, storageUnit),
-            md5: types.includes("md5") ? CryptoJS.MD5(bin).toString() : "",
-            sha1: types.includes("sha1") ? CryptoJS.SHA1(bin).toString() : "",
-            sha224: types.includes("sha224") ? CryptoJS.SHA224(bin).toString() : "",
-            sha256: types.includes("sha256") ? CryptoJS.SHA256(bin).toString() : "",
-            sha384: types.includes("sha384") ? CryptoJS.SHA384(bin).toString() : "",
-            sha512: types.includes("sha512") ? CryptoJS.SHA512(bin).toString() : "",
-            sha3_224: types.includes("sha3-224")
-              ? CryptoJS.SHA3(bin, { outputLength: 224 }).toString()
-              : "",
-            sha3_256: types.includes("sha3-256")
-              ? CryptoJS.SHA3(bin, { outputLength: 256 }).toString()
-              : "",
-            sha3_384: types.includes("sha3-384")
-              ? CryptoJS.SHA3(bin, { outputLength: 384 }).toString()
-              : "",
-            sha3_512: types.includes("sha3-512")
-              ? CryptoJS.SHA3(bin, { outputLength: 512 }).toString()
-              : "",
-            RIPEMD160: types.includes("RIPEMD160") ? CryptoJS.RIPEMD160(bin).toString() : "",
-          });
-          if (resArr.length == length) {
-            setHashResList(resArr);
-          }
-        };
-        reader.readAsBinaryString(f);
-      });
+  const cancelRef = useRef(false);
+  const abortRef = useRef<AbortController | null>(null);
+
+  function cancelCalculation() {
+    cancelRef.current = true;
+    abortRef.current?.abort();
+    abortRef.current = null;
+    setCalculating(false);
+    setElapsed(0);
+    setHashResList([]);
+  }
+
+  async function handleCalculate() {
+    if (selectedFiles.length === 0 || calculating) return;
+    setCalculating(true);
+    setElapsed(0);
+    setHashResList([]);
+    cancelRef.current = false;
+    const abortController = new AbortController();
+    abortRef.current = abortController;
+
+    const results: HashResult[] = [];
+    for (const file of selectedFiles) {
+      if (cancelRef.current) break;
+      try {
+        const result = await computeFileHashes(file, types, storageUnit, abortController.signal);
+        if (cancelRef.current) break;
+        results.push(result);
+      } catch (e) {
+        if ((e as DOMException).name !== "AbortError") {
+          // unexpected error, stop silently
+        }
+        break;
+      }
     }
-  }, [selectedFiles, storageUnit, types]);
+    abortRef.current = null;
+    setCalculating(false);
+    if (!cancelRef.current) setHashResList(results);
+  }
 
   useEffect(() => {
-    const input = document.getElementById("fileSelector");
-    input?.addEventListener("drop", async (evt) => {
-      const files = await fromEvent(evt);
-    });
+    const dropZone = dropZoneRef.current;
+    if (!dropZone) return;
+
+    const onDragOver = (e: DragEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+    };
+    const onDrop = async (e: DragEvent) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const files = await fromEvent(e);
+      if (files && files.length > 0) {
+        setSelectedFiles(files as File[]);
+      }
+    };
+
+    dropZone.addEventListener("dragover", onDragOver);
+    dropZone.addEventListener("drop", onDrop);
+    return () => {
+      dropZone.removeEventListener("dragover", onDragOver);
+      dropZone.removeEventListener("drop", onDrop);
+    };
   }, []);
 
   const hashTypeOptions = [
@@ -309,12 +351,30 @@ function FileCalculator() {
   ];
 
   return (
-    <section id="calculator" className="mt-4">
+    <section id="calculator" className="mt-4 relative">
+      {calculating && (
+        <div className="absolute inset-0 z-10 bg-bg-base/75 rounded-xl flex flex-col items-center justify-center gap-4">
+          <div className="w-8 h-8 border-2 border-accent-cyan border-t-transparent rounded-full animate-spin" />
+          <span className="text-fg-secondary text-sm">
+            {t("common:common.calculating")} · {formatElapsed(elapsed)}
+          </span>
+          <Button
+            variant="danger"
+            size="md"
+            onClick={cancelCalculation}
+            className="rounded-full uppercase font-bold px-10"
+          >
+            <X size={14} className="me-1" />
+            {t("common:common.cancel")}
+          </Button>
+        </div>
+      )}
       <div
+        ref={dropZoneRef}
         className="relative text-xl rounded-lg border-2 border-dashed border-accent-cyan/30 bg-accent-cyan-dim/10 text-accent-cyan"
         style={{ width: "100%", height: "10rem" }}
       >
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center w-full w-lg-3/4 justify-center px-4">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex items-center w-full w-lg-3/4 justify-center px-4 pointer-events-none">
           {selectedFiles && selectedFiles.length > 0 ? (
             <span className="truncate">{filenames(selectedFiles)}</span>
           ) : (
@@ -329,15 +389,12 @@ function FileCalculator() {
           type="file"
           id="fileSelector"
           className="opacity-0 absolute inset-0 w-full h-full cursor-pointer"
-          style={{ zIndex: -1 }}
           onClick={() => {
             if (fileRef.current) {
-              const input = fileRef.current as any;
-              input.value = null;
+              fileRef.current.value = "";
             }
           }}
           onChange={(e) => {
-            setHashResList([]);
             if (e.target.files && e.target.files.length > 0) {
               const files: File[] = [];
               for (var i = 0; i < e.target.files?.length; i++) {
@@ -359,61 +416,83 @@ function FileCalculator() {
           multiple={true}
         />
       </div>
-      <div className="mt-3 text-center">
-        <Button
-          variant="danger"
-          size="sm"
-          disabled={selectedFiles.length == 0}
-          onClick={() => {
-            setSelectedFiles([]);
-            setHashResList([]);
-            if (fileRef.current) {
-              const input = fileRef.current as any;
-              input.value = null;
-            }
-            showToast(t("common:common.deselected"), "danger", 2000);
-          }}
-          className="w-3/4 lg:w-1/4 rounded-full uppercase"
-        >
-          {selectedFiles.length > 0
-            ? t("checksum:deselect", { count: selectedFiles.length })
-            : t("checksum:noFileChosen")}
-        </Button>
-      </div>
-      <div className="flex justify-start mt-3">
-        <div className="w-auto">
-          <StyledSelect
-            aria-label="Storage Unit"
-            value={storageUnit}
-            onChange={(e) => {
-              setStorageUnit(parseInt(e.target.value) as 1000 | 1024);
-              setHashResList([]);
-            }}
-          >
-            <option value="1000">{t("checksum:storageUnit1000")}</option>
-            <option value="1024">{t("checksum:storageUnit1024")}</option>
-          </StyledSelect>
+      <div className="flex flex-col-reverse sm:flex-row sm:items-center gap-3 mt-4">
+        <div className="flex items-center gap-2 sm:w-1/2">
+          <label className="font-mono text-xs font-medium text-fg-muted uppercase tracking-wider whitespace-nowrap">
+            {t("common:common.storageUnit")}
+          </label>
+          <div className="flex-1">
+            <StyledSelect
+              aria-label="Storage Unit"
+              value={storageUnit}
+              onChange={(e) => {
+                setStorageUnit(parseInt(e.target.value) as 1000 | 1024);
+              }}
+              className="appearance-none rounded-full font-bold text-center w-full"
+            >
+              <option value="1000">{t("checksum:storageUnit1000")}</option>
+              <option value="1024">{t("checksum:storageUnit1024")}</option>
+            </StyledSelect>
+          </div>
         </div>
       </div>
-      <div className="flex flex-wrap mt-3 px-3">
-        {hashTypeOptions.map((opt) => (
-          <div key={opt.id} className="me-4 mt-2">
+      <div className="mt-4">
+        <div className="flex items-center gap-2 mb-3">
+          <span className="w-1.5 h-4 rounded-full bg-accent-cyan" />
+          <span className="font-mono text-xs font-semibold text-fg-muted uppercase tracking-wider">
+            Algorithms
+          </span>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-2">
+          {hashTypeOptions.map((opt) => (
             <StyledCheckbox
+              key={opt.id}
               label={opt.label}
               value={opt.value}
               id={opt.id}
               checked={types.includes(opt.value)}
               onChange={onToggleCheck}
             />
-          </div>
-        ))}
-      </div>
-      {calculating && (
-        <div className="flex justify-center mt-4">
-          <div className="w-6 h-6 border-2 border-accent-cyan border-t-transparent rounded-full animate-spin" />
-          <span className="ms-3 text-fg-secondary">{t("common:common.calculating")}</span>
+          ))}
         </div>
-      )}
+        <p className="text-xs text-fg-muted/70 mt-2.5 flex items-center gap-1.5">
+          <span className="inline-block w-3 h-3 rounded-full border border-current" />
+          {t("checksum:algoTip")}
+        </p>
+      </div>
+      <div className="flex flex-col sm:flex-row gap-2 mt-4 sm:w-1/2">
+        <Button
+          variant="primary"
+          size="lg"
+          disabled={selectedFiles.length == 0 || calculating || types.length === 0}
+          onClick={handleCalculate}
+          className="rounded-full uppercase font-bold flex-1"
+        >
+          <Play size={16} className="me-1" />
+          {t("checksum:calculate")}
+        </Button>
+        <Button
+          variant="danger"
+          size="lg"
+          disabled={selectedFiles.length == 0 || calculating}
+          onClick={() => {
+            cancelRef.current = true;
+            setSelectedFiles([]);
+            setHashResList([]);
+            setCalculating(false);
+            if (fileRef.current) {
+              fileRef.current.value = "";
+            }
+            showToast(t("common:common.deselected"), "danger", 2000);
+          }}
+          className="rounded-full uppercase font-bold flex-1"
+        >
+          <X size={14} className="me-1" />
+          {selectedFiles.length > 0
+            ? t("checksum:deselect", { count: selectedFiles.length })
+            : t("checksum:noFileChosen")}
+        </Button>
+      </div>
       {hashResList.length == 0 ? (
         <div
           className="border border-border-default rounded-xl w-full flex justify-center items-center mt-4 text-lg text-fg-muted font-bold bg-bg-surface"
@@ -439,23 +518,25 @@ function FileCalculator() {
 function Description() {
   const { t } = useTranslation("checksum");
   return (
-    <section id="description" className="mt-5">
+    <section id="description" className="mt-8">
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary">{t("descriptions.md5Title")}</h5>
-        <p className="text-fg-secondary mt-1">{t("descriptions.md5")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.md5Title")}</h5>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.md5")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary">{t("descriptions.sha1Title")}</h5>
-        <p className="text-fg-secondary mt-1">{t("descriptions.sha1")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.sha1Title")}</h5>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.sha1")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary">{t("descriptions.sha2Title")}</h5>
-        <p className="text-fg-secondary mt-1">{t("descriptions.sha2")}</p>
-        <p className="text-fg-secondary mt-1">{t("descriptions.sha2extra")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.sha2Title")}</h5>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.sha2")}</p>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">
+          {t("descriptions.sha2extra")}
+        </p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary">{t("descriptions.sha3Title")}</h5>
-        <p className="text-fg-secondary mt-1">{t("descriptions.sha3")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.sha3Title")}</h5>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.sha3")}</p>
       </div>
     </section>
   );
@@ -467,12 +548,16 @@ function HashCalculatorPage({ toolData }: InferGetStaticPropsType<typeof getStat
     <>
       <ToolPageHeadBuilder toolPath="/checksum" />
       <Layout title={t("tools:checksum.title")}>
-        <div className="container mx-auto px-4 py-3">
-          <div className="bg-accent-cyan-dim/20 border border-accent-cyan/30 rounded-xl p-3 text-fg-secondary text-sm my-4">
-            {t("alert.filesNotTransferred")}
+        <div className="container mx-auto px-4 pt-3 pb-6">
+          <div className="flex items-start gap-2 border-l-2 border-accent-cyan bg-accent-cyan-dim/30 rounded-r-lg p-3 my-4">
+            <span className="text-sm text-fg-secondary leading-relaxed">
+              {t("alert.filesNotTransferred")}
+            </span>
           </div>
-          <div className="bg-accent-purple-dim/20 border border-accent-purple/30 rounded-xl p-3 text-fg-secondary text-sm my-4">
-            {t("alert.checksumInfo")}
+          <div className="flex items-start gap-2 border-l-2 border-accent-purple bg-accent-purple-dim/30 rounded-r-lg p-3 my-4">
+            <span className="text-sm text-fg-secondary leading-relaxed">
+              {t("alert.checksumInfo")}
+            </span>
           </div>
           <FileCalculator />
           <Description />
