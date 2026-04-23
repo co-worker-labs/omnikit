@@ -18,6 +18,24 @@ an unnecessary dependency.
 - **Standard library first**: Always prefer the Go standard library over third-party packages.
 - **Anti over-engineering**: Simple functions and plain structs beat complex interface hierarchies.
 
+### React Compiler memoization
+
+This project uses React Compiler (via `eslint-config-next/core-web-vitals`). The compiler
+automatically memoizes values — **never manually write `useMemo`, `useCallback`, or `React.memo`**.
+
+The ESLint rule `react-hooks/preserve-manual-memoization` will error if you write `useMemo` and
+the compiler cannot preserve its semantics in the compiled output. Fix: remove the manual
+memoization and let the compiler handle it.
+
+```tsx
+// ❌ WRONG — will fail eslint
+const filtered = useMemo(() => list.filter(...), [list, search]);
+
+// ✅ CORRECT — let React Compiler auto-memoize
+const q = search.trim().toLowerCase();
+const filtered = !q ? list : list.filter(...);
+```
+
 ## RESPONSE PROTOCOL
 
 ### Before making changes
