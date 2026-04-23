@@ -1,7 +1,9 @@
 {
   "description": {
     "p1": "There are a lot of different letters, characters, special characters, symbols and icons which you may want to use in your website content but when you do, they don't display as they should. To make sure they do display correctly, you need to use HTML codes. Every single letter, character, symbol and icon has its own HTML code which you just need to place in your HTML. We've created a complete list of all HTML codes for the various characters, special characters, letters, symbols and icons. You can easily copy these HTML codes and past them into your HTML so they show up correctly within the contents on your website. Where available, we've added the friendly HTML code (entity name), the numerical HTML code (entity number) and the HEX code so you'll always find the right code you need.",
-    "p2": "Before you use one of the below codes on your website, make sure your HTML document uses the correct encoding so you are sure that the HTML codes and HTML special codes are displayed properly. To make sure your HTML uses the correct encoding, you should make sure that you use the Unicode character set. This Unicode character set must be set in the head section of your HTML document. This is done by using a meta with the charset attribute and the value UTF-8. Just copy and paste the following meta into your head section and all the below HTML characters will be displayed perfectly so you're good to go."
+    "p2": "Before you use one of the below codes on your website, make sure your HTML document uses the correct encoding so you are sure that the HTML codes and HTML special codes are displayed properly. To make sure your HTML uses the correct encoding, you should make sure that you use the Unicode character set. This Unicode character set must be set in the head section of your HTML document. This is done by using a meta with the charset attribute and the value UTF-8. Just copy and paste the following meta into your head section and all the below HTML characters will be displayed perfectly so you're good to go.",
+    "showMore": "Show more",
+    "showLess": "Show less"
   },
   "tabs": {
     "letters": "Letters",
@@ -33,5 +35,6 @@
     "ipaEntityName": "IPA Entity name",
     "ipaEntityCode": "IPA Entity code",
     "example": "Example"
-  }
+  },
+  "searchPlaceholder": "Search by character, code, or description..."
 }
