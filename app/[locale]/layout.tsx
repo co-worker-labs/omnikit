@@ -1,10 +1,12 @@
 import type { ReactNode } from "react";
+import { cookies } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "../../i18n/routing";
 import { Providers } from "../providers";
-import { STORAGE_KEYS } from "../../libs/storage-keys";
+import { COOKIE_KEYS } from "../../libs/storage-keys";
+import type { Theme } from "../../libs/theme";
 import "../globals.css";
 
 type Props = {
@@ -23,10 +25,12 @@ export default async function LocaleLayout({ children, params }: Props) {
     notFound();
   }
 
-  const messages = await getMessages();
+  const [messages, cookieStore] = await Promise.all([getMessages(), cookies()]);
+  const themeCookie = cookieStore.get(COOKIE_KEYS.theme)?.value;
+  const initialTheme: Theme = themeCookie === "dark" ? "dark" : "light";
 
   return (
-    <html lang={locale} suppressHydrationWarning>
+    <html lang={locale} className={initialTheme === "dark" ? "dark" : ""} suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="apple-touch-icon" href="/favicon.svg" />
@@ -34,16 +38,10 @@ export default async function LocaleLayout({ children, params }: Props) {
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
         <meta name="twitter:card" content="summary_large_image" />
-        <script
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem('${STORAGE_KEYS.theme}');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}})();`,
-          }}
-        />
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <Providers>{children}</Providers>
+          <Providers initialTheme={initialTheme}>{children}</Providers>
         </NextIntlClientProvider>
       </body>
     </html>

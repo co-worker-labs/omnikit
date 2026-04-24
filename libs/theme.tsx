@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useSyncExternalStore, ReactNode } from "react";
-import { STORAGE_KEYS } from "./storage-keys";
+import { COOKIE_KEYS } from "./storage-keys";
 
 export type Theme = "light" | "dark";
 
@@ -13,11 +13,21 @@ const ThemeContext = createContext<ThemeContextValue>({
   toggleTheme: () => {},
 });
 
-const STORAGE_KEY = STORAGE_KEYS.theme;
+const COOKIE_KEY = COOKIE_KEYS.theme;
+const COOKIE_MAX_AGE = 60 * 60 * 24 * 365;
 
-function readStoredTheme(): Theme {
-  const stored = localStorage.getItem(STORAGE_KEY);
-  if (stored === "dark" || stored === "light") return stored;
+function readCookieTheme(): Theme | null {
+  const match = document.cookie.match(new RegExp(`(?:^|;\\s*)${COOKIE_KEY}=(light|dark)`));
+  return match ? (match[1] as Theme) : null;
+}
+
+function writeCookieTheme(theme: Theme) {
+  document.cookie = `${COOKIE_KEY}=${theme};path=/;max-age=${COOKIE_MAX_AGE};samesite=lax`;
+}
+
+function readCurrentTheme(): Theme {
+  const stored = readCookieTheme();
+  if (stored) return stored;
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
@@ -43,20 +53,22 @@ function emit() {
 }
 
 function getSnapshot(): Theme {
-  return readStoredTheme();
+  return readCurrentTheme();
 }
 
-function getServerSnapshot(): Theme {
-  return "light";
-}
-
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
+export function ThemeProvider({
+  children,
+  initialTheme,
+}: {
+  children: ReactNode;
+  initialTheme: Theme;
+}) {
+  const theme = useSyncExternalStore(subscribe, getSnapshot, () => initialTheme);
 
   useEffect(() => {
     const mq = window.matchMedia("(prefers-color-scheme: dark)");
     const handler = (e: MediaQueryListEvent) => {
-      if (localStorage.getItem(STORAGE_KEY)) return;
+      if (readCookieTheme()) return;
       applyTheme(e.matches ? "dark" : "light");
       emit();
     };
@@ -66,7 +78,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
 
   const toggleTheme = () => {
     const next = theme === "light" ? "dark" : "light";
-    localStorage.setItem(STORAGE_KEY, next);
+    writeCookieTheme(next);
     applyTheme(next);
     emit();
   };

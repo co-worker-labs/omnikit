@@ -1,4 +1,7 @@
 export const STORAGE_KEYS = {
-  theme: "bc:th",
   savedPasswords: "bc:sp",
+} as const;
+
+export const COOKIE_KEYS = {
+  theme: "bc-th",
 } as const;
