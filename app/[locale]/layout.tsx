@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { routing } from "../../i18n/routing";
 import { Providers } from "../providers";
 import { COOKIE_KEYS } from "../../libs/storage-keys";
@@ -45,6 +46,7 @@ export default async function LocaleLayout({ children, params }: Props) {
           <Providers initialTheme={initialTheme}>{children}</Providers>
         </NextIntlClientProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
