@@ -49,6 +49,33 @@ function decodeFor(mode: Mode, input: string): string {
   return decodeForm(input);
 }
 
+const RESERVED_TABLE: readonly (readonly [string, string, string, string])[] = [
+  ["(space)", "%20", "%20", "+"],
+  ["!", "!", "!", "%21"],
+  ['"', "%22", "%22", "%22"],
+  ["#", "%23", "#", "%23"],
+  ["$", "%24", "$", "%24"],
+  ["%", "%25", "%25", "%25"],
+  ["&", "%26", "&", "%26"],
+  ["'", "'", "'", "%27"],
+  ["(", "(", "(", "%28"],
+  [")", ")", ")", "%29"],
+  ["*", "*", "*", "*"],
+  ["+", "%2B", "+", "%2B"],
+  [",", "%2C", ",", "%2C"],
+  ["/", "%2F", "/", "%2F"],
+  [":", "%3A", ":", "%3A"],
+  [";", "%3B", ";", "%3B"],
+  ["=", "%3D", "=", "%3D"],
+  ["?", "%3F", "?", "%3F"],
+  ["@", "%40", "@", "%40"],
+  ["[", "%5B", "%5B", "%5B"],
+  ["]", "%5D", "%5D", "%5D"],
+  ["~", "~", "~", "%7E"],
+  ["\n", "%0A", "%0A", "%0D%0A"],
+  ["中", "%E4%B8%AD", "%E4%B8%AD", "%E4%B8%AD"],
+];
+
 function Conversion() {
   const t = useTranslations("urlencoder");
   const tc = useTranslations("common");
@@ -235,6 +262,90 @@ function Conversion() {
   );
 }
 
+function Description() {
+  const t = useTranslations("urlencoder");
+  return (
+    <section id="description" className="mt-8">
+      <div className="mb-4">
+        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.whatIsTitle")}</h5>
+        <div className="mt-1 space-y-1.5 text-fg-secondary text-sm leading-relaxed">
+          <p>{t("descriptions.whatIsP1")}</p>
+          <p>{t("descriptions.whatIsP2")}</p>
+        </div>
+      </div>
+
+      <div className="mb-4">
+        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.howTitle")}</h5>
+        <div className="mt-1 space-y-1.5 text-fg-secondary text-sm leading-relaxed">
+          <p>{t("descriptions.howIntro")}</p>
+          <p>{t("descriptions.howComponent")}</p>
+          <p>{t("descriptions.howUrl")}</p>
+          <p>{t("descriptions.howForm")}</p>
+        </div>
+      </div>
+
+      <div className="mb-4">
+        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.tableTitle")}</h5>
+        <div className="mt-3 rounded-lg border border-border-default bg-bg-elevated/50 p-3">
+          <table className="w-full table-fixed text-xs font-mono border-collapse">
+            <caption className="caption-top pb-2 font-semibold text-fg-primary text-sm">
+              {t("descriptions.tableCaption")}
+            </caption>
+            <thead>
+              <tr className="border-b border-border-default text-fg-muted">
+                <th className="px-2 py-1 text-start font-semibold">
+                  {t("descriptions.tableChar")}
+                </th>
+                <th className="px-2 py-1 text-start font-semibold">
+                  {t("descriptions.tableComponent")}
+                </th>
+                <th className="px-2 py-1 text-start font-semibold">{t("descriptions.tableUrl")}</th>
+                <th className="px-2 py-1 text-start font-semibold">
+                  {t("descriptions.tableForm")}
+                </th>
+              </tr>
+            </thead>
+            <tbody className="text-fg-secondary">
+              {RESERVED_TABLE.map(([char, comp, url, form]) => (
+                <tr key={char} className="odd:bg-bg-elevated/40">
+                  <td className="px-2 py-1 font-semibold text-accent-cyan">{char}</td>
+                  <td className="px-2 py-1">{comp}</td>
+                  <td className="px-2 py-1">{url}</td>
+                  <td className="px-2 py-1">{form}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="mt-3 text-xs text-fg-muted leading-relaxed">
+            {t("descriptions.tableNote")}
+          </p>
+        </div>
+      </div>
+
+      <div className="mb-4">
+        <h5 className="font-semibold text-fg-primary text-base">
+          {t("descriptions.useCasesTitle")}
+        </h5>
+        <div className="mt-1 space-y-1.5 text-fg-secondary text-sm leading-relaxed">
+          <p>{t("descriptions.useCasesP1")}</p>
+          <p>{t("descriptions.useCasesP2")}</p>
+          <p>{t("descriptions.useCasesP3")}</p>
+        </div>
+      </div>
+
+      <div className="mb-4">
+        <h5 className="font-semibold text-fg-primary text-base">
+          {t("descriptions.limitationsTitle")}
+        </h5>
+        <div className="mt-1 space-y-1.5 text-fg-secondary text-sm leading-relaxed">
+          <p>{t("descriptions.limitationsP1")}</p>
+          <p>{t("descriptions.limitationsP2")}</p>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 export default function UrlencoderPage() {
   const tc = useTranslations("common");
   const t = useTranslations("tools");
@@ -250,6 +361,7 @@ export default function UrlencoderPage() {
         </div>
 
         <Conversion />
+        <Description />
       </div>
     </Layout>
   );
