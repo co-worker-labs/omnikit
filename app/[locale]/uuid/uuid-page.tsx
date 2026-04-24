@@ -4,13 +4,14 @@ import { useEffect, useRef, useState } from "react";
 import { RefreshCw, Clipboard, Lock } from "lucide-react";
 import { useTranslations } from "next-intl";
 
-import { generate, formatUuid, UuidBytes, UuidVersion } from "../../../libs/uuid/main";
+import { generate, formatUuid, UuidBytes, UuidVersion, UuidFormat } from "../../../libs/uuid/main";
 import { showToast } from "../../../libs/toast";
 import Layout from "../../../components/layout";
 import { Button } from "../../../components/ui/button";
 
 const VERSIONS: UuidVersion[] = ["v1", "v3", "v4", "v5", "v7"];
 const DEFAULT_VERSION: UuidVersion = "v4";
+const FORMATS: UuidFormat[] = ["standard", "no-hyphens", "braces"];
 const TOAST_MS = 1500;
 
 export default function UuidPage() {
@@ -19,6 +20,8 @@ export default function UuidPage() {
   const title = t("shortTitle");
 
   const [version, setVersion] = useState<UuidVersion>(DEFAULT_VERSION);
+  const [format, setFormat] = useState<UuidFormat>("standard");
+  const [upper, setUpper] = useState(false);
   const [bytesList, setBytesList] = useState<UuidBytes[]>([]);
   const initialized = useRef(false);
 
@@ -45,12 +48,12 @@ export default function UuidPage() {
 
   function copyCurrent() {
     if (bytesList.length === 0) return;
-    const s = formatUuid(bytesList[0], "standard", false);
+    const s = formatUuid(bytesList[0], format, upper);
     navigator.clipboard.writeText(s);
     showToast(tc("copied"), "success", TOAST_MS);
   }
 
-  const displayed = bytesList.length > 0 ? formatUuid(bytesList[0], "standard", false) : "";
+  const displayed = bytesList.length > 0 ? formatUuid(bytesList[0], format, upper) : "";
 
   return (
     <Layout title={title}>
@@ -105,6 +108,43 @@ export default function UuidPage() {
             </div>
           </div>
           <div className="w-full h-px bg-border-default" />
+        </div>
+
+        <div className="mt-5 flex flex-wrap items-center gap-4 px-1">
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-sm font-medium text-fg-secondary">{t("format")}</span>
+            <div className="flex items-center rounded-full border border-border-default p-0.5 text-xs font-mono font-semibold">
+              {FORMATS.map((f) => (
+                <button
+                  key={f}
+                  type="button"
+                  className={`px-3 py-1 rounded-full transition-all duration-200 cursor-pointer ${
+                    format === f
+                      ? "bg-accent-cyan text-bg-base shadow-glow"
+                      : "text-fg-muted hover:text-fg-secondary"
+                  }`}
+                  onClick={() => setFormat(f)}
+                >
+                  {t(
+                    f === "standard"
+                      ? "formatStandard"
+                      : f === "no-hyphens"
+                        ? "formatNoHyphens"
+                        : "formatBraces"
+                  )}
+                </button>
+              ))}
+            </div>
+          </div>
+          <label className="flex items-center gap-2 cursor-pointer">
+            <input
+              type="checkbox"
+              className="w-4 h-4 rounded accent-[#06D6A0] bg-bg-input border-border-default cursor-pointer"
+              checked={upper}
+              onChange={(e) => setUpper(e.target.checked)}
+            />
+            <span className="text-fg-secondary text-sm">{t("uppercase")}</span>
+          </label>
         </div>
 
         <div className="mt-6 grid grid-cols-1 lg:grid-cols-2 gap-3">
