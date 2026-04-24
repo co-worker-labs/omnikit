@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 import { CopyButton } from "../../../components/ui/copy-btn";
 import Layout from "../../../components/layout";
@@ -14,6 +13,8 @@ import {
 } from "../../../components/ui/input";
 import { Button } from "../../../components/ui/button";
 import { ChevronsDown, ChevronsUp, X } from "lucide-react";
+
+const BASE64_ALPHABET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
 function Conversion() {
   const t = useTranslations("base64");
@@ -275,15 +276,41 @@ function Description() {
           <li>{t("descriptions.howStep3")}</li>
           <li>{t("descriptions.howStep4")}</li>
         </ol>
-        <div className="mt-3 flex justify-center rounded-lg overflow-hidden border border-border-default bg-bg-elevated/50 p-3">
-          <Image
-            src="/base64/decimal-to-base64-table.png"
-            alt=""
-            width={600}
-            height={400}
-            style={{ width: "auto", height: "auto" }}
-            className="max-w-full"
-          />
+        <div className="mt-3 rounded-lg border border-border-default bg-bg-elevated/50 p-3">
+          <table className="w-full table-fixed text-xs font-mono border-collapse">
+            <caption className="caption-top pb-2 font-semibold text-fg-primary text-sm">
+              {t("descriptions.tableCaption")}
+            </caption>
+            <thead>
+              <tr className="border-b border-border-default text-fg-muted">
+                {[0, 1].flatMap((i) => [
+                  <th key={`v-${i}`} className="px-2 py-1 text-start font-semibold">
+                    {t("descriptions.tableValue")}
+                  </th>,
+                  <th key={`c-${i}`} className="px-2 py-1 text-start font-semibold">
+                    {t("descriptions.tableChar")}
+                  </th>,
+                ])}
+              </tr>
+            </thead>
+            <tbody className="text-fg-secondary">
+              {Array.from({ length: 32 }, (_, row) => (
+                <tr key={row} className="odd:bg-bg-elevated/40">
+                  {[0, 32].flatMap((offset) => {
+                    const value = row + offset;
+                    return [
+                      <td key={`v-${offset}`} className="px-2 py-1 tabular-nums">
+                        {value}
+                      </td>,
+                      <td key={`c-${offset}`} className="px-2 py-1 font-semibold text-accent-cyan">
+                        {BASE64_ALPHABET[value]}
+                      </td>,
+                    ];
+                  })}
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
 

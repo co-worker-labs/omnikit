@@ -24,6 +24,7 @@ import {
 } from "../../../libs/password/main";
 
 import { showToast } from "../../../libs/toast";
+import { STORAGE_KEYS } from "../../../libs/storage-keys";
 import Layout from "../../../components/layout";
 import { useTranslations } from "next-intl";
 import { CopyButton } from "../../../components/ui/copy-btn";
@@ -50,6 +51,7 @@ const alert_copy_timeout = 2000;
 const alert_del_timeout = 2000;
 const alert_gen_timeout = 1000;
 const alert_saved_timeout = 1000;
+const saved_password_auto_hide_ms = 5000;
 
 function getPasswordLevelStyle(type: PasswordType, password: string[], characters: number) {
   const entropy = calculateEntropy(password, type, characters);
@@ -99,6 +101,30 @@ function SavedPasswords({
   const t = useTranslations("password");
   const tc = useTranslations("common");
   const [visibleMap, setVisibleMap] = useState<Record<string, boolean>>({});
+  const hideTimersRef = useRef<Record<string, ReturnType<typeof setTimeout>>>({});
+
+  function clearHideTimer(rid: string) {
+    const timer = hideTimersRef.current[rid];
+    if (timer) {
+      clearTimeout(timer);
+      delete hideTimersRef.current[rid];
+    }
+  }
+
+  function scheduleHide(rid: string) {
+    clearHideTimer(rid);
+    hideTimersRef.current[rid] = setTimeout(() => {
+      setVisibleMap((prev) => ({ ...prev, [rid]: false }));
+      delete hideTimersRef.current[rid];
+    }, saved_password_auto_hide_ms);
+  }
+
+  useEffect(() => {
+    const timers = hideTimersRef.current;
+    return () => {
+      Object.values(timers).forEach(clearTimeout);
+    };
+  }, []);
 
   function passwordHash(pw: string[], type: string): string {
     const str = type + ":" + pw.join("");
@@ -107,6 +133,15 @@ function SavedPasswords({
       hash = ((hash << 5) - hash + str.charCodeAt(i)) | 0;
     }
     return "h_" + Math.abs(hash).toString(36);
+  }
+
+  function setRecordVisibility(rid: string, next: boolean) {
+    setVisibleMap((prev) => ({ ...prev, [rid]: next }));
+    if (next) {
+      scheduleHide(rid);
+    } else {
+      clearHideTimer(rid);
+    }
   }
 
   function onDel(index: number) {
@@ -122,9 +157,15 @@ function SavedPasswords({
   function toggleAllVisibility() {
     const rids = list.map((r) => passwordHash(r.password, r.type));
     const allVisible = rids.every((rid) => visibleMap[rid] === true);
+    const nextVisible = !allVisible;
     const newMap = { ...visibleMap };
     rids.forEach((rid) => {
-      newMap[rid] = !allVisible;
+      newMap[rid] = nextVisible;
+      if (nextVisible) {
+        scheduleHide(rid);
+      } else {
+        clearHideTimer(rid);
+      }
     });
     setVisibleMap(newMap);
   }
@@ -170,7 +211,7 @@ function SavedPasswords({
           );
           const datetime = new Date(record.timestamp).toLocaleString();
           const rid = passwordHash(record.password, record.type);
-          const isRecordVisible = visibleMap[rid] !== undefined ? visibleMap[rid] : record.visible;
+          const isRecordVisible = visibleMap[rid] ?? false;
           return (
             <div key={rid} className="border border-border-default rounded-lg overflow-hidden">
               <div className="flex items-center justify-between px-3 py-2">
@@ -180,7 +221,7 @@ function SavedPasswords({
                     type="button"
                     className="text-fg-muted hover:text-accent-cyan transition-colors cursor-pointer p-1"
                     title={isRecordVisible ? t("hidePassword") : t("showPassword")}
-                    onClick={() => setVisibleMap((prev) => ({ ...prev, [rid]: !isRecordVisible }))}
+                    onClick={() => setRecordVisibility(rid, !isRecordVisible)}
                   >
                     {isRecordVisible ? <EyeOff size={14} /> : <Eye size={14} />}
                   </button>
@@ -332,7 +373,6 @@ function Generator({
           password: password,
           characters: characters,
           timestamp: new Date().getTime(),
-          visible: false,
         },
       ];
       savedTemp.push(...saved);
@@ -609,7 +649,7 @@ function Generator({
   );
 }
 
-const SAVED_PASSWORDS_KEY = "bytecraft_passwd";
+const SAVED_PASSWORDS_KEY = STORAGE_KEYS.savedPasswords;
 
 function subscribeToSavedPasswords(callback: () => void) {
   window.addEventListener("storage", callback);
