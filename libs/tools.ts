@@ -8,15 +8,15 @@ export interface ToolCard {
 
 export const TOOLS: { key: string; path: string }[] = [
   { key: "base64", path: "/base64" },
+  { key: "urlencoder", path: "/urlencoder" },
   { key: "uuid", path: "/uuid" },
-  { key: "hashing", path: "/hashing" },
   { key: "password", path: "/password" },
+  { key: "hashing", path: "/hashing" },
   { key: "checksum", path: "/checksum" },
   { key: "htmlcode", path: "/htmlcode" },
   { key: "storageunit", path: "/storageunit" },
   { key: "ascii", path: "/ascii" },
   { key: "cipher", path: "/cipher" },
-  { key: "urlencoder", path: "/urlencoder" },
 ] as const;
 
 export function getToolCards(t: ReturnType<typeof useTranslations>): ToolCard[] {
