@@ -70,7 +70,30 @@ export function isValidUuid(input: string): boolean {
   }
 }
 
-// Stubs — implemented in later tasks.
-export function generate(_opts: GenerateOptions): UuidBytes[] {
-  throw new Error("generate() not implemented yet");
+function randomBytes(n: number): Uint8Array {
+  const out = new Uint8Array(n);
+  crypto.getRandomValues(out);
+  return out;
+}
+
+function generateV4(): UuidBytes {
+  if (typeof crypto.randomUUID === "function") {
+    return parseUuid(crypto.randomUUID());
+  }
+  const b = randomBytes(16);
+  b[6] = (b[6] & 0x0f) | 0x40;
+  b[8] = (b[8] & 0x3f) | 0x80;
+  return b;
+}
+
+export function generate(opts: GenerateOptions): UuidBytes[] {
+  const out: UuidBytes[] = [];
+  const count = Math.max(1, Math.floor(opts.count));
+  switch (opts.version) {
+    case "v4":
+      for (let i = 0; i < count; i++) out.push(generateV4());
+      return out;
+    default:
+      throw new Error(`Unsupported version: ${opts.version}`);
+  }
 }
