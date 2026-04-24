@@ -348,7 +348,7 @@ function Description() {
 export default function Base64Page() {
   const tc = useTranslations("common");
   const t = useTranslations("tools");
-  const title = t("base64.title");
+  const title = t("base64.shortTitle");
 
   return (
     <Layout title={title}>

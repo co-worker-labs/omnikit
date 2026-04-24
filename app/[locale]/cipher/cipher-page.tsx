@@ -478,7 +478,7 @@ export default function CipherPage() {
   const tc = useTranslations("common");
   const t = useTranslations("tools");
   return (
-    <Layout title={t("cipher.title")}>
+    <Layout title={t("cipher.shortTitle")}>
       <div className="container mx-auto px-4 pt-3 pb-6">
         <div className="flex items-start gap-2 border-l-2 border-accent-cyan bg-accent-cyan-dim/30 rounded-r-lg p-3 my-4">
           <span className="text-sm text-fg-secondary leading-relaxed">

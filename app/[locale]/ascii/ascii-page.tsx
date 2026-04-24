@@ -273,7 +273,7 @@ export default function AsciiPage() {
   const [expanded, setExpanded] = useState(false);
   return (
     <>
-      <Layout title={t("ascii.title")}>
+      <Layout title={t("ascii.shortTitle")}>
         <div className="container mx-auto px-4 pt-3 pb-6">
           <section id="description" className="py-3">
             <div className="relative">

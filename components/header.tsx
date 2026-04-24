@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useRouter, usePathname, Link } from "../i18n/navigation";
 import { LayoutGrid, Sun, Moon } from "lucide-react";
-import { getTranslatedTools } from "../libs/tools";
+import { getToolCards } from "../libs/tools";
 import { useTheme } from "../libs/theme";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./language_switcher";
@@ -24,7 +24,7 @@ export default function Header({ position, title }: { position: HeaderPosition; 
     return <></>;
   }
 
-  const tools = getTranslatedTools(tTools);
+  const tools = getToolCards(tTools);
 
   const toolItems = tools.map((tool) => ({
     label: tool.title,

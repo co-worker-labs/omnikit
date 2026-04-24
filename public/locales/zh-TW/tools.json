@@ -1,34 +1,42 @@
 {
   "password": {
-    "title": "密碼產生器",
-    "description": "產生安全、隨機且好記的密碼，守護您的網路安全。"
+    "title": "密碼產生器 - 線上安全隨機密碼",
+    "shortTitle": "密碼產生器",
+    "description": "產生加密安全的隨機密碼。線上密碼產生器，支援自訂長度和字元類型，完全免費，100%客戶端處理。"
   },
   "ascii": {
-    "title": "ASCII 對照表",
-    "description": "ASCII 字元對照表，包含十六進位、八進位、HTML、十進位等完整轉換表"
+    "title": "ASCII 碼表 - 完整字元參照",
+    "shortTitle": "ASCII 對照表",
+    "description": "完整的 ASCII 字元對照表，包含十六進位、八進位、HTML 十進位代碼。免費線上 ASCII 參照表，開發者必備。"
   },
   "htmlcode": {
-    "title": "HTML 特殊字元代碼",
-    "description": "HTML 代碼與 HTML 特殊字元對照"
+    "title": "HTML 實體編碼/解碼器",
+    "shortTitle": "HTML 特殊字元代碼",
+    "description": "線上編碼和解碼 HTML 特殊字元和實體。免費 HTML 程式碼轉換工具，Web 開發者的實用工具。"
   },
   "base64": {
-    "title": "Base64 編碼/解碼",
-    "description": "Base64 編碼或解碼，支援 Basic Authentication"
+    "title": "Base64 編碼/解碼 - 線上工具",
+    "shortTitle": "Base64 編碼/解碼",
+    "description": "線上編碼和解碼 Base64 字串。支援 Basic Authentication 標頭產生。免費 Base64 工具，100%瀏覽器端處理。"
   },
   "hashing": {
-    "title": "文字雜湊",
-    "description": "演算法：MD5, SHA1, SHA-224, SHA256, SHA348, SHA512, SHA3-224, SHA3-256, SHA3-384, SHA3-512, keccak, ripemd-160"
+    "title": "雜湊產生器 - MD5, SHA-256, SHA-512",
+    "shortTitle": "文字雜湊",
+    "description": "產生 MD5、SHA-1、SHA-224、SHA-256、SHA-384、SHA-512、SHA3、RIPEMD-160 雜湊。線上雜湊產生器，100%瀏覽器端處理。"
   },
   "checksum": {
-    "title": "檔案校驗碼",
-    "description": "支援不限數量的檔案及不限大小的檔案"
+    "title": "檔案校驗碼計算器 - 免費線上",
+    "shortTitle": "檔案校驗碼",
+    "description": "為任意檔案計算 MD5、SHA-1、SHA-256、SHA-512 校驗和。支援無限檔案大小，100%客戶端處理。"
   },
   "cipher": {
-    "title": "文字加密/解密",
-    "description": "AES, DES, Triple DES, Rabbit, RC4, RC4Drop"
+    "title": "文字加密/解密 - AES, DES, RC4",
+    "shortTitle": "文字加密/解密",
+    "description": "使用 AES、DES、Triple DES、Rabbit、RC4、RC4Drop 加密和解碼文字。線上加密工具，100%瀏覽器端處理。"
   },
   "storageunit": {
-    "title": "儲存單位換算",
-    "description": "在多種資料單位之間進行換算，例如 byte、kilobyte、megabyte、terabyte、petabyte 等等"
+    "title": "儲存單位轉換器 - 位元組到 TB",
+    "shortTitle": "儲存單位轉換",
+    "description": "在位元組、KB、MB、GB、TB、PB 等單位之間轉換。線上儲存單位轉換工具，開發者必備。"
   }
 }

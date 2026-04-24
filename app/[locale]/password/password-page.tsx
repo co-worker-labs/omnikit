@@ -674,7 +674,7 @@ function parseSavedPasswords(raw: string): SavedRecord[] {
 
 export default function PasswordPage() {
   const t = useTranslations("password");
-  const title = t("title");
+  const title = t("shortTitle");
 
   const rawSaved = useSyncExternalStore(subscribeToSavedPasswords, getSnapshot, getServerSnapshot);
   const saved = parseSavedPasswords(rawSaved);

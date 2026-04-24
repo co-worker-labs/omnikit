@@ -1,34 +1,42 @@
 {
   "password": {
-    "title": "Password Generator",
-    "description": "Generate secure, random, memorable passwords to stay safe online."
+    "title": "Password Generator - Free Secure Random Password",
+    "shortTitle": "Password Generator",
+    "description": "Generate cryptographically secure, random passwords instantly. Free online password generator with customizable length and character options."
   },
   "ascii": {
-    "title": "ASCII Table",
-    "description": "Ascii character table - What is ascii - Complete tables including hex, octal, html, decimal conversions"
+    "title": "ASCII Table - Full Character Reference",
+    "shortTitle": "ASCII Table",
+    "description": "Complete ASCII character table with hex, octal, HTML, and decimal codes. Free online ASCII reference for developers."
   },
   "htmlcode": {
-    "title": "Html Code",
-    "description": "HTML codes and HTML special characters"
+    "title": "HTML Entity Encoder/Decoder",
+    "shortTitle": "Html Code",
+    "description": "Encode and decode HTML special characters and entities. Free online HTML code converter for web developers."
   },
   "base64": {
-    "title": "Base64 Encode/Decode",
-    "description": "Base64 Encode or Decode, Basic Authentication"
+    "title": "Base64 Encoder/Decoder - Free Online Tool",
+    "shortTitle": "Base64 Encode/Decode",
+    "description": "Encode and decode Base64 strings online. Free Base64 encoder/decoder with Basic Authentication header support. 100% client-side."
   },
   "hashing": {
-    "title": "Text Hashing",
-    "description": "Algorithms: MD5, SHA1, SHA-224, SHA256, SHA348, SHA512, SHA3-224, SHA3-256, SHA3-384, SHA3-512, keccak, ripemd-160"
+    "title": "Hash Generator - MD5, SHA-256, SHA-512 Online",
+    "shortTitle": "Text Hashing",
+    "description": "Generate MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, SHA3, and RIPEMD-160 hashes. Free online hash generator, 100% browser-based."
   },
   "checksum": {
-    "title": "File Checksum",
-    "description": "Supports an unlimited number of files and unlimited file size"
+    "title": "File Checksum Calculator - Free Online",
+    "shortTitle": "File Checksum",
+    "description": "Calculate MD5, SHA-1, SHA-256, and SHA-512 checksums for any file. Supports unlimited file size, 100% client-side processing."
   },
   "cipher": {
-    "title": "Text Encrypt/Decrypt",
-    "description": "AES, DES, Triple DES, Rabbit, RC4, RC4Drop"
+    "title": "Text Encrypt/Decrypt - AES, DES, RC4 Online",
+    "shortTitle": "Text Encrypt/Decrypt",
+    "description": "Encrypt and decrypt text using AES, DES, Triple DES, Rabbit, RC4, and RC4Drop. Free online cipher tool, 100% browser-based."
   },
   "storageunit": {
-    "title": "Storage Unit Conversion",
-    "description": "Make conversions between a great number of various data units like byte, kilobyte, megabyte, terabyte, petabyte, and many other"
+    "title": "Storage Unit Converter - Bytes to TB",
+    "shortTitle": "Storage Unit Conversion",
+    "description": "Convert between bytes, KB, MB, GB, TB, PB and more. Free online storage unit converter for developers."
   }
 }

@@ -421,7 +421,7 @@ export default function HtmlCodePage() {
   const pronunciations = getPronunciations();
 
   return (
-    <Layout title={t("htmlcode.title")}>
+    <Layout title={t("htmlcode.shortTitle")}>
       <div className="container mx-auto px-4 pt-3 pb-6">
         <Description />
         <section>

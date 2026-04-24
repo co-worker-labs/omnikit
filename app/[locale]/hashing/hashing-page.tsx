@@ -427,7 +427,7 @@ function Description() {
 export default function HashingPage() {
   const tc = useTranslations("common");
   const t = useTranslations("tools");
-  const title = t("hashing.title");
+  const title = t("hashing.shortTitle");
 
   return (
     <Layout title={title}>

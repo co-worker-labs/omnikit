@@ -343,7 +343,7 @@ export default function StorageUnitPage() {
   const t = useTranslations("tools");
   const ts = useTranslations("storageunit");
   return (
-    <Layout title={t("storageunit.title")}>
+    <Layout title={t("storageunit.shortTitle")}>
       <div className="container mx-auto px-4 pt-3 pb-6">
         <Conversion />
         <div className="flex items-center gap-3 my-6">

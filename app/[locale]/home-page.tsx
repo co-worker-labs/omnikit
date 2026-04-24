@@ -3,7 +3,7 @@
 import Layout from "../../components/layout";
 import { useRouter } from "../../i18n/navigation";
 import { useTranslations } from "next-intl";
-import { getTranslatedTools } from "../../libs/tools";
+import { getToolCards } from "../../libs/tools";
 import { Card } from "../../components/ui/card";
 
 import { Hash, FileCode, Lock, KeyRound, FileCheck, Type, Code, HardDrive } from "lucide-react";
@@ -51,22 +51,19 @@ function Introduce() {
 function ToolCollection() {
   const router = useRouter();
   const t = useTranslations("tools");
-  const data = getTranslatedTools(t);
+  const tools = getToolCards(t);
 
   return (
     <section className="container mx-auto px-4 pb-20 pt-12">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {data.map((value, index) => {
-          const isDisabled = value.path == "";
-          const icon = toolIcons[value.path];
+        {tools.map((tool) => {
+          const icon = toolIcons[tool.path];
           return (
             <Card
-              key={index}
-              hover={!isDisabled}
-              className={`group flex flex-col ${isDisabled ? "opacity-50 cursor-default" : "cursor-pointer"}`}
-              onClick={() => {
-                if (value.path) router.push(value.path);
-              }}
+              key={tool.path}
+              hover
+              className="group flex flex-col cursor-pointer"
+              onClick={() => router.push(tool.path)}
             >
               <div className="flex flex-1 flex-col items-center p-5">
                 {icon && (
@@ -75,10 +72,10 @@ function ToolCollection() {
                   </div>
                 )}
 
-                <h3 className="font-semibold text-fg-primary text-center">{value.title}</h3>
+                <h3 className="font-semibold text-fg-primary text-center">{tool.title}</h3>
 
                 <p className="mt-2 line-clamp-2 text-sm text-fg-secondary text-center leading-relaxed">
-                  {value.description}
+                  {tool.description}
                 </p>
               </div>
             </Card>

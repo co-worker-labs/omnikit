@@ -9,6 +9,7 @@ import { routing } from "../../i18n/routing";
 import { Providers } from "../providers";
 import { COOKIE_KEYS } from "../../libs/storage-keys";
 import type { Theme } from "../../libs/theme";
+import { SITE_URL } from "../../libs/site";
 import "../globals.css";
 
 type Props = {
@@ -18,6 +19,20 @@ type Props = {
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
+}
+
+export async function generateMetadata({ params }: Props) {
+  const { locale } = await params;
+
+  return {
+    alternates: {
+      languages: {
+        en: SITE_URL + "/",
+        "zh-CN": SITE_URL + "/zh-CN",
+        "zh-TW": SITE_URL + "/zh-TW",
+      },
+    },
+  };
 }
 
 export default async function LocaleLayout({ children, params }: Props) {
