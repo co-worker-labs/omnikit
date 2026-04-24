@@ -1,4 +1,5 @@
 import { createContext, useContext, useEffect, useSyncExternalStore, ReactNode } from "react";
+import { STORAGE_KEYS } from "./storage-keys";
 
 export type Theme = "light" | "dark";
 
@@ -12,7 +13,7 @@ const ThemeContext = createContext<ThemeContextValue>({
   toggleTheme: () => {},
 });
 
-const STORAGE_KEY = "bytecraft-theme";
+const STORAGE_KEY = STORAGE_KEYS.theme;
 
 function readStoredTheme(): Theme {
   const stored = localStorage.getItem(STORAGE_KEY);

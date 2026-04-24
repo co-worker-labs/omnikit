@@ -24,6 +24,7 @@ import {
 } from "../../../libs/password/main";
 
 import { showToast } from "../../../libs/toast";
+import { STORAGE_KEYS } from "../../../libs/storage-keys";
 import Layout from "../../../components/layout";
 import { useTranslations } from "next-intl";
 import { CopyButton } from "../../../components/ui/copy-btn";
@@ -609,7 +610,7 @@ function Generator({
   );
 }
 
-const SAVED_PASSWORDS_KEY = "bytecraft_passwd";
+const SAVED_PASSWORDS_KEY = STORAGE_KEYS.savedPasswords;
 
 function subscribeToSavedPasswords(callback: () => void) {
   window.addEventListener("storage", callback);

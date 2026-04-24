@@ -4,6 +4,7 @@ import { getMessages } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { routing } from "../../i18n/routing";
 import { Providers } from "../providers";
+import { STORAGE_KEYS } from "../../libs/storage-keys";
 import "../globals.css";
 
 type Props = {
@@ -36,7 +37,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <script
           suppressHydrationWarning
           dangerouslySetInnerHTML={{
-            __html: `(function(){var t=localStorage.getItem('bytecraft-theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}})();`,
+            __html: `(function(){var t=localStorage.getItem('${STORAGE_KEYS.theme}');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme:dark)').matches)){document.documentElement.classList.add('dark')}})();`,
           }}
         />
       </head>
