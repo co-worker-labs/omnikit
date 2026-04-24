@@ -6,7 +6,17 @@ import { useTranslations } from "next-intl";
 import "rc-slider/assets/index.css";
 import Slider from "rc-slider";
 
-import { generate, formatUuid, UuidBytes, UuidVersion, UuidFormat } from "../../../libs/uuid/main";
+import {
+  generate,
+  formatUuid,
+  parseUuid,
+  UuidBytes,
+  UuidVersion,
+  UuidFormat,
+  NAMESPACES,
+  isValidUuid,
+  NamespaceLabel,
+} from "../../../libs/uuid/main";
 import { showToast } from "../../../libs/toast";
 import Layout from "../../../components/layout";
 import { Button } from "../../../components/ui/button";
@@ -15,6 +25,9 @@ const VERSIONS: UuidVersion[] = ["v1", "v3", "v4", "v5", "v7"];
 const DEFAULT_VERSION: UuidVersion = "v4";
 const FORMATS: UuidFormat[] = ["standard", "no-hyphens", "braces"];
 const TOAST_MS = 1500;
+
+type NamespaceChoice = NamespaceLabel | "Custom";
+const NAMESPACE_CHOICES: NamespaceChoice[] = ["DNS", "URL", "OID", "X500", "Custom"];
 
 export default function UuidPage() {
   const t = useTranslations("uuid");
@@ -26,11 +39,35 @@ export default function UuidPage() {
   const [upper, setUpper] = useState(false);
   const [count, setCount] = useState(1);
   const [bytesList, setBytesList] = useState<UuidBytes[]>([]);
+  const [nsChoice, setNsChoice] = useState<NamespaceChoice>("DNS");
+  const [customNs, setCustomNs] = useState("");
+  const [nameInput, setNameInput] = useState("");
+  const nameTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const initialized = useRef(false);
 
-  function runGenerate(v: UuidVersion = version, n: number = count) {
+  const nsValue = nsChoice === "Custom" ? customNs : NAMESPACES[nsChoice];
+  const nsValid = nsChoice !== "Custom" || isValidUuid(customNs);
+  const canGenerateNamespace = nsValid && nameInput.length > 0;
+
+  useEffect(() => {
+    return () => {
+      if (nameTimerRef.current) clearTimeout(nameTimerRef.current);
+    };
+  }, []);
+
+  function runGenerate(
+    v: UuidVersion = version,
+    n: number = count,
+    ns: string = nsValue,
+    name: string = nameInput
+  ) {
     if (v === "v3" || v === "v5") {
-      setBytesList([]);
+      if (!isValidUuid(ns) || name.length === 0) {
+        setBytesList([]);
+        return;
+      }
+      const out = generate({ version: v, count: 1, namespace: ns, name });
+      setBytesList(out);
       return;
     }
     const out = generate({ version: v, count: n });
@@ -40,6 +77,36 @@ export default function UuidPage() {
   function onChangeVersion(v: UuidVersion) {
     setVersion(v);
     runGenerate(v, count);
+  }
+
+  function onNameChange(value: string) {
+    setNameInput(value);
+    if (version !== "v3" && version !== "v5") return;
+    if (nameTimerRef.current) clearTimeout(nameTimerRef.current);
+    nameTimerRef.current = setTimeout(() => {
+      runGenerate(version, count, nsValue, value);
+    }, 300);
+  }
+
+  function onNamespaceChoiceChange(choice: NamespaceChoice) {
+    setNsChoice(choice);
+    if (version !== "v3" && version !== "v5") return;
+    const resolved = choice === "Custom" ? customNs : NAMESPACES[choice];
+    if (isValidUuid(resolved) && nameInput.length > 0) {
+      runGenerate(version, count, resolved, nameInput);
+    } else {
+      setBytesList([]);
+    }
+  }
+
+  function onCustomNsChange(value: string) {
+    setCustomNs(value);
+    if ((version !== "v3" && version !== "v5") || nsChoice !== "Custom") return;
+    if (isValidUuid(value) && nameInput.length > 0) {
+      runGenerate(version, count, value, nameInput);
+    } else {
+      setBytesList([]);
+    }
   }
 
   function formatAll(): string[] {
@@ -160,6 +227,53 @@ export default function UuidPage() {
           <div className="w-full h-px bg-border-default" />
         </div>
 
+        {(version === "v3" || version === "v5") && (
+          <div className="mt-4 px-1">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="font-mono text-sm font-medium text-fg-secondary">
+                {t("namespace")}
+              </span>
+              <select
+                value={nsChoice}
+                onChange={(e) => onNamespaceChoiceChange(e.target.value as NamespaceChoice)}
+                className="font-mono text-sm bg-bg-elevated border border-border-default rounded-lg px-2 py-1 text-fg-primary focus:outline-none focus:border-accent-cyan"
+              >
+                {NAMESPACE_CHOICES.map((ns) => (
+                  <option key={ns} value={ns}>
+                    {ns}
+                  </option>
+                ))}
+              </select>
+            </div>
+            {nsChoice === "Custom" && (
+              <div className="mb-3">
+                <input
+                  type="text"
+                  value={customNs}
+                  onChange={(e) => onCustomNsChange(e.target.value)}
+                  placeholder="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+                  className="w-full font-mono text-sm bg-bg-elevated border rounded-lg px-3 py-2 text-fg-primary focus:outline-none focus:border-accent-cyan placeholder:text-fg-muted"
+                  style={{
+                    borderColor: customNs.length > 0 && !nsValid ? "#ef4444" : undefined,
+                  }}
+                />
+                {customNs.length > 0 && !nsValid && (
+                  <span className="text-xs text-red-500 mt-1 block">{t("invalidNamespace")}</span>
+                )}
+              </div>
+            )}
+            <div>
+              <input
+                type="text"
+                value={nameInput}
+                onChange={(e) => onNameChange(e.target.value)}
+                placeholder={t("namePlaceholder")}
+                className="w-full font-mono text-sm bg-bg-elevated border border-border-default rounded-lg px-3 py-2 text-fg-primary focus:outline-none focus:border-accent-cyan placeholder:text-fg-muted"
+              />
+            </div>
+          </div>
+        )}
+
         {version !== "v3" && version !== "v5" && (
           <div className="mt-4 px-1">
             <div className="flex items-center justify-between px-2">
@@ -251,7 +365,7 @@ export default function UuidPage() {
             variant="outline"
             size="lg"
             onClick={copyCurrent}
-            disabled={!displayed || count > 1}
+            disabled={!displayed}
             className="w-full rounded-full font-bold !border-blue-500 !text-blue-500 hover:!bg-blue-500/10"
           >
             <Clipboard size={16} />
