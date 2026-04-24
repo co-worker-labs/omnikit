@@ -6,7 +6,18 @@ import { useTranslations } from "next-intl";
 import { getToolCards } from "../../libs/tools";
 import { Card } from "../../components/ui/card";
 
-import { Hash, FileCode, Lock, KeyRound, FileCheck, Type, Code, HardDrive, FingerprintPattern } from "lucide-react";
+import {
+  Hash,
+  FileCode,
+  Lock,
+  KeyRound,
+  FileCheck,
+  Type,
+  Code,
+  HardDrive,
+  FingerprintPattern,
+  Percent,
+} from "lucide-react";
 
 const toolIcons: Record<string, React.ReactNode> = {
   "/hashing": <Hash size={28} className="text-accent-cyan" />,
@@ -18,6 +29,7 @@ const toolIcons: Record<string, React.ReactNode> = {
   "/htmlcode": <Code size={28} className="text-accent-cyan" />,
   "/storageunit": <HardDrive size={28} className="text-accent-cyan" />,
   "/uuid": <FingerprintPattern size={28} className="text-accent-cyan" />,
+  "/urlencoder": <Percent size={28} className="text-accent-cyan" />,
 };
 
 function Introduce() {

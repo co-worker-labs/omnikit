@@ -43,5 +43,10 @@
     "title": "UUID 生成器 - RFC 4122/9562 在线工具",
     "shortTitle": "UUID 生成器",
     "description": "在浏览器中生成 v1/v3/v4/v5/v7 UUID。免费、完全本地化、无跟踪。"
+  },
+  "urlencoder": {
+    "title": "URL 编码/解码器 - 免费在线工具",
+    "shortTitle": "URL 编码/解码",
+    "description": "支持 Component、Whole URL、Form 三种模式的 URL 字符串编码和解码。免费在线 URL 编码/解码工具，100%浏览器端处理。"
   }
 }

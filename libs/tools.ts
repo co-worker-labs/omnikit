@@ -16,6 +16,7 @@ export const TOOLS: { key: string; path: string }[] = [
   { key: "storageunit", path: "/storageunit" },
   { key: "ascii", path: "/ascii" },
   { key: "cipher", path: "/cipher" },
+  { key: "urlencoder", path: "/urlencoder" },
 ] as const;
 
 export function getToolCards(t: ReturnType<typeof useTranslations>): ToolCard[] {
