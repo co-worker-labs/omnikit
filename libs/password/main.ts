@@ -17,7 +17,6 @@ export interface SavedRecord {
   password: string[];
   characters: number;
   timestamp: number;
-  visible: boolean;
 }
 
 const characters_symbols = "~!@#$%^&*()_-+=}]{[:;?<>,'\"\\";

@@ -171,7 +171,7 @@ function SavedPasswords({
           );
           const datetime = new Date(record.timestamp).toLocaleString();
           const rid = passwordHash(record.password, record.type);
-          const isRecordVisible = visibleMap[rid] !== undefined ? visibleMap[rid] : record.visible;
+          const isRecordVisible = visibleMap[rid] ?? false;
           return (
             <div key={rid} className="border border-border-default rounded-lg overflow-hidden">
               <div className="flex items-center justify-between px-3 py-2">
@@ -333,7 +333,6 @@ function Generator({
           password: password,
           characters: characters,
           timestamp: new Date().getTime(),
-          visible: false,
         },
       ];
       savedTemp.push(...saved);
