@@ -45,6 +45,10 @@
   --color-accent-cyan-dim: rgba(6, 214, 160, 0.15);
   --color-accent-purple-dim: rgba(139, 92, 246, 0.15);
   --color-danger: #ef4444;
+  --color-diff-add-line: rgba(6, 214, 160, 0.1);
+  --color-diff-add-word: rgba(6, 214, 160, 0.3);
+  --color-diff-del-line: rgba(239, 68, 68, 0.1);
+  --color-diff-del-word: rgba(239, 68, 68, 0.3);
 
   --font-family-mono: "JetBrains Mono", monospace;
   --font-family-sans: "Inter", ui-sans-serif, system-ui, sans-serif;

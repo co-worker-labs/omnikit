@@ -44,9 +44,15 @@
     "shortTitle": "UUID 生成器",
     "description": "在浏览器中生成 v1/v3/v4/v5/v7 UUID。免费、完全本地化、无跟踪。"
   },
-  "urlencoder": {
-    "title": "URL 编码/解码器 - 免费在线工具",
-    "shortTitle": "URL 编码/解码",
-    "description": "支持 Component、Whole URL、Form 三种模式的 URL 字符串编码和解码。免费在线 URL 编码/解码工具，100%浏览器端处理。"
+"urlencoder": {
+    "title": "URL 编码/解码 - 免费在线工具",
+    "shortTitle": "URL 编解码",
+    "description": "支持组件编码、完整 URL 编码和表单编码三种模式。免费在线 URL 编码解码工具，100% 浏览器端处理。"
+  },
+  "diff": {
+    "title": "文本差异比较 - 免费在线工具",
+    "shortTitle": "文本差异",
+    "description": "以行级 + 词级精度比较两段文本或代码。支持并排和行内两种视图，100% 浏览器端处理。"
   }
+}
 }

@@ -48,5 +48,10 @@
     "title": "URL Encoder/Decoder - Free Online Tool",
     "shortTitle": "URL Encoder/Decoder",
     "description": "Encode and decode URL strings with Component, Whole URL, and Form modes. Free online URL encoder/decoder, 100% client-side."
+  },
+  "diff": {
+    "title": "Text Diff Comparison - Free Online Tool",
+    "shortTitle": "Text Diff",
+    "description": "Compare two texts or code snippets with line and word-level precision. Side-by-side or inline view, 100% client-side."
   }
 }
