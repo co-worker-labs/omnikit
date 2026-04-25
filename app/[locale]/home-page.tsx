@@ -17,6 +17,7 @@ import {
   HardDrive,
   FingerprintPattern,
   Percent,
+  GitCompare,
 } from "lucide-react";
 
 const toolIcons: Record<string, React.ReactNode> = {
@@ -30,6 +31,7 @@ const toolIcons: Record<string, React.ReactNode> = {
   "/storageunit": <HardDrive size={28} className="text-accent-cyan" />,
   "/uuid": <FingerprintPattern size={28} className="text-accent-cyan" />,
   "/urlencoder": <Percent size={28} className="text-accent-cyan" />,
+  "/diff": <GitCompare size={28} className="text-accent-cyan" />,
 };
 
 function Introduce() {

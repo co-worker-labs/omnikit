@@ -1,0 +1,59 @@
+{
+  "textA": "文本 A",
+  "textB": "文本 B",
+  "textAPlaceholder": "在此输入文本 A，或拖入文件",
+  "textBPlaceholder": "在此输入文本 B，或拖入文件",
+  "uploadFile": "上传文件",
+  "formatJson": "格式化 JSON",
+  "formatJsonInvalid": "不是有效的 JSON：{message}",
+  "swap": "文本交换",
+  "copyDiff": "复制差异",
+  "compare": "比较",
+  "view": {
+    "label": "视图",
+    "sideBySide": "并排视图",
+    "inline": "行内视图",
+    "stacked": "堆叠视图"
+  },
+  "layout": {
+    "label": "布局",
+    "horizontal": "水平",
+    "vertical": "垂直"
+  },
+  "options": {
+    "label": "选项",
+    "ignoreWhitespace": "忽略空白字符",
+    "ignoreCase": "忽略大小写"
+  },
+  "fold": {
+    "hiddenLines": "{count} 行未改动",
+    "expand": "展开",
+    "collapse": "收回",
+    "ariaExpand": "展开 {count} 行未显示内容",
+    "ariaCollapse": "收回 {count} 行"
+  },
+  "noChanges": "未发现差异",
+  "computing": "正在计算差异...",
+  "tooLarge": "文件过大（上限 5MB）",
+  "binaryRejected": "检测到二进制文件，请上传文本文件",
+  "manualHint": "输入较大 —— 已关闭自动比较。就绪后点击「比较」。",
+  "workerFailed": "差异计算失败，请重试",
+  "descriptions": {
+    "whatIsTitle": "什么是 diff？",
+    "whatIsP1": "diff 是两段文本之间的结构化对比，会高亮哪些内容被新增、哪些被删除、哪些保持不变。开发者每天都用它来审查代码改动、排查环境配置漂移、对照两个版本的文档。",
+    "whatIsP2": "本工具完全在浏览器中使用 jsdiff 库进行比较。你粘贴或上传的内容不会发送到任何服务器。",
+    "howTitle": "如何使用",
+    "howP1": "把两段内容分别粘贴或拖入「文本 A」与「文本 B」输入框。小于 512KB 的输入会自动计算差异；对于更大的输入，会出现「比较」按钮，由你控制计算时机。",
+    "howP2": "在并排视图和行内视图之间切换，按需开启「忽略空白」或「忽略大小写」，并使用「格式化 JSON」在比较前规范化 JSON 输入。",
+    "algorithmTitle": "算法",
+    "algorithmP1": "基于 jsdiff 提供的 Myers 差异算法。工具先计算行级差异，再对每一对相邻的删除/新增行执行词级二次比对，以高亮出真正变化的词 —— 这与 GitHub Pull Request 使用的惯例一致。",
+    "useCasesTitle": "常见用例",
+    "useCasesP1": "比较两份配置文件（JSON、YAML、.env），快速发现环境之间的漂移。",
+    "useCasesP2": "在提交前回顾一次代码改动，尤其是在编辑器之外粘贴代码时。",
+    "useCasesP3": "并排比对文档、日志或查询结果的两个版本。",
+    "limitationsTitle": "局限性",
+    "limitationsP1": "本工具仅处理文本。二进制文件会被识别并拒绝，以保证比较结果有意义。",
+    "limitationsP2": "每侧输入上限 5MB。超过 512KB 的输入会在后台 Web Worker 中计算；页面保持响应，但超大输入的计算本身会按比例变慢。",
+    "limitationsP3": "行尾差异（CRLF 与 LF）和行尾空白会被统一归一化处理，永远不会作为差异出现。"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "textA": "文字 A",
+  "textB": "文字 B",
+  "textAPlaceholder": "在此輸入文字 A，或拖入檔案",
+  "textBPlaceholder": "在此輸入文字 B，或拖入檔案",
+  "uploadFile": "上傳檔案",
+  "formatJson": "格式化 JSON",
+  "formatJsonInvalid": "不是有效的 JSON：{message}",
+  "swap": "文本交換",
+  "copyDiff": "複製差異",
+  "compare": "比較",
+  "view": {
+    "label": "檢視",
+    "sideBySide": "並排檢視",
+    "inline": "行內檢視",
+    "stacked": "堆疊檢視"
+  },
+  "layout": {
+    "label": "佈局",
+    "horizontal": "水平",
+    "vertical": "垂直"
+  },
+  "options": {
+    "label": "選項",
+    "ignoreWhitespace": "忽略空白字元",
+    "ignoreCase": "忽略大小寫"
+  },
+  "fold": {
+    "hiddenLines": "{count} 行未變動",
+    "expand": "展開",
+    "collapse": "收合",
+    "ariaExpand": "展開 {count} 行未顯示內容",
+    "ariaCollapse": "收合 {count} 行"
+  },
+  "noChanges": "未發現差異",
+  "computing": "正在計算差異...",
+  "tooLarge": "檔案過大（上限 5MB）",
+  "binaryRejected": "偵測到二進位檔案，請上傳文字檔案",
+  "manualHint": "輸入較大 —— 已停用自動比較。就緒後點擊「比較」。",
+  "workerFailed": "差異計算失敗，請重試",
+  "descriptions": {
+    "whatIsTitle": "什麼是 diff？",
+    "whatIsP1": "diff 是兩段文字之間的結構化比對，會標示出哪些內容被新增、哪些被刪除、哪些保持不變。開發者每天都用它來審查程式碼變更、排查環境設定漂移、比對兩個版本的文件。",
+    "whatIsP2": "本工具完全在瀏覽器中使用 jsdiff 函式庫進行比較。你貼上或上傳的內容不會送到任何伺服器。",
+    "howTitle": "如何使用",
+    "howP1": "把兩段內容分別貼上或拖入「文字 A」與「文字 B」欄位。小於 512KB 的輸入會自動計算差異；對於更大的輸入，會出現「比較」按鈕，由你控制計算時機。",
+    "howP2": "在並排檢視與行內檢視之間切換，按需開啟「忽略空白」或「忽略大小寫」，並使用「格式化 JSON」在比較前規範化 JSON 輸入。",
+    "algorithmTitle": "演算法",
+    "algorithmP1": "基於 jsdiff 提供的 Myers 差異演算法。工具先計算行級差異，再對每一對相鄰的刪除/新增行執行字詞級二次比對，標示真正變化的字詞 —— 這與 GitHub Pull Request 的慣例一致。",
+    "useCasesTitle": "常見用例",
+    "useCasesP1": "比較兩份設定檔（JSON、YAML、.env），快速找出環境之間的漂移。",
+    "useCasesP2": "在提交前回顧一次程式碼變更，特別是在編輯器之外貼上程式碼時。",
+    "useCasesP3": "並排比對文件、日誌或查詢結果的兩個版本。",
+    "limitationsTitle": "局限性",
+    "limitationsP1": "本工具僅處理文字。二進位檔案會被識別並拒絕，以確保比較結果有意義。",
+    "limitationsP2": "每側輸入上限 5MB。超過 512KB 的輸入會在背景 Web Worker 中計算；頁面保持回應，但超大輸入的計算本身會按比例變慢。",
+    "limitationsP3": "行尾差異（CRLF 與 LF）及行尾空白會被統一規範化處理，永遠不會顯示為差異。"
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "textA": "Text A",
+  "textB": "Text B",
+  "textAPlaceholder": "Paste or type text A here, or drop a file",
+  "textBPlaceholder": "Paste or type text B here, or drop a file",
+  "uploadFile": "Upload file",
+  "formatJson": "Format JSON",
+  "formatJsonInvalid": "Not valid JSON: {message}",
+  "swap": "Text Swap",
+  "copyDiff": "Copy Diff",
+  "compare": "Compare",
+  "view": {
+    "label": "View",
+    "sideBySide": "Side by side",
+    "inline": "Inline",
+    "stacked": "Stacked"
+  },
+  "layout": {
+    "label": "Layout",
+    "horizontal": "Horizontal",
+    "vertical": "Vertical"
+  },
+  "options": {
+    "label": "Options",
+    "ignoreWhitespace": "Ignore whitespace",
+    "ignoreCase": "Ignore case"
+  },
+  "fold": {
+    "hiddenLines": "{count} unchanged lines",
+    "expand": "Expand",
+    "collapse": "Collapse",
+    "ariaExpand": "Show {count} hidden lines",
+    "ariaCollapse": "Hide {count} lines"
+  },
+  "noChanges": "No differences found",
+  "computing": "Computing diff...",
+  "tooLarge": "File too large (max 5MB)",
+  "binaryRejected": "Binary file detected, please upload a text file",
+  "manualHint": "Large input — auto-compare disabled. Click Compare when ready.",
+  "workerFailed": "Diff failed, please try again",
+  "descriptions": {
+    "whatIsTitle": "What is a diff?",
+    "whatIsP1": "A diff is a structured comparison between two pieces of text that highlights what was added, what was removed, and what stayed the same. Developers use it every day to review code changes, audit configuration drift, and reconcile two versions of a document.",
+    "whatIsP2": "This tool runs the comparison entirely in your browser using the jsdiff library. Nothing you paste or upload is sent to any server.",
+    "howTitle": "How to use",
+    "howP1": "Paste or drop your two inputs into the Original and Modified fields. The diff computes automatically for inputs under 512KB; for larger inputs a Compare button appears so you stay in control.",
+    "howP2": "Toggle between side-by-side and inline views, ignore whitespace or case when needed, and use Format JSON to normalize JSON inputs before comparing.",
+    "algorithmTitle": "Algorithm",
+    "algorithmP1": "Built on the Myers diff algorithm via jsdiff. The tool first computes a line-level diff, then for each pair of adjacent removed-and-added lines runs a second word-level pass to highlight which words actually changed — the same convention used by GitHub pull requests.",
+    "useCasesTitle": "Common Use Cases",
+    "useCasesP1": "Comparing two configuration files (JSON, YAML, .env) to spot drift between environments.",
+    "useCasesP2": "Reviewing a code change before pasting it into a commit, especially when working outside an editor.",
+    "useCasesP3": "Reconciling two versions of a document, log, or query result side by side.",
+    "limitationsTitle": "Limitations",
+    "limitationsP1": "The tool diffs text only. Binary files are detected and rejected to keep the result meaningful.",
+    "limitationsP2": "Inputs are capped at 5MB per side. Inputs above 512KB run in a background Web Worker; the page stays responsive but the diff itself takes proportionally longer for very large inputs.",
+    "limitationsP3": "Differences in line endings (CRLF vs LF) and trailing whitespace are normalized away — they will never appear as changes."
+  }
+}
