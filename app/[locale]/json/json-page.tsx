@@ -3,13 +3,13 @@
 import { useState, useEffect, useRef, type DragEvent } from "react";
 import json5 from "json5";
 import JsonView from "@uiw/react-json-view";
-import { ChevronsDown, ChevronsUp, Upload, X } from "lucide-react";
+import { IndentIncrease, Minimize2, Upload, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 
 import Layout from "../../../components/layout";
 import { CopyButton } from "../../../components/ui/copy-btn";
 import { Button } from "../../../components/ui/button";
-import { StyledTextarea, StyledCheckbox } from "../../../components/ui/input";
+import { StyledTextarea } from "../../../components/ui/input";
 import { showToast } from "../../../libs/toast";
 import { byteCraftJsonTheme } from "./json-view-theme";
 
@@ -109,6 +109,13 @@ function Conversion() {
     }, 500);
     return () => clearTimeout(timer);
   }, [rawContent, json5Mode]);
+
+  useEffect(() => {
+    if (outputMode === "formatted") {
+      doFormat();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [indentSize, useTab, sortKeys]);
 
   function doFormat() {
     const input = rawContent.trim();
@@ -245,6 +252,22 @@ function Conversion() {
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-accent-cyan/60" />
             <span className="font-mono text-sm font-semibold text-accent-cyan">{t("input")}</span>
+            <span className="w-px h-4 bg-border-default mx-0.5" />
+            <button
+              type="button"
+              role="switch"
+              aria-checked={json5Mode}
+              aria-label={t("json5")}
+              onClick={() => handleJson5Toggle(!json5Mode)}
+              className={
+                "rounded-full px-2 py-0.5 text-xs font-semibold transition-colors cursor-pointer border " +
+                (json5Mode
+                  ? "bg-accent-purple text-bg-base border-accent-purple"
+                  : "bg-transparent text-fg-muted border-border-default hover:text-fg-secondary hover:bg-bg-elevated")
+              }
+            >
+              {t("json5")}
+            </button>
           </div>
           <button
             type="button"
@@ -317,18 +340,21 @@ function Conversion() {
             </button>
           </div>
         </div>
-        <StyledCheckbox
-          label={t("sortKeys")}
-          id="sortKeysCheck"
-          checked={sortKeys}
-          onChange={(e) => setSortKeys(e.target.checked)}
-        />
-        <StyledCheckbox
-          label={t("json5")}
-          id="json5Check"
-          checked={json5Mode}
-          onChange={(e) => handleJson5Toggle(e.target.checked)}
-        />
+        <button
+          type="button"
+          role="switch"
+          aria-checked={sortKeys}
+          aria-label={t("sortKeys")}
+          onClick={() => setSortKeys(!sortKeys)}
+          className={
+            "rounded-full px-3 py-1 text-sm font-semibold transition-colors cursor-pointer border " +
+            (sortKeys
+              ? "bg-accent-cyan text-bg-base border-accent-cyan"
+              : "bg-transparent text-fg-secondary border-border-default hover:bg-bg-elevated")
+          }
+        >
+          {t("sortKeys")}
+        </button>
       </div>
 
       {/* Action Buttons */}
@@ -341,17 +367,17 @@ function Conversion() {
           className="rounded-full font-bold"
         >
           {t("format")}
-          <ChevronsDown size={16} className="ms-1" />
+          <IndentIncrease size={16} className="ms-1" />
         </Button>
         <Button
-          variant="primary"
+          variant="secondary"
           size="md"
           disabled={isDisabledAction}
           onClick={doCompress}
           className="rounded-full font-bold"
         >
           {t("compress")}
-          <ChevronsUp size={16} className="ms-1" />
+          <Minimize2 size={16} className="ms-1" />
         </Button>
         <Button
           variant="danger"

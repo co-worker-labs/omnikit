@@ -19,6 +19,7 @@ import {
   Percent,
   GitCompare,
   FileText,
+  FileJson,
 } from "lucide-react";
 
 const toolIcons: Record<string, React.ReactNode> = {
@@ -34,6 +35,7 @@ const toolIcons: Record<string, React.ReactNode> = {
   "/urlencoder": <Percent size={28} className="text-accent-cyan" />,
   "/diff": <GitCompare size={28} className="text-accent-cyan" />,
   "/markdown": <FileText size={28} className="text-accent-cyan" />,
+  "/json": <FileJson size={28} className="text-accent-cyan" />,
 };
 
 function Introduce() {

@@ -14,6 +14,10 @@
     --fg-muted: #94a3b8;
     --border-default: #e2e8f0;
     --border-subtle: #f1f5f9;
+    --json-brace: #334155;
+    --json-punctuation: #64748b;
+    --json-arrow: #64748b;
+    --json-key: #06d6a0;
   }
 
   .dark {
@@ -26,6 +30,10 @@
     --fg-muted: #64748b;
     --border-default: #1e293b;
     --border-subtle: #334155;
+    --json-brace: #e2e8f0;
+    --json-punctuation: #cbd5e1;
+    --json-arrow: #94a3b8;
+    --json-key: #2dd4bf;
   }
 }
 
