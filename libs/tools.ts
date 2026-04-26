@@ -13,6 +13,7 @@ export const TOOLS: { key: string; path: string }[] = [
   { key: "password", path: "/password" },
   { key: "hashing", path: "/hashing" },
   { key: "checksum", path: "/checksum" },
+  { key: "json", path: "/json" },
   { key: "htmlcode", path: "/htmlcode" },
   { key: "storageunit", path: "/storageunit" },
   { key: "ascii", path: "/ascii" },

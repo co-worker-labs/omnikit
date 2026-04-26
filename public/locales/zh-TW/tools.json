@@ -58,5 +58,10 @@
     "title": "Markdown 編輯器與預覽 - 免費線上工具",
     "shortTitle": "Markdown 編輯器",
     "description": "使用支援 GitHub Flavored Markdown 的線上編輯器撰寫並預覽 Markdown。免費線上 Markdown 編輯器，即時預覽，100% 客戶端處理。"
+  },
+  "json": {
+    "title": "JSON 格式化 / 壓縮 - 線上工具",
+    "shortTitle": "JSON 格式化",
+    "description": "線上格式化、壓縮和驗證 JSON。支援自訂縮排美化輸出、單行壓縮和 JSON5 寬鬆解析。100% 瀏覽器端處理。"
   }
 }

@@ -58,5 +58,10 @@
     "title": "Markdown Editor & Preview - Free Online Tool",
     "shortTitle": "Markdown Editor",
     "description": "Write and preview Markdown with GitHub Flavored Markdown support. Free online Markdown editor with live preview, 100% client-side."
+  },
+  "json": {
+    "title": "JSON Formatter / Compressor - Free Online Tool",
+    "shortTitle": "JSON Format / Compress",
+    "description": "Format, compress, and validate JSON online. Pretty-print with configurable indentation, minify to single line, or parse JSON5. 100% client-side."
   }
 }

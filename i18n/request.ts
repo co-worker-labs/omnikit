@@ -7,6 +7,7 @@ const namespaces = [
   "home",
   "password",
   "hashing",
+  "json",
   "base64",
   "ascii",
   "htmlcode",
