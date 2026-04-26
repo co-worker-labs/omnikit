@@ -2,12 +2,14 @@
 
 import { useState } from "react";
 import { useRouter, usePathname, Link } from "../i18n/navigation";
-import { LayoutGrid, Sun, Moon } from "lucide-react";
+import { LayoutGrid, Sun, Moon, ClipboardX, Maximize, Minimize } from "lucide-react";
 import { getToolCards } from "../libs/tools";
 import { useTheme } from "../libs/theme";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./language_switcher";
 import { Dropdown } from "./ui/dropdown";
+import { useFullscreen } from "../hooks/use-fullscreen";
+import { showToast } from "../libs/toast";
 
 export type HeaderPosition = "sticky" | "none" | "hidden";
 
@@ -19,6 +21,20 @@ export default function Header({ position, title }: { position: HeaderPosition; 
   const tTools = useTranslations("tools");
   const [spinning, setSpinning] = useState(false);
   const [flipping, setFlipping] = useState(false);
+  const fullscreen = useFullscreen();
+  const [clipAnimating, setClipAnimating] = useState(false);
+
+  const isClipboardSupported = typeof navigator !== "undefined" && !!navigator.clipboard;
+
+  const handleClearClipboard = async () => {
+    setClipAnimating(true);
+    try {
+      await navigator.clipboard.writeText("");
+      showToast(t("clearedClipboard"), "success");
+    } catch {
+      showToast(t("clipboardClearFailed"), "danger");
+    }
+  };
 
   if (position === "hidden") {
     return <></>;
@@ -84,6 +100,29 @@ export default function Header({ position, title }: { position: HeaderPosition; 
             </button>
 
             <LanguageSwitcher />
+
+            {fullscreen.isSupported && (
+              <button
+                type="button"
+                className="flex h-8 w-8 items-center justify-center rounded-lg text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
+                onClick={() => fullscreen.toggle()}
+                aria-label={fullscreen.isFullscreen ? t("nav.exitFullscreen") : t("nav.fullscreen")}
+              >
+                {fullscreen.isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
+              </button>
+            )}
+
+            {isClipboardSupported && (
+              <button
+                type="button"
+                className={`flex h-8 w-8 items-center justify-center rounded-lg text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors ${clipAnimating ? "nav-btn-bounce" : ""}`}
+                onClick={handleClearClipboard}
+                onAnimationEnd={() => setClipAnimating(false)}
+                aria-label={t("nav.clearClipboard")}
+              >
+                <ClipboardX size={16} />
+              </button>
+            )}
           </div>
         </div>
 
