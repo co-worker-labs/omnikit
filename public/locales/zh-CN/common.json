@@ -5,7 +5,10 @@
     "searchPlaceholder": "搜索",
     "switchToLight": "切换到浅色模式",
     "switchToDark": "切换到深色模式",
-    "tools": "工具"
+    "tools": "工具",
+    "clearClipboard": "清空剪切板",
+    "fullscreen": "全屏",
+    "exitFullscreen": "退出全屏"
   },
   "footer": {
     "home": "首页",
@@ -29,6 +32,7 @@
   "copied": "已复制",
   "cleared": "已清除",
   "clearedClipboard": "剪贴板已清空",
+  "clipboardClearFailed": "清空剪切板失败",
   "copyFailed": "复制失败",
   "generated": "已生成",
   "encoded": "已编码",

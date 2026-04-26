@@ -5,7 +5,10 @@
     "searchPlaceholder": "Search",
     "switchToLight": "Switch to light mode",
     "switchToDark": "Switch to dark mode",
-    "tools": "Tools"
+    "tools": "Tools",
+    "clearClipboard": "Clear clipboard",
+    "fullscreen": "Fullscreen",
+    "exitFullscreen": "Exit fullscreen"
   },
   "footer": {
     "home": "Home",
@@ -29,6 +32,7 @@
   "copied": "Copied",
   "cleared": "Cleared",
   "clearedClipboard": "Cleared clipboard",
+  "clipboardClearFailed": "Failed to clear clipboard",
   "copyFailed": "Copy failed",
   "generated": "Generated",
   "encoded": "Encoded",

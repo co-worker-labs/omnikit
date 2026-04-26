@@ -5,7 +5,10 @@
     "searchPlaceholder": "搜尋",
     "switchToLight": "切換至淺色模式",
     "switchToDark": "切換至深色模式",
-    "tools": "工具"
+    "tools": "工具",
+    "clearClipboard": "清空剪貼簿",
+    "fullscreen": "全螢幕",
+    "exitFullscreen": "退出全螢幕"
   },
   "footer": {
     "home": "首頁",
@@ -29,6 +32,7 @@
   "copied": "已複製",
   "cleared": "已清除",
   "clearedClipboard": "已清除剪貼簿",
+  "clipboardClearFailed": "清空剪貼簿失敗",
   "copyFailed": "複製失敗",
   "generated": "已產生",
   "encoded": "已編碼",
