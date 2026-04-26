@@ -83,6 +83,7 @@ function Conversion() {
   const [json5Mode, setJson5Mode] = useState(false);
   const [error, setError] = useState<JsonError | null>(null);
   const [isDragging, setIsDragging] = useState(false);
+  const [outputMode, setOutputMode] = useState<"none" | "formatted" | "compressed">("none");
 
   const dragCounterRef = useRef(0);
 
@@ -118,6 +119,7 @@ function Conversion() {
       const out = stringify(value, sortKeys, indent);
       setOutputContent(out);
       setOutputValue(sortKeys ? deepSortKeys(value) : value);
+      setOutputMode("formatted");
       if (usedRelaxed && !json5Mode) {
         showToast(t("relaxedParse"), "info", 3000);
       } else {
@@ -140,6 +142,7 @@ function Conversion() {
       const out = JSON.stringify(target);
       setOutputContent(out);
       setOutputValue(target);
+      setOutputMode("compressed");
       if (usedRelaxed && !json5Mode) {
         showToast(t("relaxedParse"), "info", 3000);
       } else {
@@ -198,6 +201,7 @@ function Conversion() {
     setRawContent("");
     setOutputContent("");
     setOutputValue(undefined);
+    setOutputMode("none");
     setError(null);
     showToast(tc("allCleared"), "danger", 2000);
   }
@@ -211,6 +215,7 @@ function Conversion() {
     setJson5Mode(checked);
     setOutputContent("");
     setOutputValue(undefined);
+    setOutputMode("none");
   }
 
   const isDisabledAction = !rawContent.trim();
@@ -257,7 +262,7 @@ function Conversion() {
           <StyledTextarea
             id="rawContentTextarea"
             placeholder={t("inputPlaceholder")}
-            rows={10}
+            rows={13}
             value={rawContent}
             onChange={(e) => setRawContent(e.target.value)}
             className="font-mono text-sm"
@@ -268,27 +273,27 @@ function Conversion() {
 
       {/* Options Row */}
       <div className="mt-4 flex flex-wrap items-center gap-4">
-        {/* Indent radio group */}
+        {/* Indent + Tab pill group */}
         <div className="flex items-center gap-2">
           <span className="font-mono text-xs font-semibold text-fg-muted">{t("indent")}</span>
           <div
             role="radiogroup"
             aria-label={t("indent")}
-            className={`inline-flex rounded-full border border-border-default overflow-hidden ${
-              useTab ? "opacity-40 pointer-events-none" : ""
-            }`}
+            className="inline-flex rounded-full border border-border-default overflow-hidden"
           >
             {INDENT_SIZES.map((n) => (
               <button
                 key={n}
                 type="button"
                 role="radio"
-                aria-checked={indentSize === n}
-                disabled={useTab}
-                onClick={() => setIndentSize(n)}
+                aria-checked={!useTab && indentSize === n}
+                onClick={() => {
+                  setIndentSize(n);
+                  setUseTab(false);
+                }}
                 className={
                   "px-3 py-1 text-sm font-semibold transition-colors cursor-pointer " +
-                  (indentSize === n
+                  (!useTab && indentSize === n
                     ? "bg-accent-cyan text-bg-base"
                     : "bg-transparent text-fg-secondary hover:bg-bg-elevated")
                 }
@@ -296,15 +301,22 @@ function Conversion() {
                 {n}
               </button>
             ))}
+            <button
+              type="button"
+              role="radio"
+              aria-checked={useTab}
+              onClick={() => setUseTab(true)}
+              className={
+                "px-3 py-1 text-sm font-semibold transition-colors cursor-pointer " +
+                (useTab
+                  ? "bg-accent-cyan text-bg-base"
+                  : "bg-transparent text-fg-secondary hover:bg-bg-elevated")
+              }
+            >
+              TAB
+            </button>
           </div>
         </div>
-
-        <StyledCheckbox
-          label={t("useTab")}
-          id="useTabCheck"
-          checked={useTab}
-          onChange={(e) => setUseTab(e.target.checked)}
-        />
         <StyledCheckbox
           label={t("sortKeys")}
           id="sortKeysCheck"
@@ -387,6 +399,7 @@ function Conversion() {
               onClick={() => {
                 setOutputContent("");
                 setOutputValue(undefined);
+                setOutputMode("none");
                 showToast(tc("cleared"), "danger", 2000);
               }}
             >
@@ -395,22 +408,29 @@ function Conversion() {
           </div>
         </div>
         <div className="relative mt-1">
-          <div className="rounded-xl border border-border-default bg-bg-input px-3 py-2 font-mono text-sm max-h-[60vh] overflow-auto min-h-[2.5rem]">
-            {outputValue === undefined ? (
-              <span className="text-fg-muted" />
-            ) : (
+          {outputMode === "compressed" ? (
+            <StyledTextarea
+              id="outputContentTextarea"
+              placeholder=""
+              rows={13}
+              value={outputContent}
+              readOnly
+              className="font-mono text-sm"
+            />
+          ) : (
+            <div className="rounded-xl border border-border-default bg-bg-input px-3 py-2 font-mono text-sm max-h-[60vh] overflow-auto min-h-[30vh]">
               <JsonView
-                value={outputValue as object}
+                value={outputValue || ({} as object)}
                 style={byteCraftJsonTheme}
                 displayDataTypes={false}
                 displayObjectSize={true}
                 collapsed={false}
                 enableClipboard={false}
                 shortenTextAfterLength={0}
-                indentWidth={2}
+                indentWidth={(useTab ? 4 : indentSize) * 4}
               />
-            )}
-          </div>
+            </div>
+          )}
           <CopyButton getContent={() => outputContent} className="absolute end-2 top-2" />
         </div>
       </div>
