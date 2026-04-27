@@ -1,13 +1,9 @@
 {
-  "plainText": "Plain Text",
-  "encodedText": "Encoded Text",
   "encodedOutput": "Encoded Output",
   "plainTextPlaceholder": "Paste or type the plain text here",
   "basicAuthentication": "Basic Authentication",
   "username": "Username",
   "password": "Password",
-  "encode": "Encode",
-  "decode": "Decode",
   "descriptions": {
     "whatIsTitle": "What is Base64 Encoding?",
     "whatIsP1": "Base64 encoding is a way to convert data (typically binary) into the ASCII character set. It is important to mention here that Base64 is not an encryption or compression technique, although it can sometimes be confused as encryption due to the way it seems to obscure data. In fact, size of a Base64 encoded piece of information is 1.3333 times the actual size of your original data.",

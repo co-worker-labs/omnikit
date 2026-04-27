@@ -167,7 +167,7 @@ function Conversion() {
     const text = await file.text();
     setRawContent(text);
     setError(null);
-    showToast(t("fileLoaded"), "success", 2000);
+    showToast(tc("fileLoaded"), "success", 2000);
   }
 
   function onDragOver(ev: DragEvent) {
@@ -243,7 +243,7 @@ function Conversion() {
           <div className="absolute inset-0 z-50 flex items-center justify-center rounded-xl border-2 border-dashed border-accent-cyan bg-accent-cyan/5 backdrop-blur-sm pointer-events-none">
             <div className="text-center">
               <Upload size={40} className="mx-auto mb-3 text-accent-cyan" />
-              <p className="text-lg font-semibold text-accent-cyan">{t("dropActive")}</p>
+              <p className="text-lg font-semibold text-accent-cyan">{tc("dropActive")}</p>
               <p className="text-sm text-fg-muted mt-1">{t("dropZone")}</p>
             </div>
           </div>

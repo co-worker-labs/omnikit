@@ -34,8 +34,6 @@
   },
   "noChanges": "未發現差異",
   "computing": "正在計算差異...",
-  "tooLarge": "檔案過大（上限 5MB）",
-  "binaryRejected": "偵測到二進位檔案，請上傳文字檔案",
   "manualHint": "輸入較大 —— 已停用自動比較。就緒後點擊「比較」。",
   "workerFailed": "差異計算失敗，請重試",
   "descriptions": {

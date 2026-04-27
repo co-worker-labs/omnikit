@@ -1,10 +1,6 @@
 {
-  "plainText": "Plain Text",
-  "encodedText": "Encoded Text",
   "plainTextPlaceholder": "Paste or type the plain text here",
   "encodedOutput": "Encoded Output",
-  "encode": "Encode",
-  "decode": "Decode",
   "mode": {
     "label": "Encoding mode",
     "component": "Component",

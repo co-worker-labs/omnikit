@@ -1,6 +1,4 @@
 {
-  "title": "UUID 產生器 - RFC 4122/9562 線上工具",
-  "shortTitle": "UUID 產生器",
   "generatedTitle": "您的 UUID",
   "version": "版本",
   "quantity": "數量",
@@ -22,8 +20,6 @@
   "formatNoHyphens": "無連字符",
   "formatBraces": "大括號",
   "uppercase": "大寫",
-  "generate": "產生",
-  "copy": "複製",
   "copyAll": "全部複製",
   "download": "下載 .txt",
   "localGenerated": "完全在您的瀏覽器中產生。資料從未離開您的裝置。",

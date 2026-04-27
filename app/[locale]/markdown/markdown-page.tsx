@@ -113,17 +113,17 @@ function MarkdownPageBody() {
 
   async function handleFile(file: File) {
     if (file.size > MAX_FILE_BYTES) {
-      showToast(t("tooLarge"), "danger", 3000);
+      showToast(tc("tooLarge"), "danger", 3000);
       return;
     }
     const binary = await isBinaryFile(file);
     if (binary) {
-      showToast(t("binaryRejected"), "danger", 3000);
+      showToast(tc("binaryRejected"), "danger", 3000);
       return;
     }
     const text = await file.text();
     setMarkdown(text);
-    showToast(t("fileLoaded"), "success", 2000);
+    showToast(tc("fileLoaded"), "success", 2000);
   }
 
   function onPickFile(ev: ChangeEvent<HTMLInputElement>) {
@@ -310,7 +310,7 @@ function MarkdownPageBody() {
         <div className="absolute inset-0 z-50 flex items-center justify-center rounded-xl border-2 border-dashed border-accent-cyan bg-accent-cyan/5 backdrop-blur-sm pointer-events-none">
           <div className="text-center">
             <Upload size={40} className="mx-auto mb-3 text-accent-cyan" />
-            <p className="text-lg font-semibold text-accent-cyan">{t("dropActive")}</p>
+            <p className="text-lg font-semibold text-accent-cyan">{tc("dropActive")}</p>
             <p className="text-sm text-fg-muted mt-1">{t("dropZone")}</p>
           </div>
         </div>

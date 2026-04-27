@@ -34,8 +34,6 @@
   },
   "noChanges": "No differences found",
   "computing": "Computing diff...",
-  "tooLarge": "File too large (max 5MB)",
-  "binaryRejected": "Binary file detected, please upload a text file",
   "manualHint": "Large input — auto-compare disabled. Click Compare when ready.",
   "workerFailed": "Diff failed, please try again",
   "descriptions": {

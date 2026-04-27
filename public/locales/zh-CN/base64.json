@@ -1,13 +1,9 @@
 {
-  "plainText": "纯文本",
-  "encodedText": "编码文本",
   "encodedOutput": "编码输出",
   "plainTextPlaceholder": "在此粘贴或输入纯文本",
   "basicAuthentication": "Basic 认证",
   "username": "用户名",
   "password": "密码",
-  "encode": "编码",
-  "decode": "解码",
   "descriptions": {
     "whatIsTitle": "什么是 Base64 编码？",
     "whatIsP1": "Base64 编码是一种将数据（通常是二进制数据）转换为 ASCII 字符集的方法。需要指出的是，Base64 不是加密或压缩技术，尽管它看似会遮蔽数据，有时会被误认为是加密。实际上，Base64 编码后的数据大小约为原始数据的 1.3333 倍。",

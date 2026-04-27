@@ -1,7 +1,6 @@
 {
   "plaintext": "Plaintext",
   "ciphertext": "Ciphertext",
-  "secretPassphrase": "Secret Passphrase",
   "plaintextPlaceholder": "Paste or type the plaintext here",
   "passphrasePlaceholder": "Paste or type the passphrase here",
   "ciphertextOutput": "Ciphertext output",

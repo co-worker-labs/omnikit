@@ -92,7 +92,7 @@ export default function Header({ position, title }: { position: HeaderPosition; 
             {isClipboardSupported && (
               <button
                 type="button"
-                className={`flex h-8 w-8 items-center justify-center rounded-lg text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors ${clipAnimating ? "nav-btn-bounce" : ""}`}
+                className={`flex h-8 w-8 items-center justify-center rounded-lg text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors ${clipAnimating ? "nav-btn-clear" : ""}`}
                 onClick={handleClearClipboard}
                 onAnimationEnd={() => setClipAnimating(false)}
                 aria-label={t("nav.clearClipboard")}

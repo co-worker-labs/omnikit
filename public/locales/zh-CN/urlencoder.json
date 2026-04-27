@@ -1,10 +1,6 @@
 {
-  "plainText": "明文",
-  "encodedText": "编码后文本",
   "plainTextPlaceholder": "在此粘贴或输入明文",
   "encodedOutput": "编码输出",
-  "encode": "编码",
-  "decode": "解码",
   "mode": {
     "label": "编码模式",
     "component": "Component",
@@ -31,7 +27,7 @@
     "useCasesTitle": "常见用例",
     "useCasesP1": "以编程方式构造安全的查询字符串：手工拼接 /search?q=[value] 这类 URL 时，把值经过 Component 模式编码，保证值中出现的 & 或 = 不会污染外层 URL 结构。",
     "useCasesP2": "在 URL 中嵌套 URL：当你把一个 URL 作为另一个 URL 的参数传递（例如 OAuth 回调地址）时，必须用 Component 模式编码内层 URL，而非 Whole URL —— 否则内层 URL 中的 / : ? & 会被外层 URL 误读为结构符。",
-    "useCasesP3": "使用 fetch 提交表单：当你 POST 一个 Content-Type: application/x-www-form-urlencoded 的请求体时，请求体必须按 Form 模式编码。本工具的 Form 模式输出与浏览器发送的字节一致。",
+    "useCasesP3": "使用 fetch 提交表单：当你 POST 一个 Content-Type 为 application/x-www-form-urlencoded 的请求体时，请求体必须按 Form 模式编码。本工具的 Form 模式输出与浏览器发送的字节一致。",
     "limitationsTitle": "局限性",
     "limitationsP1": "URL 编码不是加密。任何人都可以通过一次函数调用解码其输出；绝不要用编码来隐藏秘密。",
     "limitationsP2": "模式选择很关键。用 Component 模式编码整条 URL 会把它打烂（每个 / 都变成 %2F）。用 Whole URL 模式编码查询值会留下危险的保留字符（值中的 & 仍然会被消费方当成参数分隔符）。不确定时请选 Component。"

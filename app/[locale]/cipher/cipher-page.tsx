@@ -244,7 +244,7 @@ function Conversion() {
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-accent-purple/60" />
             <span className="font-mono text-sm font-semibold text-accent-purple">
-              {t("secretPassphrase")}
+              {tc("secretPassphrase")}
             </span>
           </div>
           <button

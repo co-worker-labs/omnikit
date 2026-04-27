@@ -32,7 +32,8 @@ const NAMESPACE_CHOICES: NamespaceChoice[] = ["DNS", "URL", "OID", "X500", "Cust
 export default function UuidPage() {
   const t = useTranslations("uuid");
   const tc = useTranslations("common");
-  const title = t("shortTitle");
+  const tTools = useTranslations("tools");
+  const title = tTools("uuid.shortTitle");
 
   const [version, setVersion] = useState<UuidVersion>(DEFAULT_VERSION);
   const [format, setFormat] = useState<UuidFormat>("standard");
@@ -385,7 +386,7 @@ export default function UuidPage() {
               className="w-full rounded-full font-bold"
             >
               <RefreshCw size={16} />
-              {t("generate")}
+              {tc("generate")}
             </Button>
           )}
           <div className="grid grid-cols-2 gap-3">
@@ -397,7 +398,7 @@ export default function UuidPage() {
               className="w-full rounded-full font-bold"
             >
               <Clipboard size={16} />
-              {t("copy")}
+              {tc("copy")}
             </Button>
             <Button
               variant="outline-purple"

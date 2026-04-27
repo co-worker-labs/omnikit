@@ -1,6 +1,4 @@
 {
-  "title": "UUID Generator - RFC 4122/9562 Online",
-  "shortTitle": "UUID Generator",
   "generatedTitle": "Your UUID",
   "version": "Version",
   "quantity": "Quantity",
@@ -22,8 +20,6 @@
   "formatNoHyphens": "No Hyphens",
   "formatBraces": "Braces",
   "uppercase": "Uppercase",
-  "generate": "Generate",
-  "copy": "Copy",
   "copyAll": "Copy All",
   "download": "Download .txt",
   "localGenerated": "Generated entirely in your browser. Your data never leaves your device.",
