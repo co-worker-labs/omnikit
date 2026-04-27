@@ -5,7 +5,7 @@ import { useRouter, usePathname } from "../i18n/navigation";
 import { LayoutGrid, Sun, Moon, ClipboardX, Maximize, Minimize, Globe } from "lucide-react";
 import { getToolCards } from "../libs/tools";
 import { useTheme } from "../libs/theme";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { Dropdown } from "./ui/dropdown";
 import { useFullscreen } from "../hooks/use-fullscreen";
 import { showToast } from "../libs/toast";
@@ -21,6 +21,7 @@ export default function FloatingToolbar() {
   const currentPath = usePathname();
   const { theme, toggleTheme } = useTheme();
   const t = useTranslations("common");
+  const currentLocale = useLocale();
   const tTools = useTranslations("tools");
   const [spinning, setSpinning] = useState(false);
   const [flipping, setFlipping] = useState(false);
@@ -57,7 +58,7 @@ export default function FloatingToolbar() {
         trigger={
           <button
             type="button"
-            className="flex h-[34px] w-[34px] items-center justify-center text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors border-r border-border-default"
+            className={`flex h-[34px] w-[34px] items-center justify-center text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors border-r border-border-default ${spinning ? "nav-btn-spin" : ""}`}
             onClick={() => setSpinning(true)}
             onAnimationEnd={() => setSpinning(false)}
             aria-label={t("nav.tools")}
@@ -68,9 +69,34 @@ export default function FloatingToolbar() {
         items={toolItems}
       />
 
+      {isClipboardSupported && (
+        <button
+          type="button"
+          className={`flex h-[34px] w-[34px] items-center justify-center text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors border-r border-border-default ${clipAnimating ? "nav-btn-clear" : ""}`}
+          onClick={handleClearClipboard}
+          onAnimationEnd={() => setClipAnimating(false)}
+          aria-label={t("nav.clearClipboard")}
+          title={t("nav.clearClipboard")}
+        >
+          <ClipboardX size={16} />
+        </button>
+      )}
+
+      {fullscreen.isSupported && (
+        <button
+          type="button"
+          className="flex h-[34px] w-[34px] items-center justify-center text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors border-r border-border-default"
+          onClick={() => fullscreen.toggle()}
+          aria-label={fullscreen.isFullscreen ? t("nav.exitFullscreen") : t("nav.fullscreen")}
+          title={fullscreen.isFullscreen ? t("nav.exitFullscreen") : t("nav.fullscreen")}
+        >
+          {fullscreen.isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
+        </button>
+      )}
+
       <button
         type="button"
-        className="flex h-[34px] w-[34px] items-center justify-center text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors border-r border-border-default"
+        className={`flex h-[34px] w-[34px] items-center justify-center text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors border-r border-border-default ${flipping ? "nav-btn-flip" : ""}`}
         onClick={() => {
           setFlipping(true);
           toggleTheme();
@@ -85,7 +111,7 @@ export default function FloatingToolbar() {
         trigger={
           <button
             type="button"
-            className="flex h-[34px] w-[34px] items-center justify-center text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors border-r border-border-default"
+            className={`flex h-[34px] w-[34px] items-center justify-center text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors ${globeBouncing ? "nav-btn-bounce" : ""}`}
             onClick={() => setGlobeBouncing(true)}
             onAnimationEnd={() => setGlobeBouncing(false)}
             aria-label={t("language")}
@@ -96,32 +122,9 @@ export default function FloatingToolbar() {
         items={languages.map((lang) => ({
           label: lang.label,
           onClick: () => router.replace(currentPath, { locale: lang.code }),
-          active: false,
+          active: lang.code === currentLocale,
         }))}
       />
-
-      {fullscreen.isSupported && (
-        <button
-          type="button"
-          className="flex h-[34px] w-[34px] items-center justify-center text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors border-r border-border-default"
-          onClick={() => fullscreen.toggle()}
-          aria-label={fullscreen.isFullscreen ? t("nav.exitFullscreen") : t("nav.fullscreen")}
-        >
-          {fullscreen.isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
-        </button>
-      )}
-
-      {isClipboardSupported && (
-        <button
-          type="button"
-          className="flex h-[34px] w-[34px] items-center justify-center text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
-          onClick={handleClearClipboard}
-          onAnimationEnd={() => setClipAnimating(false)}
-          aria-label={t("nav.clearClipboard")}
-        >
-          <ClipboardX size={16} />
-        </button>
-      )}
     </div>
   );
 }
