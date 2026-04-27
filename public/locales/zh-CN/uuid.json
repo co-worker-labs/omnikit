@@ -26,7 +26,6 @@
   "copy": "复制",
   "copyAll": "全部复制",
   "download": "下载 .txt",
-  "clearClipboard": "清除剪贴板",
   "localGenerated": "完全在您的浏览器中生成。数据从不离开您的设备。",
   "securityTip": "作为数据库主键时，推荐 v7（可排序，索引友好）。通用随机 ID 使用 v4。",
   "unsupportedBrowser": "您的浏览器不支持安全的随机生成。",

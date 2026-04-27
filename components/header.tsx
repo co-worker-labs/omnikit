@@ -89,6 +89,31 @@ export default function Header({ position, title }: { position: HeaderPosition; 
               items={toolItems}
             />
 
+            {isClipboardSupported && (
+              <button
+                type="button"
+                className={`flex h-8 w-8 items-center justify-center rounded-lg text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors ${clipAnimating ? "nav-btn-bounce" : ""}`}
+                onClick={handleClearClipboard}
+                onAnimationEnd={() => setClipAnimating(false)}
+                aria-label={t("nav.clearClipboard")}
+                title={t("nav.clearClipboard")}
+              >
+                <ClipboardX size={16} />
+              </button>
+            )}
+
+            {fullscreen.isSupported && (
+              <button
+                type="button"
+                className="flex h-8 w-8 items-center justify-center rounded-lg text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
+                onClick={() => fullscreen.toggle()}
+                aria-label={fullscreen.isFullscreen ? t("nav.exitFullscreen") : t("nav.fullscreen")}
+                title={fullscreen.isFullscreen ? t("nav.exitFullscreen") : t("nav.fullscreen")}
+              >
+                {fullscreen.isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
+              </button>
+            )}
+
             <button
               type="button"
               className={`flex h-8 w-8 items-center justify-center rounded-lg text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors ${flipping ? "nav-btn-flip" : ""}`}
@@ -103,31 +128,6 @@ export default function Header({ position, title }: { position: HeaderPosition; 
             </button>
 
             <LanguageSwitcher />
-
-            {fullscreen.isSupported && (
-              <button
-                type="button"
-                className="flex h-8 w-8 items-center justify-center rounded-lg text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors"
-                onClick={() => fullscreen.toggle()}
-                aria-label={fullscreen.isFullscreen ? t("nav.exitFullscreen") : t("nav.fullscreen")}
-                title={fullscreen.isFullscreen ? t("nav.exitFullscreen") : t("nav.fullscreen")}
-              >
-                {fullscreen.isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
-              </button>
-            )}
-
-            {isClipboardSupported && (
-              <button
-                type="button"
-                className={`flex h-8 w-8 items-center justify-center rounded-lg text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors ${clipAnimating ? "nav-btn-bounce" : ""}`}
-                onClick={handleClearClipboard}
-                onAnimationEnd={() => setClipAnimating(false)}
-                aria-label={t("nav.clearClipboard")}
-                title={t("nav.clearClipboard")}
-              >
-                <ClipboardX size={16} />
-              </button>
-            )}
           </div>
         </div>
 

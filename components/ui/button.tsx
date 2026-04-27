@@ -1,6 +1,13 @@
 import { ButtonHTMLAttributes, forwardRef } from "react";
 
-type ButtonVariant = "primary" | "secondary" | "danger" | "outline";
+type ButtonVariant =
+  | "primary"
+  | "secondary"
+  | "danger"
+  | "outline"
+  | "outline-blue"
+  | "outline-cyan"
+  | "outline-purple";
 type ButtonSize = "sm" | "md" | "lg";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -15,6 +22,11 @@ const variantStyles: Record<ButtonVariant, string> = {
   danger: "border border-danger text-danger hover:bg-red-500/10 active:scale-95",
   outline:
     "border border-fg-muted text-fg-muted hover:border-fg-secondary hover:text-fg-secondary active:scale-95",
+  "outline-blue": "border border-blue-500 text-blue-500 hover:bg-blue-500/10 active:scale-95",
+  "outline-cyan":
+    "border border-accent-cyan text-accent-cyan hover:bg-accent-cyan-dim active:scale-95",
+  "outline-purple":
+    "border border-accent-purple text-accent-purple hover:bg-accent-purple-dim active:scale-95",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {

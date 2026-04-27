@@ -26,7 +26,6 @@
   "copy": "複製",
   "copyAll": "全部複製",
   "download": "下載 .txt",
-  "clearClipboard": "清除剪貼簿",
   "localGenerated": "完全在您的瀏覽器中產生。資料從未離開您的裝置。",
   "securityTip": "作為資料庫主鍵時，建議 v7（可排序、索引友好）。一般隨機 ID 使用 v4。",
   "unsupportedBrowser": "您的瀏覽器不支援安全的隨機產生。",

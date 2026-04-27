@@ -26,7 +26,6 @@
   "copy": "Copy",
   "copyAll": "Copy All",
   "download": "Download .txt",
-  "clearClipboard": "Clear Clipboard",
   "localGenerated": "Generated entirely in your browser. Your data never leaves your device.",
   "securityTip": "For database primary keys, prefer v7 (sortable, index-friendly). For general-purpose random IDs, use v4.",
   "unsupportedBrowser": "Your browser does not support secure random generation.",
