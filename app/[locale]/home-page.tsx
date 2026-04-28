@@ -22,6 +22,7 @@ import {
   FileJson,
   Database,
   ShieldCheck,
+  Clock,
 } from "lucide-react";
 
 const toolIcons: Record<string, React.ReactNode> = {
@@ -40,6 +41,7 @@ const toolIcons: Record<string, React.ReactNode> = {
   "/json": <FileJson size={28} className="text-accent-cyan" />,
   "/dbviewer": <Database size={28} className="text-accent-cyan" />,
   "/jwt": <ShieldCheck size={28} className="text-accent-cyan" />,
+  "/unixtime": <Clock size={28} className="text-accent-cyan" />,
 };
 
 function Introduce() {

@@ -73,5 +73,10 @@
     "title": "JWT 除錯器 - JSON Web Token 編碼與解碼",
     "shortTitle": "JWT",
     "description": "線上編碼、解碼和驗證 JSON Web Token（JWT）。支援 HS256、RS256、ES256 等演算法。100% 瀏覽器端處理。"
+  },
+  "unixtime": {
+    "title": "Unix 時間戳轉換 — 秒、毫秒、UTC",
+    "shortTitle": "Unix 時間戳",
+    "description": "在 Unix 時間戳與日期時間之間互轉。支援秒和毫秒，本地與 UTC 並列顯示，附帶即時時鐘。100% 瀏覽器本地處理。"
   }
 }

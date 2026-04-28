@@ -1,0 +1,75 @@
+{
+  "liveClock": {
+    "title": "目前 Unix 時間戳",
+    "pause": "暫停",
+    "resume": "恢復",
+    "localLabel": "本地",
+    "utcLabel": "UTC"
+  },
+  "tsToDate": {
+    "title": "時間戳 → 日期時間",
+    "unitLegend": "單位",
+    "unitAuto": "自動",
+    "unitSeconds": "秒",
+    "unitMilliseconds": "毫秒",
+    "inputLabel": "輸入",
+    "inputPlaceholder": "例如 1714521600",
+    "paste": "貼上",
+    "clear": "清除",
+    "quickLegend": "快捷",
+    "now": "現在",
+    "todayLocal": "今日 00:00（本地）",
+    "todayUtc": "今日 00:00（UTC）",
+    "rows": {
+      "local": "本地時間",
+      "utc": "UTC 時間",
+      "iso": "ISO 8601",
+      "sql": "SQL",
+      "rfc": "RFC 2822",
+      "dayWeek": "星期 / 週數",
+      "relative": "相對時間",
+      "timezone": "時區"
+    },
+    "weekShort": "第"
+  },
+  "dateToTs": {
+    "title": "日期時間 → 時間戳",
+    "quickLegend": "快捷",
+    "now": "現在",
+    "todayLocal": "今日 00:00（本地）",
+    "todayUtc": "今日 00:00（UTC）",
+    "dateLabel": "日期",
+    "timeLabel": "時間",
+    "msLabel": "毫秒（可選）",
+    "tzLegend": "時區",
+    "tzLocal": "本地",
+    "tzUtc": "UTC",
+    "rows": {
+      "seconds": "秒級時間戳",
+      "milliseconds": "毫秒級時間戳"
+    }
+  },
+  "errors": {
+    "notNumeric": "必須為正整數",
+    "negative": "不支援負數時間戳",
+    "tooLong": "位數過長 — 看起來像微秒，請截斷到 13 位",
+    "secondsTooLarge": "數值過大，秒級無法表示。切換到毫秒？",
+    "outOfRange": "超出支援範圍（1970-01-01 至 9999-12-31）",
+    "pasteFailed": "貼上不可用 — 請使用 Ctrl+V / ⌘V"
+  },
+  "toast": {
+    "paused": "已暫停",
+    "resumed": "已恢復",
+    "applied": "已套用"
+  },
+  "description": {
+    "whatIsTitle": "什麼是 Unix 時間戳？",
+    "whatIs": "Unix 時間戳是自 1970-01-01T00:00:00Z（Unix 紀元）以來經過的秒數。它與時區無關 — 同一個數字在世界任何地方都指向同一個時間點。",
+    "secMsTitle": "秒 vs 毫秒",
+    "secMs": "大多數 Unix 工具與日誌使用秒（目前 10 位）。JavaScript 的 Date.getTime()、Java 的 System.currentTimeMillis() 以及許多 Web API 使用毫秒（目前 13 位）。",
+    "y2k38Title": "2038 年問題",
+    "y2k38": "把 Unix 秒存進 32 位元有符號整數的系統會在 2038-01-19 03:14:07 UTC 溢位。現代 64 位元系統不受影響。",
+    "tzTitle": "時區",
+    "tz": "時間戳本身沒有時區。人類可讀格式（如 2024-05-01 00:00:00）取決於顯示時使用的時區。本工具同時顯示本地與 UTC。"
+  }
+}

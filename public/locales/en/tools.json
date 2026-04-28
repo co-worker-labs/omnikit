@@ -73,5 +73,10 @@
     "title": "JWT Debugger - JSON Web Token Encoder & Decoder",
     "shortTitle": "JWT",
     "description": "Encode, decode, and verify JSON Web Tokens (JWT). Supports HS256, RS256, ES256 and more. 100% client-side."
+  },
+  "unixtime": {
+    "title": "Unix Timestamp Converter — Seconds, Milliseconds, UTC",
+    "shortTitle": "Unix Timestamp",
+    "description": "Convert between Unix timestamps and human-readable dates. Supports seconds and milliseconds, shows Local and UTC side-by-side, with a live clock. 100% client-side."
   }
 }
