@@ -34,8 +34,6 @@
   },
   "noChanges": "未发现差异",
   "computing": "正在计算差异...",
-  "tooLarge": "文件过大（上限 5MB）",
-  "binaryRejected": "检测到二进制文件，请上传文本文件",
   "manualHint": "输入较大 —— 已关闭自动比较。就绪后点击「比较」。",
   "workerFailed": "差异计算失败，请重试",
   "descriptions": {

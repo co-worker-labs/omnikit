@@ -94,7 +94,7 @@ function Conversion() {
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-accent-cyan/60" />
             <span className="font-mono text-sm font-semibold text-accent-cyan">
-              {t("plainText")}
+              {tc("plainText")}
             </span>
           </div>
           <div className="flex items-center gap-3">
@@ -188,7 +188,7 @@ function Conversion() {
           onClick={doEncode}
           className="rounded-full font-bold"
         >
-          {t("encode")}
+          {tc("encode")}
           <ChevronsDown size={16} className="ms-1" />
         </Button>
         <Button
@@ -198,7 +198,7 @@ function Conversion() {
           onClick={doDecode}
           className="rounded-full font-bold"
         >
-          {t("decode")}
+          {tc("decode")}
           <ChevronsUp size={16} className="ms-1" />
         </Button>
         <Button
@@ -222,7 +222,7 @@ function Conversion() {
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-accent-purple/60" />
             <span className="font-mono text-sm font-semibold text-accent-purple">
-              {t("encodedText")}
+              {tc("encodedText")}
             </span>
           </div>
           <button

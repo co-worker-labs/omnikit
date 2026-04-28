@@ -270,6 +270,7 @@ function PrintableCharacters({ list }: { list: number[] }) {
 export default function AsciiPage() {
   const t = useTranslations("tools");
   const ta = useTranslations("ascii");
+  const tc = useTranslations("common");
   const [expanded, setExpanded] = useState(false);
   return (
     <>
@@ -298,12 +299,12 @@ export default function AsciiPage() {
               {expanded ? (
                 <>
                   <ChevronUp size={14} />
-                  {ta("description.showLess")}
+                  {tc("showLess")}
                 </>
               ) : (
                 <>
                   <ChevronDown size={14} />
-                  {ta("description.showMore")}
+                  {tc("showMore")}
                 </>
               )}
             </button>

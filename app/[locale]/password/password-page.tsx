@@ -38,8 +38,6 @@ import {
   BookmarkPlus,
   Eye,
   EyeOff,
-  Shield,
-  XCircle,
   Lock,
   KeyRound,
   BarChart3,
@@ -604,46 +602,36 @@ function Generator({
           </div>
         </div>
       </div>
-      <div className="mt-6 grid grid-cols-1 lg:grid-cols-4 gap-3">
+      <div className="mt-6 flex flex-col gap-3">
         <Button
-          variant="outline"
+          variant="primary"
           size="lg"
           onClick={generateAction}
-          className="w-full rounded-full font-bold !border-emerald-400 !text-emerald-400 hover:!bg-emerald-400/10"
+          className="w-full rounded-full font-bold"
         >
           <RefreshCw size={16} />
           {t("generatePassword")}
         </Button>
-        <Button
-          variant="outline"
-          size="lg"
-          onClick={copyAction}
-          className="w-full rounded-full font-bold !border-blue-500 !text-blue-500 hover:!bg-blue-500/10"
-        >
-          <Clipboard size={16} />
-          {t("copyPassword")}
-        </Button>
-        <Button
-          variant="outline"
-          size="lg"
-          onClick={addToSavedAction}
-          className="w-full rounded-full font-bold !border-accent-purple !text-accent-purple hover:!bg-accent-purple-dim"
-        >
-          <BookmarkPlus size={16} />
-          {t("bookmarkPassword")}
-        </Button>
-        <Button
-          variant="outline"
-          size="lg"
-          onClick={() => {
-            navigator.clipboard.writeText("");
-            showToast(tc("clearedClipboard"), "danger", 1000);
-          }}
-          className="w-full rounded-full font-bold !border-danger !text-danger hover:!bg-danger/10"
-        >
-          <XCircle size={16} />
-          {t("clearClipboard")}
-        </Button>
+        <div className="grid grid-cols-2 gap-3">
+          <Button
+            variant="outline-blue"
+            size="lg"
+            onClick={copyAction}
+            className="w-full rounded-full font-bold"
+          >
+            <Clipboard size={16} />
+            {t("copyPassword")}
+          </Button>
+          <Button
+            variant="outline-purple"
+            size="lg"
+            onClick={addToSavedAction}
+            className="w-full rounded-full font-bold"
+          >
+            <BookmarkPlus size={16} />
+            {t("bookmarkPassword")}
+          </Button>
+        </div>
       </div>
     </section>
   );
@@ -674,7 +662,8 @@ function parseSavedPasswords(raw: string): SavedRecord[] {
 
 export default function PasswordPage() {
   const t = useTranslations("password");
-  const title = t("shortTitle");
+  const tTools = useTranslations("tools");
+  const title = tTools("password.shortTitle");
 
   const rawSaved = useSyncExternalStore(subscribeToSavedPasswords, getSnapshot, getServerSnapshot);
   const saved = parseSavedPasswords(rawSaved);

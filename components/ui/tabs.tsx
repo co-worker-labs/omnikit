@@ -33,7 +33,9 @@ export function NeonTabs({ tabs, className = "" }: NeonTabsProps) {
       </div>
       <Tab.Panels className="mt-4">
         {tabs.map((tab, index) => (
-          <Tab.Panel key={index}>{tab.content}</Tab.Panel>
+          <Tab.Panel key={index} unmount={false}>
+            {tab.content}
+          </Tab.Panel>
         ))}
       </Tab.Panels>
     </Tab.Group>

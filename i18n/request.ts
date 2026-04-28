@@ -20,6 +20,9 @@ const namespaces = [
   "urlencoder",
   "diff",
   "markdown",
+  "pwa",
+  "dbviewer",
+  "jwt",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {

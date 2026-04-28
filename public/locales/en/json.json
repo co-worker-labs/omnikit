@@ -16,7 +16,6 @@
   "invalid": "Invalid JSON",
   "dropActive": "Drop to open",
   "dropZone": "Drop a JSON file here",
-  "fileLoaded": "File loaded",
   "descriptions": {
     "whatIsTitle": "What is JSON Formatting?",
     "whatIsP1": "JSON (JavaScript Object Notation) is the universal data interchange format of the web. APIs return it, config files use it, and every modern programming language can parse it. Formatting (pretty-printing) takes minified, hard-to-read JSON and adds indentation and line breaks so humans can scan and understand the structure at a glance.",

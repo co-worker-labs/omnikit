@@ -178,7 +178,7 @@ function ChecksumDisplay({ data, types }: { data: HashResult; types: string[] })
     <>
       <div className="relative mt-1">
         <StyledTextarea
-          placeholder={t("compareToChecksum")}
+          placeholder={tc("compareToChecksum")}
           rows={2}
           value={testChecksum}
           onChange={(e) => {
@@ -430,8 +430,8 @@ function FileCalculator() {
               }}
               className="appearance-none rounded-full font-bold text-center w-full"
             >
-              <option value="1000">{t("storageUnit1000")}</option>
-              <option value="1024">{t("storageUnit1024")}</option>
+              <option value="1000">{tc("storageUnit1000")}</option>
+              <option value="1024">{tc("storageUnit1024")}</option>
             </StyledSelect>
           </div>
         </div>
@@ -516,27 +516,27 @@ function FileCalculator() {
 }
 
 function Description() {
-  const t = useTranslations("checksum");
+  const tc = useTranslations("common");
   return (
     <section id="description" className="mt-8">
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.md5Title")}</h5>
-        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.md5")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{tc("algorithms.md5Title")}</h5>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{tc("algorithms.md5")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.sha1Title")}</h5>
-        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.sha1")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{tc("algorithms.sha1Title")}</h5>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{tc("algorithms.sha1")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.sha2Title")}</h5>
-        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.sha2")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{tc("algorithms.sha2Title")}</h5>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{tc("algorithms.sha2")}</p>
         <p className="text-fg-secondary text-sm mt-1 leading-relaxed">
-          {t("descriptions.sha2extra")}
+          {tc("algorithms.sha2extra")}
         </p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.sha3Title")}</h5>
-        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.sha3")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{tc("algorithms.sha3Title")}</h5>
+        <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{tc("algorithms.sha3")}</p>
       </div>
     </section>
   );

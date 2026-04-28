@@ -1,0 +1,9 @@
+export const MAX_DB_BYTES = 200 * 1024 * 1024;
+export const PAGE_SIZE = 100;
+export const LOAD_ALL_CEILING = 100_000;
+export const HISTORY_CAP = 50;
+export const LONG_TEXT_CHARS = 200;
+export const SIDEBAR_VIRTUALIZE_THRESHOLD = 200;
+export const SQLITE_MAGIC = "SQLite format 3\u0000";
+export const WASM_PATH = "/dbviewer/sql-wasm.wasm";
+export const SAMPLE_DB_PATH = "/dbviewer/sample.db";

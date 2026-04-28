@@ -364,6 +364,7 @@ function PrintLetters({ list }: { list: CharacterData[] }) {
 
 function Description() {
   const t = useTranslations("htmlcode");
+  const tc = useTranslations("common");
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -394,12 +395,12 @@ function Description() {
         {expanded ? (
           <>
             <ChevronUp size={14} />
-            {t("description.showLess")}
+            {tc("showLess")}
           </>
         ) : (
           <>
             <ChevronDown size={14} />
-            {t("description.showMore")}
+            {tc("showMore")}
           </>
         )}
       </button>

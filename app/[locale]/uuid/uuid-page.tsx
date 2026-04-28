@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { RefreshCw, Clipboard, Lock, Download, X, Info } from "lucide-react";
+import { RefreshCw, Clipboard, Lock, Download, Info } from "lucide-react";
 import { useTranslations } from "next-intl";
 import "rc-slider/assets/index.css";
 import Slider from "rc-slider";
@@ -32,7 +32,8 @@ const NAMESPACE_CHOICES: NamespaceChoice[] = ["DNS", "URL", "OID", "X500", "Cust
 export default function UuidPage() {
   const t = useTranslations("uuid");
   const tc = useTranslations("common");
-  const title = t("shortTitle");
+  const tTools = useTranslations("tools");
+  const title = tTools("uuid.shortTitle");
 
   const [version, setVersion] = useState<UuidVersion>(DEFAULT_VERSION);
   const [format, setFormat] = useState<UuidFormat>("standard");
@@ -128,20 +129,24 @@ export default function UuidPage() {
     showToast(tc("copied"), "success", TOAST_MS);
   }
 
-  async function clearClipboard() {
-    try {
-      await navigator.clipboard.writeText("");
-      showToast(tc("cleared"), "success", TOAST_MS);
-    } catch {
-      showToast(tc("copyFailed"), "danger", TOAST_MS);
-    }
-  }
-
   function downloadTxt() {
     if (bytesList.length === 0) return;
-    const blob = new Blob([formatAll().join("\n") + "\n"], {
-      type: "text/plain;charset=utf-8",
-    });
+
+    let content: string;
+    if (version === "v3" || version === "v5") {
+      const nsLabel = nsChoice === "Custom" ? t("namespaceCustom") : t(`namespace${nsChoice}`);
+      const header = [
+        `${t("version")}: ${version.toUpperCase()}`,
+        `${t("namespace")}: ${nsLabel} (${nsValue})`,
+        `${t("name")}: ${nameInput}`,
+        "---",
+      ].join("\n");
+      content = header + "\n" + formatAll().join("\n") + "\n";
+    } else {
+      content = formatAll().join("\n") + "\n";
+    }
+
+    const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
@@ -183,6 +188,7 @@ export default function UuidPage() {
                       showToast(tc("copied"), "success", TOAST_MS);
                     }}
                     title={tc("copy")}
+                    aria-label={tc("copy")}
                   >
                     <Clipboard size={14} />
                   </button>
@@ -202,6 +208,7 @@ export default function UuidPage() {
                   className="text-fg-muted hover:text-accent-cyan transition-colors cursor-pointer p-2"
                   onClick={copyCurrent}
                   title={tc("copy")}
+                  aria-label={tc("copy")}
                   disabled={!displayed}
                 >
                   <Clipboard size={18} />
@@ -370,48 +377,40 @@ export default function UuidPage() {
           </label>
         </div>
 
-        <div className="mt-6 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+        <div className="mt-6 flex flex-col gap-3">
           {version !== "v3" && version !== "v5" && (
             <Button
-              variant="outline"
+              variant="primary"
               size="lg"
               onClick={() => runGenerate()}
-              className="w-full rounded-full font-bold !border-emerald-400 !text-emerald-400 hover:!bg-emerald-400/10"
+              className="w-full rounded-full font-bold"
             >
               <RefreshCw size={16} />
-              {t("generate")}
+              {tc("generate")}
             </Button>
           )}
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={copyCurrent}
-            disabled={!displayed}
-            className="w-full rounded-full font-bold !border-blue-500 !text-blue-500 hover:!bg-blue-500/10"
-          >
-            <Clipboard size={16} />
-            {t("copy")}
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={clearClipboard}
-            className="w-full rounded-full font-bold !border-red-400 !text-red-400 hover:!bg-red-400/10"
-          >
-            <X size={16} />
-            {t("clearClipboard")}
-          </Button>
-          {bytesList.length > 1 && (
+          <div className="grid grid-cols-2 gap-3">
             <Button
-              variant="outline"
+              variant="outline-blue"
+              size="lg"
+              onClick={copyCurrent}
+              disabled={!displayed}
+              className="w-full rounded-full font-bold"
+            >
+              <Clipboard size={16} />
+              {tc("copy")}
+            </Button>
+            <Button
+              variant="outline-purple"
               size="lg"
               onClick={downloadTxt}
-              className="w-full rounded-full font-bold !border-accent-cyan !text-accent-cyan hover:!bg-accent-cyan-dim"
+              disabled={!displayed}
+              className="w-full rounded-full font-bold"
             >
               <Download size={16} />
               {t("download")}
             </Button>
-          )}
+          </div>
         </div>
 
         {/* UUID Explanation Section */}

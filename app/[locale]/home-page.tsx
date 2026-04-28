@@ -20,6 +20,8 @@ import {
   GitCompare,
   FileText,
   FileJson,
+  Database,
+  ShieldCheck,
 } from "lucide-react";
 
 const toolIcons: Record<string, React.ReactNode> = {
@@ -36,6 +38,8 @@ const toolIcons: Record<string, React.ReactNode> = {
   "/diff": <GitCompare size={28} className="text-accent-cyan" />,
   "/markdown": <FileText size={28} className="text-accent-cyan" />,
   "/json": <FileJson size={28} className="text-accent-cyan" />,
+  "/dbviewer": <Database size={28} className="text-accent-cyan" />,
+  "/jwt": <ShieldCheck size={28} className="text-accent-cyan" />,
 };
 
 function Introduce() {

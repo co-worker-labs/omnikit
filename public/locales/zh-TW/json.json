@@ -16,7 +16,6 @@
   "invalid": "無效 JSON",
   "dropActive": "放開即可開啟",
   "dropZone": "將 JSON 檔案拖放到此處",
-  "fileLoaded": "檔案已載入",
   "descriptions": {
     "whatIsTitle": "什麼是 JSON 格式化？",
     "whatIsP1": "JSON（JavaScript Object Notation）是網路通用資料交換格式。API 回傳 JSON，設定檔使用 JSON，所有現代程式語言都可以解析 JSON。格式化（美化列印）將壓縮、難以閱讀的 JSON 加入縮排和換行，使結構一目瞭然。",

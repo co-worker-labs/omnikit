@@ -1,7 +1,6 @@
 {
   "plaintext": "明文",
   "ciphertext": "密文",
-  "secretPassphrase": "密钥短语",
   "plaintextPlaceholder": "在此粘贴或输入明文",
   "passphrasePlaceholder": "在此粘贴或输入密钥短语",
   "ciphertextOutput": "密文输出",

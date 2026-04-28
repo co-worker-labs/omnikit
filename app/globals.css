@@ -78,6 +78,8 @@
 
   body {
     min-height: 100vh;
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
   }
 
   a {
@@ -188,6 +190,44 @@
 
 .nav-btn-bounce {
   animation: btn-bounce 0.4s ease-in-out;
+}
+
+@keyframes btn-clear {
+  0% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+  10% {
+    transform: scale(1.1) rotate(-12deg);
+  }
+  20% {
+    transform: scale(1.1) rotate(12deg);
+  }
+  30% {
+    transform: scale(1.1) rotate(-10deg);
+  }
+  40% {
+    transform: scale(1.1) rotate(10deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(0deg);
+  }
+  70% {
+    transform: scale(0.3) rotate(0deg);
+    opacity: 0.3;
+  }
+  85% {
+    transform: scale(1.15) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+.nav-btn-clear {
+  animation: btn-clear 0.6s ease-in-out;
 }
 
 /* Markdown rendered preview — minimal typography that respects ByteCraft tokens. */

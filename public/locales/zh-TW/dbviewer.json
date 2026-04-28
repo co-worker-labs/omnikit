@@ -1,0 +1,93 @@
+{
+  "upload": {
+    "drop": "拖放 .db、.sqlite 或 .sqlite3 檔案到此處",
+    "click": "或點擊選擇檔案",
+    "tryDemo": "試試範例資料庫",
+    "releaseToLoad": "釋放以載入",
+    "unsupported": "不支援的檔案類型",
+    "tooLarge": "檔案超過 200 MB 限制。",
+    "invalidHeader": "不是有效的 SQLite 資料庫檔案。",
+    "engineFailed": "無法載入 SQLite 引擎，請檢查網路或重新整理頁面。",
+    "initializing": "正在初始化引擎…",
+    "reading": "正在讀取檔案… {loaded} / {total}",
+    "privacy": "所有資料在瀏覽器本機處理"
+  },
+  "info": {
+    "tables": "{count, plural, =1 {1 張表} other {# 張表}}",
+    "views": "{count, plural, =1 {1 個檢視表} other {# 個檢視表}}",
+    "indexes": "{count, plural, =1 {1 個索引} other {# 個索引}}",
+    "triggers": "{count, plural, =1 {1 個觸發器} other {# 個觸發器}}",
+    "close": "關閉"
+  },
+  "sidebar": {
+    "search": "搜尋…",
+    "tables": "表",
+    "views": "檢視表",
+    "indexes": "索引",
+    "triggers": "觸發器",
+    "showSystem": "顯示系統表",
+    "noResults": "無匹配",
+    "collapse": "收起側欄",
+    "expand": "展開側欄"
+  },
+  "schema": {
+    "columns": "欄位",
+    "foreignKeys": "外鍵",
+    "indexes": "索引",
+    "rowCount": "列數：{count}",
+    "rowCountLoading": "正在統計…",
+    "name": "名稱",
+    "type": "類型",
+    "nullable": "可空",
+    "default": "預設值",
+    "pk": "主鍵",
+    "from": "來源",
+    "to": "目標",
+    "onDelete": "ON DELETE",
+    "onUpdate": "ON UPDATE",
+    "unique": "唯一",
+    "trigger": "觸發器 SQL"
+  },
+  "editor": {
+    "run": "執行",
+    "stop": "停止",
+    "format": "格式化",
+    "compress": "壓縮",
+    "clear": "清空",
+    "history": "歷史",
+    "noHistory": "暫無查詢記錄",
+    "clearHistory": "清除歷史",
+    "placeholder": "-- 在此編寫 SELECT 查詢。Ctrl/Cmd+Enter 執行。"
+  },
+  "result": {
+    "running": "正在執行查詢…",
+    "aborted": "查詢已中止",
+    "rowsRange": "第 {from}–{to} 列",
+    "elapsed": "{ms} 毫秒",
+    "loadMore": "載入更多",
+    "loadAll": "載入全部（上限 10 萬列）",
+    "loadCeilingHit": "已達 10 萬列上限。",
+    "exportCsv": "匯出 CSV",
+    "exportJson": "匯出 JSON",
+    "empty": "無結果",
+    "tabName": "結果 {n}",
+    "errorTab": "錯誤",
+    "rejectedReadonly": "僅允許唯讀陳述式（收到：{keyword}）。",
+    "rejectedPragma": "PRAGMA \"{name}\" 不在唯讀白名單中。",
+    "rejectedCte": "偵測到資料修改 CTE，已拒絕。",
+    "exportConfirm": "結果尚未全部載入。匯出目前 {loaded} 列，還是先載入全部？",
+    "exportLoaded": "匯出目前列",
+    "exportLoadAll": "先載入全部"
+  },
+  "cell": {
+    "null": "NULL",
+    "empty": "(空)",
+    "blob": "BLOB · {bytes} B",
+    "expandLong": "展開全文",
+    "copyLong": "複製"
+  },
+  "status": {
+    "engineRestarted": "資料庫引擎已重啟 — 資料已重新載入",
+    "abortShortcut": "按 Esc 中止"
+  }
+}

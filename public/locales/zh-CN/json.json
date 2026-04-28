@@ -16,7 +16,6 @@
   "invalid": "无效 JSON",
   "dropActive": "松手即可打开",
   "dropZone": "将 JSON 文件拖放到此处",
-  "fileLoaded": "文件已加载",
   "descriptions": {
     "whatIsTitle": "什么是 JSON 格式化？",
     "whatIsP1": "JSON（JavaScript Object Notation）是网络通用数据交换格式。API 返回 JSON，配置文件使用 JSON，所有现代编程语言都可以解析 JSON。格式化（美化打印）将压缩的、难以阅读的 JSON 添加缩进和换行，使结构一目了然。",

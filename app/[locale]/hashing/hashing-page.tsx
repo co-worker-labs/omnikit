@@ -240,7 +240,7 @@ function TextHashing() {
           <div className="flex items-center gap-2">
             <span className="w-2.5 h-2.5 rounded-full bg-accent-cyan/60" />
             <span className="font-mono text-sm font-semibold text-accent-cyan">
-              {t("plainText")}
+              {tc("plainText")}
             </span>
           </div>
           <div className="flex items-center gap-3">
@@ -285,7 +285,7 @@ function TextHashing() {
       <div className="mt-4">
         <div className="flex flex-wrap justify-between items-center">
           <span className="font-mono text-sm font-semibold text-accent-purple">
-            {t("secretPassphrase")}
+            {tc("secretPassphrase")}
           </span>
           <button
             type="button"
@@ -327,8 +327,8 @@ function TextHashing() {
               }}
               className="appearance-none rounded-full font-bold text-center w-full"
             >
-              <option value="1000">{t("storageUnit1000")}</option>
-              <option value="1024">{t("storageUnit1024")}</option>
+              <option value="1000">{tc("storageUnit1000")}</option>
+              <option value="1024">{tc("storageUnit1024")}</option>
             </StyledSelect>
           </div>
         </div>
@@ -397,24 +397,25 @@ function TextHashing() {
 
 function Description() {
   const t = useTranslations("hashing");
+  const tc = useTranslations("common");
   return (
     <section id="description" className="mt-8">
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.md5Title")}</h5>
-        <p className="text-fg-secondary text-sm mt-1">{t("descriptions.md5")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{tc("algorithms.md5Title")}</h5>
+        <p className="text-fg-secondary text-sm mt-1">{tc("algorithms.md5")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.sha1Title")}</h5>
-        <p className="text-fg-secondary text-sm mt-1">{t("descriptions.sha1")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{tc("algorithms.sha1Title")}</h5>
+        <p className="text-fg-secondary text-sm mt-1">{tc("algorithms.sha1")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.sha2Title")}</h5>
-        <p className="text-fg-secondary text-sm mt-1">{t("descriptions.sha2")}</p>
-        <p className="text-fg-secondary text-sm mt-1">{t("descriptions.sha2extra")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{tc("algorithms.sha2Title")}</h5>
+        <p className="text-fg-secondary text-sm mt-1">{tc("algorithms.sha2")}</p>
+        <p className="text-fg-secondary text-sm mt-1">{tc("algorithms.sha2extra")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.sha3Title")}</h5>
-        <p className="text-fg-secondary text-sm mt-1">{t("descriptions.sha3")}</p>
+        <h5 className="font-semibold text-fg-primary text-base">{tc("algorithms.sha3Title")}</h5>
+        <p className="text-fg-secondary text-sm mt-1">{tc("algorithms.sha3")}</p>
       </div>
       <div className="mb-4">
         <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.hmacTitle")}</h5>

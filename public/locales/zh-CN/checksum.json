@@ -5,20 +5,6 @@
   "selectedFiles": "已选择 {count} 个文件",
   "selectedFile": "已选择 {count} 个文件",
   "checksumOutput": "校验输出",
-  "storageUnit1000": "1K = 1000 字节",
-  "storageUnit1024": "1K = 1024 字节",
   "algoTip": "处理大文件时，请仅勾选所需的算法以减少计算耗时。",
-  "calculate": "开始计算",
-  "compareToChecksum": "与校验值对比",
-  "descriptions": {
-    "md5Title": "MD5",
-    "md5": "MD5 是一种广泛使用的哈希函数，在多种安全应用中被采用，也常用于校验文件完整性。不过，MD5 不具备抗碰撞性，不适用于依赖此特性的 SSL 证书或数字签名等应用。",
-    "sha1Title": "SHA-1",
-    "sha1": "SHA 哈希函数由美国国家安全局 (NSA) 设计。SHA-1 是现有 SHA 哈希函数中历史最悠久的，在各种安全应用和协议中广泛使用。但随着新攻击手段的发现和改进，SHA-1 的抗碰撞性正在不断减弱。",
-    "sha2Title": "SHA-2",
-    "sha2": "SHA-256 是 SHA-2 系列中的四种变体之一。虽然不如 SHA-1 使用广泛，但安全性明显更高。",
-    "sha2extra": "SHA-512 与 SHA-256 基本相同，但它基于 64 位字而非 32 位字运算。",
-    "sha3Title": "SHA-3",
-    "sha3": "SHA-3 是经过为期五年的竞赛选拔出的新加密哈希算法获胜者，期间共评估了 64 个参选方案。"
-  }
+  "calculate": "开始计算"
 }

@@ -63,5 +63,15 @@
     "title": "JSON 格式化 / 压缩 - 在线工具",
     "shortTitle": "JSON 格式化",
     "description": "在线格式化、压缩和验证 JSON。支持自定义缩进美化输出、单行压缩和 JSON5 宽松解析。100% 浏览器端处理。"
+  },
+  "dbviewer": {
+    "title": "SQLite 数据库查看器 - 浏览和查询 .db 文件",
+    "shortTitle": "数据库查看器",
+    "description": "在浏览器中打开 SQLite 数据库，浏览结构、运行只读 SQL（带自动补全）、分页加载大结果集，导出 CSV/JSON。完全本地处理。"
+  },
+  "jwt": {
+    "title": "JWT 调试器 - JSON Web Token 编码与解码",
+    "shortTitle": "JWT",
+    "description": "在线编码、解码和验证 JSON Web Token（JWT）。支持 HS256、RS256、ES256 等算法。100% 浏览器端处理。"
   }
 }

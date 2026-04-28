@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import type { Viewport } from "next";
 import { cookies } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
@@ -10,6 +11,8 @@ import { Providers } from "../providers";
 import { COOKIE_KEYS } from "../../libs/storage-keys";
 import type { Theme } from "../../libs/theme";
 import { SITE_URL } from "../../libs/site";
+import { SerwistProvider } from "../serwist";
+import { IOSSplashLinks } from "../../components/ios-splash-links";
 import "../globals.css";
 
 type Props = {
@@ -35,6 +38,14 @@ export async function generateMetadata({ params }: Props) {
   };
 }
 
+export const viewport: Viewport = {
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#0b0f1a" },
+  ],
+};
+
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
 
@@ -50,7 +61,13 @@ export default async function LocaleLayout({ children, params }: Props) {
     <html lang={locale} className={initialTheme === "dark" ? "dark" : ""} suppressHydrationWarning>
       <head>
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-        <link rel="apple-touch-icon" href="/favicon.svg" />
+        <link rel="manifest" href={`/${locale}/manifest.webmanifest`} />
+        <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+        <meta name="apple-mobile-web-app-title" content="ByteCraft" />
+        <IOSSplashLinks />
         <meta property="og:image" content="/og-image.svg" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
@@ -58,7 +75,9 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
-          <Providers initialTheme={initialTheme}>{children}</Providers>
+          <Providers initialTheme={initialTheme}>
+            <SerwistProvider swUrl="/serwist/sw.js">{children}</SerwistProvider>
+          </Providers>
         </NextIntlClientProvider>
         <Analytics />
         <SpeedInsights />

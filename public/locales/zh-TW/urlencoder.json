@@ -1,10 +1,6 @@
 {
-  "plainText": "明文",
-  "encodedText": "編碼後文字",
   "plainTextPlaceholder": "在此貼上或輸入明文",
   "encodedOutput": "編碼輸出",
-  "encode": "編碼",
-  "decode": "解碼",
   "mode": {
     "label": "編碼模式",
     "component": "Component",
