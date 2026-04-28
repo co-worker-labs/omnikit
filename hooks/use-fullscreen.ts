@@ -12,9 +12,9 @@ interface UseFullscreenReturn {
 function subscribe(callback: () => void) {
   const handler = () => {
     if (document.fullscreenElement) {
-      sessionStorage.setItem("bytecraft-fullscreen", "true");
+      sessionStorage.setItem("omnikit-fullscreen", "true");
     } else {
-      sessionStorage.removeItem("bytecraft-fullscreen");
+      sessionStorage.removeItem("omnikit-fullscreen");
     }
     callback();
   };
@@ -43,8 +43,8 @@ export function useFullscreen(): UseFullscreenReturn {
 
   useEffect(() => {
     if (document.fullscreenElement) {
-      sessionStorage.setItem("bytecraft-fullscreen", "true");
-    } else if (sessionStorage.getItem("bytecraft-fullscreen") === "true") {
+      sessionStorage.setItem("omnikit-fullscreen", "true");
+    } else if (sessionStorage.getItem("omnikit-fullscreen") === "true") {
       requestFullscreen();
     }
   }, [requestFullscreen]);

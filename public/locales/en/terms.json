@@ -3,7 +3,7 @@
   "lastUpdated": "Last updated: April 23, 2026",
 
   "overviewTitle": "Overview",
-  "overviewP1": "Welcome to ByteCraft (\"we\", \"us\", or \"our\"), operating this website (the \"Site\"). ByteCraft is a free, open-source collection of browser-based developer tools designed to help you with everyday development tasks.",
+  "overviewP1": "Welcome to OmniKit (\"we\", \"us\", or \"our\"), operating this website (the \"Site\"). OmniKit is a free, open-source collection of browser-based developer tools designed to help you with everyday development tasks.",
   "overviewP2": "These Terms of Service (\"Terms\") govern your access to and use of the Site and all tools, features, and services provided through it (collectively, the \"Services\"). By accessing or using the Site, you agree to be bound by these Terms.",
 
   "acceptanceTitle": "Acceptance of Terms",
@@ -11,7 +11,7 @@
   "acceptanceP2": "You represent that you are at least 13 years of age, or the age of legal majority in your jurisdiction, whichever is greater. If you are under the required age, you may only use the Site under the supervision of a parent or legal guardian who agrees to be bound by these Terms.",
 
   "servicesTitle": "Description of Services",
-  "servicesP1": "ByteCraft provides a suite of free, browser-based developer tools. All processing is performed locally in your web browser — no data is transmitted to our servers. Our current tools include:",
+  "servicesP1": "OmniKit provides a suite of free, browser-based developer tools. All processing is performed locally in your web browser — no data is transmitted to our servers. Our current tools include:",
   "servicesList1": [
     "Base64 Encode/Decode — Encode and decode Base64 strings, generate Basic Authentication headers",
     "Password Generator — Generate secure, random, and memorable passwords",
@@ -37,18 +37,18 @@
   "conductP2": "We reserve the right to restrict or block access to any user who violates these Terms at our sole discretion.",
 
   "ipTitle": "Intellectual Property",
-  "ipP1": "The Site, including its original content, features, functionality, and design, is owned by ByteCraft and is protected by international copyright, trademark, and other intellectual property laws.",
+  "ipP1": "The Site, including its original content, features, functionality, and design, is owned by OmniKit and is protected by international copyright, trademark, and other intellectual property laws.",
   "ipP2": "You may not reproduce, distribute, modify, create derivative works of, publicly display, or exploit any content from the Site without our express written consent. The tools are provided for your personal and commercial use, but the Site itself and its source code remain our property.",
 
   "advertisingTitle": "Advertising",
-  "advertisingP1": "ByteCraft is a free service supported by advertising. We may display advertisements on the Site provided by third-party ad networks. These partners may use cookies and similar tracking technologies to collect information about your browsing activity across different websites.",
+  "advertisingP1": "OmniKit is a free service supported by advertising. We may display advertisements on the Site provided by third-party ad networks. These partners may use cookies and similar tracking technologies to collect information about your browsing activity across different websites.",
   "advertisingP2": "By using the Site, you acknowledge and consent to the display of advertisements and the use of tracking technologies by our advertising partners as described in our Privacy Policy. You may opt out of personalized advertising through your browser settings or by visiting the opt-out pages provided by the respective ad networks.",
   "advertisingP3": "We are not responsible for the content, accuracy, or practices of any advertisements displayed on the Site. Interactions with advertisers are solely between you and the advertiser.",
 
   "disclaimerTitle": "Disclaimers & Limitation of Liability",
   "disclaimerP1": "The Services are provided \"as is\" and \"as available\" without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement.",
   "disclaimerP2": "We do not guarantee that the Site will be uninterrupted, secure, or error-free. The results produced by our tools are provided for informational purposes only. You should independently verify any results before relying on them for security-sensitive or mission-critical applications.",
-  "disclaimerP3": "To the fullest extent permitted by law, ByteCraft shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, profits, or goodwill, arising from your use of or inability to use the Site or Services.",
+  "disclaimerP3": "To the fullest extent permitted by law, OmniKit shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, profits, or goodwill, arising from your use of or inability to use the Site or Services.",
 
   "changesTitle": "Changes to Terms",
   "changesP1": "We reserve the right to update or modify these Terms at any time. Changes will be posted on this page with an updated \"Last updated\" date. Your continued use of the Site after any changes constitutes acceptance of the revised Terms. We encourage you to review this page periodically.",

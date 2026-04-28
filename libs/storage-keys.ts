@@ -1,11 +1,11 @@
 export const STORAGE_KEYS = {
-  savedPasswords: "bc:sp",
-  diff: "bc:diff",
-  markdown: "bc:md",
-  dbviewerHistory: "bc:dbviewer:history",
-  cron: "bc:cron",
+  savedPasswords: "okrun:sp",
+  diff: "okrun:diff",
+  markdown: "okrun:md",
+  dbviewerHistory: "okrun:dbviewer:history",
+  cron: "okrun:cron",
 } as const;
 
 export const COOKIE_KEYS = {
-  theme: "bc-th",
+  theme: "okrun:th",
 } as const;

@@ -47,7 +47,7 @@
       <rect x="1" y="4" width="8" height="7" rx="1.5" fill="none" stroke="#06d6a0" stroke-width="1.2"/>
       <path d="M3 4 V2.5 A2.5 2.5 0 0 1 8 2.5 V4" fill="none" stroke="#06d6a0" stroke-width="1.2"/>
     </g>
-    <text x="118" y="29" font-family="'JetBrains Mono',monospace" font-size="12" fill="#64748b">bytecraft.dev/tools/hashing</text>
+    <text x="118" y="29" font-family="'JetBrains Mono',monospace" font-size="12" fill="#64748b">omnikit.run/tools/hashing</text>
 
     <!-- Page content -->
     <g transform="translate(24,68)" font-family="'JetBrains Mono',monospace">
@@ -55,7 +55,7 @@
       <rect x="0" y="4" width="24" height="24" rx="6" fill="#06d6a0" opacity=".15"/>
       <path d="M5 10 L14 16 L5 22" stroke="#06d6a0" stroke-width="2" fill="none" stroke-linecap="butt" stroke-linejoin="miter"/>
       <rect x="16" y="22" width="8" height="2.5" fill="#06d6a0" rx=".5"/>
-      <text x="30" y="21" font-size="14" font-weight="600" fill="#f1f5f9">ByteCraft</text>
+      <text x="30" y="21" font-size="14" font-weight="600" fill="#f1f5f9">OmniKit</text>
       <line x1="0" y1="36" x2="352" y2="36" stroke="#06d6a0" stroke-width=".5" opacity=".15"/>
 
       <!-- Tool title -->
@@ -100,7 +100,7 @@
     </g>
 
     <!-- Title -->
-    <text x="0" y="80" font-family="'JetBrains Mono',monospace" font-size="68" font-weight="700" fill="#f1f5f9" letter-spacing="-2">ByteCraft</text>
+    <text x="0" y="80" font-family="'JetBrains Mono',monospace" font-size="68" font-weight="700" fill="#f1f5f9" letter-spacing="-2">OmniKit</text>
 
     <!-- Accent underline -->
     <rect y="98" width="100" height="3" fill="#06d6a0" rx="1.5"/>
@@ -146,5 +146,5 @@
   </g>
 
   <!-- Bottom binary decoration -->
-  <text x="72" y="620" font-family="'JetBrains Mono',monospace" font-size="11" fill="#06d6a0" opacity=".05">01000010 01111001 01110100 01100101 01000011 01110010 01100001 01100110 01110100</text>
+  <text x="72" y="620" font-family="'JetBrains Mono',monospace" font-size="11" fill="#06d6a0" opacity=".05">01001111 01101101 01101110 01101001 01001011 01101001 01110100</text>
 </svg>

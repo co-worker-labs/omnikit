@@ -11,7 +11,7 @@ import { CopyButton } from "../../../components/ui/copy-btn";
 import { Button } from "../../../components/ui/button";
 import { StyledTextarea } from "../../../components/ui/input";
 import { showToast } from "../../../libs/toast";
-import { byteCraftJsonTheme } from "../../../libs/json-view-theme";
+import { omniKitJsonTheme } from "../../../libs/json-view-theme";
 
 type IndentSize = 2 | 4 | 8;
 
@@ -447,7 +447,7 @@ function Conversion() {
             <div className="rounded-xl border border-border-default bg-bg-input px-3 py-2 font-mono text-sm max-h-[60vh] overflow-auto min-h-[30vh]">
               <JsonView
                 value={outputValue || ({} as object)}
-                style={byteCraftJsonTheme}
+                style={omniKitJsonTheme}
                 displayDataTypes={false}
                 displayObjectSize={true}
                 collapsed={false}

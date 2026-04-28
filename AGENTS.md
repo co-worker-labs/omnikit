@@ -1,4 +1,4 @@
-# AGENTS.md — ByteCraft
+# AGENTS.md — OmniKit
 
 ## Stack
 
@@ -10,7 +10,7 @@
 
 ## Project Overview
 
-ByteCraft is a collection of browser-based developer utilities. All operations run entirely in the browser — no data is sent to any server.
+OmniKit is a collection of browser-based developer utilities. All operations run entirely in the browser — no data is sent to any server.
 
 ## Available Tools
 

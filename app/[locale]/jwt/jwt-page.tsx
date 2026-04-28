@@ -11,7 +11,7 @@ import { CopyButton } from "../../../components/ui/copy-btn";
 import { Button } from "../../../components/ui/button";
 import { Badge } from "../../../components/ui/badge";
 import { showToast } from "../../../libs/toast";
-import { byteCraftJsonTheme } from "../../../libs/json-view-theme";
+import { omniKitJsonTheme } from "../../../libs/json-view-theme";
 import {
   decode as decodeToken,
   verify as verifyToken,
@@ -144,7 +144,7 @@ function DecodeTab({
               />
             </div>
             <div className="bg-bg-input border border-border-default rounded-lg p-3 overflow-x-auto">
-              <JsonView value={decodedHeader!} style={byteCraftJsonTheme} />
+              <JsonView value={decodedHeader!} style={omniKitJsonTheme} />
             </div>
           </div>
 
@@ -156,7 +156,7 @@ function DecodeTab({
               />
             </div>
             <div className="bg-bg-input border border-border-default rounded-lg p-3 overflow-x-auto">
-              <JsonView value={decodedPayload!} style={byteCraftJsonTheme} />
+              <JsonView value={decodedPayload!} style={omniKitJsonTheme} />
             </div>
           </div>
 

@@ -1,4 +1,4 @@
-/* Custom Prism theme using ByteCraft CSS variables.
+/* Custom Prism theme using OmniKit CSS variables.
    Works with both light and dark themes via existing var indirection in app/globals.css. */
 
 pre[class*="language-"],

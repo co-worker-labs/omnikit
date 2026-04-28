@@ -66,7 +66,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="ByteCraft" />
+        <meta name="apple-mobile-web-app-title" content="OmniKit" />
         <IOSSplashLinks />
         <meta property="og:image" content="/og-image.svg" />
         <meta property="og:image:width" content="1200" />

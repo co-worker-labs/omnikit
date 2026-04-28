@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 
 export type FooterPosition = "sticky" | "fixed" | "none" | "hidden";
 
-const GITHUB_URL = "https://github.com/co-worker-labs/ByteCraft";
+const GITHUB_URL = "https://github.com/co-worker-labs/OmniKit";
 
 function GithubIcon({ className }: { className?: string }) {
   return (

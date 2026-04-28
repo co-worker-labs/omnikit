@@ -357,7 +357,7 @@ function execStatements(database: SqlDb, sql: string, pageSize: number): ExecRes
       if (cur.done) finalizeCursor(cursorId);
     } catch (e) {
       try {
-        database.exec("ROLLBACK TO bytecraft_dbviewer_query; RELEASE bytecraft_dbviewer_query;");
+        database.exec("ROLLBACK TO omnikit_dbviewer_query; RELEASE omnikit_dbviewer_query;");
       } catch {}
       exec.results.push({
         kind: "error",
@@ -402,7 +402,7 @@ function finalizeCursor(cursorId: string) {
   } catch {}
   if (cur.inSavepoint && db) {
     try {
-      db.exec("ROLLBACK TO bytecraft_dbviewer_query; RELEASE bytecraft_dbviewer_query;");
+      db.exec("ROLLBACK TO omnikit_dbviewer_query; RELEASE omnikit_dbviewer_query;");
     } catch {}
   }
   cursors.delete(cursorId);

@@ -1,6 +1,6 @@
 {
   "nav": {
-    "brand": "ByteCraft",
+    "brand": "OmniKit",
     "search": "Search",
     "searchPlaceholder": "Search",
     "switchToLight": "Switch to light mode",
@@ -15,7 +15,7 @@
     "terms": "Terms",
     "privacy": "Privacy",
     "github": "GitHub",
-    "copyright": "{year} ByteCraft. All Rights Reserved."
+    "copyright": "{year} OmniKit. All Rights Reserved."
   },
   "alert": {
     "notTransferred": "* Your content are not transferred to the server. All calculations are performed directly in the browser",

@@ -1,6 +1,6 @@
 import type { CSSProperties } from "react";
 
-export const byteCraftJsonTheme: CSSProperties = {
+export const omniKitJsonTheme: CSSProperties = {
   "--w-rjv-background-color": "transparent",
   "--w-rjv-color": "var(--fg-primary)",
   "--w-rjv-key-string": "var(--json-key)",

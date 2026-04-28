@@ -1,4 +1,4 @@
-# ByteCraft
+# OmniKit
 
 A collection of browser-based developer utilities, built with [Next.js](https://nextjs.org/).
 

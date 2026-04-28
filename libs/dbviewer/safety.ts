@@ -145,7 +145,7 @@ export function classifyStatement(sql: string): Classification {
   return { kind: "ok" };
 }
 
-export const SAVEPOINT_NAME = "bytecraft_dbviewer_query";
+export const SAVEPOINT_NAME = "omnikit_dbviewer_query";
 
 export function wrapInSavepoint(): { begin: string; end: string } {
   return {

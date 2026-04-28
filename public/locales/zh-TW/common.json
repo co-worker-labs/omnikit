@@ -1,6 +1,6 @@
 {
   "nav": {
-    "brand": "字节工坊",
+    "brand": "OmniKit",
     "search": "搜尋",
     "searchPlaceholder": "搜尋",
     "switchToLight": "切換至淺色模式",
@@ -15,7 +15,7 @@
     "terms": "使用條款",
     "privacy": "隱私權政策",
     "github": "GitHub",
-    "copyright": "{year} 字节工坊. 保留所有權利。"
+    "copyright": "{year} OmniKit. 保留所有權利。"
   },
   "alert": {
     "notTransferred": "* 您的內容不會傳送至伺服器。所有計算皆在瀏覽器中直接執行",
