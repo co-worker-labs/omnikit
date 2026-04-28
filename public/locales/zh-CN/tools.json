@@ -73,5 +73,10 @@
     "title": "JWT 调试器 - JSON Web Token 编码与解码",
     "shortTitle": "JWT",
     "description": "在线编码、解码和验证 JSON Web Token（JWT）。支持 HS256、RS256、ES256 等算法。100% 浏览器端处理。"
+  },
+  "unixtime": {
+    "title": "Unix 时间戳转换 — 秒、毫秒、UTC",
+    "shortTitle": "Unix 时间戳",
+    "description": "在 Unix 时间戳与日期时间之间互转。支持秒和毫秒，本地与 UTC 并排展示，附带实时时钟。100% 浏览器本地处理。"
   }
 }

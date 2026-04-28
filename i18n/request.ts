@@ -23,6 +23,7 @@ const namespaces = [
   "pwa",
   "dbviewer",
   "jwt",
+  "unixtime",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {
