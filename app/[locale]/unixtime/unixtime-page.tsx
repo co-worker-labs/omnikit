@@ -32,12 +32,20 @@ function useCurrentTimestampSeconds(): string {
   );
 }
 
+let _partsCache: { date: string; time: string; ms: number } | null = null;
+let _partsKey = "";
+
 function useNowParts(): { date: string; time: string; ms: number } | null {
   return useSyncExternalStore(
     emptySubscribe,
     () => {
       const p = presetParts("now", "local");
-      return { date: p.date, time: p.time, ms: p.ms };
+      const key = `${p.date}|${p.time}`;
+      if (key !== _partsKey) {
+        _partsKey = key;
+        _partsCache = { date: p.date, time: p.time, ms: 0 };
+      }
+      return _partsCache;
     },
     () => null
   );
