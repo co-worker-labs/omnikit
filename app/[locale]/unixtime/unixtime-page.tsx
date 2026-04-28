@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useSyncExternalStore, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { ChevronDown, Clock, Eraser, Globe, Pause, Play, RotateCcw, Zap } from "lucide-react";
 import Layout from "../../../components/layout";
@@ -22,9 +22,30 @@ import {
 } from "../../../libs/unixtime/main";
 import { showToast } from "../../../libs/toast";
 
+const emptySubscribe = () => () => {};
+
+function useCurrentTimestampSeconds(): string {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => Math.trunc(Date.now() / 1000).toString(),
+    () => ""
+  );
+}
+
+function useNowParts(): { date: string; time: string; ms: number } | null {
+  return useSyncExternalStore(
+    emptySubscribe,
+    () => {
+      const p = presetParts("now", "local");
+      return { date: p.date, time: p.time, ms: p.ms };
+    },
+    () => null
+  );
+}
+
 function LiveClock() {
   const t = useTranslations("unixtime");
-  const [now, setNow] = useState(() => new Date());
+  const [now, setNow] = useState<Date | null>(null);
   const [paused, setPaused] = useState(false);
 
   useEffect(() => {
@@ -145,11 +166,14 @@ function TimestampToDate() {
   const t = useTranslations("unixtime");
   const tc = useTranslations("common");
   const locale = useLocale();
-  const [raw, setRaw] = useState(() => Math.trunc(Date.now() / 1000).toString());
+  const [raw, setRaw] = useState("");
   const [mode, setMode] = useState<UnitMode>("auto");
   const [tz, setTz] = useState<string>("UTC");
 
-  const parsed = parseTimestamp(raw, mode);
+  const defaultTs = useCurrentTimestampSeconds();
+  const currentRaw = raw || defaultTs;
+
+  const parsed = parseTimestamp(currentRaw, mode);
   const date = parsed.ms !== undefined ? new Date(parsed.ms) : null;
 
   const localStr = date ? date.toLocaleString(locale, { hour12: false }) : "";
@@ -401,14 +425,23 @@ function TimestampToDate() {
 function DateToTimestamp() {
   const t = useTranslations("unixtime");
   const tc = useTranslations("common");
-  const initial = presetParts("now", "local");
-  const [date, setDate] = useState(initial.date);
-  const [time, setTime] = useState(initial.time);
-  const [ms, setMs] = useState(initial.ms.toString());
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [ms, setMs] = useState("0");
   const [tz, setTz] = useState<string>("local");
 
+  const nowParts = useNowParts();
+  const currentDate = date || nowParts?.date || "";
+  const currentTime = time || nowParts?.time || "";
+  const currentMs = ms !== "0" ? ms : (nowParts?.ms.toString() ?? "0");
+
   const buildTz: Tz = tz === "local" ? "local" : tz;
-  const built = buildDate({ date, time, ms: Number(ms), tz: buildTz });
+  const built = buildDate({
+    date: currentDate,
+    time: currentTime,
+    ms: Number(currentMs),
+    tz: buildTz,
+  });
   const seconds = built ? Math.trunc(built.getTime() / 1000).toString() : "";
   const milliseconds = built ? built.getTime().toString() : "";
 
@@ -486,7 +519,7 @@ function DateToTimestamp() {
         <StyledInput
           type="date"
           aria-label={t("dateToTs.dateLabel")}
-          value={date}
+          value={currentDate}
           onChange={(e) => setDate(e.target.value)}
           min="1970-01-01"
           max="9999-12-31"
@@ -495,7 +528,7 @@ function DateToTimestamp() {
           type="time"
           step={1}
           aria-label={t("dateToTs.timeLabel")}
-          value={time}
+          value={currentTime}
           onChange={(e) => setTime(e.target.value)}
         />
       </div>
@@ -512,7 +545,7 @@ function DateToTimestamp() {
               pattern="[0-9]*"
               aria-label={t("dateToTs.msLabel")}
               placeholder="0~999"
-              value={ms}
+              value={currentMs}
               onChange={(e) => setMs(e.target.value.replace(/[^0-9]/g, "").slice(0, 3))}
               className="w-full bg-bg-input border border-border-default rounded-lg px-3 py-2 text-fg-primary placeholder:text-fg-muted focus:outline-none focus:border-accent-cyan focus:shadow-input-focus transition-all duration-200 font-mono"
             />
