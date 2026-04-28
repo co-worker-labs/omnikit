@@ -14,18 +14,25 @@ OmniKit is a collection of browser-based developer utilities. All operations run
 
 ## Available Tools
 
-| Route          | Tool               | Description                                          |
-| -------------- | ------------------ | ---------------------------------------------------- |
-| `/base64`      | Base64             | Base64 encoding/decoding, Basic Auth header          |
-| `/password`    | Password Generator | Secure, memorable password generation                |
-| `/hashing`     | Hashing            | MD5, SHA-1/224/256/384/512, SHA3, Keccak, RIPEMD-160 |
-| `/cipher`      | Encrypt/Decrypt    | AES, DES, Triple DES, Rabbit, RC4, RC4Drop           |
-| `/checksum`    | File Checksum      | Unlimited file size checksums                        |
-| `/ascii`       | ASCII Table        | ASCII reference with conversions                     |
-| `/htmlcode`    | HTML Code          | HTML special characters reference                    |
-| `/storageunit` | Storage Unit       | Byte, KB, MB, GB, TB, PB conversion                  |
-| `/uuid`        | UUID               | UUID v4/v7 generation                                |
-| `/urlencoder`  | URL Encoder        | URL encoding/decoding                                |
+| Route          | Tool               | Description                                                                |
+| -------------- | ------------------ | -------------------------------------------------------------------------- |
+| `/base64`      | Base64             | Base64 encoding/decoding, Basic Auth header                                |
+| `/urlencoder`  | URL Encoder        | URL encoding/decoding with Component, Whole URL, Form modes                |
+| `/uuid`        | UUID               | UUID v1/v3/v4/v5/v7 generation (RFC 4122/9562)                             |
+| `/password`    | Password Generator | Secure, memorable password generation                                      |
+| `/hashing`     | Hashing            | MD5, SHA-1/224/256/384/512, SHA3, Keccak, RIPEMD-160                       |
+| `/checksum`    | File Checksum      | Unlimited file size checksums                                              |
+| `/json`        | JSON               | Format, minify, validate JSON/JSON5, configurable indentation              |
+| `/htmlcode`    | HTML Code          | HTML special characters reference                                          |
+| `/storageunit` | Storage Unit       | Byte, KB, MB, GB, TB, PB conversion                                        |
+| `/ascii`       | ASCII Table        | ASCII reference with conversions                                           |
+| `/cipher`      | Encrypt/Decrypt    | AES, DES, Triple DES, Rabbit, RC4, RC4Drop                                 |
+| `/jwt`         | JWT                | Encode, decode, verify JWT (HS/RS/ES/PS 256/384/512)                       |
+| `/diff`        | Text Diff          | Side-by-side or inline diff with word-level highlights, Web Worker powered |
+| `/markdown`    | Markdown           | Editor & live preview with GFM, syntax highlighting, PDF/PNG export        |
+| `/dbviewer`    | DB Viewer          | SQLite viewer with SQL editor, autocomplete, pagination, CSV/JSON export   |
+| `/unixtime`    | Unix Timestamp     | Timestamp ↔ date conversion, live clock, seconds/milliseconds, local/UTC   |
+| `/cron`        | Cron               | Build/decode Cron expressions (Standard, Spring, Quartz), next-run preview |
 
 ## Architecture Rules
 
@@ -100,20 +107,21 @@ export default function ToolPage() {
 
 Located in `components/ui/`:
 
-| Component        | Usage                                                   |
-| ---------------- | ------------------------------------------------------- | ---------------------- |
-| `Button`         | Primary action buttons (`variant="primary               | danger"`, `size="md"`) |
-| `StyledInput`    | Text input fields                                       |
-| `StyledTextarea` | Multi-line text areas (`rows={n}`)                      |
-| `StyledSelect`   | Dropdown select (`value`, `onChange`)                   |
-| `StyledCheckbox` | Checkbox (`checked`, `onChange`)                        |
-| `CopyButton`     | Copy to clipboard (`getContent={() => text}`)           |
-| `Card`           | Container with shadow/hover effects                     |
-| `Badge`          | Small label/tag                                         |
-| `Tabs`           | Tab navigation                                          |
-| `Accordion`      | Collapsible sections                                    |
-| `Dropdown`       | Dropdown menu                                           |
-| `Toast`          | Notification (via `showToast(message, type, duration)`) |
+| Component              | Usage                                                               |
+| ---------------------- | ------------------------------------------------------------------- |
+| `Button`               | Primary action buttons (`variant="primary \| danger"`, `size="md"`) |
+| `Input`                | Text input fields (StyledInput alias)                               |
+| `Textarea`             | Multi-line text areas (StyledTextarea alias, `rows={n}`)            |
+| `LineNumberedTextarea` | Textarea with line numbers, auto-grow, scroll sync                  |
+| `Select`               | Dropdown select (`value`, `onChange`)                               |
+| `Checkbox`             | Checkbox (`checked`, `onChange`)                                    |
+| `CopyButton`           | Copy to clipboard (`getContent={() => text}`)                       |
+| `Card`                 | Container with shadow/hover effects                                 |
+| `Badge`                | Small label/tag                                                     |
+| `Tabs`                 | Tab navigation                                                      |
+| `Accordion`            | Collapsible sections                                                |
+| `Dropdown`             | Dropdown menu                                                       |
+| `Toast`                | Notification (via `showToast(message, type, duration)`)             |
 
 Shared components in `components/`:
 
@@ -121,6 +129,8 @@ Shared components in `components/`:
 - `Header` — site header
 - `Footer` — site footer
 - `LanguageSwitcher` — locale switcher
+- `FloatingToolbar` — floating action toolbar
+- `IosSplashLinks` — iOS PWA splash screen link tags
 
 ## Theme & Styling
 
@@ -136,6 +146,7 @@ Shared components in `components/`:
 | `--fg-secondary`   | `#475569` | `#94a3b8` | Secondary text   |
 | `--fg-muted`       | `#94a3b8` | `#64748b` | Muted text       |
 | `--border-default` | `#e2e8f0` | `#1e293b` | Borders          |
+| `--border-subtle`  | `#f1f5f9` | `#334155` | Subtle borders   |
 | `--accent-cyan`    | `#06d6a0` | `#06d6a0` | Primary accent   |
 | `--accent-purple`  | `#8b5cf6` | `#8b5cf6` | Secondary accent |
 | `--danger`         | `#ef4444` | `#ef4444` | Danger/delete    |
@@ -171,22 +182,41 @@ const tc = useTranslations("common"); // shared translations
 const ts = useTranslations("site"); // site config
 ```
 
-Translation files located in `messages/` directory.
+Translation files located in `public/locales/` directory.
 
 ## Business Logic
 
 Libraries in `libs/`:
 
-| File                              | Purpose                           |
-| --------------------------------- | --------------------------------- |
-| `tools.ts`                        | Tool registry (name, route, icon) |
-| `site.ts`                         | Site metadata                     |
-| `theme.tsx`                       | Theme provider (light/dark)       |
-| `toast.ts`                        | Toast notification system         |
-| `uuid/main.ts`                    | UUID v4/v7 generation             |
-| `password/main.ts`, `wordlist.ts` | Password generation               |
-| `ascii.ts`                        | ASCII table data                  |
-| `htmlcode.ts`                     | HTML entities data                |
+| File                              | Purpose                                 |
+| --------------------------------- | --------------------------------------- |
+| `tools.ts`                        | Tool registry (name, route, icon)       |
+| `site.ts`                         | Site metadata                           |
+| `theme.tsx`                       | Theme provider (light/dark)             |
+| `toast.ts`                        | Toast notification system               |
+| `storage-keys.ts`                 | localStorage key constants              |
+| `json-view-theme.ts`              | JSON viewer theme config                |
+| `uuid/main.ts`                    | UUID v4/v7 generation                   |
+| `password/main.ts`, `wordlist.ts` | Password generation                     |
+| `ascii.ts`                        | ASCII table data                        |
+| `htmlcode.ts`                     | HTML entities data                      |
+| `jwt/main.ts`                     | JWT encode/decode/verify                |
+| `diff/`                           | Text diff computation (Web Worker)      |
+| `markdown/`                       | Markdown rendering, highlight, export   |
+| `dbviewer/`                       | SQLite engine, SQL autocomplete, export |
+| `cron/`                           | Cron parser, generator, describer       |
+| `unixtime/main.ts`                | Timestamp conversion logic              |
+| `file/`                           | File type detection, size limits        |
+| `pwa/`                            | PWA splash screen config                |
+
+## Hooks
+
+Custom React hooks in `hooks/`:
+
+| Hook            | Purpose                                    |
+| --------------- | ------------------------------------------ |
+| `useFullscreen` | Fullscreen toggle with session persistence |
+| `useIsMobile`   | Responsive breakpoint detection (768px)    |
 
 ## Utilities
 
