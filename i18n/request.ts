@@ -24,6 +24,7 @@ const namespaces = [
   "dbviewer",
   "jwt",
   "unixtime",
+  "cron",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {

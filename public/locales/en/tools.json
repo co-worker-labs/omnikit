@@ -78,5 +78,10 @@
     "title": "Unix Timestamp Converter — Seconds, Milliseconds, UTC",
     "shortTitle": "Unix Timestamp",
     "description": "Convert between Unix timestamps and human-readable dates. Supports seconds and milliseconds, shows Local and UTC side-by-side, with a live clock. 100% client-side."
+  },
+  "cron": {
+    "shortTitle": "Cron",
+    "title": "Cron Expression Generator & Parser",
+    "description": "Build and decode Cron expressions for Standard, Spring, and Quartz schedulers. See human-readable explanations and the next 5 execution times."
   }
 }

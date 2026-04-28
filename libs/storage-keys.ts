@@ -3,6 +3,7 @@ export const STORAGE_KEYS = {
   diff: "bc:diff",
   markdown: "bc:md",
   dbviewerHistory: "bc:dbviewer:history",
+  cron: "bc:cron",
 } as const;
 
 export const COOKIE_KEYS = {

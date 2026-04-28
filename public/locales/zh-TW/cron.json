@@ -1,0 +1,126 @@
+{
+  "mode": {
+    "label": "模式",
+    "standard": "標準（5 欄位）",
+    "spring": "Spring（6 欄位）",
+    "quartz": "Quartz（7 欄位）"
+  },
+  "tab": { "generate": "產生", "parse": "解析" },
+  "timezone": { "label": "時區", "local": "本地", "utc": "UTC" },
+  "field": {
+    "second": "秒",
+    "minute": "分",
+    "hour": "時",
+    "dayOfMonth": "日",
+    "month": "月",
+    "dayOfWeek": "週",
+    "year": "年"
+  },
+  "fieldType": {
+    "any": "任意",
+    "noSpecific": "不指定",
+    "specific": "指定值",
+    "range": "範圍",
+    "step": "步長",
+    "list": "列表",
+    "lastDay": "最後一天",
+    "weekday": "最近工作日",
+    "nthDayOfWeek": "第 N 個星期",
+    "lastDayOffset": "倒數第 N 天"
+  },
+  "monthShort": [
+    "1月", "2月", "3月", "4月", "5月", "6月",
+    "7月", "8月", "9月", "10月", "11月", "12月"
+  ],
+  "weekdayShort": ["週日", "週一", "週二", "週三", "週四", "週五", "週六"],
+  "weekdayLong": ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"],
+  "presets": {
+    "everyMinute": "每分鐘",
+    "every5Minutes": "每 5 分鐘",
+    "every15Minutes": "每 15 分鐘",
+    "everyHour": "每小時",
+    "every2Hours": "每 2 小時",
+    "everyDay": "每天 00:00",
+    "everyMondayMorning": "每週一 09:00",
+    "weekdays9am": "工作日 09:00",
+    "firstOfMonth": "每月 1 號",
+    "lastOfMonth": "每月最後一天",
+    "everyQuarter": "每季度（1/4/7/10 月 1 號）"
+  },
+  "describe": {
+    "everyMinute": "每分鐘",
+    "everySecond": "每秒",
+    "atTime": "於 {time}",
+    "everyN": "每 {n} {unit}",
+    "fromTo": "從 {from} 到 {to}",
+    "onDays": "在 {days}",
+    "throughDays": "{from} 至 {to}",
+    "andList": "{prefix} 和 {item}",
+    "ofEveryMonth": "每月",
+    "lastDayOfMonth": "本月最後一天",
+    "nthWeekday": "本月第 {ordinal} 個 {weekday}",
+    "nearestWeekdayTo": "距第 {day} 天最近的工作日",
+    "lastWeekdayOfMonth": "本月最後一個工作日",
+    "lastDayMinusN": "本月最後一天前 {n} 天"
+  },
+  "ordinal": { "1": "第 1", "2": "第 2", "3": "第 3", "4": "第 4", "5": "第 5" },
+  "output": {
+    "expression": "表達式",
+    "description": "描述",
+    "nextExecutions": "未來 5 次執行",
+    "header": { "num": "#", "dateTime": "日期與時間", "relative": "相對" },
+    "relative": { "in": "{value} 後", "now": "現在", "past": "已過" }
+  },
+  "share": { "button": "分享連結", "copied": "分享連結已複製" },
+  "parse": {
+    "placeholder": "貼上或輸入 Cron 表達式",
+    "showingPrevious": "顯示上次有效的輸出"
+  },
+  "warn": {
+    "neverTriggers": "此表達式永遠不會觸發",
+    "searchWindowExhausted": "在未來 4 年內僅找到 {found}/{requested} 次執行",
+    "secondDropped": "秒欄位已捨棄（原值：{value}）",
+    "yearDropped": "年欄位已捨棄（原值：{value}）",
+    "specialDroppedFromMode": "特殊字元 {token} 在 {mode} 模式下不受支援，已移除",
+    "bothDayFieldsSet": "日和週欄位均已設定 — 表達式將在任一條件符合時觸發",
+    "orSemanticsLost": "Quartz 無法表示日欄位的 OR 語義 — 保留週欄位，將日欄位設為 '?'"
+  },
+  "errors": {
+    "wrongFieldCount": "{mode} 模式需要 {expected} 個欄位，實際 {got} 個",
+    "outOfRange": "{field} 取值範圍 {min}-{max}，實際 {value}",
+    "invalidSyntax": "{field} 欄位中存在意外字元 '{char}'",
+    "invalidStep": "步長必須為正數，實際 {value}",
+    "rangeReversed": "{field} 中範圍起始（{from}）大於結束（{to}）",
+    "specialNotAllowed": "'{token}' 在 {mode} 模式的 {field} 欄位中不允許",
+    "quartzNeedsQuestionMark": "Quartz 模式要求日欄位或週欄位之一為 '?'",
+    "quartzBothQuestionMarks": "日欄位和週欄位不能同時為 '?'",
+    "macroRebootUnsupported": "@reboot 不受支援（瀏覽器無法偵測系統啟動）",
+    "unknownMacro": "未知的巨集 '{macro}'",
+    "unknownAlias": "{field} 欄位中存在未知名稱 '{name}'",
+    "weekdayOnNonDom": "'W' 僅允許出現在日欄位中",
+    "nthOnNonDow": "'#' 僅允許出現在週欄位中"
+  },
+  "descriptions": {
+    "whatIsTitle": "什麼是 Cron 表達式？",
+    "whatIs": "Cron 表達式是一串描述計劃排程時間的欄位。每個欄位控制一個時間單位（分、時、日、月、週）。最初來自 Unix cron，語法已由 Spring（增加秒）和 Quartz（增加秒和年，以及特殊字元 L、W、#）擴充。",
+    "fieldRefTitle": "欄位參考",
+    "specialCharsTitle": "特殊字元",
+    "modesTitle": "模式",
+    "dstTitle": "夏令時間",
+    "dst": "當活躍時區使用夏令時間，春季前進間隔內的計劃將在下一個有效時間觸發，秋季後退重疊內的計劃將在第一次出現時觸發。切換到 UTC 可完全避免夏令時間問題。"
+  },
+  "editor": {
+    "title": "編輯欄位",
+    "preview": "預覽",
+    "apply": "套用",
+    "specificValue": "值",
+    "rangeFrom": "從",
+    "rangeTo": "到",
+    "stepStart": "起始",
+    "stepInterval": "間隔",
+    "stepEvery": "每",
+    "listSelect": "選擇值",
+    "specialKind": "類型"
+  },
+  "presetSection": "快速預設"
+}

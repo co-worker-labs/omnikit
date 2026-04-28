@@ -78,5 +78,10 @@
     "title": "Unix 時間戳轉換 — 秒、毫秒、UTC",
     "shortTitle": "Unix 時間戳",
     "description": "在 Unix 時間戳與日期時間之間互轉。支援秒和毫秒，本地與 UTC 並列顯示，附帶即時時鐘。100% 瀏覽器本地處理。"
+  },
+  "cron": {
+    "shortTitle": "Cron 表達式",
+    "title": "Cron 表達式產生與解析",
+    "description": "為 Standard、Spring 和 Quartz 排程器產生與解析 Cron 表達式，附人類可讀的解釋與未來 5 次執行時間。"
   }
 }

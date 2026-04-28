@@ -18,6 +18,10 @@
     --json-punctuation: #64748b;
     --json-arrow: #64748b;
     --json-key: #06d6a0;
+    --cron-hour: #f59e0b;
+    --cron-dom: #e11d48;
+    --cron-month: #10b981;
+    --cron-dow: #3b82f6;
   }
 
   .dark {
@@ -34,6 +38,10 @@
     --json-punctuation: #cbd5e1;
     --json-arrow: #94a3b8;
     --json-key: #2dd4bf;
+    --cron-hour: #fbbf24;
+    --cron-dom: #fb7185;
+    --cron-month: #34d399;
+    --cron-dow: #60a5fa;
   }
 }
 
@@ -57,6 +65,11 @@
   --color-diff-add-word: rgba(6, 214, 160, 0.3);
   --color-diff-del-line: rgba(239, 68, 68, 0.1);
   --color-diff-del-word: rgba(239, 68, 68, 0.3);
+
+  --color-cron-hour: var(--cron-hour);
+  --color-cron-dom: var(--cron-dom);
+  --color-cron-month: var(--cron-month);
+  --color-cron-dow: var(--cron-dow);
 
   --font-family-mono: "JetBrains Mono", monospace;
   --font-family-sans: "Inter", ui-sans-serif, system-ui, sans-serif;

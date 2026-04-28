@@ -23,6 +23,7 @@ export const TOOLS: { key: string; path: string }[] = [
   { key: "markdown", path: "/markdown" },
   { key: "dbviewer", path: "/dbviewer" },
   { key: "unixtime", path: "/unixtime" },
+  { key: "cron", path: "/cron" },
 ] as const;
 
 export function getToolCards(t: ReturnType<typeof useTranslations>): ToolCard[] {
