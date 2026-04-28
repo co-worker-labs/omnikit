@@ -42,6 +42,7 @@ const toolIcons: Record<string, React.ReactNode> = {
   "/dbviewer": <Database size={28} className="text-accent-cyan" />,
   "/jwt": <ShieldCheck size={28} className="text-accent-cyan" />,
   "/unixtime": <Clock size={28} className="text-accent-cyan" />,
+  "/cron": <Clock size={28} className="text-accent-cyan" />,
 };
 
 function Introduce() {

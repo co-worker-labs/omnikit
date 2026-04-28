@@ -49,9 +49,12 @@
   },
   "describe": {
     "everyMinute": "每分钟",
+    "everyHour": "每小时",
+    "everyHourAt": "每小时 {time}",
     "everySecond": "每秒",
     "atTime": "于 {time}",
-    "everyN": "每 {n} {unit}",
+        "everyN": "每 {n} 分钟",
+        "lastDow": "本月最后一个{weekday}",
     "fromTo": "从 {from} 到 {to}",
     "onDays": "在 {days}",
     "throughDays": "{from} 至 {to}",

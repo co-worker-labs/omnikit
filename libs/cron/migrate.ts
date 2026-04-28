@@ -114,7 +114,9 @@ function shiftDow(v: CronFieldValue | undefined, delta: number): CronFieldValue 
 }
 
 function hasUnsupportedSpecial(v: CronFieldValue, mode: CronMode): boolean {
-  if (mode === "quartz") return false;
+  // Both Quartz and Spring support special tokens (L, W, #, ?).
+  // Only standard 5-field cron does not.
+  if (mode !== "standard") return false;
   if (
     v.type === "lastDay" ||
     v.type === "lastDayOffset" ||

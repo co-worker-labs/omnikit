@@ -36,7 +36,18 @@ function describeTime(
     return t("describe.everySecond");
   }
   if (hour.type === "any" && minute.type === "step" && minute.step?.start === "*") {
-    return t("describe.everyN", { n: minute.step.interval, unit: "minute" });
+    return t("describe.everyN", { n: minute.step.interval });
+  }
+  if (hour.type === "any" && minute.type === "specific") {
+    if (
+      minute.values![0] === 0 &&
+      (!second || second.type === "any" || (second.type === "specific" && second.values![0] === 0))
+    )
+      return t("describe.everyHour");
+    const mm = pad(minute.values![0]);
+    const hasSecond = second && second.type === "specific" && second.values![0] !== 0;
+    const time = hasSecond ? `${mm}:${pad(second.values![0])}` : mm;
+    return t("describe.everyHourAt", { time });
   }
   if (hour.type === "specific" && minute.type === "specific") {
     const time = `${pad(hour.values![0])}:${pad(minute.values![0])}`;
@@ -77,7 +88,7 @@ function describeDom(v: CronFieldValue, t: T): string {
     case "range":
       return t("describe.throughDays", { from: v.range!.from, to: v.range!.to });
     case "list":
-      return t("describe.onDays", { days: v.listItems!.map((it) => tokenSummary(it)).join(",") });
+      return t("describe.onDays", { days: v.listItems!.map((it) => tokenSummary(it)).join(", ") });
     default:
       return "";
   }
@@ -92,7 +103,7 @@ function describeDow(v: CronFieldValue, mode: ParsedCron["mode"], t: T): string 
       });
     case "lastDay":
       return v.weekdayDay !== undefined
-        ? `last ${weekdayName(v.weekdayDay as number, mode, t)}`
+        ? t("describe.lastDow", { weekday: weekdayName(v.weekdayDay as number, mode, t) })
         : t("describe.lastDayOfMonth");
     case "specific":
       return weekdayName(v.values![0], mode, t);
@@ -110,8 +121,35 @@ function describeDow(v: CronFieldValue, mode: ParsedCron["mode"], t: T): string 
   }
 }
 
-function describeMonth(v: CronFieldValue, _t: T): string {
+function monthName(n: number, t: T): string {
+  return t(`monthShort.${n - 1}`);
+}
+
+function describeMonthPart(v: CronFieldValue, t: T): string {
+  if (v.type === "specific") return v.values!.map((n) => monthName(n, t)).join(", ");
+  if (v.type === "range") {
+    return t("describe.throughDays", {
+      from: monthName(v.range!.from, t),
+      to: monthName(v.range!.to, t),
+    });
+  }
   return tokenSummary(v);
+}
+
+function describeMonth(v: CronFieldValue, t: T): string {
+  switch (v.type) {
+    case "specific":
+      return v.values!.map((n) => monthName(n, t)).join(", ");
+    case "range":
+      return t("describe.throughDays", {
+        from: monthName(v.range!.from, t),
+        to: monthName(v.range!.to, t),
+      });
+    case "list":
+      return v.listItems!.map((it) => describeMonthPart(it, t)).join(", ");
+    default:
+      return tokenSummary(v);
+  }
 }
 
 function weekdayName(n: number, mode: ParsedCron["mode"], t: T): string {

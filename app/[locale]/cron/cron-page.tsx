@@ -4,7 +4,6 @@ import { useState, useEffect } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Layout from "../../../components/layout";
 import { NeonTabs } from "../../../components/ui/tabs";
-import { Button } from "../../../components/ui/button";
 import { CopyButton } from "../../../components/ui/copy-btn";
 import { StyledSelect } from "../../../components/ui/input";
 import { StyledTextarea } from "../../../components/ui/input";
@@ -142,24 +141,12 @@ function OutputArea({
   const locale = useLocale();
   const now = new Date();
 
-  function handleShare() {
-    const params = new URLSearchParams({ mode, expr: expression, tz: timezone });
-    const url = `${window.location.origin}${window.location.pathname}?${params.toString()}`;
-    navigator.clipboard.writeText(url);
-    showToast(t("share.copied"), "success", 2000);
-  }
-
   return (
     <div className="mt-6 rounded-xl border border-border-default bg-bg-surface p-4 space-y-4">
       {/* Expression row */}
       <div className="flex items-center justify-between gap-2 flex-wrap">
         <ColoredExpression expression={expression} mode={mode} />
-        <div className="flex items-center gap-2">
-          <CopyButton getContent={() => expression} />
-          <Button variant="secondary" onClick={handleShare}>
-            {t("share.button")}
-          </Button>
-        </div>
+        <CopyButton getContent={() => expression} />
       </div>
 
       {/* Description */}
@@ -314,7 +301,7 @@ function GenerateTab({
       <div>
         <div className="text-sm font-medium text-fg-secondary mb-2">{t("presetSection")}</div>
         <div className="flex flex-wrap gap-2">
-          {PRESETS.map((p) => (
+          {PRESETS.filter((p) => p.mode === "standard" || p.mode === mode).map((p) => (
             <button
               key={p.id}
               type="button"
@@ -389,7 +376,6 @@ function Description() {
 export default function CronPage() {
   const t = useTranslations("cron");
   const ts = useTranslations("tools");
-  const tc = useTranslations("common");
   const locale = useLocale();
 
   const [mode, setMode] = useState<CronMode>("standard");
@@ -439,7 +425,7 @@ export default function CronPage() {
   }, [mode, expression, timezone]);
 
   // Debounced parse from raw input.
-   
+
   useEffect(() => {
     const id = setTimeout(() => {
       if (rawInput.trim() === "") {
@@ -459,7 +445,6 @@ export default function CronPage() {
     }, 150);
     return () => clearTimeout(id);
   }, [rawInput, mode]);
-   
 
   // Derived values
   const parsed: ParsedCron = parseCron(expression, mode);
@@ -484,12 +469,6 @@ export default function CronPage() {
   return (
     <Layout title={ts("cron.shortTitle")}>
       <div className="container mx-auto px-4 pt-3 pb-6">
-        <div className="flex items-start gap-2 border-l-2 border-accent-cyan bg-accent-cyan-dim/30 rounded-r-lg p-3 my-4">
-          <span className="text-sm text-fg-secondary leading-relaxed">
-            {tc("alert.notTransferred")}
-          </span>
-        </div>
-
         <ModeSelector mode={mode} onChange={handleModeChange} />
 
         <NeonTabs
@@ -502,9 +481,12 @@ export default function CronPage() {
                   parsed={parsed}
                   expression={expression}
                   onApplyPreset={(p) => {
-                    setMode(p.mode);
-                    setExpression(p.expression);
-                    setRawInput(p.expression);
+                    const r = migrateExpression(p.expression, p.mode, mode);
+                    setExpression(r.expression);
+                    setRawInput(r.expression);
+                    for (const key of r.warnings) {
+                      showToast(t(key, { value: "", mode, token: "" }), "warning", 3000);
+                    }
                   }}
                   onEditField={(k) => setEditingField(k)}
                 />

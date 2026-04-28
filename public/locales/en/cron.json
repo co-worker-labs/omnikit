@@ -49,9 +49,12 @@
   },
   "describe": {
     "everyMinute": "Every minute",
+    "everyHour": "Every hour",
+    "everyHourAt": "Every hour at {time}",
     "everySecond": "Every second",
     "atTime": "At {time}",
-    "everyN": "Every {n} {unit}",
+        "everyN": "Every {n} minutes",
+        "lastDow": "the last {weekday} of the month",
     "fromTo": "from {from} to {to}",
     "onDays": "on {days}",
     "throughDays": "{from} through {to}",
