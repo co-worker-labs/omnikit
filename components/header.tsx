@@ -68,9 +68,9 @@ export default function Header({ position, title }: { position: HeaderPosition; 
           </Link>
 
           {title && (
-            <span className="mx-4 truncate text-center text-sm font-bold text-fg-secondary">
+            <h1 className="mx-4 truncate text-center text-sm font-bold text-fg-secondary">
               {title}
-            </span>
+            </h1>
           )}
 
           <div className="flex items-center gap-2">

@@ -259,7 +259,7 @@ function Description() {
   return (
     <section id="description" className="mt-8">
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.whatIsTitle")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{t("descriptions.whatIsTitle")}</h2>
         <div className="mt-1 space-y-1.5 text-fg-secondary text-sm leading-relaxed">
           <p>{t("descriptions.whatIsP1")}</p>
           <p>{t("descriptions.whatIsP2")}</p>
@@ -268,7 +268,7 @@ function Description() {
       </div>
 
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.howTitle")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{t("descriptions.howTitle")}</h2>
         <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.howP1")}</p>
         <ol className="list-decimal list-inside text-fg-secondary text-sm mt-1 space-y-1">
           <li>{t("descriptions.howStep1")}</li>
@@ -315,7 +315,7 @@ function Description() {
       </div>
 
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.whyTitle")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{t("descriptions.whyTitle")}</h2>
         <div className="mt-1 space-y-1.5 text-fg-secondary text-sm leading-relaxed">
           <p>{t("descriptions.whyP1")}</p>
           <p>{t("descriptions.whyP2")}</p>
@@ -323,9 +323,9 @@ function Description() {
       </div>
 
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">
+        <h2 className="font-semibold text-fg-primary text-base">
           {t("descriptions.useCasesTitle")}
-        </h5>
+        </h2>
         <div className="mt-1 space-y-1.5 text-fg-secondary text-sm leading-relaxed">
           <p>{t("descriptions.useCasesP1")}</p>
           <p>{t("descriptions.useCasesP2")}</p>
@@ -333,9 +333,9 @@ function Description() {
       </div>
 
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">
+        <h2 className="font-semibold text-fg-primary text-base">
           {t("descriptions.limitationsTitle")}
-        </h5>
+        </h2>
         <div className="mt-1 space-y-1.5 text-fg-secondary text-sm leading-relaxed">
           <p>{t("descriptions.limitationsP1")}</p>
           <p>{t("descriptions.limitationsP2")}</p>

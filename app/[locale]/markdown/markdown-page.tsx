@@ -424,19 +424,19 @@ function Description() {
   return (
     <section id="description" className="mt-8">
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.whatIsTitle")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{t("descriptions.whatIsTitle")}</h2>
         <div className="mt-1 space-y-1.5 text-fg-secondary text-sm leading-relaxed">
           <p>{t("descriptions.whatIsP1")}</p>
         </div>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.howTitle")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{t("descriptions.howTitle")}</h2>
         <div className="mt-1 space-y-1.5 text-fg-secondary text-sm leading-relaxed">
           <p>{t("descriptions.howP1")}</p>
         </div>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.gfmTitle")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{t("descriptions.gfmTitle")}</h2>
         <div className="mt-1 space-y-1.5 text-fg-secondary text-sm leading-relaxed">
           <p>{t("descriptions.gfmP1")}</p>
         </div>

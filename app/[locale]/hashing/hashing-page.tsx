@@ -401,24 +401,24 @@ function Description() {
   return (
     <section id="description" className="mt-8">
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{tc("algorithms.md5Title")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{tc("algorithms.md5Title")}</h2>
         <p className="text-fg-secondary text-sm mt-1">{tc("algorithms.md5")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{tc("algorithms.sha1Title")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{tc("algorithms.sha1Title")}</h2>
         <p className="text-fg-secondary text-sm mt-1">{tc("algorithms.sha1")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{tc("algorithms.sha2Title")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{tc("algorithms.sha2Title")}</h2>
         <p className="text-fg-secondary text-sm mt-1">{tc("algorithms.sha2")}</p>
         <p className="text-fg-secondary text-sm mt-1">{tc("algorithms.sha2extra")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{tc("algorithms.sha3Title")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{tc("algorithms.sha3Title")}</h2>
         <p className="text-fg-secondary text-sm mt-1">{tc("algorithms.sha3")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.hmacTitle")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{t("descriptions.hmacTitle")}</h2>
         <p className="text-fg-secondary text-sm mt-1">{t("descriptions.hmac")}</p>
       </div>
     </section>

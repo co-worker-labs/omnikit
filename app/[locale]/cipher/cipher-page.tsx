@@ -446,22 +446,22 @@ function Description() {
   return (
     <section id="description" className="mt-8">
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.aesTitle")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{t("descriptions.aesTitle")}</h2>
         <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.aes")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.desTitle")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{t("descriptions.desTitle")}</h2>
         <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.des")}</p>
         <p className="text-fg-secondary text-sm mt-1 leading-relaxed">
           {t("descriptions.tripleDes")}
         </p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.rabbitTitle")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{t("descriptions.rabbitTitle")}</h2>
         <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.rabbit")}</p>
       </div>
       <div className="mb-4">
-        <h5 className="font-semibold text-fg-primary text-base">{t("descriptions.rc4Title")}</h5>
+        <h2 className="font-semibold text-fg-primary text-base">{t("descriptions.rc4Title")}</h2>
         <p className="text-fg-secondary text-sm mt-1 leading-relaxed">{t("descriptions.rc4")}</p>
         <p className="text-fg-secondary text-sm mt-1 leading-relaxed">
           {t("descriptions.rc4drop")}
