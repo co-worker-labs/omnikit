@@ -8,6 +8,7 @@ export default defineConfig({
       "libs/cron/**/*.test.ts",
       "libs/qrcode/**/*.test.ts",
       "libs/textcase/**/*.test.ts",
+      "libs/color/**/*.test.ts",
     ],
     environment: "node",
     pool: "forks",

@@ -93,5 +93,10 @@
     "title": "文字大小寫轉換 - camelCase、snake_case、kebab-case",
     "shortTitle": "文字大小寫轉換",
     "description": "在 camelCase、PascalCase、snake_case、CONSTANT_CASE、kebab-case、dot.case、Title Case 等 11 種命名格式間互轉。免費線上工具，100% 客戶端處理。"
+  },
+  "color": {
+    "title": "顏色轉換與選色器 - HEX, RGB, HSL, OKLCH",
+    "shortTitle": "顏色轉換",
+    "description": "在 HEX、RGB、HSL、HSV、CMYK、LAB、OKLCH 之間轉換。提供選色器、螢幕滴管、調色板產生、圖片取色、WCAG + APCA 對比檢查與色盲預覽。100% 瀏覽器端處理。"
   }
 }

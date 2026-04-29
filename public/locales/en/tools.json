@@ -93,5 +93,10 @@
     "title": "Text Case Converter - camelCase, snake_case, kebab-case",
     "shortTitle": "Text Case Converter",
     "description": "Convert text between camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case and more. Free online text case converter, 100% client-side."
+  },
+  "color": {
+    "title": "Color Converter & Picker - HEX, RGB, HSL, OKLCH",
+    "shortTitle": "Color Converter",
+    "description": "Convert HEX, RGB, HSL, HSV, CMYK, LAB, OKLCH. Visual picker with eyedropper, palette generator, image color extraction, WCAG + APCA contrast, and color-blindness preview. 100% client-side."
   }
 }

@@ -25,6 +25,7 @@ import {
   Clock,
   QrCode,
   CaseSensitive,
+  Palette,
 } from "lucide-react";
 
 const toolIcons: Record<string, React.ReactNode> = {
@@ -47,6 +48,7 @@ const toolIcons: Record<string, React.ReactNode> = {
   "/cron": <Clock size={28} className="text-accent-cyan" />,
   "/qrcode": <QrCode size={28} className="text-accent-cyan" />,
   "/textcase": <CaseSensitive size={28} className="text-accent-cyan" />,
+  "/color": <Palette size={28} className="text-accent-cyan" />,
 };
 
 function Introduce() {
