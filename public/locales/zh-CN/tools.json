@@ -88,5 +88,10 @@
     "title": "二维码生成器 - 文本/URL/WiFi/名片",
     "shortTitle": "二维码生成器",
     "description": "为文本、URL、WiFi、vCard、邮件和短信生成带样式的二维码。自定义颜色、Logo 和点样式。100% 客户端处理。"
+  },
+  "textcase": {
+    "title": "文本大小写转换 - camelCase、snake_case、kebab-case",
+    "shortTitle": "文本大小写转换",
+    "description": "在 camelCase、PascalCase、snake_case、CONSTANT_CASE、kebab-case、dot.case、Title Case 等 11 种命名格式之间互转。免费在线工具，100% 客户端处理。"
   }
 }

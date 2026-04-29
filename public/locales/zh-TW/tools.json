@@ -88,5 +88,10 @@
     "title": "QR Code 產生器 - 文字/URL/WiFi/名片",
     "shortTitle": "QR Code 產生器",
     "description": "為文字、URL、WiFi、vCard、電子郵件和簡訊產生帶樣式的 QR Code。自訂顏色、Logo 和點樣式。100% 客戶端處理。"
+  },
+  "textcase": {
+    "title": "文字大小寫轉換 - camelCase、snake_case、kebab-case",
+    "shortTitle": "文字大小寫轉換",
+    "description": "在 camelCase、PascalCase、snake_case、CONSTANT_CASE、kebab-case、dot.case、Title Case 等 11 種命名格式間互轉。免費線上工具，100% 客戶端處理。"
   }
 }

@@ -26,6 +26,7 @@ const namespaces = [
   "unixtime",
   "cron",
   "qrcode",
+  "textcase",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {

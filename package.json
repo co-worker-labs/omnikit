@@ -27,6 +27,7 @@
     "@uiw/react-json-view": "^2.0.0-alpha.42",
     "@vercel/analytics": "^2.0.1",
     "@vercel/speed-insights": "^2.0.0",
+    "change-case": "^5.4.4",
     "crypto-js": "^4.2.0",
     "diff": "^7.0.0",
     "file-selector": "^2.1.2",
@@ -48,6 +49,7 @@
     "sql-formatter": "^15.4.10",
     "sql.js": "^1.13.0",
     "tailwindcss": "^4.2.4",
+    "title-case": "^4.3.2",
     "uuid": "^14.0.0"
   },
   "devDependencies": {

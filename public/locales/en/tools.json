@@ -88,5 +88,10 @@
     "title": "QR Code Generator - Text, URL, WiFi",
     "shortTitle": "QR Code Generator",
     "description": "Generate styled QR codes for text, URLs, WiFi, vCard, email, and SMS. Custom colors, logos, and dot styles. 100% client-side."
+  },
+  "textcase": {
+    "title": "Text Case Converter - camelCase, snake_case, kebab-case",
+    "shortTitle": "Text Case Converter",
+    "description": "Convert text between camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case and more. Free online text case converter, 100% client-side."
   }
 }

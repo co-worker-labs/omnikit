@@ -7,6 +7,7 @@ export default defineConfig({
       "libs/unixtime/**/*.test.ts",
       "libs/cron/**/*.test.ts",
       "libs/qrcode/**/*.test.ts",
+      "libs/textcase/**/*.test.ts",
     ],
     environment: "node",
     pool: "forks",
