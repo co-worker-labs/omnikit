@@ -17,6 +17,10 @@
     "github": "GitHub",
     "copyright": "{year} OmniKit. 保留所有權利。"
   },
+  "notFound": {
+    "message": "您造訪的頁面不存在。",
+    "backHome": "返回首頁"
+  },
   "alert": {
     "notTransferred": "* 您的內容不會傳送至伺服器。所有計算皆在瀏覽器中直接執行",
     "filesNotTransferred": "* 您選取的檔案不會傳送至伺服器。所有計算皆在瀏覽器中直接執行",

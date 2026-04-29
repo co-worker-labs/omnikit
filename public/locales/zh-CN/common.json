@@ -17,6 +17,10 @@
     "github": "GitHub",
     "copyright": "{year} OmniKit 版权所有"
   },
+  "notFound": {
+    "message": "您访问的页面不存在。",
+    "backHome": "返回首页"
+  },
   "alert": {
     "notTransferred": "* 您的内容不会传输到服务器，所有计算均在浏览器中直接完成",
     "filesNotTransferred": "* 您选择的文件不会传输到服务器，所有计算均在浏览器中直接完成",

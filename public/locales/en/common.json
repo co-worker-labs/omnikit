@@ -17,6 +17,10 @@
     "github": "GitHub",
     "copyright": "{year} OmniKit. All Rights Reserved."
   },
+  "notFound": {
+    "message": "The page you are looking for does not exist.",
+    "backHome": "Back to Home"
+  },
   "alert": {
     "notTransferred": "* Your content are not transferred to the server. All calculations are performed directly in the browser",
     "filesNotTransferred": "* Your selected files are not transferred to the server. All calculations are performed directly in the browser",
