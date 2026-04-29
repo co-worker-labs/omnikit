@@ -5,7 +5,7 @@ import { routing } from "../i18n/routing";
 type GenerateMetaOptions = {
   locale: string;
   path: string;
-  title: string;
+  title?: string;
   description: string;
 };
 
@@ -34,8 +34,7 @@ export function generatePageMeta({
   const localePrefix = locale === defaultLocale ? "" : `/${locale}`;
   const canonicalUrl = `${SITE_URL}${localePrefix}${path}`;
 
-  return {
-    title,
+  const result: Metadata = {
     description,
     alternates: {
       canonical: canonicalUrl,
@@ -55,4 +54,10 @@ export function generatePageMeta({
       description,
     },
   };
+
+  if (title) {
+    result.title = title;
+  }
+
+  return result;
 }

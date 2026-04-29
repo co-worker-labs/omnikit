@@ -1,6 +1,6 @@
 {
   "password": {
-    "title": "密碼產生器 - 線上安全隨機密碼",
+    "title": "隨機密碼產生器 - 安全強密碼線上產生",
     "shortTitle": "密碼產生器",
     "description": "產生加密安全的隨機密碼。線上密碼產生器，支援自訂長度和字元類型，完全免費，100%客戶端處理。"
   },
@@ -15,7 +15,7 @@
     "description": "線上編碼和解碼 HTML 特殊字元和實體。免費 HTML 程式碼轉換工具，Web 開發者的實用工具。"
   },
   "base64": {
-    "title": "Base64 編碼/解碼 - 線上工具",
+    "title": "Base64 編碼/解碼",
     "shortTitle": "Base64 編碼/解碼",
     "description": "線上編碼和解碼 Base64 字串。支援 Basic Authentication 標頭產生。免費 Base64 工具，100%瀏覽器端處理。"
   },
@@ -25,7 +25,7 @@
     "description": "產生 MD5、SHA-1、SHA-224、SHA-256、SHA-384、SHA-512、SHA3、RIPEMD-160 雜湊。線上雜湊產生器，100%瀏覽器端處理。"
   },
   "checksum": {
-    "title": "檔案校驗碼計算器 - 免費線上",
+    "title": "檔案校驗碼計算器 - MD5, SHA-256",
     "shortTitle": "檔案校驗碼",
     "description": "為任意檔案計算 MD5、SHA-1、SHA-256、SHA-512 校驗和。支援無限檔案大小，100%客戶端處理。"
   },
@@ -40,27 +40,27 @@
     "description": "在位元組、KB、MB、GB、TB、PB 等單位之間轉換。線上儲存單位轉換工具，開發者必備。"
   },
   "uuid": {
-    "title": "UUID 產生器 - RFC 4122/9562 線上工具",
+    "title": "UUID 產生器 - v4, v7 隨機 UUID",
     "shortTitle": "UUID 產生器",
     "description": "在瀏覽器中產生 v1/v3/v4/v5/v7 UUID。免費、完全本機、無追蹤。"
   },
-"urlencoder": {
-    "title": "URL 編碼/解碼 - 免費線上工具",
+  "urlencoder": {
+    "title": "URL 編碼/解碼",
     "shortTitle": "URL 編解碼",
     "description": "支援元件編碼、完整 URL 編碼和表單編碼三種模式。免費線上 URL 編碼解碼工具，100% 瀏覽器端處理。"
   },
   "diff": {
-    "title": "文字差異比較 - 免費線上工具",
+    "title": "文字對比工具 - 線上 Diff 比較",
     "shortTitle": "文字差異",
     "description": "以行級 + 字詞級精度比較兩段文字或程式碼。支援並排與行內兩種檢視，100% 瀏覽器端處理。"
   },
   "markdown": {
-    "title": "Markdown 編輯器與預覽 - 免費線上工具",
+    "title": "Markdown 編輯器 - 即時預覽",
     "shortTitle": "Markdown 編輯器",
     "description": "使用支援 GitHub Flavored Markdown 的線上編輯器撰寫並預覽 Markdown。免費線上 Markdown 編輯器，即時預覽，100% 客戶端處理。"
   },
   "json": {
-    "title": "JSON 格式化 / 壓縮 - 線上工具",
+    "title": "JSON 格式化工具 - 線上驗證/美化/壓縮",
     "shortTitle": "JSON 格式化",
     "description": "線上格式化、壓縮和驗證 JSON。支援自訂縮排美化輸出、單行壓縮和 JSON5 寬鬆解析。100% 瀏覽器端處理。"
   },
@@ -70,12 +70,12 @@
     "description": "在瀏覽器中開啟 SQLite 資料庫，瀏覽結構、執行唯讀 SQL（含自動補全）、分頁載入大型結果集，匯出 CSV/JSON。完全在本機處理。"
   },
   "jwt": {
-    "title": "JWT 除錯器 - JSON Web Token 編碼與解碼",
+    "title": "JWT 除錯器 - 編碼、解碼與驗證",
     "shortTitle": "JWT",
     "description": "線上編碼、解碼和驗證 JSON Web Token（JWT）。支援 HS256、RS256、ES256 等演算法。100% 瀏覽器端處理。"
   },
   "unixtime": {
-    "title": "Unix 時間戳轉換 — 秒、毫秒、UTC",
+    "title": "Unix 時間戳轉換 - 秒與毫秒",
     "shortTitle": "Unix 時間戳",
     "description": "在 Unix 時間戳與日期時間之間互轉。支援秒和毫秒，本地與 UTC 並列顯示，附帶即時時鐘。100% 瀏覽器本地處理。"
   },
@@ -85,7 +85,7 @@
     "description": "為 Standard、Spring 和 Quartz 排程器產生與解析 Cron 表達式，附人類可讀的解釋與未來 5 次執行時間。"
   },
   "qrcode": {
-    "title": "QR Code 產生器 - 免費線上工具",
+    "title": "QR Code 產生器 - 文字/URL/WiFi/名片",
     "shortTitle": "QR Code 產生器",
     "description": "為文字、URL、WiFi、vCard、電子郵件和簡訊產生帶樣式的 QR Code。自訂顏色、Logo 和點樣式。100% 客戶端處理。"
   }

@@ -7,10 +7,10 @@ const PATH = "";
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "home" });
+  // Title comes from layout's title.default — no template suffix
   return generatePageMeta({
     locale,
     path: PATH,
-    title: t("title"),
     description: t("metaDescription"),
   });
 }

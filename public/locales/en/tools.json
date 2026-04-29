@@ -1,36 +1,36 @@
 {
   "password": {
-    "title": "Password Generator - Free Secure Random Password",
+    "title": "Secure Random Password Generator",
     "shortTitle": "Password Generator",
     "description": "Generate cryptographically secure, random passwords instantly. Free online password generator with customizable length and character options."
   },
   "ascii": {
-    "title": "ASCII Table - Full Character Reference",
+    "title": "ASCII Table - Complete Character Reference",
     "shortTitle": "ASCII Table",
     "description": "Complete ASCII character table with hex, octal, HTML, and decimal codes. Free online ASCII reference for developers."
   },
   "htmlcode": {
-    "title": "HTML Entity Encoder/Decoder",
+    "title": "HTML Entity Encoder & Decoder",
     "shortTitle": "Html Code",
     "description": "Encode and decode HTML special characters and entities. Free online HTML code converter for web developers."
   },
   "base64": {
-    "title": "Base64 Encoder/Decoder - Free Online Tool",
+    "title": "Base64 Encoder & Decoder",
     "shortTitle": "Base64 Encode/Decode",
     "description": "Encode and decode Base64 strings online. Free Base64 encoder/decoder with Basic Authentication header support. 100% client-side."
   },
   "hashing": {
-    "title": "Hash Generator - MD5, SHA-256, SHA-512 Online",
+    "title": "Hash Generator - MD5, SHA-256, SHA-512",
     "shortTitle": "Text Hashing",
     "description": "Generate MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, SHA3, and RIPEMD-160 hashes. Free online hash generator, 100% browser-based."
   },
   "checksum": {
-    "title": "File Checksum Calculator - Free Online",
+    "title": "File Checksum Calculator - MD5, SHA-256",
     "shortTitle": "File Checksum",
     "description": "Calculate MD5, SHA-1, SHA-256, and SHA-512 checksums for any file. Supports unlimited file size, 100% client-side processing."
   },
   "cipher": {
-    "title": "Text Encrypt/Decrypt - AES, DES, RC4 Online",
+    "title": "Text Encrypt & Decrypt - AES, DES, RC4",
     "shortTitle": "Text Encrypt/Decrypt",
     "description": "Encrypt and decrypt text using AES, DES, Triple DES, Rabbit, RC4, and RC4Drop. Free online cipher tool, 100% browser-based."
   },
@@ -40,52 +40,52 @@
     "description": "Convert between bytes, KB, MB, GB, TB, PB and more. Free online storage unit converter for developers."
   },
   "uuid": {
-    "title": "UUID Generator - RFC 4122/9562 Online",
+    "title": "UUID Generator - v4, v7 Random UUID",
     "shortTitle": "UUID Generator",
     "description": "Generate v1/v3/v4/v5/v7 UUIDs in your browser. Free, fully local, no tracking."
   },
   "urlencoder": {
-    "title": "URL Encoder/Decoder - Free Online Tool",
+    "title": "URL Encoder & Decoder",
     "shortTitle": "URL Encoder/Decoder",
     "description": "Encode and decode URL strings with Component, Whole URL, and Form modes. Free online URL encoder/decoder, 100% client-side."
   },
   "diff": {
-    "title": "Text Diff Comparison - Free Online Tool",
+    "title": "Diff Checker - Compare Text Online",
     "shortTitle": "Text Diff",
     "description": "Compare two texts or code snippets with line and word-level precision. Side-by-side or inline view, 100% client-side."
   },
   "markdown": {
-    "title": "Markdown Editor & Preview - Free Online Tool",
+    "title": "Markdown Editor with Live Preview",
     "shortTitle": "Markdown Editor",
     "description": "Write and preview Markdown with GitHub Flavored Markdown support. Free online Markdown editor with live preview, 100% client-side."
   },
   "json": {
-    "title": "JSON Formatter / Compressor - Free Online Tool",
+    "title": "JSON Formatter & Validator",
     "shortTitle": "JSON Format / Compress",
     "description": "Format, compress, and validate JSON online. Pretty-print with configurable indentation, minify to single line, or parse JSON5. 100% client-side."
   },
   "dbviewer": {
-    "title": "SQLite DB Viewer - Browse and Query .db Files Online",
+    "title": "SQLite Viewer - Browse & Query .db Files",
     "shortTitle": "DB Viewer",
     "description": "Open SQLite databases in your browser, browse schema, run read-only SQL with autocomplete, paginate large result sets, and export to CSV or JSON. 100% client-side."
   },
   "jwt": {
-    "title": "JWT Debugger - JSON Web Token Encoder & Decoder",
+    "title": "JWT Debugger - Encode, Decode & Verify",
     "shortTitle": "JWT",
     "description": "Encode, decode, and verify JSON Web Tokens (JWT). Supports HS256, RS256, ES256 and more. 100% client-side."
   },
   "unixtime": {
-    "title": "Unix Timestamp Converter — Seconds, Milliseconds, UTC",
+    "title": "Unix Timestamp Converter - Seconds & Milliseconds",
     "shortTitle": "Unix Timestamp",
     "description": "Convert between Unix timestamps and human-readable dates. Supports seconds and milliseconds, shows Local and UTC side-by-side, with a live clock. 100% client-side."
   },
   "cron": {
     "shortTitle": "Cron",
-    "title": "Cron Expression Generator & Parser",
+    "title": "Cron Expression Generator & Explainer",
     "description": "Build and decode Cron expressions for Standard, Spring, and Quartz schedulers. See human-readable explanations and the next 5 execution times."
   },
   "qrcode": {
-    "title": "QR Code Generator - Free Online Tool",
+    "title": "QR Code Generator - Text, URL, WiFi",
     "shortTitle": "QR Code Generator",
     "description": "Generate styled QR codes for text, URLs, WiFi, vCard, email, and SMS. Custom colors, logos, and dot styles. 100% client-side."
   }

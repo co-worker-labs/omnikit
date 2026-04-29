@@ -1,6 +1,6 @@
 {
   "password": {
-    "title": "密码生成器 - 在线安全随机密码",
+    "title": "随机密码生成器 - 安全强密码在线生成",
     "shortTitle": "密码生成器",
     "description": "生成加密安全的随机密码。在线密码生成器，支持自定义长度和字符类型，完全免费，100%客户端处理。"
   },
@@ -15,7 +15,7 @@
     "description": "在线编码和解码 HTML 特殊字符和实体。免费 HTML 代码转换工具，Web 开发者的实用工具。"
   },
   "base64": {
-    "title": "Base64 编码/解码 - 在线工具",
+    "title": "Base64 编码/解码",
     "shortTitle": "Base64 编码/解码",
     "description": "在线编码和解码 Base64 字符串。支持 Basic Authentication 头生成。免费 Base64 工具，100%浏览器端处理。"
   },
@@ -25,7 +25,7 @@
     "description": "生成 MD5、SHA-1、SHA-224、SHA-256、SHA-384、SHA-512、SHA3、RIPEMD-160 哈希。在线哈希生成器，100%浏览器端处理。"
   },
   "checksum": {
-    "title": "文件校验计算器 - 免费在线",
+    "title": "文件校验计算器 - MD5, SHA-256",
     "shortTitle": "文件校验",
     "description": "为任意文件计算 MD5、SHA-1、SHA-256、SHA-512 校验和。支持无限文件大小，100%客户端处理。"
   },
@@ -40,27 +40,27 @@
     "description": "在字节、KB、MB、GB、TB、PB 等单位之间转换。在线存储单位转换工具，开发者必备。"
   },
   "uuid": {
-    "title": "UUID 生成器 - RFC 4122/9562 在线工具",
+    "title": "UUID 生成器 - v4, v7 随机 UUID",
     "shortTitle": "UUID 生成器",
     "description": "在浏览器中生成 v1/v3/v4/v5/v7 UUID。免费、完全本地化、无跟踪。"
   },
-"urlencoder": {
-    "title": "URL 编码/解码 - 免费在线工具",
+  "urlencoder": {
+    "title": "URL 编码/解码",
     "shortTitle": "URL 编解码",
     "description": "支持组件编码、完整 URL 编码和表单编码三种模式。免费在线 URL 编码解码工具，100% 浏览器端处理。"
   },
   "diff": {
-    "title": "文本差异比较 - 免费在线工具",
+    "title": "文本对比工具 - 在线 Diff 比较",
     "shortTitle": "文本差异",
     "description": "以行级 + 词级精度比较两段文本或代码。支持并排和行内两种视图，100% 浏览器端处理。"
   },
   "markdown": {
-    "title": "Markdown 编辑器与预览 - 免费在线工具",
+    "title": "Markdown 编辑器 - 实时预览",
     "shortTitle": "Markdown 编辑器",
     "description": "使用支持 GitHub Flavored Markdown 的在线编辑器编写和预览 Markdown。免费在线 Markdown 编辑器，实时预览，100% 客户端处理。"
   },
   "json": {
-    "title": "JSON 格式化 / 压缩 - 在线工具",
+    "title": "JSON 格式化工具 - 在线验证/美化/压缩",
     "shortTitle": "JSON 格式化",
     "description": "在线格式化、压缩和验证 JSON。支持自定义缩进美化输出、单行压缩和 JSON5 宽松解析。100% 浏览器端处理。"
   },
@@ -70,12 +70,12 @@
     "description": "在浏览器中打开 SQLite 数据库，浏览结构、运行只读 SQL（带自动补全）、分页加载大结果集，导出 CSV/JSON。完全本地处理。"
   },
   "jwt": {
-    "title": "JWT 调试器 - JSON Web Token 编码与解码",
+    "title": "JWT 调试器 - 编码、解码与验证",
     "shortTitle": "JWT",
     "description": "在线编码、解码和验证 JSON Web Token（JWT）。支持 HS256、RS256、ES256 等算法。100% 浏览器端处理。"
   },
   "unixtime": {
-    "title": "Unix 时间戳转换 — 秒、毫秒、UTC",
+    "title": "Unix 时间戳转换 - 秒与毫秒",
     "shortTitle": "Unix 时间戳",
     "description": "在 Unix 时间戳与日期时间之间互转。支持秒和毫秒，本地与 UTC 并排展示，附带实时时钟。100% 浏览器本地处理。"
   },
@@ -85,7 +85,7 @@
     "description": "为 Standard、Spring 和 Quartz 调度器生成与解析 Cron 表达式，附人类可读的解释与未来 5 次执行时间。"
   },
   "qrcode": {
-    "title": "二维码生成器 - 免费在线工具",
+    "title": "二维码生成器 - 文本/URL/WiFi/名片",
     "shortTitle": "二维码生成器",
     "description": "为文本、URL、WiFi、vCard、邮件和短信生成带样式的二维码。自定义颜色、Logo 和点样式。100% 客户端处理。"
   }

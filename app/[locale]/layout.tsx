@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import type { Viewport } from "next";
 import { cookies } from "next/headers";
 import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
+import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -27,8 +27,13 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
+  const t = await getTranslations({ locale, namespace: "home" });
 
   return {
+    title: {
+      default: t("title"),
+      template: "%s | OmniKit",
+    },
     alternates: {
       languages: {
         "x-default": SITE_URL + "/",
