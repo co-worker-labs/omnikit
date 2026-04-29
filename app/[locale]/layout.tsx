@@ -13,6 +13,7 @@ import type { Theme } from "../../libs/theme";
 import { SITE_URL } from "../../libs/site";
 import { SerwistProvider } from "../serwist";
 import { IOSSplashLinks } from "../../components/ios-splash-links";
+import { WebsiteJsonLd } from "../../components/json-ld";
 import "../globals.css";
 
 type Props = {
@@ -30,10 +31,15 @@ export async function generateMetadata({ params }: Props) {
   return {
     alternates: {
       languages: {
+        "x-default": SITE_URL + "/",
         en: SITE_URL + "/",
         "zh-CN": SITE_URL + "/zh-CN",
         "zh-TW": SITE_URL + "/zh-TW",
       },
+    },
+    openGraph: {
+      siteName: "OmniKit",
+      images: [{ url: "/og-image.svg", width: 1200, height: 630 }],
     },
   };
 }
@@ -68,10 +74,7 @@ export default async function LocaleLayout({ children, params }: Props) {
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="OmniKit" />
         <IOSSplashLinks />
-        <meta property="og:image" content="/og-image.svg" />
-        <meta property="og:image:width" content="1200" />
-        <meta property="og:image:height" content="630" />
-        <meta name="twitter:card" content="summary_large_image" />
+        <WebsiteJsonLd />
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
