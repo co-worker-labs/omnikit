@@ -14,6 +14,11 @@
     "shortTitle": "HTML 特殊字元代碼",
     "description": "線上編碼和解碼 HTML 特殊字元和實體。免費 HTML 程式碼轉換工具，Web 開發者的實用工具。"
   },
+  "httpstatus": {
+    "title": "HTTP 狀態碼參考 - 完整指南",
+    "shortTitle": "HTTP 狀態碼",
+    "description": "完整的 HTTP 狀態碼參考，包含描述、RFC 引用和使用指南。涵蓋 IANA 官方和非官方狀態碼。"
+  },
   "base64": {
     "title": "Base64 編碼/解碼",
     "shortTitle": "Base64 編碼/解碼",

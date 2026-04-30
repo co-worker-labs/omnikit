@@ -14,6 +14,11 @@
     "shortTitle": "HTML 代码",
     "description": "在线编码和解码 HTML 特殊字符和实体。免费 HTML 代码转换工具，Web 开发者的实用工具。"
   },
+  "httpstatus": {
+    "title": "HTTP 状态码参考 - 完整指南",
+    "shortTitle": "HTTP 状态码",
+    "description": "完整的 HTTP 状态码参考，包含描述、RFC 引用和使用指南。涵盖 IANA 官方和非官方状态码。"
+  },
   "base64": {
     "title": "Base64 编码/解码",
     "shortTitle": "Base64 编码/解码",

@@ -14,6 +14,11 @@
     "shortTitle": "Html Code",
     "description": "Encode and decode HTML special characters and entities. Free online HTML code converter for web developers."
   },
+  "httpstatus": {
+    "title": "HTTP Status Code Reference - Complete Guide",
+    "shortTitle": "HTTP Status",
+    "description": "Complete HTTP status code reference with descriptions, RFC references, and usage guides. Covers IANA official and unofficial codes."
+  },
   "base64": {
     "title": "Base64 Encoder & Decoder",
     "shortTitle": "Base64 Encode/Decode",
