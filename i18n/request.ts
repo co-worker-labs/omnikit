@@ -33,7 +33,6 @@ const namespaces = [
   "regex",
   "csv",
   "numbase",
-  "image",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {

@@ -10,7 +10,7 @@ function escapeField(value: unknown): string {
   return '"' + s.replace(/"/g, '""') + '"';
 }
 
-export function csvStringify(data: Record<string, unknown>[]): string {
+export function csvStringify(data: Record<string, unknown>[], delimiter: string = ","): string {
   if (data.length === 0) return "";
 
   const flat = data.map((obj) => flatten(obj));
@@ -26,8 +26,8 @@ export function csvStringify(data: Record<string, unknown>[]): string {
     }
   }
 
-  const header = keys.map((k) => escapeField(k)).join(",");
-  const rows = flat.map((obj) => keys.map((k) => escapeField(obj[k])).join(","));
+  const header = keys.map((k) => escapeField(k)).join(delimiter);
+  const rows = flat.map((obj) => keys.map((k) => escapeField(obj[k])).join(delimiter));
 
   return BOM + header + CRLF + rows.map((r) => r + CRLF).join("");
 }

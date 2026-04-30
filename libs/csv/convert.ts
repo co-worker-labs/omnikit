@@ -1,12 +1,18 @@
 import { csvStringify } from "./csv-stringify";
 import { csvParse } from "./csv-parse";
-import { markdownTableStringify, markdownTableParse } from "./markdown-table";
+import { unflatten } from "./unflatten";
 
-export type Format = "json" | "csv" | "markdown";
+export type Format = "json" | "csv";
 
 export interface ConvertResult {
   output: string;
   error?: string;
+}
+
+export interface ConvertOptions {
+  indent?: number;
+  delimiter?: string;
+  unflatten?: boolean;
 }
 
 function parseJsonInput(input: string): { data: Record<string, unknown>[]; error?: string } {
@@ -22,7 +28,12 @@ function parseJsonInput(input: string): { data: Record<string, unknown>[]; error
   }
 }
 
-export function convert(input: string, from: Format, to: Format): ConvertResult {
+export function convert(
+  input: string,
+  from: Format,
+  to: Format,
+  options?: ConvertOptions
+): ConvertResult {
   if (!input.trim()) return { output: "" };
 
   let intermediate: Record<string, unknown>[];
@@ -42,22 +53,16 @@ export function convert(input: string, from: Format, to: Format): ConvertResult 
       intermediate = result.data;
       break;
     }
-    case "markdown": {
-      const result = markdownTableParse(input);
-      if (result.errors.length > 0) {
-        return { output: "", error: result.errors.join("; ") };
-      }
-      intermediate = result.data;
-      break;
-    }
   }
 
+  const indent = options?.indent ?? 2;
+
   switch (to) {
-    case "json":
-      return { output: JSON.stringify(intermediate, null, 2) };
+    case "json": {
+      const data = options?.unflatten ? intermediate.map((item) => unflatten(item)) : intermediate;
+      return { output: JSON.stringify(data, null, indent) };
+    }
     case "csv":
-      return { output: csvStringify(intermediate) };
-    case "markdown":
-      return { output: markdownTableStringify(intermediate) };
+      return { output: csvStringify(intermediate, options?.delimiter) };
   }
 }
