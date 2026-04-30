@@ -11,7 +11,8 @@
     "icons:generate": "node scripts/generate-pwa-icons.mjs",
     "typecheck:sw": "tsc -p tsconfig.sw.json",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "postinstall": "node -e \"const fs=require('fs');const p='public/wasm';if(!fs.existsSync(p))fs.mkdirSync(p,{recursive:true});const src='node_modules/@jsquash/avif/codec/enc/avif_enc.wasm';if(fs.existsSync(src))fs.copyFileSync(src,p+'/avif_enc.wasm')\""
   },
   "dependencies": {
     "@codemirror/autocomplete": "^6.20.1",
@@ -21,6 +22,7 @@
     "@codemirror/view": "^6.41.1",
     "@eslint-community/regexpp": "^4.12.2",
     "@headlessui/react": "^2.2.10",
+    "@jsquash/avif": "^2.1.1",
     "@serwist/turbopack": "^9.5.7",
     "@swc/helpers": "^0.5.21",
     "@tailwindcss/postcss": "^4.2.4",

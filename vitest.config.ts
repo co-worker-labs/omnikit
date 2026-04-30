@@ -12,6 +12,7 @@ export default defineConfig({
       "libs/regex/**/*.test.ts",
       "libs/csv/**/*.test.ts",
       "libs/numbase/**/*.test.ts",
+      "libs/image/**/*.test.ts",
     ],
     environment: "node",
     pool: "forks",

@@ -123,5 +123,10 @@
     "title": "Number Base Converter - Binary, Octal, Hex, Decimal",
     "shortTitle": "Number Base Converter",
     "description": "Convert numbers between binary, octal, decimal, and hexadecimal with real-time sync. Supports 8/16/32/64-bit two's complement, bit visual editor."
+  },
+  "image": {
+    "title": "Image Compressor & Format Converter - PNG, JPG, WebP, AVIF",
+    "shortTitle": "Image Compressor",
+    "description": "Compress, resize, and convert images between PNG, JPG, WebP, and AVIF formats. All processing runs locally in your browser."
   }
 }
