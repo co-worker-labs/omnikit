@@ -54,7 +54,7 @@ function DrawerContent({
                 ? "border-accent-cyan bg-accent-cyan/10"
                 : isFocused
                   ? "border-accent-cyan bg-accent-cyan/10"
-                  : "border-transparent hover:bg-bg-elevated"
+                  : "border-transparent hover:bg-accent-cyan/8"
             }`}
             onClick={() => onSelect(tool.path)}
           >
