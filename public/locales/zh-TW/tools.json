@@ -2,91 +2,145 @@
   "password": {
     "title": "隨機密碼產生器 - 安全強密碼線上產生",
     "shortTitle": "密碼產生器",
-    "description": "產生加密安全的隨機密碼。線上密碼產生器，支援自訂長度和字元類型，完全免費，100%客戶端處理。"
+    "description": "產生加密安全的隨機密碼。線上密碼產生器，支援自訂長度和字元類型，完全免費，100%客戶端處理。",
+    "searchTerms": "mimachanshengqi mmcsq suiji"
   },
   "ascii": {
     "title": "ASCII 碼表 - 完整字元參照",
     "shortTitle": "ASCII 對照表",
-    "description": "完整的 ASCII 字元對照表，包含十六進位、八進位、HTML 十進位代碼。免費線上 ASCII 參照表，開發者必備。"
+    "description": "完整的 ASCII 字元對照表，包含十六進位、八進位、HTML 十進位代碼。免費線上 ASCII 參照表，開發者必備。",
+    "searchTerms": "asciiduizhaobiao asciidzb zifu"
   },
   "htmlcode": {
     "title": "HTML 實體編碼/解碼器",
     "shortTitle": "HTML 特殊字元代碼",
-    "description": "線上編碼和解碼 HTML 特殊字元和實體。免費 HTML 程式碼轉換工具，Web 開發者的實用工具。"
+    "description": "線上編碼和解碼 HTML 特殊字元和實體。免費 HTML 程式碼轉換工具，Web 開發者的實用工具。",
+    "searchTerms": "htmlteshuziyuandaima htmltzydm shiti bianma"
+  },
+  "httpstatus": {
+    "title": "HTTP 狀態碼參考 - 完整指南",
+    "shortTitle": "HTTP 狀態碼",
+    "description": "完整的 HTTP 狀態碼參考，包含描述、RFC 引用和使用指南。涵蓋 IANA 官方和非官方狀態碼。",
+    "searchTerms": "httpzhuangtaima httpztm"
   },
   "base64": {
     "title": "Base64 編碼/解碼",
     "shortTitle": "Base64 編碼/解碼",
-    "description": "線上編碼和解碼 Base64 字串。支援 Basic Authentication 標頭產生。免費 Base64 工具，100%瀏覽器端處理。"
+    "description": "線上編碼和解碼 Base64 字串。支援 Basic Authentication 標頭產生。免費 Base64 工具，100%瀏覽器端處理。",
+    "searchTerms": "bianmajiema bmjm"
   },
   "hashing": {
     "title": "雜湊產生器 - MD5, SHA-256, SHA-512",
     "shortTitle": "文字雜湊",
-    "description": "產生 MD5、SHA-1、SHA-224、SHA-256、SHA-384、SHA-512、SHA3、RIPEMD-160 雜湊。線上雜湊產生器，100%瀏覽器端處理。"
+    "description": "產生 MD5、SHA-1、SHA-224、SHA-256、SHA-384、SHA-512、SHA3、RIPEMD-160 雜湊。線上雜湊產生器，100%瀏覽器端處理。",
+    "searchTerms": "wenzizahui wzzh sanlie"
   },
   "checksum": {
     "title": "檔案校驗碼計算器 - MD5, SHA-256",
     "shortTitle": "檔案校驗碼",
-    "description": "為任意檔案計算 MD5、SHA-1、SHA-256、SHA-512 校驗和。支援無限檔案大小，100%客戶端處理。"
+    "description": "為任意檔案計算 MD5、SHA-1、SHA-256、SHA-512 校驗和。支援無限檔案大小，100%客戶端處理。",
+    "searchTerms": "danganjiaoyanma djym jisuan"
   },
   "cipher": {
     "title": "文字加密/解密 - AES, DES, RC4",
     "shortTitle": "文字加密/解密",
-    "description": "使用 AES、DES、Triple DES、Rabbit、RC4、RC4Drop 加密和解碼文字。線上加密工具，100%瀏覽器端處理。"
+    "description": "使用 AES、DES、Triple DES、Rabbit、RC4、RC4Drop 加密和解碼文字。線上加密工具，100%瀏覽器端處理。",
+    "searchTerms": "wenzijiamijiemi wzjmjm"
   },
   "storageunit": {
     "title": "儲存單位轉換器 - 位元組到 TB",
     "shortTitle": "儲存單位轉換",
-    "description": "在位元組、KB、MB、GB、TB、PB 等單位之間轉換。線上儲存單位轉換工具，開發者必備。"
+    "description": "在位元組、KB、MB、GB、TB、PB 等單位之間轉換。線上儲存單位轉換工具，開發者必備。",
+    "searchTerms": "chucundanweizhuanhuan cdwzh zijie"
   },
   "uuid": {
     "title": "UUID 產生器 - v4, v7 隨機 UUID",
     "shortTitle": "UUID 產生器",
-    "description": "在瀏覽器中產生 v1/v3/v4/v5/v7 UUID。免費、完全本機、無追蹤。"
+    "description": "在瀏覽器中產生 v1/v3/v4/v5/v7 UUID。免費、完全本機、無追蹤。",
+    "searchTerms": "uuidchanshengqi uuidcsq suiji"
   },
   "urlencoder": {
     "title": "URL 編碼/解碼",
     "shortTitle": "URL 編解碼",
-    "description": "支援元件編碼、完整 URL 編碼和表單編碼三種模式。免費線上 URL 編碼解碼工具，100% 瀏覽器端處理。"
+    "description": "支援元件編碼、完整 URL 編碼和表單編碼三種模式。免費線上 URL 編碼解碼工具，100% 瀏覽器端處理。",
+    "searchTerms": "urlbianmajiema urlbmjm"
   },
   "diff": {
     "title": "文字對比工具 - 線上 Diff 比較",
     "shortTitle": "文字差異",
-    "description": "以行級 + 字詞級精度比較兩段文字或程式碼。支援並排與行內兩種檢視，100% 瀏覽器端處理。"
+    "description": "以行級 + 字詞級精度比較兩段文字或程式碼。支援並排與行內兩種檢視，100% 瀏覽器端處理。",
+    "searchTerms": "wenzichayi wzcy duibi bijiao"
   },
   "markdown": {
     "title": "Markdown 編輯器 - 即時預覽",
     "shortTitle": "Markdown 編輯器",
-    "description": "使用支援 GitHub Flavored Markdown 的線上編輯器撰寫並預覽 Markdown。免費線上 Markdown 編輯器，即時預覽，100% 客戶端處理。"
+    "description": "使用支援 GitHub Flavored Markdown 的線上編輯器撰寫並預覽 Markdown。免費線上 Markdown 編輯器，即時預覽，100% 客戶端處理。",
+    "searchTerms": "markdownbianjiqi markdownbjq yulan"
   },
   "json": {
     "title": "JSON 格式化工具 - 線上驗證/美化/壓縮",
     "shortTitle": "JSON 格式化",
-    "description": "線上格式化、壓縮和驗證 JSON。支援自訂縮排美化輸出、單行壓縮和 JSON5 寬鬆解析。100% 瀏覽器端處理。"
+    "description": "線上格式化、壓縮和驗證 JSON。支援自訂縮排美化輸出、單行壓縮和 JSON5 寬鬆解析。100% 瀏覽器端處理。",
+    "searchTerms": "jsongeshihua jsgsh yanzheng yasuo"
   },
   "dbviewer": {
     "title": "SQLite 資料庫檢視器 - 瀏覽和查詢 .db 檔案",
     "shortTitle": "資料庫檢視器",
-    "description": "在瀏覽器中開啟 SQLite 資料庫，瀏覽結構、執行唯讀 SQL（含自動補全）、分頁載入大型結果集，匯出 CSV/JSON。完全在本機處理。"
+    "description": "在瀏覽器中開啟 SQLite 資料庫，瀏覽結構、執行唯讀 SQL（含自動補全）、分頁載入大型結果集，匯出 CSV/JSON。完全在本機處理。",
+    "searchTerms": "ziliaokujianshiqi zlkjsq chaxun"
   },
   "jwt": {
     "title": "JWT 除錯器 - 編碼、解碼與驗證",
     "shortTitle": "JWT",
-    "description": "線上編碼、解碼和驗證 JSON Web Token（JWT）。支援 HS256、RS256、ES256 等演算法。100% 瀏覽器端處理。"
+    "description": "線上編碼、解碼和驗證 JSON Web Token（JWT）。支援 HS256、RS256、ES256 等演算法。100% 瀏覽器端處理。",
+    "searchTerms": "jwtchucuoqi jwtccq yanzheng jiema"
   },
   "unixtime": {
     "title": "Unix 時間戳轉換 - 秒與毫秒",
     "shortTitle": "Unix 時間戳",
-    "description": "在 Unix 時間戳與日期時間之間互轉。支援秒和毫秒，本地與 UTC 並列顯示，附帶即時時鐘。100% 瀏覽器本地處理。"
+    "description": "在 Unix 時間戳與日期時間之間互轉。支援秒和毫秒，本地與 UTC 並列顯示，附帶即時時鐘。100% 瀏覽器本地處理。",
+    "searchTerms": "unixshijianchuo unixsjc zhuanhuan"
   },
   "cron": {
     "shortTitle": "Cron 表達式",
     "title": "Cron 表達式產生與解析",
-    "description": "為 Standard、Spring 和 Quartz 排程器產生與解析 Cron 表達式，附人類可讀的解釋與未來 5 次執行時間。"
+    "description": "為 Standard、Spring 和 Quartz 排程器產生與解析 Cron 表達式，附人類可讀的解釋與未來 5 次執行時間。",
+    "searchTerms": "cronbiaodashi cronbdsh dingshi"
   },
   "qrcode": {
     "title": "QR Code 產生器 - 文字/URL/WiFi/名片",
     "shortTitle": "QR Code 產生器",
-    "description": "為文字、URL、WiFi、vCard、電子郵件和簡訊產生帶樣式的 QR Code。自訂顏色、Logo 和點樣式。100% 客戶端處理。"
+    "description": "為文字、URL、WiFi、vCard、電子郵件和簡訊產生帶樣式的 QR Code。自訂顏色、Logo 和點樣式。100% 客戶端處理。",
+    "searchTerms": "qrcodechanshengqi qrcodecsq mingpian"
+  },
+  "textcase": {
+    "title": "文字大小寫轉換 - camelCase、snake_case、kebab-case",
+    "shortTitle": "文字大小寫轉換",
+    "description": "在 camelCase、PascalCase、snake_case、CONSTANT_CASE、kebab-case、dot.case、Title Case 等 11 種命名格式間互轉。免費線上工具，100% 客戶端處理。",
+    "searchTerms": "wenzidaxiaoxiezhuanhuan wzdxxzh"
+  },
+  "color": {
+    "title": "顏色轉換與選色器 - HEX, RGB, HSL, OKLCH",
+    "shortTitle": "顏色轉換",
+    "description": "在 HEX、RGB、HSL、HSV、CMYK、LAB、OKLCH 之間轉換。提供選色器、螢幕滴管、調色板產生、圖片取色、WCAG + APCA 對比檢查與色盲預覽。100% 瀏覽器端處理。",
+    "searchTerms": "yansezhuanhuan yszh quse peise"
+  },
+  "regex": {
+    "title": "正則表達式線上測試工具 - 即時匹配高亮",
+    "shortTitle": "正則測試器",
+    "description": "線上測試正則表達式，支援即時匹配高亮、捕獲組檢視、替換預覽。內建預設模式庫和逐詞解析。100%客戶端運行。",
+    "searchTerms": "zhengzeceshiqi zzcsq pipei biaodashi"
+  },
+  "csv": {
+    "title": "CSV 轉換器 - JSON 轉 CSV、Markdown 表格線上工具",
+    "shortTitle": "CSV 轉換器",
+    "description": "在 JSON、CSV 和 Markdown 表格格式之間相互轉換。雙向即時轉換，100%客戶端處理。",
+    "searchTerms": "csvzhuanhuanqi csvzh jsonzhuancsv csvzhuanjson markdownbiaoge"
+  },
+  "numbase": {
+    "title": "進位轉換器 - 二進位、八進位、十六進位、十進位",
+    "shortTitle": "進位轉換",
+    "description": "在二進位、八進位、十進位、十六進位之間即時轉換數字。支援 8/16/32/64 位元二進位補數，視覺化位元編輯器。",
+    "searchTerms": "jinweizhuanhuan jwzh erjinwei"
   }
 }

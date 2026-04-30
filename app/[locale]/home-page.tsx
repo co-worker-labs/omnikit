@@ -3,49 +3,8 @@
 import Layout from "../../components/layout";
 import { useRouter } from "../../i18n/navigation";
 import { useTranslations } from "next-intl";
-import { getToolCards } from "../../libs/tools";
+import { getToolCards, getToolIconColor } from "../../libs/tools";
 import { Card } from "../../components/ui/card";
-
-import {
-  Hash,
-  FileCode,
-  Lock,
-  KeyRound,
-  FileCheck,
-  Type,
-  Code,
-  HardDrive,
-  FingerprintPattern,
-  Percent,
-  GitCompare,
-  FileText,
-  FileJson,
-  Database,
-  ShieldCheck,
-  Clock,
-  QrCode,
-} from "lucide-react";
-
-const toolIcons: Record<string, React.ReactNode> = {
-  "/hashing": <Hash size={28} className="text-accent-cyan" />,
-  "/base64": <FileCode size={28} className="text-accent-cyan" />,
-  "/cipher": <Lock size={28} className="text-accent-cyan" />,
-  "/password": <KeyRound size={28} className="text-accent-cyan" />,
-  "/checksum": <FileCheck size={28} className="text-accent-cyan" />,
-  "/ascii": <Type size={28} className="text-accent-cyan" />,
-  "/htmlcode": <Code size={28} className="text-accent-cyan" />,
-  "/storageunit": <HardDrive size={28} className="text-accent-cyan" />,
-  "/uuid": <FingerprintPattern size={28} className="text-accent-cyan" />,
-  "/urlencoder": <Percent size={28} className="text-accent-cyan" />,
-  "/diff": <GitCompare size={28} className="text-accent-cyan" />,
-  "/markdown": <FileText size={28} className="text-accent-cyan" />,
-  "/json": <FileJson size={28} className="text-accent-cyan" />,
-  "/dbviewer": <Database size={28} className="text-accent-cyan" />,
-  "/jwt": <ShieldCheck size={28} className="text-accent-cyan" />,
-  "/unixtime": <Clock size={28} className="text-accent-cyan" />,
-  "/cron": <Clock size={28} className="text-accent-cyan" />,
-  "/qrcode": <QrCode size={28} className="text-accent-cyan" />,
-};
 
 function Introduce() {
   const t = useTranslations("home");
@@ -85,7 +44,7 @@ function ToolCollection() {
     <section className="container mx-auto px-4 pb-20 pt-12">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {tools.map((tool) => {
-          const icon = toolIcons[tool.path];
+          const Icon = tool.icon;
           return (
             <Card
               key={tool.path}
@@ -94,14 +53,15 @@ function ToolCollection() {
               onClick={() => router.push(tool.path)}
             >
               <div className="flex flex-1 flex-col items-center p-5">
-                {icon && (
-                  <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl bg-accent-cyan/10 transition-colors group-hover:bg-accent-cyan/15">
-                    {icon}
+                {Icon && (
+                  <div
+                    className="mb-4 flex h-14 w-14 items-center justify-center rounded-xl transition-colors group-hover:brightness-110"
+                    style={{ backgroundColor: `${getToolIconColor(tool.path)}15` }}
+                  >
+                    <Icon size={28} style={{ color: getToolIconColor(tool.path) }} />
                   </div>
                 )}
-
                 <h3 className="font-semibold text-fg-primary text-center">{tool.title}</h3>
-
                 <p className="mt-2 line-clamp-2 text-sm text-fg-secondary text-center leading-relaxed">
                   {tool.description}
                 </p>

@@ -1,0 +1,24 @@
+{
+  "tabConverter": "轉換器",
+  "tabReference": "參考表",
+  "bitWidth": "位元寬度",
+  "decimal": "十進位",
+  "hexadecimal": "十六進位",
+  "octal": "八進位",
+  "binary": "二進位",
+  "asciiChar": "ASCII",
+  "unicodePoint": "Unicode",
+  "invalidInput": "無效輸入",
+  "overflowWarning": "值超出位元寬度範圍",
+  "referenceTitle": "進位參考表 (0-15)",
+  "refDec": "DEC",
+  "refHex": "HEX",
+  "refOct": "OCT",
+  "refBin": "BIN",
+  "descriptions": {
+    "whatIsTitle": "什麼是進位轉換？",
+    "whatIs": "進位轉換是將數字從一個進位系統轉換為另一個進位系統的過程。電腦使用二進位（基數為 2），而人類通常使用十進位（基數為 10）。十六進位（基數為 16）和八進位（基數為 8）提供了二進位資料的緊湊表示，常用於除錯、網路協定、顏色代碼和檔案權限。",
+    "twosComplementTitle": "二進位補數",
+    "twosComplement": "二進位補數是表示有號整數的標準方式。最高位元（MSB）作為符號位元：0 表示正數，1 表示負數。要獲取負值，將所有位元取反後加 1。例如，在 8 位元模式下，-1 表示為 11111111（0xFF）。"
+  }
+}

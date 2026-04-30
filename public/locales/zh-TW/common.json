@@ -8,7 +8,10 @@
     "tools": "工具",
     "clearClipboard": "清空剪貼簿",
     "fullscreen": "全螢幕",
-    "exitFullscreen": "退出全螢幕"
+    "exitFullscreen": "退出全螢幕",
+    "searchTools": "搜尋工具… (Ctrl+K)",
+    "searchToolsHint": "工具 (⌘K)",
+    "noMatchingTools": "沒有找到符合的工具"
   },
   "footer": {
     "home": "首頁",

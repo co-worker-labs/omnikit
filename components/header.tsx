@@ -1,13 +1,12 @@
 "use client";
 
-import { useState, useSyncExternalStore } from "react";
+import { useState, useEffect, useSyncExternalStore } from "react";
 import { useRouter, usePathname, Link } from "../i18n/navigation";
 import { LayoutGrid, Sun, Moon, ClipboardX, Maximize, Minimize } from "lucide-react";
-import { getToolCards } from "../libs/tools";
 import { useTheme } from "../libs/theme";
 import { useTranslations } from "next-intl";
 import LanguageSwitcher from "./language_switcher";
-import { Dropdown } from "./ui/dropdown";
+import ToolsDrawer from "./tools-drawer";
 import { useFullscreen } from "../hooks/use-fullscreen";
 import { showToast } from "../libs/toast";
 
@@ -18,8 +17,8 @@ export default function Header({ position, title }: { position: HeaderPosition; 
   const currentPath = usePathname();
   const { theme, toggleTheme } = useTheme();
   const t = useTranslations("common");
-  const tTools = useTranslations("tools");
   const [spinning, setSpinning] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const [flipping, setFlipping] = useState(false);
   const fullscreen = useFullscreen();
   const [clipAnimating, setClipAnimating] = useState(false);
@@ -28,6 +27,17 @@ export default function Header({ position, title }: { position: HeaderPosition; 
     () => typeof navigator !== "undefined" && !!navigator.clipboard,
     () => false
   );
+
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault();
+        setDrawerOpen(true);
+      }
+    }
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const handleClearClipboard = async () => {
     setClipAnimating(true);
@@ -42,14 +52,6 @@ export default function Header({ position, title }: { position: HeaderPosition; 
   if (position === "hidden") {
     return <></>;
   }
-
-  const tools = getToolCards(tTools);
-
-  const toolItems = tools.map((tool) => ({
-    label: tool.title,
-    onClick: () => router.push(tool.path),
-    active: tool.path === currentPath,
-  }));
 
   const positionClass = position === "sticky" ? "sticky top-0 z-50" : "relative z-40";
 
@@ -74,20 +76,20 @@ export default function Header({ position, title }: { position: HeaderPosition; 
           )}
 
           <div className="flex items-center gap-2">
-            <Dropdown
-              trigger={
-                <button
-                  type="button"
-                  className={`flex h-8 w-8 items-center justify-center rounded-lg text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors ${spinning ? "nav-btn-spin" : ""}`}
-                  onClick={() => setSpinning(true)}
-                  onAnimationEnd={() => setSpinning(false)}
-                  aria-label={t("nav.tools")}
-                >
-                  <LayoutGrid size={16} />
-                </button>
-              }
-              items={toolItems}
-            />
+            <button
+              type="button"
+              className={`flex h-8 w-8 items-center justify-center rounded-lg text-fg-secondary hover:text-accent-cyan hover:bg-accent-cyan/10 transition-colors ${spinning ? "nav-btn-spin" : ""}`}
+              onClick={() => {
+                setSpinning(true);
+                setDrawerOpen(true);
+              }}
+              onAnimationEnd={() => setSpinning(false)}
+              aria-label={t("nav.tools")}
+              title={t("nav.searchToolsHint")}
+            >
+              <LayoutGrid size={16} />
+            </button>
+            <ToolsDrawer open={drawerOpen} onClose={() => setDrawerOpen(false)} />
 
             {isClipboardSupported && (
               <button

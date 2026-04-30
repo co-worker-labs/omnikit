@@ -8,7 +8,10 @@
     "tools": "Tools",
     "clearClipboard": "Clear clipboard",
     "fullscreen": "Fullscreen",
-    "exitFullscreen": "Exit fullscreen"
+    "exitFullscreen": "Exit fullscreen",
+    "searchTools": "Search tools… (Ctrl+K)",
+    "searchToolsHint": "Tools (⌘K)",
+    "noMatchingTools": "No matching tools found"
   },
   "footer": {
     "home": "Home",

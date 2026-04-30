@@ -14,6 +14,11 @@
     "shortTitle": "Html Code",
     "description": "Encode and decode HTML special characters and entities. Free online HTML code converter for web developers."
   },
+  "httpstatus": {
+    "title": "HTTP Status Code Reference - Complete Guide",
+    "shortTitle": "HTTP Status",
+    "description": "Complete HTTP status code reference with descriptions, RFC references, and usage guides. Covers IANA official and unofficial codes."
+  },
   "base64": {
     "title": "Base64 Encoder & Decoder",
     "shortTitle": "Base64 Encode/Decode",
@@ -88,5 +93,30 @@
     "title": "QR Code Generator - Text, URL, WiFi",
     "shortTitle": "QR Code Generator",
     "description": "Generate styled QR codes for text, URLs, WiFi, vCard, email, and SMS. Custom colors, logos, and dot styles. 100% client-side."
+  },
+  "textcase": {
+    "title": "Text Case Converter - camelCase, snake_case, kebab-case",
+    "shortTitle": "Text Case Converter",
+    "description": "Convert text between camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case and more. Free online text case converter, 100% client-side."
+  },
+  "color": {
+    "title": "Color Converter & Picker - HEX, RGB, HSL, OKLCH",
+    "shortTitle": "Color Converter",
+    "description": "Convert HEX, RGB, HSL, HSV, CMYK, LAB, OKLCH. Visual picker with eyedropper, palette generator, image color extraction, WCAG + APCA contrast, and color-blindness preview. 100% client-side."
+  },
+  "regex": {
+    "title": "Regex Tester & Live Regex Editor",
+    "shortTitle": "Regex Tester",
+    "description": "Test regular expressions in real-time with match highlighting, capture group inspection, and replacement preview. Built-in preset library and token-level explanation. 100% client-side."
+  },
+  "csv": {
+    "title": "CSV Converter - JSON to CSV, Markdown Table Online",
+    "shortTitle": "CSV Converter",
+    "description": "Convert between JSON, CSV and Markdown Table formats. Bidirectional, real-time, client-side."
+  },
+  "numbase": {
+    "title": "Number Base Converter - Binary, Octal, Hex, Decimal",
+    "shortTitle": "Number Base Converter",
+    "description": "Convert numbers between binary, octal, decimal, and hexadecimal with real-time sync. Supports 8/16/32/64-bit two's complement, bit visual editor."
   }
 }

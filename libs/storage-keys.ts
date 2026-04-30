@@ -5,6 +5,8 @@ export const STORAGE_KEYS = {
   dbviewerHistory: "okrun:dbviewer:history",
   cron: "okrun:cron",
   qrcode: "okrun:qrcode",
+  color: "okrun:color:history",
+  floatingToolbarPosition: "okrun:ftp",
 } as const;
 
 export const COOKIE_KEYS = {

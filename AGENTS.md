@@ -14,25 +14,26 @@ OmniKit is a collection of browser-based developer utilities. All operations run
 
 ## Available Tools
 
-| Route          | Tool               | Description                                                                |
-| -------------- | ------------------ | -------------------------------------------------------------------------- |
-| `/json`        | JSON               | Format, minify, validate JSON/JSON5, configurable indentation              |
-| `/base64`      | Base64             | Base64 encoding/decoding, Basic Auth header                                |
-| `/jwt`         | JWT                | Encode, decode, verify JWT (HS/RS/ES/PS 256/384/512)                       |
-| `/urlencoder`  | URL Encoder        | URL encoding/decoding with Component, Whole URL, Form modes                |
-| `/uuid`        | UUID               | UUID v1/v3/v4/v5/v7 generation (RFC 4122/9562)                             |
-| `/diff`        | Text Diff          | Side-by-side or inline diff with word-level highlights, Web Worker powered |
-| `/hashing`     | Hashing            | MD5, SHA-1/224/256/384/512, SHA3, Keccak, RIPEMD-160                       |
-| `/password`    | Password Generator | Secure, memorable password generation                                      |
-| `/cipher`      | Encrypt/Decrypt    | AES, DES, Triple DES, Rabbit, RC4, RC4Drop                                 |
-| `/cron`        | Cron               | Build/decode Cron expressions (Standard, Spring, Quartz), next-run preview |
-| `/unixtime`    | Unix Timestamp     | Timestamp ↔ date conversion, live clock, seconds/milliseconds, local/UTC   |
-| `/markdown`    | Markdown           | Editor & live preview with GFM, syntax highlighting, PDF/PNG export        |
-| `/dbviewer`    | DB Viewer          | SQLite viewer with SQL editor, autocomplete, pagination, CSV/JSON export   |
-| `/checksum`    | File Checksum      | Unlimited file size checksums                                              |
-| `/storageunit` | Storage Unit       | Byte, KB, MB, GB, TB, PB conversion                                        |
-| `/ascii`       | ASCII Table        | ASCII reference with conversions                                           |
-| `/htmlcode`    | HTML Code          | HTML special characters reference                                          |
+| Route          | Tool                  | Description                                                                |
+| -------------- | --------------------- | -------------------------------------------------------------------------- |
+| `/json`        | JSON                  | Format, minify, validate JSON/JSON5, configurable indentation              |
+| `/base64`      | Base64                | Base64 encoding/decoding, Basic Auth header                                |
+| `/jwt`         | JWT                   | Encode, decode, verify JWT (HS/RS/ES/PS 256/384/512)                       |
+| `/urlencoder`  | URL Encoder           | URL encoding/decoding with Component, Whole URL, Form modes                |
+| `/uuid`        | UUID                  | UUID v1/v3/v4/v5/v7 generation (RFC 4122/9562)                             |
+| `/diff`        | Text Diff             | Side-by-side or inline diff with word-level highlights, Web Worker powered |
+| `/hashing`     | Hashing               | MD5, SHA-1/224/256/384/512, SHA3, Keccak, RIPEMD-160                       |
+| `/password`    | Password Generator    | Secure, memorable password generation                                      |
+| `/cipher`      | Encrypt/Decrypt       | AES, DES, Triple DES, Rabbit, RC4, RC4Drop                                 |
+| `/cron`        | Cron                  | Build/decode Cron expressions (Standard, Spring, Quartz), next-run preview |
+| `/unixtime`    | Unix Timestamp        | Timestamp ↔ date conversion, live clock, seconds/milliseconds, local/UTC   |
+| `/markdown`    | Markdown              | Editor & live preview with GFM, syntax highlighting, PDF/PNG export        |
+| `/dbviewer`    | DB Viewer             | SQLite viewer with SQL editor, autocomplete, pagination, CSV/JSON export   |
+| `/checksum`    | File Checksum         | Unlimited file size checksums                                              |
+| `/storageunit` | Storage Unit          | Byte, KB, MB, GB, TB, PB conversion                                        |
+| `/ascii`       | ASCII Table           | ASCII reference with conversions                                           |
+| `/htmlcode`    | HTML Code             | HTML special characters reference                                          |
+| `/numbase`     | Number Base Converter | BIN/OCT/DEC/HEX conversion, two's complement, bit editor                   |
 
 ## Architecture Rules
 
@@ -188,26 +189,27 @@ Translation files located in `public/locales/` directory.
 
 Libraries in `libs/`:
 
-| File                              | Purpose                                 |
-| --------------------------------- | --------------------------------------- |
-| `tools.ts`                        | Tool registry (name, route, icon)       |
-| `site.ts`                         | Site metadata                           |
-| `theme.tsx`                       | Theme provider (light/dark)             |
-| `toast.ts`                        | Toast notification system               |
-| `storage-keys.ts`                 | localStorage key constants              |
-| `json-view-theme.ts`              | JSON viewer theme config                |
-| `uuid/main.ts`                    | UUID v4/v7 generation                   |
-| `password/main.ts`, `wordlist.ts` | Password generation                     |
-| `ascii.ts`                        | ASCII table data                        |
-| `htmlcode.ts`                     | HTML entities data                      |
-| `jwt/main.ts`                     | JWT encode/decode/verify                |
-| `diff/`                           | Text diff computation (Web Worker)      |
-| `markdown/`                       | Markdown rendering, highlight, export   |
-| `dbviewer/`                       | SQLite engine, SQL autocomplete, export |
-| `cron/`                           | Cron parser, generator, describer       |
-| `unixtime/main.ts`                | Timestamp conversion logic              |
-| `file/`                           | File type detection, size limits        |
-| `pwa/`                            | PWA splash screen config                |
+| File                              | Purpose                                  |
+| --------------------------------- | ---------------------------------------- |
+| `tools.ts`                        | Tool registry (name, route, icon)        |
+| `site.ts`                         | Site metadata                            |
+| `theme.tsx`                       | Theme provider (light/dark)              |
+| `toast.ts`                        | Toast notification system                |
+| `storage-keys.ts`                 | localStorage key constants               |
+| `json-view-theme.ts`              | JSON viewer theme config                 |
+| `uuid/main.ts`                    | UUID v4/v7 generation                    |
+| `password/main.ts`, `wordlist.ts` | Password generation                      |
+| `ascii.ts`                        | ASCII table data                         |
+| `htmlcode.ts`                     | HTML entities data                       |
+| `jwt/main.ts`                     | JWT encode/decode/verify                 |
+| `diff/`                           | Text diff computation (Web Worker)       |
+| `markdown/`                       | Markdown rendering, highlight, export    |
+| `dbviewer/`                       | SQLite engine, SQL autocomplete, export  |
+| `cron/`                           | Cron parser, generator, describer        |
+| `unixtime/main.ts`                | Timestamp conversion logic               |
+| `file/`                           | File type detection, size limits         |
+| `pwa/`                            | PWA splash screen config                 |
+| `numbase/main.ts`                 | Number base conversion (BIN/OCT/DEC/HEX) |
 
 ## Hooks
 

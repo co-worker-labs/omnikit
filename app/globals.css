@@ -22,6 +22,26 @@
     --cron-dom: #e11d48;
     --cron-month: #10b981;
     --cron-dow: #3b82f6;
+    --tool-icon-0: #3b82f6;
+    --tool-icon-1: #10b981;
+    --tool-icon-2: #8b5cf6;
+    --tool-icon-3: #f59e0b;
+    --tool-icon-4: #ef4444;
+    --tool-icon-5: #06b6d4;
+    --tool-icon-6: #f97316;
+    --tool-icon-7: #ec4899;
+    --tool-icon-8: #14b8a6;
+    --tool-icon-9: #6366f1;
+    --tool-icon-10: #84cc16;
+    --tool-icon-11: #e879f9;
+    --tool-icon-12: #0ea5e9;
+    --tool-icon-13: #d946ef;
+    --tool-icon-14: #22c55e;
+    --tool-icon-15: #eab308;
+    --tool-icon-16: #f43f5e;
+    --tool-icon-17: #2dd4bf;
+    --tool-icon-18: #a855f7;
+    --tool-icon-19: #fb923c;
   }
 
   .dark {
@@ -42,6 +62,26 @@
     --cron-dom: #fb7185;
     --cron-month: #34d399;
     --cron-dow: #60a5fa;
+    --tool-icon-0: #60a5fa;
+    --tool-icon-1: #34d399;
+    --tool-icon-2: #a78bfa;
+    --tool-icon-3: #fbbf24;
+    --tool-icon-4: #f87171;
+    --tool-icon-5: #22d3ee;
+    --tool-icon-6: #fb923c;
+    --tool-icon-7: #f472b6;
+    --tool-icon-8: #2dd4bf;
+    --tool-icon-9: #818cf8;
+    --tool-icon-10: #a3e635;
+    --tool-icon-11: #f0abfc;
+    --tool-icon-12: #38bdf8;
+    --tool-icon-13: #e879f9;
+    --tool-icon-14: #4ade80;
+    --tool-icon-15: #facc15;
+    --tool-icon-16: #fb7185;
+    --tool-icon-17: #5eead4;
+    --tool-icon-18: #c084fc;
+    --tool-icon-19: #fdba74;
   }
 }
 
@@ -241,6 +281,34 @@
 
 .nav-btn-clear {
   animation: btn-clear 0.6s ease-in-out;
+}
+
+/* ===== Tools Drawer Animations ===== */
+@keyframes drawer-slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes drawer-slide-in-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes backdrop-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 /* Markdown rendered preview — minimal typography that respects OmniKit tokens. */

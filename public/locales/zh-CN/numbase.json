@@ -1,0 +1,24 @@
+{
+  "tabConverter": "转换器",
+  "tabReference": "参考表",
+  "bitWidth": "位宽",
+  "decimal": "十进制",
+  "hexadecimal": "十六进制",
+  "octal": "八进制",
+  "binary": "二进制",
+  "asciiChar": "ASCII",
+  "unicodePoint": "Unicode",
+  "invalidInput": "无效输入",
+  "overflowWarning": "值超出位宽范围",
+  "referenceTitle": "进制参考表 (0-15)",
+  "refDec": "DEC",
+  "refHex": "HEX",
+  "refOct": "OCT",
+  "refBin": "BIN",
+  "descriptions": {
+    "whatIsTitle": "什么是进制转换？",
+    "whatIs": "进制转换是将数字从一个进制系统转换为另一个进制系统的过程。计算机使用二进制（基数为 2），而人类通常使用十进制（基数为 10）。十六进制（基数为 16）和八进制（基数为 8）提供了二进制数据的紧凑表示，常用于调试、网络协议、颜色代码和文件权限。",
+    "twosComplementTitle": "二进制补码",
+    "twosComplement": "二进制补码是表示有符号整数的标准方式。最高位（MSB）作为符号位：0 表示正数，1 表示负数。要获取负值，将所有位取反后加 1。例如，在 8 位模式下，-1 表示为 11111111（0xFF）。"
+  }
+}
