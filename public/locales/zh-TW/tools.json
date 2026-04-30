@@ -138,21 +138,15 @@
     "searchTerms": "zhengzeceshiqi zzcsq pipei biaodashi"
   },
   "csv": {
-    "title": "CSV 轉換器 - JSON 轉 CSV、Markdown 表格線上工具",
-    "shortTitle": "CSV 轉換器",
-    "description": "在 JSON、CSV 和 Markdown 表格格式之間相互轉換。雙向即時轉換，100%客戶端處理。",
-    "searchTerms": "csvzhuanhuanqi csvzh jsonzhuancsv csvzhuanjson markdownbiaoge"
+    "title": "CSV 轉換器 - JSON 轉 CSV 線上工具",
+    "shortTitle": "JSON / CSV 轉換",
+    "description": "在 JSON 和 CSV 格式之間雙向轉換。即時轉換，100% 瀏覽器端處理。",
+    "searchTerms": "csvzhuanhuanqi csvzhq jsonzhuancsv csvzhuanjson"
   },
   "numbase": {
     "title": "進位轉換器 - 二進位、八進位、十六進位、十進位",
     "shortTitle": "進位轉換",
     "description": "在二進位、八進位、十進位、十六進位之間即時轉換數字。支援 8/16/32/64 位元二進位補數，視覺化位元編輯器。",
     "searchTerms": "jinweizhuanhuan jwzh erjinwei"
-  },
-  "image": {
-    "title": "圖片壓縮 / 格式轉換 - PNG, JPG, WebP, AVIF",
-    "shortTitle": "圖片壓縮",
-    "description": "線上壓縮、調整大小、轉換圖片格式，支援 PNG、JPG、WebP、AVIF。所有處理在瀏覽器本機完成，不上傳資料。",
-    "searchTerms": "tupianyasuo tpyas yasuo webp avif"
   }
 }
