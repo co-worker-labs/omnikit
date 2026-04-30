@@ -9,7 +9,7 @@
     "clearClipboard": "Clear clipboard",
     "fullscreen": "Fullscreen",
     "exitFullscreen": "Exit fullscreen",
-    "searchTools": "Search tools…",
+    "searchTools": "Search tools… (Ctrl+K)",
     "searchToolsHint": "Tools (⌘K)",
     "noMatchingTools": "No matching tools found"
   },

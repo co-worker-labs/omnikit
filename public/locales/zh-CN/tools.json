@@ -134,7 +134,8 @@
   "csv": {
     "title": "CSV 转换器 - JSON 转 CSV、Markdown 表格在线工具",
     "shortTitle": "CSV 转换器",
-    "description": "在 JSON、CSV 和 Markdown 表格格式之间相互转换。双向实时转换，100%客户端处理。"
+    "description": "在 JSON、CSV 和 Markdown 表格格式之间相互转换。双向实时转换，100%客户端处理。",
+    "searchTerms": "csvzhuanhuanqi csvzh jsonzhuancsv csvzhuanjson markdownbiaoge"
   },
   "numbase": {
     "title": "进制转换器 - 二进制、八进制、十六进制、十进制",

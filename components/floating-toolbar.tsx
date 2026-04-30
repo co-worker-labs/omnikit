@@ -12,7 +12,6 @@ import {
   Globe,
   GripVertical,
 } from "lucide-react";
-import { getToolCards } from "../libs/tools";
 import { useTheme } from "../libs/theme";
 import { useTranslations, useLocale } from "next-intl";
 import { Dropdown } from "./ui/dropdown";
@@ -85,7 +84,7 @@ export default function FloatingToolbar() {
       ref={ref}
       style={style}
       onPointerDown={handlePointerDown}
-      className="z-[60] flex items-center gap-0 bg-bg-surface/80 backdrop-blur-xl rounded-xl shadow-lg border border-border-default transition-opacity duration-200"
+      className="z-[40] flex items-center gap-0 bg-bg-surface/80 backdrop-blur-xl rounded-xl shadow-lg border border-border-default transition-opacity duration-200"
     >
       <div
         className="flex h-[34px] w-[30px] shrink-0 items-center justify-center text-fg-muted hover:text-accent-cyan transition-colors border-r border-border-default cursor-grab"

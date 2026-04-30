@@ -9,7 +9,7 @@
     "clearClipboard": "清空剪切板",
     "fullscreen": "全屏",
     "exitFullscreen": "退出全屏",
-    "searchTools": "搜索工具…",
+    "searchTools": "搜索工具… (Ctrl+K)",
     "searchToolsHint": "工具 (⌘K)",
     "noMatchingTools": "没有找到匹配的工具"
   },
