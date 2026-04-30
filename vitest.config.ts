@@ -10,6 +10,7 @@ export default defineConfig({
       "libs/textcase/**/*.test.ts",
       "libs/color/**/*.test.ts",
       "libs/regex/**/*.test.ts",
+      "libs/csv/**/*.test.ts",
     ],
     environment: "node",
     pool: "forks",

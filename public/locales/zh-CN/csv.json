@@ -1,0 +1,30 @@
+{
+  "input": "输入",
+  "output": "输出",
+  "inputPlaceholder": "在此粘贴或输入数据，或拖拽文件",
+  "outputPlaceholder": "转换结果将显示在这里",
+  "clear": "清空",
+  "upload": "上传",
+  "paste": "粘贴",
+  "copy": "复制",
+  "download": "下载",
+  "formatJson": "JSON",
+  "formatCsv": "CSV",
+  "formatMarkdown": "Markdown 表格",
+  "dropHere": "拖拽文件到此处",
+  "fileTooLarge": "文件过大（最大 5MB）",
+  "binaryRejected": "检测到二进制文件，请上传文本文件",
+  "fileLoaded": "文件加载成功",
+  "descriptions": {
+    "whatIsTitle": "什么是 CSV？",
+    "whatIsP1": "CSV（逗号分隔值）是一种用于存储表格数据的纯文本格式。每行代表一条记录，字段之间用逗号分隔。它是电子表格、数据库和应用程序之间数据交换最常用的格式。",
+    "whatIsP2": "此工具可以在 JSON、CSV 和 Markdown 表格格式之间实时转换。所有处理都在浏览器中完成，不会将数据发送到任何服务器。",
+    "howTitle": "使用方法",
+    "howP1": "使用每个面板上方的按钮选择输入格式和输出格式。粘贴、输入或拖拽文件到输入面板，输出结果会自动更新。",
+    "howP2": "嵌套的 JSON 对象会使用点号展平（如 user.name）。对象数组会生成编号键（如 items.0）。单个 JSON 对象会自动包装为数组。",
+    "supportedTitle": "支持的转换",
+    "supportedP1": "JSON → CSV、JSON → Markdown 表格、CSV → JSON、CSV → Markdown 表格、Markdown 表格 → JSON、Markdown 表格 → CSV。自动检测 CSV 分隔符（逗号、制表符、分号、管道符）。",
+    "limitationsTitle": "限制",
+    "limitationsP1": "超过 5MB 的文件会被拒绝。二进制文件会被检测并拒绝。不支持 Excel (.xlsx) 格式。"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "input": "輸入",
+  "output": "輸出",
+  "inputPlaceholder": "在此貼上或輸入資料，或拖曳檔案",
+  "outputPlaceholder": "轉換結果將顯示在這裡",
+  "clear": "清空",
+  "upload": "上傳",
+  "paste": "貼上",
+  "copy": "複製",
+  "download": "下載",
+  "formatJson": "JSON",
+  "formatCsv": "CSV",
+  "formatMarkdown": "Markdown 表格",
+  "dropHere": "拖曳檔案到此處",
+  "fileTooLarge": "檔案過大（最大 5MB）",
+  "binaryRejected": "偵測到二進位檔案，請上傳文字檔案",
+  "fileLoaded": "檔案載入成功",
+  "descriptions": {
+    "whatIsTitle": "什麼是 CSV？",
+    "whatIsP1": "CSV（逗號分隔值）是一種用於儲存表格資料的純文字格式。每行代表一筆記錄，欄位之間用逗號分隔。它是試算表、資料庫和應用程式之間資料交换最常用的格式。",
+    "whatIsP2": "此工具可以在 JSON、CSV 和 Markdown 表格格式之間即時轉換。所有處理都在瀏覽器中完成，不會將資料傳送到任何伺服器。",
+    "howTitle": "使用方法",
+    "howP1": "使用每個面板上方的按鈕選擇輸入格式和輸出格式。貼上、輸入或拖曳檔案到輸入面板，輸出結果會自動更新。",
+    "howP2": "巢狀的 JSON 物件會使用點號展平（如 user.name）。物件陣列會產生編號鍵（如 items.0）。單一 JSON 物件會自動包裝為陣列。",
+    "supportedTitle": "支援的轉換",
+    "supportedP1": "JSON → CSV、JSON → Markdown 表格、CSV → JSON、CSV → Markdown 表格、Markdown 表格 → JSON、Markdown 表格 → CSV。自動偵測 CSV 分隔符號（逗號、定位字元、分號、管道符）。",
+    "limitationsTitle": "限制",
+    "limitationsP1": "超過 5MB 的檔案會被拒絕。二進位檔案會被偵測並拒絕。不支援 Excel (.xlsx) 格式。"
+  }
+}

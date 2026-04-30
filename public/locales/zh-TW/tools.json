@@ -109,9 +109,9 @@
     "shortTitle": "正則測試器",
     "description": "線上測試正則表達式，支援即時匹配高亮、捕獲組檢視、替換預覽。內建預設模式庫和逐詞解析。100%客戶端運行。"
   },
-  "numbase": {
-    "title": "進位轉換器 - 二進位、八進位、十六進位、十進位",
-    "shortTitle": "進位轉換",
-    "description": "在二進位、八進位、十進位、十六進位之間即時轉換數字。支援 8/16/32/64 位元二進位補數，視覺化位元編輯器。"
+  "csv": {
+    "title": "CSV 轉換器 - JSON 轉 CSV、Markdown 表格線上工具",
+    "shortTitle": "CSV 轉換器",
+    "description": "在 JSON、CSV 和 Markdown 表格格式之間相互轉換。雙向即時轉換，100%客戶端處理。"
   }
 }

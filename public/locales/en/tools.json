@@ -109,9 +109,9 @@
     "shortTitle": "Regex Tester",
     "description": "Test regular expressions in real-time with match highlighting, capture group inspection, and replacement preview. Built-in preset library and token-level explanation. 100% client-side."
   },
-  "numbase": {
-    "title": "Number Base Converter - Binary, Octal, Hex, Decimal",
-    "shortTitle": "Number Base Converter",
-    "description": "Convert numbers between binary, octal, decimal, and hexadecimal with real-time sync. Supports 8/16/32/64-bit two's complement, bit visual editor."
+  "csv": {
+    "title": "CSV Converter - JSON to CSV, Markdown Table Online",
+    "shortTitle": "CSV Converter",
+    "description": "Convert between JSON, CSV and Markdown Table formats. Bidirectional, real-time, client-side."
   }
 }

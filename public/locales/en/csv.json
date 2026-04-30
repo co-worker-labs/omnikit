@@ -1,0 +1,30 @@
+{
+  "input": "Input",
+  "output": "Output",
+  "inputPlaceholder": "Paste or type your data here, or drop a file",
+  "outputPlaceholder": "Converted result will appear here",
+  "clear": "Clear",
+  "upload": "Upload",
+  "paste": "Paste",
+  "copy": "Copy",
+  "download": "Download",
+  "formatJson": "JSON",
+  "formatCsv": "CSV",
+  "formatMarkdown": "Markdown Table",
+  "dropHere": "Drop file here",
+  "fileTooLarge": "File is too large (max 5MB)",
+  "binaryRejected": "Binary file detected, please upload a text file",
+  "fileLoaded": "File loaded successfully",
+  "descriptions": {
+    "whatIsTitle": "What is CSV?",
+    "whatIsP1": "CSV (Comma-Separated Values) is a plain text format for storing tabular data. Each line represents a row, and fields are separated by commas. It's the most common format for data exchange between spreadsheets, databases, and applications.",
+    "whatIsP2": "This tool converts between JSON, CSV, and Markdown Table formats in real-time. All processing happens in your browser — nothing is sent to any server.",
+    "howTitle": "How to use",
+    "howP1": "Select your input format and output format using the buttons above each panel. Paste, type, or drag-and-drop your data into the input panel. The output updates automatically.",
+    "howP2": "Nested JSON objects are flattened using dot-notation (e.g., user.name). Arrays of objects produce numbered keys (e.g., items.0). Single JSON objects are auto-wrapped into arrays.",
+    "supportedTitle": "Supported conversions",
+    "supportedP1": "JSON → CSV, JSON → Markdown Table, CSV → JSON, CSV → Markdown Table, Markdown Table → JSON, Markdown Table → CSV. Auto-detects CSV delimiters (comma, tab, semicolon, pipe).",
+    "limitationsTitle": "Limitations",
+    "limitationsP1": "Files larger than 5MB are rejected. Binary files are detected and rejected. Excel (.xlsx) format is not supported."
+  }
+}

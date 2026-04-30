@@ -109,9 +109,9 @@
     "shortTitle": "正则测试器",
     "description": "在线测试正则表达式，支持实时匹配高亮、捕获组查看、替换预览。内置预设模式库和逐词解析。100%客户端运行。"
   },
-  "numbase": {
-    "title": "进制转换器 - 二进制、八进制、十六进制、十进制",
-    "shortTitle": "进制转换",
-    "description": "在二进制、八进制、十进制、十六进制之间实时转换数字。支持 8/16/32/64 位二进制补码，可视化位编辑器。"
+  "csv": {
+    "title": "CSV 转换器 - JSON 转 CSV、Markdown 表格在线工具",
+    "shortTitle": "CSV 转换器",
+    "description": "在 JSON、CSV 和 Markdown 表格格式之间相互转换。双向实时转换，100%客户端处理。"
   }
 }

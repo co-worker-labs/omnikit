@@ -30,7 +30,7 @@ const namespaces = [
   "color",
   "httpstatus",
   "regex",
-  "numbase",
+  "csv",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {
