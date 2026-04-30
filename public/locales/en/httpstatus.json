@@ -1,0 +1,453 @@
+{
+  "description": {
+    "text": "Complete HTTP status code reference covering all IANA official codes from RFC 9110 and related specifications — including WebDAV (RFC 4918), additional HTTP status codes (RFC 6585), 308 Permanent Redirect (RFC 7538), 451 Unavailable For Legal Reasons (RFC 7725), and Early Hints (RFC 8297). Also includes unofficial platform extensions from Nginx, Cloudflare, and IIS. Each code shows its description, RFC reference, and commonly used codes include usage scenarios and common causes for quick troubleshooting."
+  },
+  "tip": "Hover over any row on desktop or tap on mobile to see usage details and common causes.",
+  "searchPlaceholder": "Search by code, name, or description...",
+  "noResults": "No results found",
+  "categories": {
+    "all": "All",
+    "1xx": "1xx Informational",
+    "2xx": "2xx Success",
+    "3xx": "3xx Redirection",
+    "4xx": "4xx Client Error",
+    "5xx": "5xx Server Error",
+    "unofficial": "Unofficial"
+  },
+  "tableHeaders": {
+    "code": "Code",
+    "name": "Name",
+    "description": "Description",
+    "spec": "Spec",
+    "source": "Source"
+  },
+  "detailLabels": {
+    "usage": "Usage",
+    "commonCauses": "Common Causes"
+  },
+  "codes": {
+    "100": {
+      "description": "The server has received the request headers and the client should proceed to send the request body."
+    },
+    "101": {
+      "description": "The server is switching protocols as requested by the client."
+    },
+    "102": {
+      "description": "The server has received and is processing the request, but no response is available yet."
+    },
+    "103": {
+      "description": "Used to return some response headers before final HTTP message."
+    },
+    "200": {
+      "description": "The request succeeded.",
+      "details": {
+        "usage": "Standard response for successful HTTP requests",
+        "commonCauses": [
+          "Successfully retrieved a resource via GET request",
+          "Successfully updated a resource via PUT or PATCH request",
+          "Successfully created a resource via POST request",
+          "Successfully deleted a resource via DELETE request"
+        ]
+      }
+    },
+    "201": {
+      "description": "The request succeeded and a new resource was created.",
+      "details": {
+        "usage": "Response to a POST request that creates a new resource",
+        "commonCauses": [
+          "Creating a new user account",
+          "Uploading a new file",
+          "Creating a new database record",
+          "Submitting a new order"
+        ]
+      }
+    },
+    "202": {
+      "description": "The request has been received but not yet acted upon."
+    },
+    "203": {
+      "description": "The request was successful but the transformed metadata is not the definitive set."
+    },
+    "204": {
+      "description": "The server successfully processed the request and is not returning any content.",
+      "details": {
+        "usage": "Response to successful requests that don't require returning a body",
+        "commonCauses": [
+          "Successful DELETE request",
+          "Successful PUT request with no response body needed",
+          "Updating a resource's status without returning data",
+          "Clearing a cache or resetting a state"
+        ]
+      }
+    },
+    "205": {
+      "description": "The server successfully processed the request but is not returning any content and requires the requestor to reset the document view."
+    },
+    "206": {
+      "description": "The server is delivering only part of the resource due to a range header sent by the client.",
+      "details": {
+        "usage": "Used for range requests, resumable downloads, and streaming media",
+        "commonCauses": [
+          "Video player requesting a specific byte range for buffering",
+          "Download managers resuming interrupted downloads",
+          "Large file transfers in chunks",
+          "HTTP range requests for pagination"
+        ]
+      }
+    },
+    "207": {
+      "description": "The message body that follows is by default an XML message and can contain a number of separate response codes."
+    },
+    "208": {
+      "description": "The members of a DAV binding have already been enumerated in a preceding part of the multi-status response."
+    },
+    "226": {
+      "description": "The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance."
+    },
+    "300": {
+      "description": "The request has more than one possible response."
+    },
+    "301": {
+      "description": "The URL of the requested resource has been changed permanently.",
+      "details": {
+        "usage": "Permanent redirect for URL changes and content relocation",
+        "commonCauses": [
+          "Website domain change or migration",
+          "URL structure redesign for better SEO",
+          "Moving content to a new location",
+          "HTTP to HTTPS migration"
+        ]
+      }
+    },
+    "302": {
+      "description": "The URL of the requested resource has been changed temporarily.",
+      "details": {
+        "usage": "Temporary redirect for content that has moved or is under maintenance",
+        "commonCauses": [
+          "Temporary website maintenance",
+          "A/B testing redirects",
+          "User authentication flow",
+          "Temporary content location changes"
+        ]
+      }
+    },
+    "303": {
+      "description": "The response to the request can be found under another URI using the GET method."
+    },
+    "304": {
+      "description": "The cached version of the requested resource is still valid.",
+      "details": {
+        "usage": "Caching optimization to reduce bandwidth and improve performance",
+        "commonCauses": [
+          "Browser cache hit for unchanged static resources",
+          "CDN cache serving unchanged content",
+          "Conditional GET request with If-None-Match header",
+          "Server returning 304 for resources that haven't changed since last request"
+        ]
+      }
+    },
+    "305": {
+      "description": "The requested resource is only available through a proxy."
+    },
+    "307": {
+      "description": "The request should be repeated with another URI, but future requests should still use the original URI.",
+      "details": {
+        "usage": "Temporary redirect that preserves the HTTP method",
+        "commonCauses": [
+          "Redirecting POST requests during maintenance",
+          "Temporary URL changes for API endpoints",
+          "Load balancing and traffic distribution",
+          "Testing new features with temporary redirects"
+        ]
+      }
+    },
+    "308": {
+      "description": "The request and all future requests should be repeated using another URI."
+    },
+    "400": {
+      "description": "The server could not understand the request due to invalid syntax.",
+      "details": {
+        "usage": "Generic client error for malformed requests",
+        "commonCauses": [
+          "Malformed JSON in request body",
+          "Missing required request parameters",
+          "Invalid request headers or content type",
+          "Malformed URL or query parameters"
+        ]
+      }
+    },
+    "401": {
+      "description": "The client must authenticate itself to get the requested response.",
+      "details": {
+        "usage": "Authentication required for accessing protected resources",
+        "commonCauses": [
+          "Missing or invalid authentication token",
+          "Expired JWT or session token",
+          "Failed authentication attempt",
+          "Accessing protected API without credentials"
+        ]
+      }
+    },
+    "402": {
+      "description": "This response code is reserved for future use."
+    },
+    "403": {
+      "description": "The client does not have access rights to the content.",
+      "details": {
+        "usage": "Authorization failure for authenticated but unauthorized requests",
+        "commonCauses": [
+          "User lacks permission to access the resource",
+          "IP address or region-based blocking",
+          "Accessing admin-only features without proper role",
+          "Rate limiting exceeded for authenticated user"
+        ]
+      }
+    },
+    "404": {
+      "description": "The server can not find the requested resource.",
+      "details": {
+        "usage": "Resource not found at the specified URL",
+        "commonCauses": [
+          "Typo in the URL or broken link",
+          "Resource has been deleted or moved",
+          "Incorrect API endpoint path",
+          "Database record no longer exists"
+        ]
+      }
+    },
+    "405": {
+      "description": "The request method is known by the server but is not supported by the target resource.",
+      "details": {
+        "usage": "HTTP method not supported for the requested endpoint",
+        "commonCauses": [
+          "Using GET when only POST is allowed",
+          "Trying to DELETE a read-only resource",
+          "Incorrect HTTP method for API endpoint",
+          "Unsupported method on static file resource"
+        ]
+      }
+    },
+    "406": {
+      "description": "The server cannot produce a response matching the list of acceptable values defined in the request's proactive content negotiation headers."
+    },
+    "407": {
+      "description": "The client must first authenticate itself with a proxy."
+    },
+    "408": {
+      "description": "The server would like to shut down this unused connection.",
+      "details": {
+        "usage": "Server closed the connection due to client inactivity",
+        "commonCauses": [
+          "Client took too long to send the request body",
+          "Network timeout between client and server",
+          "Slow client connection causing server timeout",
+          "Load balancer timeout exceeded"
+        ]
+      }
+    },
+    "409": {
+      "description": "The request conflicts with the current state of the target resource.",
+      "details": {
+        "usage": "Request conflicts with server state or business rules",
+        "commonCauses": [
+          "Creating a resource that already exists",
+          "Concurrent modification conflicts",
+          "Invalid state transition for resource",
+          "Duplicate unique constraint violation"
+        ]
+      }
+    },
+    "410": {
+      "description": "The target resource is no longer available at the origin server."
+    },
+    "411": {
+      "description": "The server rejected the request because the Content-Length header field is not defined."
+    },
+    "412": {
+      "description": "The server does not meet one of the preconditions that the requester put on the request header fields."
+    },
+    "413": {
+      "description": "The request entity is larger than limits defined by the server."
+    },
+    "414": {
+      "description": "The URI requested by the client is longer than the server is willing to interpret."
+    },
+    "415": {
+      "description": "The media format of the requested data is not supported by the server."
+    },
+    "416": {
+      "description": "The range of bytes requested by the client cannot be fulfilled."
+    },
+    "417": {
+      "description": "The expectation indicated by the Expect request header field cannot be met."
+    },
+    "418": {
+      "description": "The server refuses to brew coffee because it is, permanently, a teapot."
+    },
+    "421": {
+      "description": "The request was directed at a server that is not able to produce a response."
+    },
+    "422": {
+      "description": "The request was well-formed but was unable to be followed due to semantic errors."
+    },
+    "423": {
+      "description": "The resource that is being accessed is locked."
+    },
+    "424": {
+      "description": "The request failed because it depended on another request that failed."
+    },
+    "425": {
+      "description": "The server is unwilling to risk processing a request that might be replayed."
+    },
+    "426": {
+      "description": "The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol."
+    },
+    "428": {
+      "description": "The origin server requires the request to be conditional."
+    },
+    "429": {
+      "description": "The user has sent too many requests in a given amount of time.",
+      "details": {
+        "usage": "Rate limiting to prevent abuse and ensure fair usage",
+        "commonCauses": [
+          "Exceeding API rate limits",
+          "Too many requests from the same IP address",
+          "Bot or scraper activity detected",
+          "User triggered rate limiter with rapid requests"
+        ]
+      }
+    },
+    "431": {
+      "description": "The server is unwilling to process the request because its header fields are too large."
+    },
+    "440": {
+      "description": "The client's session has expired."
+    },
+    "444": {
+      "description": "Nginx closes the connection without sending any response to the client."
+    },
+    "449": {
+      "description": "The request should be retried after doing the appropriate action."
+    },
+    "451": {
+      "description": "The server is denying access to the resource as a consequence of a legal demand."
+    },
+    "494": {
+      "description": "Nginx rejected the request because the request header was too large."
+    },
+    "495": {
+      "description": "Nginx client SSL certificate verification error."
+    },
+    "496": {
+      "description": "Nginx client did not provide SSL certificate."
+    },
+    "497": {
+      "description": "Nginx client sent HTTP request to HTTPS port."
+    },
+    "499": {
+      "description": "Nginx client closed the connection before the server could send a response."
+    },
+    "500": {
+      "description": "The server has encountered a situation it doesn't know how to handle.",
+      "details": {
+        "usage": "Generic server error for unexpected conditions",
+        "commonCauses": [
+          "Uncaught exception in server code",
+          "Database connection failure",
+          "Configuration error on the server",
+          "Third-party service integration failure"
+        ]
+      }
+    },
+    "501": {
+      "description": "The request method is not supported by the server and cannot be handled."
+    },
+    "502": {
+      "description": "The server, while working as a gateway to get a response needed to handle the request, got an invalid response.",
+      "details": {
+        "usage": "Invalid response from upstream server",
+        "commonCauses": [
+          "Upstream server is down or unreachable",
+          "Invalid response from backend service",
+          "Network connectivity issues between servers",
+          "Timeout waiting for upstream response"
+        ]
+      }
+    },
+    "503": {
+      "description": "The server is not ready to handle the request.",
+      "details": {
+        "usage": "Service temporarily unavailable due to maintenance or overload",
+        "commonCauses": [
+          "Scheduled server maintenance",
+          "Server overload due to high traffic",
+          "Database connection pool exhausted",
+          "Dependency service is temporarily down"
+        ]
+      }
+    },
+    "504": {
+      "description": "The server, while working as a gateway, could not get a response in time.",
+      "details": {
+        "usage": "Timeout waiting for response from upstream server",
+        "commonCauses": [
+          "Upstream server took too long to respond",
+          "Slow backend service processing",
+          "Network latency between gateway and backend",
+          "Database query timeout"
+        ]
+      }
+    },
+    "505": {
+      "description": "The HTTP version used in the request is not supported by the server."
+    },
+    "506": {
+      "description": "The server has an internal configuration error."
+    },
+    "507": {
+      "description": "The server is unable to store the representation needed to complete the request."
+    },
+    "508": {
+      "description": "The server detected an infinite loop while processing the request."
+    },
+    "510": {
+      "description": "Further extensions to the request are required for the server to fulfill it."
+    },
+    "511": {
+      "description": "The client needs to authenticate to gain network access."
+    },
+    "520": {
+      "description": "The origin server returned an unexpected or unknown error."
+    },
+    "521": {
+      "description": "The origin server refused the connection from Cloudflare."
+    },
+    "522": {
+      "description": "Cloudflare could not negotiate a TCP handshake with the origin server."
+    },
+    "523": {
+      "description": "Cloudflare could not reach the origin server."
+    },
+    "524": {
+      "description": "Cloudflare was able to complete a TCP connection to the origin server, but the origin server did not reply with an HTTP response before the connection timed out."
+    },
+    "525": {
+      "description": "Cloudflare could not negotiate a SSL/TLS handshake with the origin server."
+    },
+    "526": {
+      "description": "Cloudflare could not validate the SSL certificate on the origin server."
+    },
+    "527": {
+      "description": "Cloudflare Railgun was unable to reach the origin server."
+    },
+    "528": {
+      "description": "Cloudflare timed out contacting the origin server."
+    },
+    "529": {
+      "description": "The origin server has exceeded its resource limits."
+    },
+    "530": {
+      "description": "Cloudflare could not resolve the DNS for the origin server."
+    }
+  }
+}

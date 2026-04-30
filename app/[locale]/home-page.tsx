@@ -26,6 +26,7 @@ import {
   QrCode,
   CaseSensitive,
   Palette,
+  Globe,
 } from "lucide-react";
 
 const toolIcons: Record<string, React.ReactNode> = {
@@ -49,6 +50,7 @@ const toolIcons: Record<string, React.ReactNode> = {
   "/qrcode": <QrCode size={28} className="text-accent-cyan" />,
   "/textcase": <CaseSensitive size={28} className="text-accent-cyan" />,
   "/color": <Palette size={28} className="text-accent-cyan" />,
+  "/httpstatus": <Globe size={28} className="text-accent-cyan" />,
 };
 
 function Introduce() {

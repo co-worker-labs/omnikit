@@ -28,6 +28,7 @@ const namespaces = [
   "qrcode",
   "textcase",
   "color",
+  "httpstatus",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {
