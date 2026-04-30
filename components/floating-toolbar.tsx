@@ -2,12 +2,22 @@
 
 import { useState, useSyncExternalStore } from "react";
 import { useRouter, usePathname } from "../i18n/navigation";
-import { LayoutGrid, Sun, Moon, ClipboardX, Maximize, Minimize, Globe } from "lucide-react";
+import {
+  LayoutGrid,
+  Sun,
+  Moon,
+  ClipboardX,
+  Maximize,
+  Minimize,
+  Globe,
+  GripVertical,
+} from "lucide-react";
 import { getToolCards } from "../libs/tools";
 import { useTheme } from "../libs/theme";
 import { useTranslations, useLocale } from "next-intl";
 import { Dropdown } from "./ui/dropdown";
 import { useFullscreen } from "../hooks/use-fullscreen";
+import { useDraggable } from "../hooks/use-draggable";
 import { showToast } from "../libs/toast";
 
 const languages = [
@@ -15,6 +25,10 @@ const languages = [
   { code: "zh-CN", label: "简体中文", shortLabel: "中" },
   { code: "zh-TW", label: "繁體中文", shortLabel: "繁" },
 ];
+
+// Approximate toolbar width: 5 buttons × 34px + drag handle 30px + border paddings
+// Used as fallback before element is measured
+const TOOLBAR_WIDTH = 200;
 
 export default function FloatingToolbar() {
   const router = useRouter();
@@ -33,6 +47,16 @@ export default function FloatingToolbar() {
     () => typeof navigator !== "undefined" && !!navigator.clipboard,
     () => false
   );
+
+  const defaultPosition =
+    typeof window !== "undefined"
+      ? { x: window.innerWidth - TOOLBAR_WIDTH - 12, y: 12 }
+      : { x: 0, y: 0 };
+
+  const { ref, style, handlePointerDown, isDragging } = useDraggable({
+    storageKey: "floatingToolbarPosition",
+    defaultPosition,
+  });
 
   const handleClearClipboard = async () => {
     setClipAnimating(true);
@@ -53,7 +77,19 @@ export default function FloatingToolbar() {
   }));
 
   return (
-    <div className="fixed top-3 right-3 z-[60] flex items-center gap-0 bg-bg-surface/80 backdrop-blur-xl rounded-xl shadow-lg border border-border-default transition-opacity duration-200">
+    <div
+      ref={ref}
+      style={style}
+      onPointerDown={handlePointerDown}
+      className="z-[60] flex items-center gap-0 bg-bg-surface/80 backdrop-blur-xl rounded-xl shadow-lg border border-border-default transition-opacity duration-200"
+    >
+      <div
+        className="flex h-[34px] w-[30px] shrink-0 items-center justify-center text-fg-muted hover:text-accent-cyan transition-colors border-r border-border-default cursor-grab"
+        aria-hidden="true"
+      >
+        <GripVertical size={14} />
+      </div>
+
       <Dropdown
         trigger={
           <button
