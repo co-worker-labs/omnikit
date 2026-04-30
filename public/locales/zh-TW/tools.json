@@ -148,5 +148,11 @@
     "shortTitle": "進位轉換",
     "description": "在二進位、八進位、十進位、十六進位之間即時轉換數字。支援 8/16/32/64 位元二進位補數，視覺化位元編輯器。",
     "searchTerms": "jinweizhuanhuan jwzh erjinwei"
+  },
+  "image": {
+    "title": "圖片壓縮 / 格式轉換 - PNG, JPG, WebP, AVIF",
+    "shortTitle": "圖片壓縮",
+    "description": "線上壓縮、調整大小、轉換圖片格式，支援 PNG、JPG、WebP、AVIF。所有處理在瀏覽器本機完成，不上傳資料。",
+    "searchTerms": "tupianyasuo tpyas yasuo webp avif"
   }
 }
