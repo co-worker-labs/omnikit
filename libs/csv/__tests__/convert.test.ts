@@ -13,14 +13,6 @@ describe("convert", () => {
     expect(result.output).toContain('"John"');
   });
 
-  it("converts JSON → Markdown", () => {
-    const json = JSON.stringify([{ name: "John", age: 30 }]);
-    const result = convert(json, "json", "markdown");
-    expect(result.error).toBeUndefined();
-    expect(result.output).toContain("| name");
-    expect(result.output).toContain("| John");
-  });
-
   it("converts CSV → JSON", () => {
     const csv = "name,age\nJohn,30";
     const result = convert(csv, "csv", "json");
@@ -30,37 +22,8 @@ describe("convert", () => {
     expect(parsed[0].age).toBe(30);
   });
 
-  it("converts CSV → Markdown", () => {
-    const csv = "name,age\nJohn,30";
-    const result = convert(csv, "csv", "markdown");
-    expect(result.error).toBeUndefined();
-    expect(result.output).toContain("| name");
-    expect(result.output).toContain("| John");
-  });
-
-  it("converts Markdown → JSON", () => {
-    const md = "| name | age |\n| --- | --- |\n| John | 30 |";
-    const result = convert(md, "markdown", "json");
-    expect(result.error).toBeUndefined();
-    const parsed = JSON.parse(result.output);
-    expect(parsed[0].name).toBe("John");
-  });
-
-  it("converts Markdown → CSV", () => {
-    const md = "| name | age |\n| --- | --- |\n| John | 30 |";
-    const result = convert(md, "markdown", "csv");
-    expect(result.error).toBeUndefined();
-    expect(result.output).toContain("name");
-    expect(result.output).toContain("John");
-  });
-
   it("returns error for invalid JSON", () => {
     const result = convert("not valid json{{{", "json", "csv");
-    expect(result.error).toBeTruthy();
-  });
-
-  it("returns error for invalid Markdown table", () => {
-    const result = convert("no pipes here", "markdown", "json");
     expect(result.error).toBeTruthy();
   });
 
@@ -80,5 +43,42 @@ describe("convert", () => {
     const result = convert(json, "json", "csv");
     expect(result.error).toBeUndefined();
     expect(result.output).toContain("John");
+  });
+
+  it("uses custom indent for JSON output", () => {
+    const csv = "name,age\nJohn,30";
+    const result = convert(csv, "csv", "json", { indent: 4 });
+    expect(result.error).toBeUndefined();
+    expect(result.output).toContain('    "name"');
+  });
+
+  it("uses indent 8 for JSON output", () => {
+    const csv = "name,age\nJohn,30";
+    const result = convert(csv, "csv", "json", { indent: 8 });
+    expect(result.error).toBeUndefined();
+    expect(result.output).toContain('        "name"');
+  });
+
+  it("passes custom delimiter for CSV output", () => {
+    const json = JSON.stringify([{ a: 1, b: 2 }]);
+    const result = convert(json, "json", "csv", { delimiter: "\t" });
+    expect(result.error).toBeUndefined();
+    expect(result.output).toContain('"a"\t"b"');
+  });
+
+  it("unflattens dot-notation keys when option is enabled", () => {
+    const csv = "user.name,user.age\nJohn,30";
+    const result = convert(csv, "csv", "json", { unflatten: true });
+    expect(result.error).toBeUndefined();
+    const parsed = JSON.parse(result.output);
+    expect(parsed[0]).toEqual({ user: { name: "John", age: 30 } });
+  });
+
+  it("does not unflatten by default", () => {
+    const csv = "user.name,user.age\nJohn,30";
+    const result = convert(csv, "csv", "json");
+    expect(result.error).toBeUndefined();
+    const parsed = JSON.parse(result.output);
+    expect(parsed[0]).toEqual({ "user.name": "John", "user.age": 30 });
   });
 });

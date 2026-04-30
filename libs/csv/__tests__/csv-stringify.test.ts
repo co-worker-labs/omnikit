@@ -58,4 +58,35 @@ describe("csvStringify", () => {
     const result = csvStringify([]);
     expect(result).toBe("");
   });
+
+  it("uses tab delimiter when specified", () => {
+    const input = [
+      { name: "John", age: 30 },
+      { name: "Alice", age: 25 },
+    ];
+    const result = csvStringify(input, "\t");
+    expect(result).toContain('"name"\t"age"');
+    expect(result).toContain('"John"\t"30"');
+  });
+
+  it("uses semicolon delimiter when specified", () => {
+    const input = [{ a: 1, b: 2 }];
+    const result = csvStringify(input, ";");
+    expect(result).toContain('"a";"b"');
+    expect(result).toContain('"1";"2"');
+  });
+
+  it("uses pipe delimiter when specified", () => {
+    const input = [{ x: "hello", y: "world" }];
+    const result = csvStringify(input, "|");
+    expect(result).toContain('"x"|"y"');
+    expect(result).toContain('"hello"|"world"');
+  });
+
+  it("defaults to comma delimiter", () => {
+    const input = [{ a: 1, b: 2 }];
+    const result = csvStringify(input);
+    expect(result).toContain('"a","b"');
+    expect(result).toContain('"1","2"');
+  });
 });
