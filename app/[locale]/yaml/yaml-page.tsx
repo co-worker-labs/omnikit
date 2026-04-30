@@ -343,7 +343,7 @@ function Conversion() {
           rows={effectiveLayout === "horizontal" ? 1 : 13}
           value={jsonContent}
           onChange={(e) => setJsonContent(e.target.value)}
-          className={`font-mono text-sm ${effectiveLayout === "horizontal" ? "h-[60vh]" : ""}`}
+          className={`font-mono text-sm ${effectiveLayout === "horizontal" ? "h-[50vh]" : ""}`}
         />
         <CopyButton getContent={() => jsonContent} className="absolute end-2 top-2" />
       </div>
@@ -490,7 +490,7 @@ function Conversion() {
           rows={effectiveLayout === "horizontal" ? 1 : 13}
           value={yamlContent}
           onChange={(e) => setYamlContent(e.target.value)}
-          className={`font-mono text-sm ${effectiveLayout === "horizontal" ? "h-[60vh]" : ""}`}
+          className={`font-mono text-sm ${effectiveLayout === "horizontal" ? "h-[50vh]" : ""}`}
         />
         <CopyButton getContent={() => yamlContent} className="absolute end-2 top-2" />
       </div>
