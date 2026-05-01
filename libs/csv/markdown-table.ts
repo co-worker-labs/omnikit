@@ -3,6 +3,13 @@ import { flatten } from "./flatten";
 export interface MarkdownParseResult {
   data: Record<string, unknown>[];
   errors: string[];
+  alignments?: ColumnAlignment[];
+}
+
+export type ColumnAlignment = "left" | "center" | "right" | "none";
+
+export interface MarkdownStringifyOptions {
+  alignment?: ColumnAlignment[];
 }
 
 const SEPARATOR_RE = /^\s*\|?\s*[-:]+[-|\s:]*\s*\|?\s*$/;
@@ -28,6 +35,16 @@ function parseLine(line: string): string[] {
   return cells;
 }
 
+function detectAlignment(cell: string): ColumnAlignment {
+  const trimmed = cell.trim();
+  const hasLeftColon = trimmed.startsWith(":");
+  const hasRightColon = trimmed.endsWith(":");
+  if (hasLeftColon && hasRightColon) return "center";
+  if (hasRightColon) return "right";
+  if (hasLeftColon) return "left";
+  return "none";
+}
+
 /**
  * Parse a Markdown Table string into a JSON object array.
  */
@@ -44,12 +61,18 @@ export function markdownTableParse(input: string): MarkdownParseResult {
   let headerLine: string | null = null;
   const dataLines: string[] = [];
   let headerFound = false;
+  let separatorLine: string | null = null;
 
   for (const line of tableLines) {
     if (!headerFound) {
       if (SEPARATOR_RE.test(line)) continue;
       headerLine = line;
       headerFound = true;
+    } else if (!separatorLine) {
+      if (!SEPARATOR_RE.test(line)) {
+        continue;
+      }
+      separatorLine = line;
     } else {
       if (SEPARATOR_RE.test(line)) continue;
       dataLines.push(line);
@@ -72,14 +95,23 @@ export function markdownTableParse(input: string): MarkdownParseResult {
     data.push(obj);
   }
 
-  return { data, errors: [] };
+  let alignments: ColumnAlignment[] | undefined;
+  if (separatorLine) {
+    const sepCells = parseLine(separatorLine);
+    alignments = sepCells.map((cell) => detectAlignment(cell));
+  }
+
+  return { data, errors: [], alignments };
 }
 
 /**
  * Convert a JSON object array to a Markdown Table string.
  * Columns are aligned with padding to the widest value.
  */
-export function markdownTableStringify(data: Record<string, unknown>[]): string {
+export function markdownTableStringify(
+  data: Record<string, unknown>[],
+  options?: MarkdownStringifyOptions
+): string {
   if (data.length === 0) return "";
 
   const flat = data.map((obj) => flatten(obj));
@@ -111,10 +143,26 @@ export function markdownTableStringify(data: Record<string, unknown>[]): string 
 
   const pad = (value: string, width: number): string => value.padEnd(width, " ");
 
+  function separatorCell(width: number, align?: ColumnAlignment): string {
+    const dashes = "-".repeat(Math.max(width, 3));
+    switch (align) {
+      case "left":
+        return ":" + dashes.slice(1);
+      case "center":
+        return ":" + "-".repeat(Math.max(width - 2, 3)) + ":";
+      case "right":
+        return "-".repeat(Math.max(width - 1, 3)) + ":";
+      case "none":
+      default:
+        return dashes;
+    }
+  }
+
   const lines: string[] = [];
 
   lines.push("| " + headerRow.map((h, i) => pad(h, widths[i])).join(" | ") + " |");
-  lines.push("| " + widths.map((w) => "-".repeat(w + (w > 5 ? 0 : 0))).join(" | ") + " |");
+  const alignments = options?.alignment;
+  lines.push("| " + widths.map((w, i) => separatorCell(w, alignments?.[i])).join(" | ") + " |");
   for (const row of rows) {
     lines.push("| " + row.map((cell, i) => pad(cell, widths[i])).join(" | ") + " |");
   }

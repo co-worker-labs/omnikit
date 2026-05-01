@@ -114,6 +114,11 @@
     "shortTitle": "Regex Tester",
     "description": "Test regular expressions in real-time with match highlighting, capture group inspection, and replacement preview. Built-in preset library and token-level explanation. 100% client-side."
   },
+  "csv-md": {
+    "title": "CSV ↔ Markdown Table Converter",
+    "shortTitle": "CSV / Markdown Table",
+    "description": "Convert between CSV and Markdown Table formats. Bidirectional, real-time, 100% client-side."
+  },
   "csv": {
     "title": "CSV Converter - JSON to CSV Online",
     "shortTitle": "JSON / CSV Converter",

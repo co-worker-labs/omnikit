@@ -288,10 +288,10 @@ function MarkdownPageBody() {
   } else {
     contentArea = (
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div data-no-print className="min-h-[50vh]">
+        <div data-no-print className="min-h-[50vh] min-w-0">
           {editorEl}
         </div>
-        <div className="min-h-[50vh]">{previewEl}</div>
+        <div className="min-h-[50vh] min-w-0">{previewEl}</div>
       </div>
     );
   }

@@ -59,4 +59,18 @@ describe("csvParse", () => {
     expect(data[0].name).toBe("John");
     expect(data[0].age).toBe(30);
   });
+
+  it("uses explicit delimiter when provided", () => {
+    const csv = "name;age\nJohn;30";
+    const { data, errors } = csvParse(csv, ";");
+    expect(errors).toHaveLength(0);
+    expect(data).toEqual([{ name: "John", age: 30 }]);
+  });
+
+  it("ignores explicit delimiter when auto-detect would succeed anyway", () => {
+    const csv = "name,age\nJohn,30";
+    const { data, errors } = csvParse(csv);
+    expect(errors).toHaveLength(0);
+    expect(data).toEqual([{ name: "John", age: 30 }]);
+  });
 });
