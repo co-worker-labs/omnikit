@@ -103,7 +103,7 @@ export const PreviewView = forwardRef<HTMLDivElement, PreviewViewProps>(
       <div
         ref={setRefs}
         onScroll={onScroll}
-        className={`prose-md min-h-[50vh] bg-bg-input border border-border-default rounded-lg p-4 ${className}`}
+        className={`prose-md min-h-[50vh] bg-bg-input border border-border-default rounded-lg p-4 overflow-x-auto ${className}`}
         dangerouslySetInnerHTML={{ __html: html }}
       />
     );
