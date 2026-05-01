@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Fragment } from "react";
 import { useTranslations } from "next-intl";
 import Layout from "../../../components/layout";
 import { StyledInput, StyledTextarea } from "../../../components/ui/input";
@@ -820,8 +820,8 @@ function Description() {
             </thead>
             <tbody>
               {CHEATSHEET_SECTIONS.map((section, si) => (
-                <>
-                  <tr key={`heading-${si}`}>
+                <Fragment key={si}>
+                  <tr>
                     <td
                       colSpan={3}
                       className="pt-4 pb-1.5 font-mono text-sm font-semibold text-accent-cyan"
@@ -836,7 +836,7 @@ function Description() {
                       <td className="py-1.5 text-fg-muted">{row.example}</td>
                     </tr>
                   ))}
-                </>
+                </Fragment>
               ))}
             </tbody>
           </table>
