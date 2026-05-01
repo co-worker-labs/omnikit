@@ -53,7 +53,10 @@ export interface CategoryGroup {
 
 export const TOOL_CATEGORIES: CategoryGroup[] = [
   { key: "text", tools: ["json", "regex", "textcase", "diff", "markdown"] },
-  { key: "encoding", tools: ["base64", "urlencoder", "yaml", "csv", "numbase", "storageunit"] },
+  {
+    key: "encoding",
+    tools: ["base64", "urlencoder", "yaml", "csv", "csv-md", "numbase", "storageunit"],
+  },
   { key: "security", tools: ["jwt", "hashing", "cipher", "password", "checksum"] },
   { key: "generators", tools: ["uuid", "qrcode", "cron", "unixtime"] },
   { key: "visual", tools: ["color", "image"] },

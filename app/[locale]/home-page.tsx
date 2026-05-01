@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, startTransition } from "react";
 import Layout from "../../components/layout";
 import { useRouter } from "../../i18n/navigation";
 import { useTranslations } from "next-intl";
@@ -321,14 +321,16 @@ export default function HomeClient() {
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const cardRefs = useRef<Map<number, HTMLDivElement>>(new Map());
   const searchInputRef = useRef<HTMLInputElement>(null);
-  const [viewMode, setViewMode] = useState<ViewMode>(() => {
-    if (typeof window === "undefined") return "grouped";
+  const [viewMode, setViewMode] = useState<ViewMode>("grouped");
+
+  useEffect(() => {
     try {
       const saved = localStorage.getItem("okrun:home-view");
-      if (saved === "all" || saved === "grouped") return saved;
+      if (saved === "all" || saved === "grouped") {
+        startTransition(() => setViewMode(saved));
+      }
     } catch {}
-    return "grouped";
-  });
+  }, []);
 
   const allTools = getToolCards(t);
   const cardMap = getToolCardMap(t);
@@ -383,14 +385,35 @@ export default function HomeClient() {
       return;
     }
     if (!isSearching) return;
-    if (e.key === "ArrowDown") {
+
+    const total = filteredTools.length;
+    const cols =
+      typeof window !== "undefined"
+        ? window.innerWidth >= 1024
+          ? 4
+          : window.innerWidth >= 640
+            ? 3
+            : 2
+        : 4;
+
+    if (e.key === "ArrowRight") {
       e.preventDefault();
-      const next = focusedIndex + 1;
-      setFocusedIndex(next >= filteredTools.length ? 0 : next);
+      const cur = focusedIndex < 0 ? -1 : focusedIndex;
+      setFocusedIndex((cur + 1) % total);
+    } else if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      const cur = focusedIndex < 0 ? 0 : focusedIndex;
+      setFocusedIndex(cur === 0 ? total - 1 : cur - 1);
+    } else if (e.key === "ArrowDown") {
+      e.preventDefault();
+      const cur = focusedIndex < 0 ? 0 : focusedIndex;
+      const next = cur + cols;
+      setFocusedIndex(next >= total ? cur : next);
     } else if (e.key === "ArrowUp") {
       e.preventDefault();
-      const prev = focusedIndex - 1;
-      setFocusedIndex(prev < 0 ? filteredTools.length - 1 : prev);
+      const cur = focusedIndex < 0 ? 0 : focusedIndex;
+      const prev = cur - cols;
+      setFocusedIndex(prev < 0 ? cur : prev);
     } else if (e.key === "Enter" && focusedIndex >= 0) {
       e.preventDefault();
       const tool = filteredTools[focusedIndex];
