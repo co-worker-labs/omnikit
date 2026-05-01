@@ -137,6 +137,12 @@
     "description": "在线测试正则表达式，支持实时匹配高亮、捕获组查看、替换预览。内置预设模式库和逐词解析。100%客户端运行。",
     "searchTerms": "zhengzeceshiqi zzcsq pipei biaodashi"
   },
+  "csv-md": {
+    "title": "CSV ↔ Markdown 表格转换器",
+    "shortTitle": "CSV / Markdown 表格",
+    "description": "在 CSV 和 Markdown 表格格式之间双向转换。实时转换，100% 浏览器端处理。",
+    "searchTerms": "csvzhuanmarkdown csvzmd markdownbiaoge biaogezhuanhuan"
+  },
   "csv": {
     "title": "CSV 转换器 - JSON 转 CSV 在线工具",
     "shortTitle": "JSON / CSV 转换",

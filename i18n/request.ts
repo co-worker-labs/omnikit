@@ -32,6 +32,7 @@ const namespaces = [
   "httpstatus",
   "regex",
   "csv",
+  "csv-md",
   "numbase",
   "image",
 ];

@@ -25,6 +25,7 @@ import {
   Globe,
   Palette,
   Binary,
+  Table,
   FileSpreadsheet,
   ImageDown,
 } from "lucide-react";
@@ -84,6 +85,7 @@ export const TOOLS: ToolEntry[] = [
   { key: "httpstatus", path: "/httpstatus", icon: Globe },
   { key: "color", path: "/color", icon: Palette },
   { key: "numbase", path: "/numbase", icon: Binary },
+  { key: "csv-md", path: "/csv-md", icon: Table },
   { key: "csv", path: "/csv", icon: FileSpreadsheet },
   { key: "image", path: "/image", icon: ImageDown },
 ] as const;

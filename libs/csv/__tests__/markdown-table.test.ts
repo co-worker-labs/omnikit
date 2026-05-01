@@ -73,3 +73,91 @@ John  | 30`;
     expect(result.errors).toHaveLength(0);
   });
 });
+
+describe("markdownTableStringify with alignment", () => {
+  it("applies left alignment to separator", () => {
+    const input = [{ name: "John", age: 30 }];
+    const result = markdownTableStringify(input, { alignment: ["left", "left"] });
+    expect(result).toMatch(/:---/);
+  });
+
+  it("applies center alignment to separator", () => {
+    const input = [{ name: "John", age: 30 }];
+    const result = markdownTableStringify(input, { alignment: ["center", "center"] });
+    expect(result).toMatch(/:---:/);
+  });
+
+  it("applies right alignment to separator", () => {
+    const input = [{ name: "John", age: 30 }];
+    const result = markdownTableStringify(input, { alignment: ["right", "right"] });
+    expect(result).toMatch(/---:/);
+  });
+
+  it("applies none alignment (plain dashes)", () => {
+    const input = [{ name: "John", age: 30 }];
+    const result = markdownTableStringify(input, { alignment: ["none", "none"] });
+    const lines = result.split("\n");
+    const separator = lines[1];
+    expect(separator).not.toMatch(/:/);
+    expect(separator).toMatch(/---/);
+  });
+
+  it("supports per-column alignment", () => {
+    const input = [{ name: "John", age: 30 }];
+    const result = markdownTableStringify(input, { alignment: ["left", "right"] });
+    const lines = result.split("\n");
+    const separator = lines[1];
+    expect(separator).toMatch(/:---/);
+    expect(separator).toMatch(/---:/);
+  });
+
+  it("pads separator dashes to match column width", () => {
+    const input = [{ name: "John", age: 30 }];
+    const result = markdownTableStringify(input, { alignment: ["center", "center"] });
+    const lines = result.split("\n");
+    const headerCells = lines[0].split("|").filter((c: string) => c.trim());
+    const sepCells = lines[1].split("|").filter((c: string) => c.trim());
+    headerCells.forEach((h: string, i: number) => {
+      expect(sepCells[i].length).toBeGreaterThanOrEqual(h.trim().length);
+    });
+  });
+
+  it("preserves backward compatibility when options omitted", () => {
+    const input = [{ name: "John", age: 30 }];
+    const result = markdownTableStringify(input);
+    const lines = result.split("\n");
+    expect(lines[1]).not.toMatch(/:/);
+  });
+});
+
+describe("markdownTableParse alignment extraction", () => {
+  it("extracts left alignment", () => {
+    const md = `| name | age |\n| :--- | --- |\n| John | 30 |`;
+    const result = markdownTableParse(md);
+    expect(result.alignments).toEqual(["left", "none"]);
+  });
+
+  it("extracts center alignment", () => {
+    const md = `| name | age |\n| :---: | :---: |\n| John | 30 |`;
+    const result = markdownTableParse(md);
+    expect(result.alignments).toEqual(["center", "center"]);
+  });
+
+  it("extracts right alignment", () => {
+    const md = `| name | age |\n| ---: | ---: |\n| John | 30 |`;
+    const result = markdownTableParse(md);
+    expect(result.alignments).toEqual(["right", "right"]);
+  });
+
+  it("returns none for plain dashes", () => {
+    const md = `| name | age |\n| --- | --- |\n| John | 30 |`;
+    const result = markdownTableParse(md);
+    expect(result.alignments).toEqual(["none", "none"]);
+  });
+
+  it("returns undefined alignments when no separator found", () => {
+    const md = `| name | age |\n| John | 30 |`;
+    const result = markdownTableParse(md);
+    expect(result.alignments).toBeUndefined();
+  });
+});
