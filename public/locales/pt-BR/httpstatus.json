@@ -1,453 +1,453 @@
 {
   "description": {
-    "text": "Complete HTTP status code reference covering all IANA official codes from RFC 9110 and related specifications — including WebDAV (RFC 4918), additional HTTP status codes (RFC 6585), 308 Permanent Redirect (RFC 7538), 451 Unavailable For Legal Reasons (RFC 7725), and Early Hints (RFC 8297). Also includes unofficial platform extensions from Nginx, Cloudflare, and IIS. Each code shows its description, RFC reference, and commonly used codes include usage scenarios and common causes for quick troubleshooting."
+    "text": "Referência completa de códigos de status HTTP cobrindo todos os códigos oficiais da IANA da RFC 9110 e especificações relacionadas — incluindo WebDAV (RFC 4918), códigos adicionais (RFC 6585), 308 Permanent Redirect (RFC 7538), 451 Unavailable For Legal Reasons (RFC 7725) e Early Hints (RFC 8297). Também inclui extensões não oficiais de Nginx, Cloudflare e IIS. Cada código mostra sua descrição, referência RFC, e os códigos mais usados incluem cenários de uso e causas comuns para resolução rápida de problemas."
   },
-  "tip": "Hover over any row on desktop or tap on mobile to see usage details and common causes.",
-  "searchPlaceholder": "Search by code, name, or description...",
-  "noResults": "No results found",
+  "tip": "Passe o mouse sobre qualquer linha no desktop ou toque no celular para ver detalhes de uso e causas comuns.",
+  "searchPlaceholder": "Buscar por código, nome ou descrição...",
+  "noResults": "Nenhum resultado encontrado",
   "categories": {
-    "all": "All",
-    "1xx": "1xx Informational",
-    "2xx": "2xx Success",
-    "3xx": "3xx Redirection",
-    "4xx": "4xx Client Error",
-    "5xx": "5xx Server Error",
-    "unofficial": "Unofficial"
+    "all": "Todos",
+    "1xx": "1xx Informativo",
+    "2xx": "2xx Sucesso",
+    "3xx": "3xx Redirecionamento",
+    "4xx": "4xx Erro do cliente",
+    "5xx": "5xx Erro do servidor",
+    "unofficial": "Não oficial"
   },
   "tableHeaders": {
-    "code": "Code",
-    "name": "Name",
-    "description": "Description",
+    "code": "Código",
+    "name": "Nome",
+    "description": "Descrição",
     "spec": "Spec",
-    "source": "Source"
+    "source": "Fonte"
   },
   "detailLabels": {
-    "usage": "Usage",
-    "commonCauses": "Common Causes"
+    "usage": "Uso",
+    "commonCauses": "Causas comuns"
   },
   "codes": {
     "100": {
-      "description": "The server has received the request headers and the client should proceed to send the request body."
+      "description": "O servidor recebeu os cabeçalhos da requisição e o cliente deve prosseguir para enviar o corpo."
     },
     "101": {
-      "description": "The server is switching protocols as requested by the client."
+      "description": "O servidor está trocando de protocolo conforme solicitado pelo cliente."
     },
     "102": {
-      "description": "The server has received and is processing the request, but no response is available yet."
+      "description": "O servidor recebeu e está processando a requisição, mas nenhuma resposta está disponível ainda."
     },
     "103": {
-      "description": "Used to return some response headers before final HTTP message."
+      "description": "Usado para retornar alguns cabeçalhos de resposta antes da mensagem HTTP final."
     },
     "200": {
-      "description": "The request succeeded.",
+      "description": "A requisição foi bem-sucedida.",
       "details": {
-        "usage": "Standard response for successful HTTP requests",
+        "usage": "Resposta padrão para requisições HTTP bem-sucedidas",
         "commonCauses": [
-          "Successfully retrieved a resource via GET request",
-          "Successfully updated a resource via PUT or PATCH request",
-          "Successfully created a resource via POST request",
-          "Successfully deleted a resource via DELETE request"
+          "Recurso recuperado com sucesso via GET",
+          "Recurso atualizado com sucesso via PUT ou PATCH",
+          "Recurso criado com sucesso via POST",
+          "Recurso excluído com sucesso via DELETE"
         ]
       }
     },
     "201": {
-      "description": "The request succeeded and a new resource was created.",
+      "description": "A requisição foi bem-sucedida e um novo recurso foi criado.",
       "details": {
-        "usage": "Response to a POST request that creates a new resource",
+        "usage": "Resposta a uma requisição POST que cria um novo recurso",
         "commonCauses": [
-          "Creating a new user account",
-          "Uploading a new file",
-          "Creating a new database record",
-          "Submitting a new order"
+          "Criando uma nova conta de usuário",
+          "Enviando um novo arquivo",
+          "Criando um novo registro no banco de dados",
+          "Enviando um novo pedido"
         ]
       }
     },
     "202": {
-      "description": "The request has been received but not yet acted upon."
+      "description": "A requisição foi recebida, mas ainda não foi processada."
     },
     "203": {
-      "description": "The request was successful but the transformed metadata is not the definitive set."
+      "description": "A requisição foi bem-sucedida, mas os metadados transformados não são definitivos."
     },
     "204": {
-      "description": "The server successfully processed the request and is not returning any content.",
+      "description": "O servidor processou a requisição com sucesso e não está retornando conteúdo.",
       "details": {
-        "usage": "Response to successful requests that don't require returning a body",
+        "usage": "Resposta a requisições bem-sucedidas que não precisam retornar um corpo",
         "commonCauses": [
-          "Successful DELETE request",
-          "Successful PUT request with no response body needed",
-          "Updating a resource's status without returning data",
-          "Clearing a cache or resetting a state"
+          "Requisição DELETE bem-sucedida",
+          "Requisição PUT bem-sucedida sem necessidade de corpo na resposta",
+          "Atualizando o status de um recurso sem retornar dados",
+          "Limpando cache ou redefinindo um estado"
         ]
       }
     },
     "205": {
-      "description": "The server successfully processed the request but is not returning any content and requires the requestor to reset the document view."
+      "description": "O servidor processou a requisição com sucesso, mas não retorna conteúdo e exige que o solicitante redefina a visualização do documento."
     },
     "206": {
-      "description": "The server is delivering only part of the resource due to a range header sent by the client.",
+      "description": "O servidor está entregando apenas parte do recurso devido a um cabeçalho de intervalo enviado pelo cliente.",
       "details": {
-        "usage": "Used for range requests, resumable downloads, and streaming media",
+        "usage": "Usado para requisições de intervalo, downloads resumíveis e streaming de mídia",
         "commonCauses": [
-          "Video player requesting a specific byte range for buffering",
-          "Download managers resuming interrupted downloads",
-          "Large file transfers in chunks",
-          "HTTP range requests for pagination"
+          "Player de vídeo solicitando um intervalo específico de bytes para buffer",
+          "Gerenciadores de download resumindo downloads interrompidos",
+          "Transferências de arquivos grandes em blocos",
+          "Requisições de intervalo HTTP para paginação"
         ]
       }
     },
     "207": {
-      "description": "The message body that follows is by default an XML message and can contain a number of separate response codes."
+      "description": "O corpo da mensagem que segue é, por padrão, uma mensagem XML e pode conter vários códigos de resposta separados."
     },
     "208": {
-      "description": "The members of a DAV binding have already been enumerated in a preceding part of the multi-status response."
+      "description": "Os membros de uma associação DAV já foram enumerados em uma parte anterior da resposta multi-status."
     },
     "226": {
-      "description": "The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance."
+      "description": "O servidor atendeu a uma requisição GET para o recurso, e a resposta é uma representação do resultado de uma ou mais manipulações de instância aplicadas à instância atual."
     },
     "300": {
-      "description": "The request has more than one possible response."
+      "description": "A requisição tem mais de uma resposta possível."
     },
     "301": {
-      "description": "The URL of the requested resource has been changed permanently.",
+      "description": "A URL do recurso solicitado foi alterada permanentemente.",
       "details": {
-        "usage": "Permanent redirect for URL changes and content relocation",
+        "usage": "Redirecionamento permanente para mudanças de URL e realocação de conteúdo",
         "commonCauses": [
-          "Website domain change or migration",
-          "URL structure redesign for better SEO",
-          "Moving content to a new location",
-          "HTTP to HTTPS migration"
+          "Mudança ou migração de domínio do site",
+          "Redesenho da estrutura de URL para melhor SEO",
+          "Movendo conteúdo para um novo local",
+          "Migração de HTTP para HTTPS"
         ]
       }
     },
     "302": {
-      "description": "The URL of the requested resource has been changed temporarily.",
+      "description": "A URL do recurso solicitado foi alterada temporariamente.",
       "details": {
-        "usage": "Temporary redirect for content that has moved or is under maintenance",
+        "usage": "Redirecionamento temporário para conteúdo que foi movido ou está em manutenção",
         "commonCauses": [
-          "Temporary website maintenance",
-          "A/B testing redirects",
-          "User authentication flow",
-          "Temporary content location changes"
+          "Manutenção temporária do site",
+          "Redirecionamentos para testes A/B",
+          "Fluxo de autenticação do usuário",
+          "Mudanças temporárias de localização do conteúdo"
         ]
       }
     },
     "303": {
-      "description": "The response to the request can be found under another URI using the GET method."
+      "description": "A resposta da requisição pode ser encontrada em outro URI usando o método GET."
     },
     "304": {
-      "description": "The cached version of the requested resource is still valid.",
+      "description": "A versão em cache do recurso solicitado ainda é válida.",
       "details": {
-        "usage": "Caching optimization to reduce bandwidth and improve performance",
+        "usage": "Otimização de cache para reduzir largura de banda e melhorar performance",
         "commonCauses": [
-          "Browser cache hit for unchanged static resources",
-          "CDN cache serving unchanged content",
-          "Conditional GET request with If-None-Match header",
-          "Server returning 304 for resources that haven't changed since last request"
+          "Cache do navegador para recursos estáticos inalterados",
+          "Cache da CDN servindo conteúdo inalterado",
+          "Requisição GET condicional com cabeçalho If-None-Match",
+          "Servidor retornando 304 para recursos que não mudaram desde a última requisição"
         ]
       }
     },
     "305": {
-      "description": "The requested resource is only available through a proxy."
+      "description": "O recurso solicitado está disponível apenas através de um proxy."
     },
     "307": {
-      "description": "The request should be repeated with another URI, but future requests should still use the original URI.",
+      "description": "A requisição deve ser repetida com outro URI, mas requisições futuras devem continuar usando o URI original.",
       "details": {
-        "usage": "Temporary redirect that preserves the HTTP method",
+        "usage": "Redirecionamento temporário que preserva o método HTTP",
         "commonCauses": [
-          "Redirecting POST requests during maintenance",
-          "Temporary URL changes for API endpoints",
-          "Load balancing and traffic distribution",
-          "Testing new features with temporary redirects"
+          "Redirecionando requisições POST durante manutenção",
+          "Mudanças temporárias de URL em endpoints de API",
+          "Balanceamento de carga e distribuição de tráfego",
+          "Testando novos recursos com redirecionamentos temporários"
         ]
       }
     },
     "308": {
-      "description": "The request and all future requests should be repeated using another URI."
+      "description": "A requisição e todas as requisições futuras devem ser repetidas usando outro URI."
     },
     "400": {
-      "description": "The server could not understand the request due to invalid syntax.",
+      "description": "O servidor não conseguiu entender a requisição devido a sintaxe inválida.",
       "details": {
-        "usage": "Generic client error for malformed requests",
+        "usage": "Erro genérico do cliente para requisições malformadas",
         "commonCauses": [
-          "Malformed JSON in request body",
-          "Missing required request parameters",
-          "Invalid request headers or content type",
-          "Malformed URL or query parameters"
+          "JSON malformado no corpo da requisição",
+          "Parâmetros obrigatórios ausentes na requisição",
+          "Cabeçalhos ou tipo de conteúdo inválidos",
+          "URL ou parâmetros de consulta malformados"
         ]
       }
     },
     "401": {
-      "description": "The client must authenticate itself to get the requested response.",
+      "description": "O cliente deve se autenticar para obter a resposta solicitada.",
       "details": {
-        "usage": "Authentication required for accessing protected resources",
+        "usage": "Autenticação necessária para acessar recursos protegidos",
         "commonCauses": [
-          "Missing or invalid authentication token",
-          "Expired JWT or session token",
-          "Failed authentication attempt",
-          "Accessing protected API without credentials"
+          "Token de autenticação ausente ou inválido",
+          "JWT ou token de sessão expirado",
+          "Tentativa de autenticação falhou",
+          "Acessando API protegida sem credenciais"
         ]
       }
     },
     "402": {
-      "description": "This response code is reserved for future use."
+      "description": "Este código de resposta está reservado para uso futuro."
     },
     "403": {
-      "description": "The client does not have access rights to the content.",
+      "description": "O cliente não tem direitos de acesso ao conteúdo.",
       "details": {
-        "usage": "Authorization failure for authenticated but unauthorized requests",
+        "usage": "Falha de autorização para requisições autenticadas mas não autorizadas",
         "commonCauses": [
-          "User lacks permission to access the resource",
-          "IP address or region-based blocking",
-          "Accessing admin-only features without proper role",
-          "Rate limiting exceeded for authenticated user"
+          "Usuário sem permissão para acessar o recurso",
+          "Bloqueio por endereço IP ou região",
+          "Acessando funcionalidades de admin sem cargo adequado",
+          "Limite de taxa excedido para usuário autenticado"
         ]
       }
     },
     "404": {
-      "description": "The server can not find the requested resource.",
+      "description": "O servidor não consegue encontrar o recurso solicitado.",
       "details": {
-        "usage": "Resource not found at the specified URL",
+        "usage": "Recurso não encontrado na URL especificada",
         "commonCauses": [
-          "Typo in the URL or broken link",
-          "Resource has been deleted or moved",
-          "Incorrect API endpoint path",
-          "Database record no longer exists"
+          "Erro de digitação na URL ou link quebrado",
+          "O recurso foi excluído ou movido",
+          "Caminho de endpoint de API incorreto",
+          "O registro do banco de dados não existe mais"
         ]
       }
     },
     "405": {
-      "description": "The request method is known by the server but is not supported by the target resource.",
+      "description": "O método da requisição é conhecido pelo servidor, mas não é suportado pelo recurso de destino.",
       "details": {
-        "usage": "HTTP method not supported for the requested endpoint",
+        "usage": "Método HTTP não suportado para o endpoint solicitado",
         "commonCauses": [
-          "Using GET when only POST is allowed",
-          "Trying to DELETE a read-only resource",
-          "Incorrect HTTP method for API endpoint",
-          "Unsupported method on static file resource"
+          "Usando GET quando apenas POST é permitido",
+          "Tentando DELETE em um recurso somente leitura",
+          "Método HTTP incorreto para o endpoint da API",
+          "Método não suportado em recurso de arquivo estático"
         ]
       }
     },
     "406": {
-      "description": "The server cannot produce a response matching the list of acceptable values defined in the request's proactive content negotiation headers."
+      "description": "O servidor não pode produzir uma resposta que corresponda à lista de valores aceitáveis definidos nos cabeçalhos de negociação de conteúdo da requisição."
     },
     "407": {
-      "description": "The client must first authenticate itself with a proxy."
+      "description": "O cliente deve primeiro se autenticar com um proxy."
     },
     "408": {
-      "description": "The server would like to shut down this unused connection.",
+      "description": "O servidor gostaria de encerrar esta conexão não utilizada.",
       "details": {
-        "usage": "Server closed the connection due to client inactivity",
+        "usage": "Servidor fechou a conexão por inatividade do cliente",
         "commonCauses": [
-          "Client took too long to send the request body",
-          "Network timeout between client and server",
-          "Slow client connection causing server timeout",
-          "Load balancer timeout exceeded"
+          "O cliente demorou muito para enviar o corpo da requisição",
+          "Timeout de rede entre cliente e servidor",
+          "Conexão lenta do cliente causando timeout do servidor",
+          "Limite de timeout do balanceador de carga excedido"
         ]
       }
     },
     "409": {
-      "description": "The request conflicts with the current state of the target resource.",
+      "description": "A requisição conflita com o estado atual do recurso de destino.",
       "details": {
-        "usage": "Request conflicts with server state or business rules",
+        "usage": "A requisição conflita com o estado do servidor ou regras de negócio",
         "commonCauses": [
-          "Creating a resource that already exists",
-          "Concurrent modification conflicts",
-          "Invalid state transition for resource",
-          "Duplicate unique constraint violation"
+          "Criando um recurso que já existe",
+          "Conflitos de modificação concorrente",
+          "Transição de estado inválida para o recurso",
+          "Violação de restrição de unicidade duplicada"
         ]
       }
     },
     "410": {
-      "description": "The target resource is no longer available at the origin server."
+      "description": "O recurso de destino não está mais disponível no servidor de origem."
     },
     "411": {
-      "description": "The server rejected the request because the Content-Length header field is not defined."
+      "description": "O servidor rejeitou a requisição porque o cabeçalho Content-Length não está definido."
     },
     "412": {
-      "description": "The server does not meet one of the preconditions that the requester put on the request header fields."
+      "description": "O servidor não atende a uma das pré-condições que o solicitante colocou nos cabeçalhos da requisição."
     },
     "413": {
-      "description": "The request entity is larger than limits defined by the server."
+      "description": "A entidade da requisição é maior que os limites definidos pelo servidor."
     },
     "414": {
-      "description": "The URI requested by the client is longer than the server is willing to interpret."
+      "description": "O URI solicitado pelo cliente é mais longo do que o servidor está disposto a interpretar."
     },
     "415": {
-      "description": "The media format of the requested data is not supported by the server."
+      "description": "O formato de mídia dos dados solicitados não é suportado pelo servidor."
     },
     "416": {
-      "description": "The range of bytes requested by the client cannot be fulfilled."
+      "description": "O intervalo de bytes solicitado pelo cliente não pode ser atendido."
     },
     "417": {
-      "description": "The expectation indicated by the Expect request header field cannot be met."
+      "description": "A expectativa indicada pelo cabeçalho Expect não pode ser atendida."
     },
     "418": {
-      "description": "The server refuses to brew coffee because it is, permanently, a teapot."
+      "description": "O servidor se recusa a preparar café porque é, permanentemente, um bule de chá."
     },
     "421": {
-      "description": "The request was directed at a server that is not able to produce a response."
+      "description": "A requisição foi direcionada a um servidor que não consegue produzir uma resposta."
     },
     "422": {
-      "description": "The request was well-formed but was unable to be followed due to semantic errors."
+      "description": "A requisição estava bem-formada, mas não pôde ser seguida devido a erros semânticos."
     },
     "423": {
-      "description": "The resource that is being accessed is locked."
+      "description": "O recurso que está sendo acessado está bloqueado."
     },
     "424": {
-      "description": "The request failed because it depended on another request that failed."
+      "description": "A requisição falhou porque dependia de outra requisição que falhou."
     },
     "425": {
-      "description": "The server is unwilling to risk processing a request that might be replayed."
+      "description": "O servidor não quer arriscar processar uma requisição que pode ser repetida."
     },
     "426": {
-      "description": "The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol."
+      "description": "O servidor se recusa a executar a requisição usando o protocolo atual, mas pode estar disposto a fazê-lo após o cliente atualizar para um protocolo diferente."
     },
     "428": {
-      "description": "The origin server requires the request to be conditional."
+      "description": "O servidor de origem requer que a requisição seja condicional."
     },
     "429": {
-      "description": "The user has sent too many requests in a given amount of time.",
+      "description": "O usuário enviou muitas requisições em um determinado período.",
       "details": {
-        "usage": "Rate limiting to prevent abuse and ensure fair usage",
+        "usage": "Limitação de taxa para prevenir abuso e garantir uso justo",
         "commonCauses": [
-          "Exceeding API rate limits",
-          "Too many requests from the same IP address",
-          "Bot or scraper activity detected",
-          "User triggered rate limiter with rapid requests"
+          "Excedendo limites de taxa da API",
+          "Muitas requisições do mesmo endereço IP",
+          "Atividade de bot ou scraper detectada",
+          "Usuário acionou o limitador com requisições rápidas"
         ]
       }
     },
     "431": {
-      "description": "The server is unwilling to process the request because its header fields are too large."
+      "description": "O servidor se recusa a processar a requisição porque seus campos de cabeçalho são muito grandes."
     },
     "440": {
-      "description": "The client's session has expired."
+      "description": "A sessão do cliente expirou."
     },
     "444": {
-      "description": "Nginx closes the connection without sending any response to the client."
+      "description": "Nginx fecha a conexão sem enviar nenhuma resposta ao cliente."
     },
     "449": {
-      "description": "The request should be retried after doing the appropriate action."
+      "description": "A requisição deve ser repetida após executar a ação apropriada."
     },
     "451": {
-      "description": "The server is denying access to the resource as a consequence of a legal demand."
+      "description": "O servidor está negando acesso ao recurso como consequência de uma demanda legal."
     },
     "494": {
-      "description": "Nginx rejected the request because the request header was too large."
+      "description": "Nginx rejeitou a requisição porque o cabeçalho era muito grande."
     },
     "495": {
-      "description": "Nginx client SSL certificate verification error."
+      "description": "Erro na verificação do certificado SSL do cliente pelo Nginx."
     },
     "496": {
-      "description": "Nginx client did not provide SSL certificate."
+      "description": "O cliente Nginx não forneceu certificado SSL."
     },
     "497": {
-      "description": "Nginx client sent HTTP request to HTTPS port."
+      "description": "O cliente Nginx enviou requisição HTTP para porta HTTPS."
     },
     "499": {
-      "description": "Nginx client closed the connection before the server could send a response."
+      "description": "O cliente Nginx fechou a conexão antes que o servidor pudesse enviar uma resposta."
     },
     "500": {
-      "description": "The server has encountered a situation it doesn't know how to handle.",
+      "description": "O servidor encontrou uma situação que não sabe como lidar.",
       "details": {
-        "usage": "Generic server error for unexpected conditions",
+        "usage": "Erro genérico do servidor para condições inesperadas",
         "commonCauses": [
-          "Uncaught exception in server code",
-          "Database connection failure",
-          "Configuration error on the server",
-          "Third-party service integration failure"
+          "Exceção não tratada no código do servidor",
+          "Falha na conexão com o banco de dados",
+          "Erro de configuração no servidor",
+          "Falha na integração com serviço de terceiros"
         ]
       }
     },
     "501": {
-      "description": "The request method is not supported by the server and cannot be handled."
+      "description": "O método da requisição não é suportado pelo servidor e não pode ser tratado."
     },
     "502": {
-      "description": "The server, while working as a gateway to get a response needed to handle the request, got an invalid response.",
+      "description": "O servidor, atuando como gateway para obter a resposta necessária, recebeu uma resposta inválida.",
       "details": {
-        "usage": "Invalid response from upstream server",
+        "usage": "Resposta inválida do servidor upstream",
         "commonCauses": [
-          "Upstream server is down or unreachable",
-          "Invalid response from backend service",
-          "Network connectivity issues between servers",
-          "Timeout waiting for upstream response"
+          "Servidor upstream fora do ar ou inacessível",
+          "Resposta inválida do serviço backend",
+          "Problemas de conectividade de rede entre servidores",
+          "Timeout aguardando resposta do upstream"
         ]
       }
     },
     "503": {
-      "description": "The server is not ready to handle the request.",
+      "description": "O servidor não está pronto para lidar com a requisição.",
       "details": {
-        "usage": "Service temporarily unavailable due to maintenance or overload",
+        "usage": "Serviço temporariamente indisponível devido a manutenção ou sobrecarga",
         "commonCauses": [
-          "Scheduled server maintenance",
-          "Server overload due to high traffic",
-          "Database connection pool exhausted",
-          "Dependency service is temporarily down"
+          "Manutenção programada do servidor",
+          "Sobrecarga do servidor devido a alto tráfego",
+          "Pool de conexões do banco de dados esgotado",
+          "Serviço de dependência temporariamente fora do ar"
         ]
       }
     },
     "504": {
-      "description": "The server, while working as a gateway, could not get a response in time.",
+      "description": "O servidor, atuando como gateway, não conseguiu obter uma resposta a tempo.",
       "details": {
-        "usage": "Timeout waiting for response from upstream server",
+        "usage": "Timeout aguardando resposta do servidor upstream",
         "commonCauses": [
-          "Upstream server took too long to respond",
-          "Slow backend service processing",
-          "Network latency between gateway and backend",
-          "Database query timeout"
+          "Servidor upstream demorou muito para responder",
+          "Processamento lento do serviço backend",
+          "Latência de rede entre gateway e backend",
+          "Timeout de consulta ao banco de dados"
         ]
       }
     },
     "505": {
-      "description": "The HTTP version used in the request is not supported by the server."
+      "description": "A versão HTTP usada na requisição não é suportada pelo servidor."
     },
     "506": {
-      "description": "The server has an internal configuration error."
+      "description": "O servidor tem um erro de configuração interno."
     },
     "507": {
-      "description": "The server is unable to store the representation needed to complete the request."
+      "description": "O servidor não consegue armazenar a representação necessária para completar a requisição."
     },
     "508": {
-      "description": "The server detected an infinite loop while processing the request."
+      "description": "O servidor detectou um loop infinito ao processar a requisição."
     },
     "510": {
-      "description": "Further extensions to the request are required for the server to fulfill it."
+      "description": "Extensões adicionais à requisição são necessárias para o servidor atendê-la."
     },
     "511": {
-      "description": "The client needs to authenticate to gain network access."
+      "description": "O cliente precisa se autenticar para obter acesso à rede."
     },
     "520": {
-      "description": "The origin server returned an unexpected or unknown error."
+      "description": "O servidor de origem retornou um erro inesperado ou desconhecido."
     },
     "521": {
-      "description": "The origin server refused the connection from Cloudflare."
+      "description": "O servidor de origem recusou a conexão do Cloudflare."
     },
     "522": {
-      "description": "Cloudflare could not negotiate a TCP handshake with the origin server."
+      "description": "Cloudflare não conseguiu negociar o handshake TCP com o servidor de origem."
     },
     "523": {
-      "description": "Cloudflare could not reach the origin server."
+      "description": "Cloudflare não conseguiu acessar o servidor de origem."
     },
     "524": {
-      "description": "Cloudflare was able to complete a TCP connection to the origin server, but the origin server did not reply with an HTTP response before the connection timed out."
+      "description": "Cloudflare conseguiu completar a conexão TCP com o servidor de origem, mas o servidor não respondeu com uma resposta HTTP antes do timeout."
     },
     "525": {
-      "description": "Cloudflare could not negotiate a SSL/TLS handshake with the origin server."
+      "description": "Cloudflare não conseguiu negociar o handshake SSL/TLS com o servidor de origem."
     },
     "526": {
-      "description": "Cloudflare could not validate the SSL certificate on the origin server."
+      "description": "Cloudflare não conseguiu validar o certificado SSL no servidor de origem."
     },
     "527": {
-      "description": "Cloudflare Railgun was unable to reach the origin server."
+      "description": "Cloudflare Railgun não conseguiu acessar o servidor de origem."
     },
     "528": {
-      "description": "Cloudflare timed out contacting the origin server."
+      "description": "Cloudflare atingiu o timeout ao contatar o servidor de origem."
     },
     "529": {
-      "description": "The origin server has exceeded its resource limits."
+      "description": "O servidor de origem excedeu seus limites de recursos."
     },
     "530": {
-      "description": "Cloudflare could not resolve the DNS for the origin server."
+      "description": "Cloudflare não conseguiu resolver o DNS para o servidor de origem."
     }
   }
 }

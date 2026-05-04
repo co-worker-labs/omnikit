@@ -1,8 +1,8 @@
 {
-  "passphrasePlaceholder": "Paste or type the secret passphrase for HMAC here",
-  "pasteToCompare": "Paste to compare",
+  "passphrasePlaceholder": "여기에 HMAC용 비밀 암호를 붙여넣거나 입력하세요",
+  "pasteToCompare": "비교할 값 붙여넣기",
   "descriptions": {
     "hmacTitle": "HMAC",
-    "hmac": "Keyed-hash message authentication codes (HMAC) is a mechanism for message authentication using cryptographic hash functions."
+    "hmac": "HMAC(Keyed-hash Message Authentication Code)은 암호화 해시 함수를 사용하여 메시지 인증을 수행하는 메커니즘입니다."
   }
 }

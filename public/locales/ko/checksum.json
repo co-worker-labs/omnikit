@@ -1,10 +1,10 @@
 {
-  "dropFilesHere": "Drop files here or click to select",
-  "deselect": "Deselect ({count})",
-  "noFileChosen": "No file chosen",
-  "selectedFiles": "Selected {count} {files}",
-  "selectedFile": "Selected {count} file",
-  "checksumOutput": "Checksum Output",
-  "algoTip": "For large files, select only the algorithms you need to reduce processing time.",
-  "calculate": "Calculate"
+  "dropFilesHere": "여기에 파일을 드롭하거나 클릭하여 선택",
+  "deselect": "선택 해제 ({count})",
+  "noFileChosen": "선택된 파일 없음",
+  "selectedFiles": "{count}개 파일 선택됨",
+  "selectedFile": "{count}개 파일 선택됨",
+  "checksumOutput": "체크섬 결과",
+  "algoTip": "대용량 파일의 경우 처리 시간을 줄이려면 필요한 알고리즘만 선택하세요.",
+  "calculate": "계산"
 }

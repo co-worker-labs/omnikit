@@ -1,83 +1,83 @@
 {
-  "title": "Privacy Policy",
-  "metaDescription": "Privacy Policy for OmniKit. Learn how we protect your data with 100% client-side processing and no server-side data transmission.",
-  "lastUpdated": "Last updated: April 23, 2026",
+  "title": "Политика конфиденциальности",
+  "metaDescription": "Политика конфиденциальности OmniKit. Узнайте, как мы защищаем ваши данные: 100% обработка на стороне клиента, без передачи данных на сервер.",
+  "lastUpdated": "Обновлено: 23 апреля 2026 г.",
 
-  "privacyStatementTitle": "Privacy Statement",
-  "privacyStatementP1": "This Privacy Policy describes how OmniKit (\"we\", \"us\", or \"our\") collects, uses, and shares information when you visit our website (the \"Site\"). We are committed to protecting your privacy and being transparent about our data practices.",
-  "privacyStatementP2": "By using the Site, you consent to the data practices described in this policy.",
+  "privacyStatementTitle": "Заявление о конфиденциальности",
+  "privacyStatementP1": "Эта Политика конфиденциальности описывает, как OmniKit («мы», «нас» или «наш») собирает, использует и передаёт информацию при посещении нашего сайта («Сайт»). Мы стремимся защищать вашу конфиденциальность и быть прозрачными в вопросах обработки данных.",
+  "privacyStatementP2": "Используя Сайт, вы соглашаетесь с практиками обработки данных, описанными в этой политике.",
 
-  "infoCollectTitle": "Information We Collect",
-  "infoCollectP1": "We collect a limited amount of information to operate and improve our Site. The information we may collect includes:",
+  "infoCollectTitle": "Какую информацию мы собираем",
+  "infoCollectP1": "Мы собираем ограниченный объём информации для работы и улучшения Сайта. Это может включать:",
   "infoCollectList1": [
-    "Device Information: When you visit the Site, we may automatically collect your IP address, browser type, operating system, screen resolution, and timezone.",
-    "Usage Information: We may collect data about the pages you view, the tools you use, and general interaction patterns on the Site.",
-    "Cookie Data: We use cookies and similar tracking technologies to enhance your experience and support our advertising partners."
+    "Информация об устройстве: при посещении Сайта мы можем автоматически собирать ваш IP-адрес, тип браузера, операционную систему, разрешение экрана и часовой пояс.",
+    "Информация об использовании: мы можем собирать данные о просматриваемых страницах, используемых инструментах и общих паттернах взаимодействия с Сайтом.",
+    "Данные файлов cookie: мы используем файлы cookie и аналогичные технологии для улучшения вашего опыта и поддержки наших рекламных партнёров."
   ],
-  "infoCollectP2": "Important: All developer tools on OmniKit run entirely in your browser. The text you encode, decode, hash, encrypt, or otherwise process using our tools is never transmitted to our servers or any third-party servers.",
+  "infoCollectP2": "Важно: все инструменты для разработчиков на OmniKit работают полностью в вашем браузере. Текст, который вы кодируете, декодируете, хешируете, шифруете или иным образом обрабатываете, никогда не передаётся на наши серверы или серверы третьих лиц.",
 
-  "infoUseTitle": "How We Use Your Information",
-  "infoUseP1": "We use the information we collect for the following purposes:",
+  "infoUseTitle": "Как мы используем вашу информацию",
+  "infoUseP1": "Мы используем собранную информацию в следующих целях:",
   "infoUseList1": [
-    "Site Analytics: To understand how visitors use our Site, identify trends, and improve our tools and user experience.",
-    "Advertising: To support our free service by displaying relevant advertisements through third-party ad networks.",
-    "Security: To detect and prevent abuse, fraud, or security issues.",
-    "Compliance: To comply with applicable legal obligations."
+    "Аналитика сайта: для понимания того, как посетители используют Сайт, выявления трендов и улучшения инструментов и пользовательского опыта.",
+    "Реклама: для поддержки бесплатного сервиса путём показа релевантной рекламы через сторонние рекламные сети.",
+    "Безопасность: для обнаружения и предотвращения злоупотреблений, мошенничества и проблем безопасности.",
+    "Соответствие законодательству: для выполнения применимых правовых обязательств."
   ],
-  "infoUseP2": "We do not sell your personal information to third parties.",
+  "infoUseP2": "Мы не продаём вашу персональную информацию третьим лицам.",
 
-  "cookiesTitle": "Cookies and Tracking Technologies",
-  "cookiesP1": "The Site uses cookies and similar technologies for the following purposes:",
+  "cookiesTitle": "Файлы cookie и технологии отслеживания",
+  "cookiesP1": "Сайт использует файлы cookie и аналогичные технологии в следующих целях:",
   "cookiesList1": [
-    "Essential Cookies: Required for the Site to function properly (e.g., remembering your language preference).",
-    "Analytics Cookies: Used by services like Google Analytics to collect anonymous usage statistics.",
-    "Advertising Cookies: Used by our ad partners to deliver relevant advertisements and measure ad effectiveness."
+    "Необходимые cookie: требуются для корректной работы Сайта (например, запоминание языковых предпочтений).",
+    "Аналитические cookie: используются такими сервисами, как Google Analytics, для сбора анонимной статистики использования.",
+    "Рекламные cookie: используются нашими рекламными партнёрами для показа релевантной рекламы и оценки её эффективности."
   ],
-  "cookiesP2": "You can manage your cookie preferences through your browser settings. Please note that disabling certain cookies may affect your experience on the Site. For more information about cookies, visit www.allaboutcookies.org.",
+  "cookiesP2": "Вы можете управлять настройками cookie через параметры браузера. Обратите внимание, что отключение некоторых cookie может повлиять на работу Сайта. Подробнее о cookie — на сайте www.allaboutcookies.org.",
 
-  "advertisingTitle": "Advertising",
-  "advertisingP1": "OmniKit is a free service supported by advertising. We partner with third-party ad networks that may collect information about your browsing activity across multiple websites to display personalized advertisements.",
-  "advertisingP2": "These partners may use technologies such as cookies, web beacons, and tracking pixels to collect browsing data for ad targeting and measurement purposes. The information collected is typically anonymous and does not personally identify you.",
-  "advertisingP3": "You have the right to opt out of personalized advertising. You can exercise this right through:",
+  "advertisingTitle": "Реклама",
+  "advertisingP1": "OmniKit — бесплатный сервис, поддерживаемый за счёт рекламы. Мы сотрудничаем со сторонними рекламными сетями, которые могут собирать информацию о вашей активности на различных сайтах для показа персонализированной рекламы.",
+  "advertisingP2": "Эти партнёры могут использовать технологии вроде cookie, веб-маяков и пикселей отслеживания для сбора данных о просмотре в целях таргетирования и оценки рекламы. Собранная информация обычно анонимна и не идентифицирует вас лично.",
+  "advertisingP3": "Вы имеете право отказаться от персонализированной рекламы. Это можно сделать через:",
   "advertisingOptList": [
-    "Your browser's privacy and cookie settings",
-    "The Digital Advertising Alliance opt-out page: optout.aboutads.info",
-    "The Network Advertising Initiative opt-out page: networkadvertising.org/choices",
-    "The European Interactive Digital Advertising Alliance: youronlinechoices.com"
+    "Настройки конфиденциальности и cookie в вашем браузере",
+    "Страницу отказа Digital Advertising Alliance: optout.aboutads.info",
+    "Страницу отказа Network Advertising Initiative: networkadvertising.org/choices",
+    "European Interactive Digital Advertising Alliance: youronlinechoices.com"
   ],
-  "advertisingNote": "Note: Opting out of personalized advertising does not mean you will no longer see ads — it means the ads you see will be less relevant to your interests.",
+  "advertisingNote": "Примечание: отказ от персонализированной рекламы не означает, что вы перестанете видеть рекламу — просто она будет менее релевантной для вас.",
 
-  "thirdPartyTitle": "Third-Party Services",
-  "thirdPartyP1": "We use Google Analytics to collect and analyze usage data for the Site. Google Analytics collects information such as how often users visit the Site, what pages they visit, and what other sites they used prior to coming to the Site. You can learn more about Google's privacy practices at google.com/intl/en/policies/privacy and opt out of Google Analytics at tools.google.com/dlpage/gaoptout.",
-  "thirdPartyP2": "We may use additional third-party services for advertising, analytics, or site functionality. Each third-party service has its own privacy policy, and we encourage you to review them.",
+  "thirdPartyTitle": "Сторонние сервисы",
+  "thirdPartyP1": "Мы используем Google Analytics для сбора и анализа данных об использовании Сайта. Google Analytics собирает такую информацию, как частота визитов, просмотренные страницы и сайты, которые вы посещали до перехода на наш Сайт. Подробнее о практике конфиденциальности Google: google.com/intl/en/policies/privacy. Отказаться от Google Analytics можно на tools.google.com/dlpage/gaoptout.",
+  "thirdPartyP2": "Мы можем использовать дополнительные сторонние сервисы для рекламы, аналитики или функциональности Сайта. Каждый сторонний сервис имеет собственную политику конфиденциальности, и мы рекомендуем ознакомиться с ними.",
 
-  "dataSecurityTitle": "Data Security",
-  "dataSecurityP1": "All developer tools on OmniKit process data entirely within your web browser using client-side JavaScript. Your data — including text, files, and cryptographic operations — never leaves your device. We do not have access to, nor do we store, any data you process using our tools.",
-  "dataSecurityP2": "We implement reasonable security measures to protect the Site and its infrastructure. However, no method of electronic transmission or storage is 100% secure, and we cannot guarantee absolute security.",
+  "dataSecurityTitle": "Безопасность данных",
+  "dataSecurityP1": "Все инструменты для разработчиков на OmniKit обрабатывают данные полностью в вашем браузере с помощью клиентского JavaScript. Ваши данные, включая текст, файлы и криптографические операции, никогда не покидают ваше устройство. Мы не имеем доступа к данным, которые вы обрабатываете с помощью наших инструментов, и не храним их.",
+  "dataSecurityP2": "Мы применяем разумные меры безопасности для защиты Сайта и его инфраструктуры. Однако ни один метод электронной передачи или хранения не является на 100% безопасным, и мы не можем гарантировать абсолютную безопасность.",
 
-  "yourRightsTitle": "Your Rights",
-  "yourRightsP1": "Depending on your location, you may have certain rights regarding your personal information:",
+  "yourRightsTitle": "Ваши права",
+  "yourRightsP1": "В зависимости от вашего местонахождения, вы можете иметь определённые права в отношении вашей персональной информации:",
   "yourRightsList1": [
-    "Access: You have the right to request access to the personal information we hold about you.",
-    "Correction: You have the right to request correction of inaccurate or incomplete personal information.",
-    "Deletion: You have the right to request deletion of your personal information, subject to certain legal exceptions.",
-    "Opt-Out: You have the right to opt out of personalized advertising and certain data processing activities.",
-    "Data Portability: In some jurisdictions, you have the right to receive your personal information in a structured, machine-readable format."
+    "Доступ: вы имеете право запросить доступ к персональной информации, которую мы о вас храним.",
+    "Исправление: вы имеете право запросить исправление неточной или неполной персональной информации.",
+    "Удаление: вы имеете право запросить удаление вашей персональной информации с учётом определённых законодательных исключений.",
+    "Отказ: вы имеете право отказаться от персонализированной рекламы и определённых видов обработки данных.",
+    "Переносимость данных: в некоторых юрисдикциях вы имеете право получить свою персональную информацию в структурированном, машиночитаемом формате."
   ],
-  "yourRightsP2": "To exercise any of these rights, please contact us. We will respond to your request in accordance with applicable laws.",
+  "yourRightsP2": "Для реализации любого из этих прав свяжитесь с нами. Мы ответим на ваш запрос в соответствии с применимым законодательством.",
 
-  "dataRetentionTitle": "Data Retention",
-  "dataRetentionP1": "We retain analytics and advertising data only for as long as necessary to fulfill the purposes described in this policy, or as required by law. Data processed by our developer tools is never stored by us and exists only temporarily in your browser session.",
+  "dataRetentionTitle": "Хранение данных",
+  "dataRetentionP1": "Мы храним аналитические и рекламные данные только столько, сколько необходимо для выполнения целей, описанных в этой политике, или сколько требуется по закону. Данные, обработанные нашими инструментами, никогда нами не хранятся и существуют только временно в рамках сессии браузера.",
 
-  "childrenTitle": "Children's Privacy",
-  "childrenP1": "The Site is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected information from a child under 13, please contact us and we will take steps to delete such information promptly.",
+  "childrenTitle": "Конфиденциальность детей",
+  "childrenP1": "Сайт не предназначен для детей младше 13 лет. Мы намеренно не собираем персональную информацию от детей до 13 лет. Если вы считаете, что мы случайно собрали информацию от ребёнка младше 13 лет, пожалуйста, свяжитесь с нами, и мы незамедлительно удалим такую информацию.",
 
-  "changesTitle": "Changes to This Policy",
-  "changesP1": "We may update this Privacy Policy from time to time to reflect changes in our practices, technology, or legal requirements. We will post the updated policy on this page with a revised \"Last updated\" date. Your continued use of the Site after any changes constitutes acceptance of the updated policy.",
+  "changesTitle": "Изменения в этой политике",
+  "changesP1": "Мы можем периодически обновлять эту Политику конфиденциальности, чтобы отражать изменения в наших практиках, технологиях или правовых требованиях. Обновлённая политика будет размещена на этой странице с новой датой «Обновлено». Продолжение использования Сайта после любых изменений означает согласие с обновлённой политикой.",
 
-  "linksTitle": "Links to Other Sites",
-  "linksP1": "The Site may contain links to third-party websites or services. We are not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policies of any third-party sites you visit.",
+  "linksTitle": "Ссылки на другие сайты",
+  "linksP1": "Сайт может содержать ссылки на сторонние сайты или сервисы. Мы не несём ответственности за практики конфиденциальности или содержание этих внешних сайтов. Рекомендуем ознакомиться с политиками конфиденциальности всех сторонних сайтов, которые вы посещаете.",
 
-  "contactTitle": "Contact Us",
-  "contactP1": "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us."
+  "contactTitle": "Связаться с нами",
+  "contactP1": "Если у вас есть вопросы или опасения относительно этой Политики конфиденциальности или наших практик обработки данных, пожалуйста, свяжитесь с нами."
 }

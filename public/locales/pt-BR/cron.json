@@ -1,129 +1,179 @@
 {
   "mode": {
-    "label": "Mode",
-    "standard": "Standard (5 fields)",
-    "spring": "Spring (6 fields)",
-    "quartz": "Quartz (7 fields)"
+    "label": "Modo",
+    "standard": "Padrão (5 campos)",
+    "spring": "Spring (6 campos)",
+    "quartz": "Quartz (7 campos)"
   },
-  "tab": { "generate": "Generate", "parse": "Parse" },
-  "timezone": { "label": "Timezone", "local": "Local", "utc": "UTC" },
+  "tab": {
+    "generate": "Gerar",
+    "parse": "Analisar"
+  },
+  "timezone": {
+    "label": "Fuso horário",
+    "local": "Local",
+    "utc": "UTC"
+  },
   "field": {
-    "second": "Second",
-    "minute": "Minute",
-    "hour": "Hour",
-    "dayOfMonth": "Day",
-    "month": "Month",
-    "dayOfWeek": "Weekday",
-    "year": "Year"
+    "second": "Segundo",
+    "minute": "Minuto",
+    "hour": "Hora",
+    "dayOfMonth": "Dia",
+    "month": "Mês",
+    "dayOfWeek": "Dia da semana",
+    "year": "Ano"
   },
   "fieldType": {
-    "any": "Any",
-    "noSpecific": "No specific",
-    "specific": "Specific",
-    "range": "Range",
-    "step": "Step",
-    "list": "List",
-    "lastDay": "Last day",
-    "weekday": "Nearest weekday",
-    "nthDayOfWeek": "Nth weekday",
-    "lastDayOffset": "Days before last"
+    "any": "Qualquer",
+    "noSpecific": "Não específico",
+    "specific": "Específico",
+    "range": "Intervalo",
+    "step": "Degrau",
+    "list": "Lista",
+    "lastDay": "Último dia",
+    "weekday": "Dia útil mais próximo",
+    "nthDayOfWeek": "Enésimo dia da semana",
+    "lastDayOffset": "Dias antes do último"
   },
   "monthShort": [
-    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
-    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+    "Jan",
+    "Fev",
+    "Mar",
+    "Abr",
+    "Mai",
+    "Jun",
+    "Jul",
+    "Ago",
+    "Set",
+    "Out",
+    "Nov",
+    "Dez"
   ],
-  "weekdayShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
-  "weekdayLong": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+  "weekdayShort": [
+    "Dom",
+    "Seg",
+    "Ter",
+    "Qua",
+    "Qui",
+    "Sex",
+    "Sáb"
+  ],
+  "weekdayLong": [
+    "Domingo",
+    "Segunda-feira",
+    "Terça-feira",
+    "Quarta-feira",
+    "Quinta-feira",
+    "Sexta-feira",
+    "Sábado"
+  ],
   "presets": {
-    "everyMinute": "Every minute",
-    "every5Minutes": "Every 5 minutes",
-    "every15Minutes": "Every 15 minutes",
-    "everyHour": "Every hour",
-    "every2Hours": "Every 2 hours",
-    "everyDay": "Every day at 00:00",
-    "everyMondayMorning": "Every Monday at 09:00",
-    "weekdays9am": "Weekdays at 09:00",
-    "firstOfMonth": "First day of month",
-    "lastOfMonth": "Last day of month",
-    "everyQuarter": "Every quarter (Jan/Apr/Jul/Oct 1st)"
+    "everyMinute": "A cada minuto",
+    "every5Minutes": "A cada 5 minutos",
+    "every15Minutes": "A cada 15 minutos",
+    "everyHour": "A cada hora",
+    "every2Hours": "A cada 2 horas",
+    "everyDay": "Todos os dias às 00:00",
+    "everyMondayMorning": "Toda segunda às 09:00",
+    "weekdays9am": "Dias úteis às 09:00",
+    "firstOfMonth": "Primeiro dia do mês",
+    "lastOfMonth": "Último dia do mês",
+    "everyQuarter": "Trimestral (Jan/Abr/Jul/Out dia 1)"
   },
   "describe": {
-    "everyMinute": "Every minute",
-    "everyHour": "Every hour",
-    "everyHourAt": "Every hour at {time}",
-    "everySecond": "Every second",
-    "atTime": "At {time}",
-        "everyN": "Every {n} minutes",
-        "lastDow": "the last {weekday} of the month",
-    "fromTo": "from {from} to {to}",
-    "onDays": "on {days}",
-    "throughDays": "{from} through {to}",
-    "andList": "{prefix} and {item}",
-    "ofEveryMonth": "of every month",
-    "lastDayOfMonth": "the last day of the month",
-    "nthWeekday": "the {ordinal} {weekday} of the month",
-    "nearestWeekdayTo": "the nearest weekday to day {day}",
-    "lastWeekdayOfMonth": "the last weekday of the month",
-    "lastDayMinusN": "{n} days before the last day of the month"
+    "everyMinute": "A cada minuto",
+    "everyHour": "A cada hora",
+    "everyHourAt": "A cada hora às {time}",
+    "everySecond": "A cada segundo",
+    "atTime": "Às {time}",
+    "everyN": "A cada {n} minutos",
+    "lastDow": "o último {weekday} do mês",
+    "fromTo": "de {from} a {to}",
+    "onDays": "em {days}",
+    "throughDays": "{from} a {to}",
+    "andList": "{prefix} e {item}",
+    "ofEveryMonth": "de cada mês",
+    "lastDayOfMonth": "o último dia do mês",
+    "nthWeekday": "o {ordinal} {weekday} do mês",
+    "nearestWeekdayTo": "o dia útil mais próximo do dia {day}",
+    "lastWeekdayOfMonth": "o último dia útil do mês",
+    "lastDayMinusN": "{n} dias antes do último dia do mês"
   },
-  "ordinal": { "1": "first", "2": "second", "3": "third", "4": "fourth", "5": "fifth" },
+  "ordinal": {
+    "1": "primeiro",
+    "2": "segundo",
+    "3": "terceiro",
+    "4": "quarto",
+    "5": "quinto"
+  },
   "output": {
-    "expression": "Expression",
-    "description": "Description",
-    "nextExecutions": "Next 5 executions",
-    "header": { "num": "#", "dateTime": "Date & Time", "relative": "Relative" },
-    "relative": { "in": "in {value}", "now": "now", "past": "past" }
+    "expression": "Expressão",
+    "description": "Descrição",
+    "nextExecutions": "Próximas 5 execuções",
+    "header": {
+      "num": "#",
+      "dateTime": "Data e Hora",
+      "relative": "Relativo"
+    },
+    "relative": {
+      "in": "em {value}",
+      "now": "agora",
+      "past": "passado"
+    }
   },
-  "share": { "button": "Share link", "copied": "Share link copied" },
+  "share": {
+    "button": "Compartilhar link",
+    "copied": "Link de compartilhamento copiado"
+  },
   "parse": {
-    "placeholder": "Paste or type a Cron expression",
-    "showingPrevious": "Showing last valid output"
+    "placeholder": "Cole ou digite uma expressão Cron",
+    "showingPrevious": "Exibindo o último resultado válido"
   },
   "warn": {
-    "neverTriggers": "This expression will never trigger",
-    "searchWindowExhausted": "Only {found} of {requested} executions found in the next 4 years",
-    "secondDropped": "Second field was dropped (was: {value})",
-    "yearDropped": "Year field was dropped (was: {value})",
-    "specialDroppedFromMode": "Special character {token} is not supported in {mode} mode and was removed",
-    "bothDayFieldsSet": "Both day-of-month and day-of-week are set — expression fires when EITHER matches",
-    "orSemanticsLost": "Quartz cannot represent OR semantics across day fields — keeping day-of-week, setting day-of-month to '?'"
+    "neverTriggers": "Esta expressão nunca será executada",
+    "searchWindowExhausted": "Apenas {found} de {requested} execuções encontradas nos próximos 4 anos",
+    "secondDropped": "Campo de segundos foi removido (era: {value})",
+    "yearDropped": "Campo de ano foi removido (era: {value})",
+    "specialDroppedFromMode": "O caractere especial {token} não é suportado no modo {mode} e foi removido",
+    "bothDayFieldsSet": "Dia do mês e dia da semana estão definidos — a expressão dispara quando QUALQUER UM corresponder",
+    "orSemanticsLost": "Quartz não pode representar semântica OR entre campos de dia — mantendo dia da semana, definindo dia do mês como '?'"
   },
   "errors": {
-    "wrongFieldCount": "Expected {expected} fields for {mode} mode, got {got}",
-    "outOfRange": "{field} must be {min}-{max}, got {value}",
-    "invalidSyntax": "Unexpected character '{char}' in {field} field",
-    "invalidStep": "Step value must be positive, got {value}",
-    "rangeReversed": "Range start ({from}) is greater than end ({to}) in {field}",
-    "specialNotAllowed": "'{token}' is not allowed in {field} field for {mode} mode",
-    "quartzNeedsQuestionMark": "Quartz mode requires either day-of-month or day-of-week to be '?'",
-    "quartzBothQuestionMarks": "Day-of-month and day-of-week cannot both be '?'",
-    "macroRebootUnsupported": "@reboot is not supported (browser cannot detect system boot)",
-    "unknownMacro": "Unknown macro '{macro}'",
-    "unknownAlias": "Unknown name '{name}' in {field} field",
-    "weekdayOnNonDom": "'W' is only allowed in day-of-month field",
-    "nthOnNonDow": "'#' is only allowed in day-of-week field"
+    "wrongFieldCount": "Esperado {expected} campos para o modo {mode}, recebido {got}",
+    "outOfRange": "{field} deve ser {min}-{max}, recebido {value}",
+    "invalidSyntax": "Caractere inesperado '{char}' no campo {field}",
+    "invalidStep": "O valor do passo deve ser positivo, recebido {value}",
+    "rangeReversed": "Início do intervalo ({from}) é maior que o fim ({to}) em {field}",
+    "specialNotAllowed": "'{token}' não é permitido no campo {field} para o modo {mode}",
+    "quartzNeedsQuestionMark": "O modo Quartz requer que dia do mês ou dia da semana seja '?'",
+    "quartzBothQuestionMarks": "Dia do mês e dia da semana não podem ser ambos '?'",
+    "macroRebootUnsupported": "@reboot não é suportado (o navegador não detecta a inicialização do sistema)",
+    "unknownMacro": "Macro desconhecida '{macro}'",
+    "unknownAlias": "Nome desconhecido '{name}' no campo {field}",
+    "weekdayOnNonDom": "'W' só é permitido no campo de dia do mês",
+    "nthOnNonDow": "'#' só é permitido no campo de dia da semana"
   },
   "descriptions": {
-    "whatIsTitle": "What is a Cron Expression?",
-    "whatIs": "A Cron expression is a string of fields that describes a schedule. Each field controls a unit of time (minute, hour, day, month, weekday). Originally from Unix cron, the syntax has been extended by Spring (adds seconds) and Quartz (adds seconds and year, plus special characters L, W, #).",
-    "fieldRefTitle": "Field Reference",
-    "specialCharsTitle": "Special Characters",
-    "modesTitle": "Modes",
-    "dstTitle": "Daylight Saving Time",
-    "dst": "When the active timezone observes DST, schedules within the spring-forward gap fire at the next valid time, and schedules within the fall-back overlap fire at the first occurrence. Switch to UTC to avoid DST entirely."
+    "whatIsTitle": "O que é uma expressão Cron?",
+    "whatIs": "Uma expressão Cron é uma string de campos que descreve um agendamento. Cada campo controla uma unidade de tempo (minuto, hora, dia, mês, dia da semana). Original do Unix cron, a sintaxe foi estendida pelo Spring (adiciona segundos) e Quartz (adiciona segundos e ano, além dos caracteres especiais L, W, #).",
+    "fieldRefTitle": "Referência de campos",
+    "specialCharsTitle": "Caracteres especiais",
+    "modesTitle": "Modos",
+    "dstTitle": "Horário de verão",
+    "dst": "Quando o fuso horário ativo observa horário de verão, agendamentos dentro do intervalo perdido disparam no próximo horário válido, e agendamentos no horário duplicado disparam na primeira ocorrência. Mude para UTC para evitar o horário de verão completamente."
   },
   "editor": {
-    "title": "Edit field",
-    "preview": "Preview",
-    "apply": "Apply",
-    "specificValue": "Value",
-    "rangeFrom": "From",
-    "rangeTo": "To",
-    "stepStart": "Start",
-    "stepInterval": "Interval",
-    "stepEvery": "Every",
-    "listSelect": "Select values",
-    "specialKind": "Kind"
+    "title": "Editar campo",
+    "preview": "Prévia",
+    "apply": "Aplicar",
+    "specificValue": "Valor",
+    "rangeFrom": "De",
+    "rangeTo": "Até",
+    "stepStart": "Início",
+    "stepInterval": "Intervalo",
+    "stepEvery": "Cada",
+    "listSelect": "Selecionar valores",
+    "specialKind": "Tipo"
   },
-  "presetSection": "Quick presets"
+  "presetSection": "Presets rápidos"
 }

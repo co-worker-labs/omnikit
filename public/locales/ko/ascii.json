@@ -1,19 +1,19 @@
 {
-  "printableCharacters": "Printable Characters",
-  "controlCodeCharts": "Control Code Charts",
+  "printableCharacters": "출력 가능한 문자",
+  "controlCodeCharts": "제어 코드 차트",
   "description": {
-    "text": "ASCII stands for American Standard Code for Information Interchange. Computers can only understand numbers, so an ASCII code is the numerical representation of a character such as 'a' or '@' or an action of some sort. ASCII was developed a long time ago and now the non-printing characters are rarely used for their original purpose. Below is the ASCII character table and this includes descriptions of the first 32 non-printing characters. ASCII was actually designed for use with teletypes and so the descriptions are somewhat obscure. If someone says they want your CV however in ASCII format, all this means is they want 'plain' text with no formatting such as tabs, bold or underscoring - the raw format that any computer can understand. This is usually so they can easily import the file into their own applications without issues. Notepad.exe creates ASCII text, or in MS Word you can save a file as 'text only'"
+    "text": "ASCII는 American Standard Code for Information Interchange의 약자입니다. 컴퓨터는 숫자만 이해할 수 있기 때문에, 'a'나 '@' 같은 문자나 어떤 동작을 숫자로 표현한 것이 바로 ASCII 코드입니다. ASCII는 오래전에 개발되었고, 지금은 비인쇄 문자들이 원래 목적대로 거의 사용되지 않습니다. 아래는 ASCII 문자 테이블이며, 처음 32개의 비인쇄 문자에 대한 설명도 포함되어 있습니다. ASCII는 원래 텔레타이프에서 사용하도록 설계되었기 때문에 설명이 다소 생소할 수 있습니다. 누군가 이력서를 ASCII 형식으로 보내달라고 한다면, 그것은 탭, 굵은 글씨, 밑줄 같은 서식 없이 '순수한' 텍스트를 원한다는 뜻입니다. 즉, 모든 컴퓨터가 이해할 수 있는 원시 형식이죠. 이렇게 하면 자신의 애플리케이션으로 파일을 쉽게 가져올 수 있기 때문입니다. 메모장은 ASCII 텍스트를 생성하고, MS Word에서는 파일을 '텍스트만'으로 저장할 수 있습니다."
   },
   "tableHeaders": {
-    "decimal": "Decimal",
-    "binary": "Binary",
-    "oct": "Oct",
-    "hex": "Hex",
-    "abbr": "Abbr",
-    "desc": "Desc",
-    "html": "Html",
-    "glyph": "Glyph"
+    "decimal": "10진수",
+    "binary": "2진수",
+    "oct": "8진수",
+    "hex": "16진수",
+    "abbr": "약어",
+    "desc": "설명",
+    "html": "HTML",
+    "glyph": "문양"
   },
-  "tip": "💡 Hover over any row for details. Use the search bar to quickly find characters by decimal, hex, or glyph.",
-  "searchPlaceholder": "Search by decimal, hex, or character..."
+  "tip": "💡 행 위에 마우스를 올리면 상세 정보를 볼 수 있습니다. 검색창에서 10진수, 16진수 또는 문자로 빠르게 찾아보세요.",
+  "searchPlaceholder": "10진수, 16진수 또는 문자로 검색..."
 }

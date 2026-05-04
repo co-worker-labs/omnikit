@@ -1,15 +1,15 @@
 {
-  "title": "OmniKit - Free Online Developer Tools",
-  "metaDescription": "A collection of free, browser-based developer tools. Base64 encoder, password generator, hash generator, encryption, checksum, and more. 100% client-side, no data sent to server.",
-  "badge": "Free & Open Source",
-  "subtitle": "Your Swiss Army Knife for Dev",
-  "tagline": "No sign-up, no tracking — just results.",
-  "searchPlaceholder": "Search tools...",
-  "noResults": "No tools matching \"{query}\"",
-  "resultsCount": "{count} tools found",
-  "allTools": "All Tools",
-  "viewGrouped": "Grouped",
-  "viewAll": "All",
-  "clearSearch": "Clear search",
-  "quickAccess": "Quick Access"
+  "title": "OmniKit - Kostenlose Online-Entwicklertools",
+  "metaDescription": "Eine Sammlung kostenloser, browserbasierter Entwicklertools. Base64-Kodierer, Passwort-Generator, Hash-Generator, Verschlüsselung, Prüfsumme und mehr. 100% clientseitig, keine Daten werden an Server gesendet.",
+  "badge": "Kostenlos & Open Source",
+  "subtitle": "Ihr Schweizer Taschenmesser für Entwickler",
+  "tagline": "Keine Anmeldung, kein Tracking, einfach Ergebnisse.",
+  "searchPlaceholder": "Tools suchen...",
+  "noResults": "Keine Tools für \"{query}\" gefunden",
+  "resultsCount": "{count} Tools gefunden",
+  "allTools": "Alle Tools",
+  "viewGrouped": "Gruppiert",
+  "viewAll": "Alle",
+  "clearSearch": "Suche leeren",
+  "quickAccess": "Schnellzugriff"
 }

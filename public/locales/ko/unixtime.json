@@ -1,75 +1,75 @@
 {
   "liveClock": {
-    "title": "Current Unix Timestamp",
-    "pause": "Pause",
-    "resume": "Resume",
-    "localLabel": "Local",
+    "title": "현재 Unix 타임스탬프",
+    "pause": "일시정지",
+    "resume": "재개",
+    "localLabel": "로컬",
     "utcLabel": "UTC"
   },
   "tsToDate": {
-    "title": "Timestamp → DateTime",
-    "unitLegend": "Unit",
-    "unitAuto": "Auto",
-    "unitSeconds": "Seconds",
-    "unitMilliseconds": "Milliseconds",
-    "inputLabel": "Input",
-    "inputPlaceholder": "e.g. 1714521600",
-    "paste": "Paste",
-    "clear": "Clear",
-    "quickLegend": "Quick",
-    "now": "Now",
-    "todayLocal": "Today 00:00 Local",
-    "todayUtc": "Today 00:00 UTC",
+    "title": "타임스탬프 → 날짜/시간",
+    "unitLegend": "단위",
+    "unitAuto": "자동",
+    "unitSeconds": "초",
+    "unitMilliseconds": "밀리초",
+    "inputLabel": "입력",
+    "inputPlaceholder": "예: 1714521600",
+    "paste": "붙여넣기",
+    "clear": "지우기",
+    "quickLegend": "빠른 선택",
+    "now": "지금",
+    "todayLocal": "오늘 00:00 로컬",
+    "todayUtc": "오늘 00:00 UTC",
     "rows": {
-      "local": "Local",
+      "local": "로컬",
       "utc": "UTC",
       "iso": "ISO 8601",
       "sql": "SQL",
       "rfc": "RFC 2822",
-      "dayWeek": "Day / Week",
-      "relative": "Relative",
-      "timezone": "Timezone"
+      "dayWeek": "요일 / 주",
+      "relative": "상대 시간",
+      "timezone": "시간대"
     },
-    "weekShort": "W"
+    "weekShort": "주"
   },
   "dateToTs": {
-    "title": "DateTime → Timestamp",
-    "quickLegend": "Quick",
-    "now": "Now",
-    "todayLocal": "Today 00:00 Local",
-    "todayUtc": "Today 00:00 UTC",
-    "dateLabel": "Date",
-    "timeLabel": "Time",
-    "msLabel": "Milliseconds (optional)",
-    "tzLegend": "Timezone",
-    "tzLocal": "Local",
+    "title": "날짜/시간 → 타임스탬프",
+    "quickLegend": "빠른 선택",
+    "now": "지금",
+    "todayLocal": "오늘 00:00 로컬",
+    "todayUtc": "오늘 00:00 UTC",
+    "dateLabel": "날짜",
+    "timeLabel": "시간",
+    "msLabel": "밀리초 (선택)",
+    "tzLegend": "시간대",
+    "tzLocal": "로컬",
     "tzUtc": "UTC",
     "rows": {
-      "seconds": "Seconds",
-      "milliseconds": "Milliseconds"
+      "seconds": "초",
+      "milliseconds": "밀리초"
     }
   },
   "errors": {
-    "notNumeric": "Must be a positive integer",
-    "negative": "Negative timestamps are not supported",
-    "tooLong": "Too long — looks like microseconds. Truncate to 13 digits.",
-    "secondsTooLarge": "Value too large for seconds. Switch to Milliseconds?",
-    "outOfRange": "Out of supported range (1970-01-01 to 9999-12-31)",
-    "pasteFailed": "Paste unavailable — use Ctrl+V / ⌘V instead"
+    "notNumeric": "양의 정수여야 합니다",
+    "negative": "음수 타임스탬프는 지원되지 않습니다",
+    "tooLong": "너무 깁니다. 마이크로초로 보입니다. 13자리로 자르세요.",
+    "secondsTooLarge": "초 단위에 너무 큰 값입니다. 밀리초로 전환하시겠습니까?",
+    "outOfRange": "지원 범위를 벗어났습니다 (1970-01-01 ~ 9999-12-31)",
+    "pasteFailed": "붙여넣기를 사용할 수 없습니다. Ctrl+V / ⌘V를 대신 사용하세요"
   },
   "toast": {
-    "paused": "Paused",
-    "resumed": "Resumed",
-    "applied": "Applied"
+    "paused": "일시정지됨",
+    "resumed": "재개됨",
+    "applied": "적용됨"
   },
   "description": {
-    "whatIsTitle": "What is a Unix timestamp?",
-    "whatIs": "A Unix timestamp is the number of seconds elapsed since 1970-01-01T00:00:00Z (the Unix epoch). It is timezone-agnostic — the same number always refers to the same instant in time, regardless of where you are.",
-    "secMsTitle": "Seconds vs Milliseconds",
-    "secMs": "Most Unix tools and log files use seconds (10 digits today). JavaScript's Date.getTime(), Java's System.currentTimeMillis(), and many web APIs use milliseconds (13 digits today).",
-    "y2k38Title": "The Year 2038 Problem",
-    "y2k38": "Systems that store Unix seconds in a signed 32-bit integer overflow on 2038-01-19 03:14:07 UTC. Modern 64-bit systems are not affected.",
-    "tzTitle": "Timezones",
-    "tz": "A timestamp itself has no timezone. The human-readable form (e.g. 2024-05-01 00:00:00) depends on which timezone you display it in. This tool always shows both Local and UTC."
+    "whatIsTitle": "Unix 타임스탬프란?",
+    "whatIs": "Unix 타임스탬프는 1970-01-01T00:00:00Z(Unix 에포크) 이후 경과한 초 수입니다. 시간대와 무관합니다. 같은 숫자는 항상 같은 시점을 가리키며, 어디에 있든 상관없습니다.",
+    "secMsTitle": "초 vs 밀리초",
+    "secMs": "대부분의 Unix 도구와 로그 파일은 초를 사용합니다(현재 10자리). JavaScript의 Date.getTime(), Java의 System.currentTimeMillis(), 많은 웹 API는 밀리초를 사용합니다(현재 13자리).",
+    "y2k38Title": "2038년 문제",
+    "y2k38": "Unix 초를 부호 있는 32비트 정수로 저장하는 시스템은 2038-01-19 03:14:07 UTC에 오버플로우됩니다. 현대의 64비트 시스템은 영향을 받지 않습니다.",
+    "tzTitle": "시간대",
+    "tz": "타임스탬프 자체에는 시간대가 없습니다. 사람이 읽을 수 있는 형태(예: 2024-05-01 00:00:00)는 어떤 시간대로 표시하느냐에 따라 다릅니다. 이 도구는 항상 로컬과 UTC를 모두 표시합니다."
   }
 }

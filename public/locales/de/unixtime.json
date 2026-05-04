@@ -1,75 +1,75 @@
 {
   "liveClock": {
-    "title": "Current Unix Timestamp",
-    "pause": "Pause",
-    "resume": "Resume",
-    "localLabel": "Local",
+    "title": "Aktueller Unix-Timestamp",
+    "pause": "Pausieren",
+    "resume": "Fortsetzen",
+    "localLabel": "Lokal",
     "utcLabel": "UTC"
   },
   "tsToDate": {
-    "title": "Timestamp → DateTime",
-    "unitLegend": "Unit",
+    "title": "Timestamp → Datum/Uhrzeit",
+    "unitLegend": "Einheit",
     "unitAuto": "Auto",
-    "unitSeconds": "Seconds",
-    "unitMilliseconds": "Milliseconds",
-    "inputLabel": "Input",
-    "inputPlaceholder": "e.g. 1714521600",
-    "paste": "Paste",
-    "clear": "Clear",
-    "quickLegend": "Quick",
-    "now": "Now",
-    "todayLocal": "Today 00:00 Local",
-    "todayUtc": "Today 00:00 UTC",
+    "unitSeconds": "Sekunden",
+    "unitMilliseconds": "Millisekunden",
+    "inputLabel": "Eingabe",
+    "inputPlaceholder": "z.B. 1714521600",
+    "paste": "Einfügen",
+    "clear": "Leeren",
+    "quickLegend": "Schnell",
+    "now": "Jetzt",
+    "todayLocal": "Heute 00:00 Lokal",
+    "todayUtc": "Heute 00:00 UTC",
     "rows": {
-      "local": "Local",
+      "local": "Lokal",
       "utc": "UTC",
       "iso": "ISO 8601",
       "sql": "SQL",
       "rfc": "RFC 2822",
-      "dayWeek": "Day / Week",
-      "relative": "Relative",
-      "timezone": "Timezone"
+      "dayWeek": "Tag / Woche",
+      "relative": "Relativ",
+      "timezone": "Zeitzone"
     },
     "weekShort": "W"
   },
   "dateToTs": {
-    "title": "DateTime → Timestamp",
-    "quickLegend": "Quick",
-    "now": "Now",
-    "todayLocal": "Today 00:00 Local",
-    "todayUtc": "Today 00:00 UTC",
-    "dateLabel": "Date",
-    "timeLabel": "Time",
-    "msLabel": "Milliseconds (optional)",
-    "tzLegend": "Timezone",
-    "tzLocal": "Local",
+    "title": "Datum/Uhrzeit → Timestamp",
+    "quickLegend": "Schnell",
+    "now": "Jetzt",
+    "todayLocal": "Heute 00:00 Lokal",
+    "todayUtc": "Heute 00:00 UTC",
+    "dateLabel": "Datum",
+    "timeLabel": "Uhrzeit",
+    "msLabel": "Millisekunden (optional)",
+    "tzLegend": "Zeitzone",
+    "tzLocal": "Lokal",
     "tzUtc": "UTC",
     "rows": {
-      "seconds": "Seconds",
-      "milliseconds": "Milliseconds"
+      "seconds": "Sekunden",
+      "milliseconds": "Millisekunden"
     }
   },
   "errors": {
-    "notNumeric": "Must be a positive integer",
-    "negative": "Negative timestamps are not supported",
-    "tooLong": "Too long — looks like microseconds. Truncate to 13 digits.",
-    "secondsTooLarge": "Value too large for seconds. Switch to Milliseconds?",
-    "outOfRange": "Out of supported range (1970-01-01 to 9999-12-31)",
-    "pasteFailed": "Paste unavailable — use Ctrl+V / ⌘V instead"
+    "notNumeric": "Muss eine positive Ganzzahl sein",
+    "negative": "Negative Timestamps werden nicht unterstützt",
+    "tooLong": "Zu lang. Scheint Mikrosekunden zu sein. Auf 13 Stellen kürzen.",
+    "secondsTooLarge": "Wert zu groß für Sekunden. Auf Millisekunden umschalten?",
+    "outOfRange": "Außerhalb des unterstützten Bereichs (1970-01-01 bis 9999-12-31)",
+    "pasteFailed": "Einfügen nicht verfügbar. Verwenden Sie Strg+V / ⌘V stattdessen."
   },
   "toast": {
-    "paused": "Paused",
-    "resumed": "Resumed",
-    "applied": "Applied"
+    "paused": "Pausiert",
+    "resumed": "Fortgesetzt",
+    "applied": "Angewendet"
   },
   "description": {
-    "whatIsTitle": "What is a Unix timestamp?",
-    "whatIs": "A Unix timestamp is the number of seconds elapsed since 1970-01-01T00:00:00Z (the Unix epoch). It is timezone-agnostic — the same number always refers to the same instant in time, regardless of where you are.",
-    "secMsTitle": "Seconds vs Milliseconds",
-    "secMs": "Most Unix tools and log files use seconds (10 digits today). JavaScript's Date.getTime(), Java's System.currentTimeMillis(), and many web APIs use milliseconds (13 digits today).",
-    "y2k38Title": "The Year 2038 Problem",
-    "y2k38": "Systems that store Unix seconds in a signed 32-bit integer overflow on 2038-01-19 03:14:07 UTC. Modern 64-bit systems are not affected.",
-    "tzTitle": "Timezones",
-    "tz": "A timestamp itself has no timezone. The human-readable form (e.g. 2024-05-01 00:00:00) depends on which timezone you display it in. This tool always shows both Local and UTC."
+    "whatIsTitle": "Was ist ein Unix-Timestamp?",
+    "whatIs": "Ein Unix-Timestamp ist die Anzahl der Sekunden seit 1970-01-01T00:00:00Z (der Unix-Epoche). Er ist zeitzonenunabhängig. Dieselbe Zahl bezieht sich immer auf denselben Zeitpunkt, unabhängig davon, wo Sie sich befinden.",
+    "secMsTitle": "Sekunden vs. Millisekunden",
+    "secMs": "Die meisten Unix-Tools und Logdateien verwenden Sekunden (heute 10 Stellen). JavaScripts Date.getTime(), Javas System.currentTimeMillis() und viele Web-APIs verwenden Millisekunden (heute 13 Stellen).",
+    "y2k38Title": "Das Jahr-2038-Problem",
+    "y2k38": "Systeme, die Unix-Sekunden als vorzeichenbehaftete 32-Bit-Ganzzahl speichern, laufen am 2038-01-19 03:14:07 UTC über. Moderne 64-Bit-Systeme sind nicht betroffen.",
+    "tzTitle": "Zeitzonen",
+    "tz": "Ein Timestamp selbst hat keine Zeitzone. Die lesbare Form (z.B. 2024-05-01 00:00:00) hängt davon ab, in welcher Zeitzone Sie ihn anzeigen. Dieses Tool zeigt immer sowohl Lokal als auch UTC an."
   }
 }

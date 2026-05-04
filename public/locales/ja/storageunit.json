@@ -1,10 +1,10 @@
 {
-  "conversion": "{unit} Conversion",
-  "decimal": "Decimal",
-  "binary": "Binary",
-  "bit": "Bit",
-  "conversionOutput": "Conversion Output",
-  "measurement": "Measurement",
-  "conversionCol": "Conversion",
-  "commonConversionTable": "Common Conversion Table"
+  "conversion": "{unit}変換",
+  "decimal": "10進法",
+  "binary": "2進法",
+  "bit": "ビット",
+  "conversionOutput": "変換結果",
+  "measurement": "測定",
+  "conversionCol": "変換",
+  "commonConversionTable": "よく使う変換テーブル"
 }

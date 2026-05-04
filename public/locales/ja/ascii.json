@@ -1,19 +1,19 @@
 {
-  "printableCharacters": "Printable Characters",
-  "controlCodeCharts": "Control Code Charts",
+  "printableCharacters": "表示可能文字",
+  "controlCodeCharts": "制御コード一覧",
   "description": {
-    "text": "ASCII stands for American Standard Code for Information Interchange. Computers can only understand numbers, so an ASCII code is the numerical representation of a character such as 'a' or '@' or an action of some sort. ASCII was developed a long time ago and now the non-printing characters are rarely used for their original purpose. Below is the ASCII character table and this includes descriptions of the first 32 non-printing characters. ASCII was actually designed for use with teletypes and so the descriptions are somewhat obscure. If someone says they want your CV however in ASCII format, all this means is they want 'plain' text with no formatting such as tabs, bold or underscoring - the raw format that any computer can understand. This is usually so they can easily import the file into their own applications without issues. Notepad.exe creates ASCII text, or in MS Word you can save a file as 'text only'"
+    "text": "ASCIIはAmerican Standard Code for Information Interchangeの略称です。コンピュータは数値しか理解できないため、「a」や「@」などの文字やアクションを数値で表現するのがASCIIコードです。ASCIIは昔に開発されたもので、現在では非表示文字が本来の目的で使われることはほとんどありません。以下はASCII文字テーブルで、最初の32個の非表示文字の説明も含まれています。ASCIIはもともとテレタイプ用に設計されたため、説明はやや分かりにくいものになっています。もし誰かが「ASCII形式で履歴書を送って」と言ってきたら、それは書式設定のない「プレーンテキスト」を求めているということです。タブ、太字、下線などのない、どんなコンピュータでも理解できる生の形式です。通常、相手のアプリケーションに問題なくインポートできるようにするためです。メモ帳で作成したテキストはASCII形式です。MS Wordでは「テキストのみ」として保存できます。"
   },
   "tableHeaders": {
-    "decimal": "Decimal",
-    "binary": "Binary",
-    "oct": "Oct",
-    "hex": "Hex",
-    "abbr": "Abbr",
-    "desc": "Desc",
-    "html": "Html",
-    "glyph": "Glyph"
+    "decimal": "10進数",
+    "binary": "2進数",
+    "oct": "8進数",
+    "hex": "16進数",
+    "abbr": "略称",
+    "desc": "説明",
+    "html": "HTML",
+    "glyph": "文字"
   },
-  "tip": "💡 Hover over any row for details. Use the search bar to quickly find characters by decimal, hex, or glyph.",
-  "searchPlaceholder": "Search by decimal, hex, or character..."
+  "tip": "💡 行にホバーすると詳細が表示されます。検索バーで10進数、16進数、文字を素早く検索できます。",
+  "searchPlaceholder": "10進数、16進数、文字で検索..."
 }

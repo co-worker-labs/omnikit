@@ -1,38 +1,38 @@
 {
   "description": {
-    "p1": "There are a lot of different letters, characters, special characters, symbols and icons which you may want to use in your website content but when you do, they don't display as they should. To make sure they do display correctly, you need to use HTML codes. Every single letter, character, symbol and icon has its own HTML code which you just need to place in your HTML. We've created a complete list of all HTML codes for the various characters, special characters, letters, symbols and icons. You can easily copy these HTML codes and past them into your HTML so they show up correctly within the contents on your website. Where available, we've added the friendly HTML code (entity name), the numerical HTML code (entity number) and the HEX code so you'll always find the right code you need.",
-    "p2": "Before you use one of the below codes on your website, make sure your HTML document uses the correct encoding so you are sure that the HTML codes and HTML special codes are displayed properly. To make sure your HTML uses the correct encoding, you should make sure that you use the Unicode character set. This Unicode character set must be set in the head section of your HTML document. This is done by using a meta with the charset attribute and the value UTF-8. Just copy and paste the following meta into your head section and all the below HTML characters will be displayed perfectly so you're good to go."
+    "p1": "웹사이트 콘텐츠에 사용하고 싶은 다양한 문자, 특수 문자, 기호, 아이콘이 많이 있지만, 그대로 사용하면 올바르게 표시되지 않는 경우가 있습니다. 올바르게 표시하려면 HTML 코드를 사용해야 합니다. 모든 문자, 기호, 아이콘에는 각자의 HTML 코드가 있으며, HTML에 배치하기만 하면 됩니다. 다양한 문자, 특수 문자, 기호, 아이콘의 HTML 코드를 완벽하게 정리했습니다. 이 HTML 코드를 쉽게 복사해서 HTML에 붙여넣으면 웹사이트 콘텐츠에 올바르게 표시됩니다. 가능한 경우 친숙한 HTML 코드(엔티티 이름), 숫자 HTML 코드(엔티티 번호), HEX 코드를 모두 포함했습니다.",
+    "p2": "아래 코드를 웹사이트에 사용하기 전에 HTML 문서가 올바른 인코딩을 사용하는지 확인하세요. 올바른 인코딩을 사용하려면 Unicode 문자 집합을 사용해야 합니다. 이 Unicode 문자 집합은 HTML 문서의 head 섹션에 설정되어야 합니다. charset 속성이 UTF-8인 meta 태그를 사용하면 됩니다. 다음 meta 태그를 head 섹션에 복사해서 붙여넣으면 모든 HTML 문자가 완벽하게 표시됩니다."
   },
   "tabs": {
-    "letters": "Letters",
-    "punctuation": "Punctuation",
-    "currencies": "Currencies",
-    "mathematical": "Mathematical",
-    "pronunciations": "Pronunciations",
-    "diacritics": "Diacritics",
+    "letters": "문자",
+    "punctuation": "문장 부호",
+    "currencies": "통화",
+    "mathematical": "수학 기호",
+    "pronunciations": "발음 기호",
+    "diacritics": "분음 부호",
     "ascii": "ASCII",
-    "icons": "Icons"
+    "icons": "아이콘"
   },
   "tabDescriptions": {
-    "punctuation": "Punctuations are characters that are used in texts so the readability of texts become better. Punctuation sometimes also indicates how a sentence should be pronounced, or what a word or sentence means.",
-    "currencies": "Several currencies have their own HTML character which you can use on your website. Find the HTML character from the HTML currency code list below.",
-    "mathematical": "There are quite a few mathematical HTML characters which you can use on your website. This list of HTML mathematical characters will help you find the right mathematical character to display in your HTML.",
-    "pronunciations": "Pronunciation characters will help the readers of a text understand how a word should be spoken. Below you'll find all HTML pronunciation characters which you can use in your HTML.",
-    "diacritics": "There are a lot of letters and characters that have a glyph or accent added to the letter or character. These diacritics can make the pronunciation or meaning of a word different. This HTML diacritics list will allow you to display the right diacritic on your website.",
-    "ascii": "The ASCII (American Standard Code for Information Interchange) subset of Unicode includes the numbers, letters and characters which are basically the most-known characters. The ASCII subset includes the numbers 0 to 9, the lower case letters a to z, upper case letters A to Z and some basic punctuation and control codes. The following ASCII HTML list includes all ASCII subset Unicode HTML codes.",
-    "icons": "HTML also offers special characters which you can use in your HTML. For example, a heart, a gender icon, musical notes or arrows. Use the special characters and icons from the below HTML icon list and special characters freely on your website."
+    "punctuation": "문장 부호는 텍스트의 가독성을 높이는 데 사용되는 문자입니다. 문장 부호는 문장의 발음 방법이나 단어/문장의 의미를 나타내기도 합니다.",
+    "currencies": "여러 통화에는 고유한 HTML 문자가 있어 웹사이트에서 사용할 수 있습니다. 아래 HTML 통화 코드 목록에서 찾아보세요.",
+    "mathematical": "웹사이트에서 사용할 수 있는 수학 HTML 문자가 상당히 많습니다. 이 HTML 수학 문자 목록으로 필요한 수학 문자를 쉽게 찾을 수 있습니다.",
+    "pronunciations": "발음 문자는 텍스트 독자가 단어의 발음 방법을 이해하도록 도와줍니다. 아래에서 HTML에 사용할 수 있는 모든 발음 문자를 확인하세요.",
+    "diacritics": "글리프나 악센트가 추가된 문자가 많이 있습니다. 이러한 분음 부호는 단어의 발음이나 의미를 바꿀 수 있습니다. 이 HTML 분음 부호 목록으로 웹사이트에 올바른 분음 부호를 표시할 수 있습니다.",
+    "ascii": "Unicode의 ASCII(American Standard Code for Information Interchange) 하위 집합에는 가장 널리 알려진 숫자, 문자, 문자가 포함됩니다. 0~9, 소문자 a~z, 대문자 A~Z, 기본 문장 부호 및 제어 코드가 포함됩니다. 다음 ASCII HTML 목록에는 ASCII 하위 집합의 모든 Unicode HTML 코드가 포함되어 있습니다.",
+    "icons": "HTML에서 사용할 수 있는 특수 문자도 제공합니다. 예를 들어, 하트, 성별 아이콘, 음표, 화살표 등이 있습니다. 아래 HTML 아이콘 및 특수 문자 목록에서 자유롭게 사용하세요."
   },
   "tableHeaders": {
-    "character": "Character",
-    "entityName": "Entity name",
-    "entityNumber": "Entity number",
-    "hexCode": "Hex Code",
-    "description": "Description",
-    "entityCode": "Entity code",
+    "character": "문자",
+    "entityName": "엔티티 이름",
+    "entityNumber": "엔티티 번호",
+    "hexCode": "HEX 코드",
+    "description": "설명",
+    "entityCode": "엔티티 코드",
     "ipa": "IPA",
-    "ipaEntityName": "IPA Entity name",
-    "ipaEntityCode": "IPA Entity code",
-    "example": "Example"
+    "ipaEntityName": "IPA 엔티티 이름",
+    "ipaEntityCode": "IPA 엔티티 코드",
+    "example": "예시"
   },
-  "searchPlaceholder": "Search by character, code, or description..."
+  "searchPlaceholder": "문자, 코드 또는 설명으로 검색..."
 }

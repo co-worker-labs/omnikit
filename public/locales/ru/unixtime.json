@@ -1,75 +1,75 @@
 {
   "liveClock": {
-    "title": "Current Unix Timestamp",
-    "pause": "Pause",
-    "resume": "Resume",
-    "localLabel": "Local",
+    "title": "Текущий Unix Timestamp",
+    "pause": "Пауза",
+    "resume": "Продолжить",
+    "localLabel": "Местное",
     "utcLabel": "UTC"
   },
   "tsToDate": {
-    "title": "Timestamp → DateTime",
-    "unitLegend": "Unit",
-    "unitAuto": "Auto",
-    "unitSeconds": "Seconds",
-    "unitMilliseconds": "Milliseconds",
-    "inputLabel": "Input",
-    "inputPlaceholder": "e.g. 1714521600",
-    "paste": "Paste",
-    "clear": "Clear",
-    "quickLegend": "Quick",
-    "now": "Now",
-    "todayLocal": "Today 00:00 Local",
-    "todayUtc": "Today 00:00 UTC",
+    "title": "Timestamp → Дата/Время",
+    "unitLegend": "Единица",
+    "unitAuto": "Авто",
+    "unitSeconds": "Секунды",
+    "unitMilliseconds": "Миллисекунды",
+    "inputLabel": "Ввод",
+    "inputPlaceholder": "например, 1714521600",
+    "paste": "Вставить",
+    "clear": "Очистить",
+    "quickLegend": "Быстро",
+    "now": "Сейчас",
+    "todayLocal": "Сегодня 00:00 местное",
+    "todayUtc": "Сегодня 00:00 UTC",
     "rows": {
-      "local": "Local",
+      "local": "Местное",
       "utc": "UTC",
       "iso": "ISO 8601",
       "sql": "SQL",
       "rfc": "RFC 2822",
-      "dayWeek": "Day / Week",
-      "relative": "Relative",
-      "timezone": "Timezone"
+      "dayWeek": "День / Неделя",
+      "relative": "Относительно",
+      "timezone": "Часовой пояс"
     },
-    "weekShort": "W"
+    "weekShort": "Н"
   },
   "dateToTs": {
-    "title": "DateTime → Timestamp",
-    "quickLegend": "Quick",
-    "now": "Now",
-    "todayLocal": "Today 00:00 Local",
-    "todayUtc": "Today 00:00 UTC",
-    "dateLabel": "Date",
-    "timeLabel": "Time",
-    "msLabel": "Milliseconds (optional)",
-    "tzLegend": "Timezone",
-    "tzLocal": "Local",
+    "title": "Дата/Время → Timestamp",
+    "quickLegend": "Быстро",
+    "now": "Сейчас",
+    "todayLocal": "Сегодня 00:00 местное",
+    "todayUtc": "Сегодня 00:00 UTC",
+    "dateLabel": "Дата",
+    "timeLabel": "Время",
+    "msLabel": "Миллисекунды (необязательно)",
+    "tzLegend": "Часовой пояс",
+    "tzLocal": "Местное",
     "tzUtc": "UTC",
     "rows": {
-      "seconds": "Seconds",
-      "milliseconds": "Milliseconds"
+      "seconds": "Секунды",
+      "milliseconds": "Миллисекунды"
     }
   },
   "errors": {
-    "notNumeric": "Must be a positive integer",
-    "negative": "Negative timestamps are not supported",
-    "tooLong": "Too long — looks like microseconds. Truncate to 13 digits.",
-    "secondsTooLarge": "Value too large for seconds. Switch to Milliseconds?",
-    "outOfRange": "Out of supported range (1970-01-01 to 9999-12-31)",
-    "pasteFailed": "Paste unavailable — use Ctrl+V / ⌘V instead"
+    "notNumeric": "Должно быть положительным целым числом",
+    "negative": "Отрицательные timestamp не поддерживаются",
+    "tooLong": "Слишком длинное значение — похоже на микросекунды. Обрежьте до 13 цифр.",
+    "secondsTooLarge": "Значение слишком велико для секунд. Переключиться на миллисекунды?",
+    "outOfRange": "Вне поддерживаемого диапазона (1970-01-01 до 9999-12-31)",
+    "pasteFailed": "Вставка недоступна — используйте Ctrl+V / ⌘V"
   },
   "toast": {
-    "paused": "Paused",
-    "resumed": "Resumed",
-    "applied": "Applied"
+    "paused": "Приостановлено",
+    "resumed": "Возобновлено",
+    "applied": "Применено"
   },
   "description": {
-    "whatIsTitle": "What is a Unix timestamp?",
-    "whatIs": "A Unix timestamp is the number of seconds elapsed since 1970-01-01T00:00:00Z (the Unix epoch). It is timezone-agnostic — the same number always refers to the same instant in time, regardless of where you are.",
-    "secMsTitle": "Seconds vs Milliseconds",
-    "secMs": "Most Unix tools and log files use seconds (10 digits today). JavaScript's Date.getTime(), Java's System.currentTimeMillis(), and many web APIs use milliseconds (13 digits today).",
-    "y2k38Title": "The Year 2038 Problem",
-    "y2k38": "Systems that store Unix seconds in a signed 32-bit integer overflow on 2038-01-19 03:14:07 UTC. Modern 64-bit systems are not affected.",
-    "tzTitle": "Timezones",
-    "tz": "A timestamp itself has no timezone. The human-readable form (e.g. 2024-05-01 00:00:00) depends on which timezone you display it in. This tool always shows both Local and UTC."
+    "whatIsTitle": "Что такое Unix timestamp?",
+    "whatIs": "Unix timestamp — это количество секунд, прошедших с 1970-01-01T00:00:00Z (Unix-эпоха). Он не зависит от часового пояса — одно и то же число всегда обозначает один и тот же момент времени, где бы вы ни находились.",
+    "secMsTitle": "Секунды vs миллисекунды",
+    "secMs": "Большинство Unix-утилит и логов используют секунды (сейчас 10 цифр). JavaScript Date.getTime(), Java System.currentTimeMillis() и многие веб-API используют миллисекунды (сейчас 13 цифр).",
+    "y2k38Title": "Проблема 2038 года",
+    "y2k38": "Системы, хранящие Unix-секунды в знаковом 32-битном целом, переполнятся 2038-01-19 03:14:07 UTC. Современные 64-битные системы не затронуты.",
+    "tzTitle": "Часовые пояса",
+    "tz": "Сам timestamp не имеет часового пояса. Человекочитаемое представление (например, 2024-05-01 00:00:00) зависит от того, в каком часовом поясе вы его отображаете. Этот инструмент всегда показывает и местное время, и UTC."
   }
 }

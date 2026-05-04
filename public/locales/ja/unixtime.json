@@ -1,75 +1,75 @@
 {
   "liveClock": {
-    "title": "Current Unix Timestamp",
-    "pause": "Pause",
-    "resume": "Resume",
-    "localLabel": "Local",
+    "title": "現在のUnixタイムスタンプ",
+    "pause": "一時停止",
+    "resume": "再開",
+    "localLabel": "ローカル",
     "utcLabel": "UTC"
   },
   "tsToDate": {
-    "title": "Timestamp → DateTime",
-    "unitLegend": "Unit",
-    "unitAuto": "Auto",
-    "unitSeconds": "Seconds",
-    "unitMilliseconds": "Milliseconds",
-    "inputLabel": "Input",
-    "inputPlaceholder": "e.g. 1714521600",
-    "paste": "Paste",
-    "clear": "Clear",
-    "quickLegend": "Quick",
-    "now": "Now",
-    "todayLocal": "Today 00:00 Local",
-    "todayUtc": "Today 00:00 UTC",
+    "title": "タイムスタンプ → 日時",
+    "unitLegend": "単位",
+    "unitAuto": "自動",
+    "unitSeconds": "秒",
+    "unitMilliseconds": "ミリ秒",
+    "inputLabel": "入力",
+    "inputPlaceholder": "例: 1714521600",
+    "paste": "貼り付け",
+    "clear": "クリア",
+    "quickLegend": "クイック",
+    "now": "現在",
+    "todayLocal": "今日 00:00 ローカル",
+    "todayUtc": "今日 00:00 UTC",
     "rows": {
-      "local": "Local",
+      "local": "ローカル",
       "utc": "UTC",
       "iso": "ISO 8601",
       "sql": "SQL",
       "rfc": "RFC 2822",
-      "dayWeek": "Day / Week",
-      "relative": "Relative",
-      "timezone": "Timezone"
+      "dayWeek": "曜日 / 週",
+      "relative": "相対",
+      "timezone": "タイムゾーン"
     },
     "weekShort": "W"
   },
   "dateToTs": {
-    "title": "DateTime → Timestamp",
-    "quickLegend": "Quick",
-    "now": "Now",
-    "todayLocal": "Today 00:00 Local",
-    "todayUtc": "Today 00:00 UTC",
-    "dateLabel": "Date",
-    "timeLabel": "Time",
-    "msLabel": "Milliseconds (optional)",
-    "tzLegend": "Timezone",
-    "tzLocal": "Local",
+    "title": "日時 → タイムスタンプ",
+    "quickLegend": "クイック",
+    "now": "現在",
+    "todayLocal": "今日 00:00 ローカル",
+    "todayUtc": "今日 00:00 UTC",
+    "dateLabel": "日付",
+    "timeLabel": "時刻",
+    "msLabel": "ミリ秒（オプション）",
+    "tzLegend": "タイムゾーン",
+    "tzLocal": "ローカル",
     "tzUtc": "UTC",
     "rows": {
-      "seconds": "Seconds",
-      "milliseconds": "Milliseconds"
+      "seconds": "秒",
+      "milliseconds": "ミリ秒"
     }
   },
   "errors": {
-    "notNumeric": "Must be a positive integer",
-    "negative": "Negative timestamps are not supported",
-    "tooLong": "Too long — looks like microseconds. Truncate to 13 digits.",
-    "secondsTooLarge": "Value too large for seconds. Switch to Milliseconds?",
-    "outOfRange": "Out of supported range (1970-01-01 to 9999-12-31)",
-    "pasteFailed": "Paste unavailable — use Ctrl+V / ⌘V instead"
+    "notNumeric": "正の整数を入力してください",
+    "negative": "負のタイムスタンプはサポートされていません",
+    "tooLong": "長すぎます。マイクロ秒の可能性があります。13桁に切り詰めてください。",
+    "secondsTooLarge": "秒としては大きすぎる値です。ミリ秒に切り替えますか？",
+    "outOfRange": "サポート範囲外です（1970-01-01から9999-12-31）",
+    "pasteFailed": "貼り付けに失敗しました。Ctrl+V / ⌘Vをお使いください"
   },
   "toast": {
-    "paused": "Paused",
-    "resumed": "Resumed",
-    "applied": "Applied"
+    "paused": "一時停止しました",
+    "resumed": "再開しました",
+    "applied": "適用しました"
   },
   "description": {
-    "whatIsTitle": "What is a Unix timestamp?",
-    "whatIs": "A Unix timestamp is the number of seconds elapsed since 1970-01-01T00:00:00Z (the Unix epoch). It is timezone-agnostic — the same number always refers to the same instant in time, regardless of where you are.",
-    "secMsTitle": "Seconds vs Milliseconds",
-    "secMs": "Most Unix tools and log files use seconds (10 digits today). JavaScript's Date.getTime(), Java's System.currentTimeMillis(), and many web APIs use milliseconds (13 digits today).",
-    "y2k38Title": "The Year 2038 Problem",
-    "y2k38": "Systems that store Unix seconds in a signed 32-bit integer overflow on 2038-01-19 03:14:07 UTC. Modern 64-bit systems are not affected.",
-    "tzTitle": "Timezones",
-    "tz": "A timestamp itself has no timezone. The human-readable form (e.g. 2024-05-01 00:00:00) depends on which timezone you display it in. This tool always shows both Local and UTC."
+    "whatIsTitle": "Unixタイムスタンプとは？",
+    "whatIs": "Unixタイムスタンプは、1970-01-01T00:00:00Z（Unixエポック）からの経過秒数です。タイムゾーンに依存しません。同じ数値は常に同じ瞬間を指し、場所に関係ありません。",
+    "secMsTitle": "秒とミリ秒",
+    "secMs": "ほとんどのUnixツールやログファイルは秒（現在10桁）を使用します。JavaScriptのDate.getTime()、JavaのSystem.currentTimeMillis()、多くのWeb APIはミリ秒（現在13桁）を使用します。",
+    "y2k38Title": "2038年問題",
+    "y2k38": "Unix秒を符号付き32ビット整数で格納するシステムは、2038-01-19 03:14:07 UTCにオーバーフローします。モダンな64ビットシステムは影響を受けません。",
+    "tzTitle": "タイムゾーン",
+    "tz": "タイムスタンプ自体にタイムゾーンはありません。人間が読める形式（例: 2024-05-01 00:00:00）は、どのタイムゾーンで表示するかによって変わります。このツールは常にローカルとUTCの両方を表示します。"
   }
 }

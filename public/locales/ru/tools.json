@@ -1,145 +1,172 @@
 {
   "password": {
-    "title": "Secure Random Password Generator",
-    "shortTitle": "Password Generator",
-    "description": "Generate cryptographically secure, random passwords instantly. Free online password generator with customizable length and character options."
+    "title": "Генератор случайных безопасных паролей",
+    "shortTitle": "Генератор паролей",
+    "description": "Генерация криптографически стойких случайных паролей. Бесплатный онлайн-генератор с настраиваемой длиной и набором символов.",
+    "searchTerms": "generatorparolej genpar password"
   },
   "ascii": {
-    "title": "ASCII Table - Complete Character Reference",
-    "shortTitle": "ASCII Table",
-    "description": "Complete ASCII character table with hex, octal, HTML, and decimal codes. Free online ASCII reference for developers."
+    "title": "Таблица ASCII — Полный справочник символов",
+    "shortTitle": "Таблица ASCII",
+    "description": "Полная таблица символов ASCII с кодами hex, восьмеричными, HTML и десятичными. Бесплатный онлайн-справочник ASCII для разработчиков.",
+    "searchTerms": "tablicaascii tablascii ascii"
   },
   "htmlcode": {
-    "title": "HTML Entity Encoder & Decoder",
-    "shortTitle": "Html Code",
-    "description": "Encode and decode HTML special characters and entities. Free online HTML code converter for web developers."
+    "title": "Кодирование и декодирование HTML-сущностей",
+    "shortTitle": "HTML-коды",
+    "description": "Кодирование и декодирование специальных символов и сущностей HTML. Бесплатный конвертер HTML-кодов для веб-разработчиков.",
+    "searchTerms": "htmlkody htmlkody entity"
   },
   "httpstatus": {
-    "title": "HTTP Status Code Reference - Complete Guide",
-    "shortTitle": "HTTP Status",
-    "description": "Complete HTTP status code reference with descriptions, RFC references, and usage guides. Covers IANA official and unofficial codes."
+    "title": "Справочник HTTP-кодов состояния — Полное руководство",
+    "shortTitle": "HTTP-статусы",
+    "description": "Полный справочник HTTP-кодов состояния с описаниями, ссылками на RFC и руководствами по использованию. Официальные и неофициальные коды IANA.",
+    "searchTerms": "httpstatusy httpstatus status"
   },
   "base64": {
-    "title": "Base64 Encoder & Decoder",
-    "shortTitle": "Base64 Encode/Decode",
-    "description": "Encode and decode Base64 strings online. Free Base64 encoder/decoder with Basic Authentication header support. 100% client-side."
+    "title": "Кодировщик и декодировщик Base64",
+    "shortTitle": "Base64 кодирование/декодирование",
+    "description": "Кодирование и декодирование строк Base64 онлайн. Бесплатный кодировщик/декодировщик Base64 с поддержкой заголовков Basic Authentication. 100% в браузере.",
+    "searchTerms": "base64 kodirovanie decode"
   },
   "hashing": {
-    "title": "Hash Generator - MD5, SHA-256, SHA-512",
-    "shortTitle": "Text Hashing",
-    "description": "Generate MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, SHA3, and RIPEMD-160 hashes. Free online hash generator, 100% browser-based."
+    "title": "Генератор хешей — MD5, SHA-256, SHA-512",
+    "shortTitle": "Хеширование текста",
+    "description": "Генерация хешей MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, SHA3 и RIPEMD-160. Бесплатный онлайн-генератор хешей, 100% в браузере.",
+    "searchTerms": "heshirovanie heshirovanie hash md5"
   },
   "checksum": {
-    "title": "File Checksum Calculator - MD5, SHA-256",
-    "shortTitle": "File Checksum",
-    "description": "Calculate MD5, SHA-1, SHA-256, and SHA-512 checksums for any file. Supports unlimited file size, 100% client-side processing."
+    "title": "Калькулятор контрольных сумм файлов — MD5, SHA-256",
+    "shortTitle": "Контрольная сумма файла",
+    "description": "Вычисление контрольных сумм MD5, SHA-1, SHA-256 и SHA-512 для любого файла. Без ограничения размера файла, 100% на стороне клиента.",
+    "searchTerms": "kontrolnayasumma kontrolsumma checksum"
   },
   "cipher": {
-    "title": "Text Encrypt & Decrypt - AES, DES, RC4",
-    "shortTitle": "Text Encrypt/Decrypt",
-    "description": "Encrypt and decrypt text using AES, DES, Triple DES, Rabbit, RC4, and RC4Drop. Free online cipher tool, 100% browser-based."
+    "title": "Шифрование и дешифрование текста — AES, DES, RC4",
+    "shortTitle": "Шифрование/дешифрование",
+    "description": "Шифрование и расшифровка текста с использованием AES, DES, Triple DES, Rabbit, RC4 и RC4Drop. Бесплатный онлайн-инструмент, 100% в браузере.",
+    "searchTerms": "shifrovanie deshifrovanie encrypt aes"
   },
   "storageunit": {
-    "title": "Storage Unit Converter - Bytes to TB",
-    "shortTitle": "Storage Unit Conversion",
-    "description": "Convert between bytes, KB, MB, GB, TB, PB and more. Free online storage unit converter for developers."
+    "title": "Конвертер единиц хранения — Байты в ТБ",
+    "shortTitle": "Единицы хранения",
+    "description": "Конвертация между байтами, КБ, МБ, ГБ, ТБ, ПБ и другими. Бесплатный онлайн-конвертер единиц хранения для разработчиков.",
+    "searchTerms": "edinitzyhraneniya edhraneniya converter bytes"
   },
   "uuid": {
-    "title": "UUID Generator - v4, v7 Random UUID",
-    "shortTitle": "UUID Generator",
-    "description": "Generate v1/v3/v4/v5/v7 UUIDs in your browser. Free, fully local, no tracking."
+    "title": "Генератор UUID — v4, v7 случайный UUID",
+    "shortTitle": "Генератор UUID",
+    "description": "Генерация UUID v1/v3/v4/v5/v7 в браузере. Бесплатно, полностью локально, без трекинга.",
+    "searchTerms": "generatoruuid genuuid uuid"
   },
   "urlencoder": {
-    "title": "URL Encoder & Decoder",
-    "shortTitle": "URL Encoder/Decoder",
-    "description": "Encode and decode URL strings with Component, Whole URL, and Form modes. Free online URL encoder/decoder, 100% client-side."
+    "title": "Кодировщик и декодировщик URL",
+    "shortTitle": "URL-кодирование/декодирование",
+    "description": "Кодирование и декодирование строк URL в режимах Component, Whole URL и Form. Бесплатный онлайн-кодировщик/декодировщик URL, 100% в браузере.",
+    "searchTerms": "urlkodirovanie urlkodirovanie urlencode"
   },
   "yaml": {
-    "title": "YAML Converter - JSON to YAML & YAML to JSON",
-    "shortTitle": "JSON / YAML Converter",
-    "description": "Convert between JSON and YAML formats with full YAML 1.2 support. Handles multi-document YAML, anchors, and aliases. 100% client-side."
+    "title": "Конвертер YAML — JSON в YAML и YAML в JSON",
+    "shortTitle": "JSON / YAML конвертер",
+    "description": "Конвертация между форматами JSON и YAML с полной поддержкой YAML 1.2. Обрабатывает мультидокументный YAML, якоря и алиасы. 100% в браузере.",
+    "searchTerms": "jsonyamlkonverter jsonyaml yaml"
   },
   "diff": {
-    "title": "Diff Checker - Compare Text Online",
-    "shortTitle": "Text Diff",
-    "description": "Compare two texts or code snippets with line and word-level precision. Side-by-side or inline view, 100% client-side."
+    "title": "Сравнение текстов — Онлайн Diff Checker",
+    "shortTitle": "Сравнение текстов",
+    "description": "Сравнение двух текстов или фрагментов кода с точностью до строки и слова. Режим рядом или встроенный, 100% в браузере.",
+    "searchTerms": "sravnenieteksta sravnteksta diff compare"
   },
   "markdown": {
-    "title": "Markdown Editor with Live Preview",
-    "shortTitle": "Markdown Editor",
-    "description": "Write and preview Markdown with GitHub Flavored Markdown support. Free online Markdown editor with live preview, 100% client-side."
+    "title": "Редактор Markdown с предпросмотром",
+    "shortTitle": "Редактор Markdown",
+    "description": "Пишите и просматривайте Markdown с поддержкой GitHub Flavored Markdown. Бесплатный онлайн-редактор Markdown с предпросмотром, 100% в браузере.",
+    "searchTerms": "redaktormarkdown redmarkdown markdown"
   },
   "json": {
-    "title": "JSON Formatter & Validator",
-    "shortTitle": "JSON Format / Compress",
-    "description": "Format, compress, and validate JSON online. Pretty-print with configurable indentation, minify to single line, or parse JSON5. 100% client-side."
+    "title": "Форматирование и валидация JSON",
+    "shortTitle": "JSON форматирование / сжатие",
+    "description": "Форматирование, сжатие и валидация JSON онлайн. Pretty-print с настраиваемыми отступами, минификация в одну строку или парсинг JSON5. 100% в браузере.",
+    "searchTerms": "jsonformatirovanie jsonformat json"
   },
   "dbviewer": {
-    "title": "SQLite Viewer - Browse & Query .db Files",
+    "title": "SQLite Viewer — Просмотр и запросы к .db файлам",
     "shortTitle": "DB Viewer",
-    "description": "Open SQLite databases in your browser, browse schema, run read-only SQL with autocomplete, paginate large result sets, and export to CSV or JSON. 100% client-side."
+    "description": "Открывайте базы данных SQLite в браузере, просматривайте схему, выполняйте SQL-запросы только для чтения с автодополнением, экспортируйте в CSV или JSON. 100% в браузере.",
+    "searchTerms": "dbviewer bdvjuver sqlite database"
   },
   "jwt": {
-    "title": "JWT Debugger - Encode, Decode & Verify",
+    "title": "JWT Debugger — Кодирование, декодирование и проверка",
     "shortTitle": "JWT",
-    "description": "Encode, decode, and verify JSON Web Tokens (JWT). Supports HS256, RS256, ES256 and more. 100% client-side."
+    "description": "Кодирование, декодирование и проверка JSON Web Tokens (JWT). Поддержка HS256, RS256, ES256 и других. 100% в браузере.",
+    "searchTerms": "jwtdebagger jwtdebug jwt token"
   },
   "unixtime": {
-    "title": "Unix Timestamp Converter - Seconds & Milliseconds",
+    "title": "Конвертер Unix Timestamp — Секунды и миллисекунды",
     "shortTitle": "Unix Timestamp",
-    "description": "Convert between Unix timestamps and human-readable dates. Supports seconds and milliseconds, shows Local and UTC side-by-side, with a live clock. 100% client-side."
+    "description": "Конвертация между Unix timestamp и читаемой датой. Поддержка секунд и миллисекунд, местное время и UTC рядом, живые часы. 100% в браузере.",
+    "searchTerms": "unixvremya unixvremya timestamp"
   },
   "cron": {
     "shortTitle": "Cron",
-    "title": "Cron Expression Generator & Explainer",
-    "description": "Build and decode Cron expressions for Standard, Spring, and Quartz schedulers. See human-readable explanations and the next 5 execution times."
+    "title": "Генератор и объяснитель Cron-выражений",
+    "description": "Создание и разбор Cron-выражений для планировщиков Standard, Spring и Quartz. Человекочитаемые описания и следующие 5 запусков.",
+    "searchTerms": "kronvyrasenie kronvyrasenie cron schedule"
   },
   "qrcode": {
-    "title": "QR Code Generator - Text, URL, WiFi",
-    "shortTitle": "QR Code Generator",
-    "description": "Generate styled QR codes for text, URLs, WiFi, vCard, email, and SMS. Custom colors, logos, and dot styles. 100% client-side."
+    "title": "Генератор QR-кодов — Текст, URL, WiFi",
+    "shortTitle": "Генератор QR-кодов",
+    "description": "Генерируйте стилизованные QR-коды для текста, URL, WiFi, vCard, email и SMS. Настраиваемые цвета, логотипы и стили точек. 100% в браузере.",
+    "searchTerms": "generatorqrkodov genqrkod qrcode"
   },
   "textcase": {
-    "title": "Text Case Converter - camelCase, snake_case, kebab-case",
-    "shortTitle": "Text Case Converter",
-    "description": "Convert text between camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case and more. Free online text case converter, 100% client-side."
+    "title": "Конвертер регистра текста — camelCase, snake_case, kebab-case",
+    "shortTitle": "Конвертер регистра",
+    "description": "Конвертация текста между camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case и другими. Бесплатный онлайн-конвертер, 100% в браузере.",
+    "searchTerms": "konverterregistra konvregistra textcase"
   },
   "color": {
-    "title": "Color Converter & Picker - HEX, RGB, HSL, OKLCH",
-    "shortTitle": "Color Converter",
-    "description": "Convert HEX, RGB, HSL, HSV, CMYK, LAB, OKLCH. Visual picker with eyedropper, palette generator, image color extraction, WCAG + APCA contrast, and color-blindness preview. 100% client-side."
+    "title": "Конвертер цветов — HEX, RGB, HSL, OKLCH",
+    "shortTitle": "Конвертер цветов",
+    "description": "Конвертация HEX, RGB, HSL, HSV, CMYK, LAB, OKLCH. Визуальный пипетка, генератор палитр, извлечение цветов из изображения, контраст WCAG + APCA и предпросмотр дальтонизма. 100% в браузере.",
+    "searchTerms": "konvertercvetov konvcvetov color hex"
   },
   "regex": {
-    "title": "Regex Tester & Live Regex Editor",
-    "shortTitle": "Regex Tester",
-    "description": "Test regular expressions in real-time with match highlighting, capture group inspection, and replacement preview. Built-in preset library and token-level explanation. 100% client-side."
+    "title": "Тестер Regex — Живой редактор регулярных выражений",
+    "shortTitle": "Тестер Regex",
+    "description": "Тестирование регулярных выражений в реальном времени с подсветкой совпадений, инспекцией захватывающих групп и предпросмотром замены. Встроенная библиотека пресетов и токен-уровневое объяснение. 100% в браузере.",
+    "searchTerms": "testerregex testerregex regex regexp"
   },
   "csv-md": {
-    "title": "CSV ↔ Markdown Table Converter",
-    "shortTitle": "CSV / Markdown Table",
-    "description": "Convert between CSV and Markdown Table formats. Bidirectional, real-time, 100% client-side."
+    "title": "Конвертер CSV ↔ Таблица Markdown",
+    "shortTitle": "CSV / Таблица Markdown",
+    "description": "Конвертация между форматами CSV и таблицами Markdown. Двунаправленная, в реальном времени, 100% в браузере.",
+    "searchTerms": "csvmarkdaun csvmd csv markdown"
   },
   "csv": {
-    "title": "CSV Converter - JSON to CSV Online",
-    "shortTitle": "JSON / CSV Converter",
-    "description": "Convert between JSON and CSV formats. Bidirectional, real-time, 100% client-side."
+    "title": "Конвертер CSV — JSON в CSV онлайн",
+    "shortTitle": "JSON / CSV конвертер",
+    "description": "Конвертация между форматами JSON и CSV. Двунаправленная, в реальном времени, 100% в браузере.",
+    "searchTerms": "jsoncsvkonverter jsoncsv csv json"
   },
   "numbase": {
-    "title": "Number Base Converter - Binary, Octal, Hex, Decimal",
-    "shortTitle": "Number Base Converter",
-    "description": "Convert numbers between binary, octal, decimal, and hexadecimal with real-time sync. Supports 8/16/32/64-bit two's complement, bit visual editor."
+    "title": "Конвертер систем счисления — Двоичная, восьмеричная, Hex, десятичная",
+    "shortTitle": "Конвертер систем счисления",
+    "description": "Конвертация чисел между двоичной, восьмеричной, десятичной и шестнадцатеричной системами с синхронизацией в реальном времени. Поддержка дополнительного кода 8/16/32/64 бит, визуальный битовый редактор.",
+    "searchTerms": "konvertersschisleniya konvsshisleniya hex binary"
   },
   "image": {
-    "title": "Image Compressor & Format Converter - PNG, JPG, WebP",
-    "shortTitle": "Image Compressor",
-    "description": "Compress, resize, and convert images between PNG, JPG, and WebP formats. All processing runs locally in your browser."
+    "title": "Сжатие и конвертация изображений — PNG, JPG, WebP",
+    "shortTitle": "Сжатие изображений",
+    "description": "Сжатие, изменение размера и конвертация изображений между форматами PNG, JPG и WebP. Вся обработка выполняется локально в вашем браузере.",
+    "searchTerms": "szhatieizobrascheniya szhatieizobr compress image"
   },
   "categories": {
-    "text": "Text Processing",
-    "encoding": "Encoding & Conversion",
-    "security": "Security & Crypto",
-    "generators": "Generators",
-    "visual": "Visual & Media",
-    "reference": "Reference & Lookup"
+    "text": "Обработка текста",
+    "encoding": "Кодирование и конвертация",
+    "security": "Безопасность и криптография",
+    "generators": "Генераторы",
+    "visual": "Визуал и медиа",
+    "reference": "Справочник"
   }
 }

@@ -1,10 +1,10 @@
 {
-  "conversion": "{unit} Conversion",
-  "decimal": "Decimal",
-  "binary": "Binary",
-  "bit": "Bit",
-  "conversionOutput": "Conversion Output",
-  "measurement": "Measurement",
-  "conversionCol": "Conversion",
-  "commonConversionTable": "Common Conversion Table"
+  "conversion": "{unit} 변환",
+  "decimal": "10진수",
+  "binary": "2진수",
+  "bit": "비트",
+  "conversionOutput": "변환 결과",
+  "measurement": "측정",
+  "conversionCol": "변환",
+  "commonConversionTable": "일반 변환 테이블"
 }

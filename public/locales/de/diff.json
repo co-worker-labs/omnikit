@@ -1,57 +1,57 @@
 {
   "textA": "Text A",
   "textB": "Text B",
-  "textAPlaceholder": "Paste or type text A here, or drop a file",
-  "textBPlaceholder": "Paste or type text B here, or drop a file",
-  "uploadFile": "Upload file",
-  "formatJson": "Format JSON",
-  "formatJsonInvalid": "Not valid JSON: {message}",
-  "swap": "Text Swap",
-  "copyDiff": "Copy Diff",
-  "compare": "Compare",
+  "textAPlaceholder": "Text A hier einfügen oder eingeben, oder Datei ablegen",
+  "textBPlaceholder": "Text B hier einfügen oder eingeben, oder Datei ablegen",
+  "uploadFile": "Datei hochladen",
+  "formatJson": "JSON formatieren",
+  "formatJsonInvalid": "Kein gültiges JSON: {message}",
+  "swap": "Texte tauschen",
+  "copyDiff": "Diff kopieren",
+  "compare": "Vergleichen",
   "view": {
-    "label": "View",
-    "sideBySide": "Side by side",
+    "label": "Ansicht",
+    "sideBySide": "Nebeneinander",
     "inline": "Inline",
-    "stacked": "Stacked"
+    "stacked": "Übereinander"
   },
   "layout": {
     "label": "Layout",
     "horizontal": "Horizontal",
-    "vertical": "Vertical"
+    "vertical": "Vertikal"
   },
   "options": {
-    "label": "Options",
-    "ignoreWhitespace": "Ignore whitespace",
-    "ignoreCase": "Ignore case"
+    "label": "Optionen",
+    "ignoreWhitespace": "Leerzeichen ignorieren",
+    "ignoreCase": "Groß-/Kleinschreibung ignorieren"
   },
   "fold": {
-    "hiddenLines": "{count} unchanged lines",
-    "expand": "Expand",
-    "collapse": "Collapse",
-    "ariaExpand": "Show {count} hidden lines",
-    "ariaCollapse": "Hide {count} lines"
+    "hiddenLines": "{count} unveränderte Zeilen",
+    "expand": "Aufklappen",
+    "collapse": "Zusammenklappen",
+    "ariaExpand": "{count} ausgeblendete Zeilen anzeigen",
+    "ariaCollapse": "{count} Zeilen ausblenden"
   },
-  "noChanges": "No differences found",
-  "computing": "Computing diff...",
-  "manualHint": "Large input — auto-compare disabled. Click Compare when ready.",
-  "workerFailed": "Diff failed, please try again",
+  "noChanges": "Keine Unterschiede gefunden",
+  "computing": "Diff wird berechnet...",
+  "manualHint": "Große Eingabe. Auto-Vergleich deaktiviert. Klicken Sie auf Vergleichen, wenn bereit.",
+  "workerFailed": "Diff fehlgeschlagen, bitte versuchen Sie es erneut",
   "descriptions": {
-    "whatIsTitle": "What is a diff?",
-    "whatIsP1": "A diff is a structured comparison between two pieces of text that highlights what was added, what was removed, and what stayed the same. Developers use it every day to review code changes, audit configuration drift, and reconcile two versions of a document.",
-    "whatIsP2": "This tool runs the comparison entirely in your browser using the jsdiff library. Nothing you paste or upload is sent to any server.",
-    "howTitle": "How to use",
-    "howP1": "Paste or drop your two inputs into the Original and Modified fields. The diff computes automatically for inputs under 512KB; for larger inputs a Compare button appears so you stay in control.",
-    "howP2": "Toggle between side-by-side and inline views, ignore whitespace or case when needed, and use Format JSON to normalize JSON inputs before comparing.",
-    "algorithmTitle": "Algorithm",
-    "algorithmP1": "Built on the Myers diff algorithm via jsdiff. The tool first computes a line-level diff, then for each pair of adjacent removed-and-added lines runs a second word-level pass to highlight which words actually changed — the same convention used by GitHub pull requests.",
-    "useCasesTitle": "Common Use Cases",
-    "useCasesP1": "Comparing two configuration files (JSON, YAML, .env) to spot drift between environments.",
-    "useCasesP2": "Reviewing a code change before pasting it into a commit, especially when working outside an editor.",
-    "useCasesP3": "Reconciling two versions of a document, log, or query result side by side.",
-    "limitationsTitle": "Limitations",
-    "limitationsP1": "The tool diffs text only. Binary files are detected and rejected to keep the result meaningful.",
-    "limitationsP2": "Inputs are capped at 5MB per side. Inputs above 512KB run in a background Web Worker; the page stays responsive but the diff itself takes proportionally longer for very large inputs.",
-    "limitationsP3": "Differences in line endings (CRLF vs LF) and trailing whitespace are normalized away — they will never appear as changes."
+    "whatIsTitle": "Was ist ein Diff?",
+    "whatIsP1": "Ein Diff ist ein strukturierter Vergleich zwischen zwei Texten, der zeigt, was hinzugefügt, was entfernt und was beibehalten wurde. Entwickler nutzen es täglich, um Codeänderungen zu überprüfen, Konfigurationsabweichungen zu analysieren und zwei Versionen eines Dokuments abzugleichen.",
+    "whatIsP2": "Dieses Tool führt den Vergleich vollständig in Ihrem Browser mit der jsdiff-Bibliothek durch. Nichts, was Sie einfügen oder hochladen, wird an einen Server gesendet.",
+    "howTitle": "Verwendung",
+    "howP1": "Fügen Sie Ihre zwei Eingaben in die Felder Original und Geändert ein oder legen Sie Dateien ab. Der Diff wird automatisch für Eingaben unter 512KB berechnet; bei größeren Eingaben erscheint ein Vergleichen-Button, damit Sie die Kontrolle behalten.",
+    "howP2": "Wechseln Sie zwischen nebeneinander- und Inline-Ansicht, ignorieren Sie Leerzeichen oder Groß-/Kleinschreibung bei Bedarf, und nutzen Sie JSON formatieren, um JSON-Eingaben vor dem Vergleich zu normalisieren.",
+    "algorithmTitle": "Algorithmus",
+    "algorithmP1": "Basiert auf dem Myers-Diff-Algorithmus über jsdiff. Das Tool berechnet zunächst einen zeilenbasierten Diff und führt dann für jedes Paar benachbarter entfernter und hinzugefügter Zeilen einen zweiten wortbasierten Durchlauf durch, um zu zeigen, welche Wörter sich tatsächlich geändert haben. Die gleiche Konvention wie bei GitHub-Pull-Requests.",
+    "useCasesTitle": "Gängige Anwendungsfälle",
+    "useCasesP1": "Vergleich von zwei Konfigurationsdateien (JSON, YAML, .env), um Abweichungen zwischen Umgebungen zu erkennen.",
+    "useCasesP2": "Überprüfung einer Codeänderung vor dem Committen, besonders wenn Sie außerhalb eines Editors arbeiten.",
+    "useCasesP3": "Abgleich von zwei Versionen eines Dokuments, Logs oder Abfrageergebnisses Seite an Seite.",
+    "limitationsTitle": "Einschränkungen",
+    "limitationsP1": "Das Tool vergleicht nur Text. Binärdateien werden erkannt und abgelehnt, um ein sinnvolles Ergebnis zu gewährleisten.",
+    "limitationsP2": "Eingaben sind auf 5MB pro Seite begrenzt. Eingaben über 512KB werden in einem Hintergrund-Web-Worker verarbeitet; die Seite bleibt responsiv, aber der Diff selbst dauert bei sehr großen Eingaben proportional länger.",
+    "limitationsP3": "Unterschiede in Zeilenenden (CRLF vs. LF) und nachgestellten Leerzeichen werden normalisiert. Sie erscheinen nie als Änderungen."
   }
 }

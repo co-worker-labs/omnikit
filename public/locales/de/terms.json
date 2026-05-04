@@ -1,59 +1,50 @@
 {
-  "title": "Terms of Service",
-  "metaDescription": "Terms of Service for OmniKit. Read the terms and conditions for using our free online developer tools.",
-  "lastUpdated": "Last updated: April 23, 2026",
-
-  "overviewTitle": "Overview",
-  "overviewP1": "Welcome to OmniKit (\"we\", \"us\", or \"our\"), operating this website (the \"Site\"). OmniKit is a free, open-source collection of browser-based developer tools designed to help you with everyday development tasks.",
-  "overviewP2": "These Terms of Service (\"Terms\") govern your access to and use of the Site and all tools, features, and services provided through it (collectively, the \"Services\"). By accessing or using the Site, you agree to be bound by these Terms.",
-
-  "acceptanceTitle": "Acceptance of Terms",
-  "acceptanceP1": "By accessing or using any part of the Site, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to all of these Terms, you must not access or use the Site.",
-  "acceptanceP2": "You represent that you are at least 13 years of age, or the age of legal majority in your jurisdiction, whichever is greater. If you are under the required age, you may only use the Site under the supervision of a parent or legal guardian who agrees to be bound by these Terms.",
-
-  "servicesTitle": "Description of Services",
-  "servicesP1": "OmniKit provides a suite of free, browser-based developer tools. All processing is performed locally in your web browser — no data is transmitted to our servers. Our current tools include:",
+  "title": "Nutzungsbedingungen",
+  "metaDescription": "Nutzungsbedingungen für OmniKit. Lesen Sie die Bedingungen für die Nutzung unserer kostenlosen Online-Entwicklertools.",
+  "lastUpdated": "Zuletzt aktualisiert: 23. April 2026",
+  "overviewTitle": "Übersicht",
+  "overviewP1": "Willkommen bei OmniKit (\"wir\", \"uns\" oder \"unser\"), dem Betreiber dieser Website (der \"Site\"). OmniKit ist eine kostenlose, quelloffene Sammlung browserbasierter Entwicklertools, die Ihnen bei alltäglichen Entwicklungsaufgaben helfen soll.",
+  "overviewP2": "Diese Nutzungsbedingungen (\"Bedingungen\") regeln Ihren Zugriff auf und die Nutzung der Site sowie aller Tools, Funktionen und Dienste, die darüber bereitgestellt werden (zusammen die \"Dienste\"). Durch den Zugriff auf oder die Nutzung der Site stimmen Sie der Bindung an diese Bedingungen zu.",
+  "acceptanceTitle": "Akzeptanz der Bedingungen",
+  "acceptanceP1": "Durch den Zugriff auf oder die Nutzung eines Teils der Site bestätigen Sie, dass Sie diese Bedingungen gelesen, verstanden und akzeptieren. Wenn Sie nicht allen Bedingungen zustimmen, dürfen Sie nicht auf die Site zugreifen oder diese nutzen.",
+  "acceptanceP2": "Sie bestätigen, dass Sie mindestens 13 Jahre alt sind oder das Alter der gesetzlichen Volljährigkeit in Ihrem Rechtsgebiet erreicht haben, je nachdem, welches größer ist. Wenn Sie unter dem erforderlichen Alter sind, dürfen Sie die Site nur unter Aufsicht eines Elternteils oder Erziehungsberechtigten nutzen, der diesen Bedingungen zustimmt.",
+  "servicesTitle": "Beschreibung der Dienste",
+  "servicesP1": "OmniKit bietet eine Suite kostenloser, browserbasierter Entwicklertools. Die gesamte Verarbeitung erfolgt lokal in Ihrem Webbrowser, es werden keine Daten an unsere Server übertragen. Unsere aktuellen Tools umfassen:",
   "servicesList1": [
-    "Base64 Encode/Decode — Encode and decode Base64 strings, generate Basic Authentication headers",
-    "Password Generator — Generate secure, random, and memorable passwords",
-    "Text Hashing — Compute hashes using MD5, SHA-1, SHA-256, SHA-512, SHA-3, Keccak, RIPEMD-160, and more",
-    "Text Encrypt/Decrypt — Encrypt and decrypt text using AES, DES, Triple DES, Rabbit, RC4, and other algorithms",
-    "File Checksum — Compute file checksums with support for unlimited file sizes",
-    "ASCII Table — Complete ASCII reference with conversions for hex, octal, HTML, and decimal",
-    "HTML Code — HTML special characters and entity reference",
-    "Storage Unit Conversion — Convert between byte, kilobyte, megabyte, terabyte, petabyte, and more"
+    "Base64 Kodieren/Dekodieren, Kodieren und Dekodieren von Base64-Zeichenfolgen, Generieren von Basic Authentication Headern",
+    "Passwort-Generator, Generieren sicherer, zufälliger und merkbarer Passwörter",
+    "Text-Hashing, Hashes berechnen mit MD5, SHA-1, SHA-256, SHA-512, SHA-3, Keccak, RIPEMD-160 und mehr",
+    "Text Ver- und Entschlüsseln, Text mit AES, DES, Triple DES, Rabbit, RC4 und anderen Algorithmen ver- und entschlüsseln",
+    "Datei-Prüfsumme, Datei-Prüfsummen mit Unterstützung für unbegrenzte Dateigrößen berechnen",
+    "ASCII-Tabelle, Vollständige ASCII-Referenz mit Konvertierungen für Hex, Oktal, HTML und Dezimal",
+    "HTML-Code, HTML-Sonderzeichen und Entity-Referenz",
+    "Speichereinheit-Konvertierung, Umrechnen zwischen Byte, Kilobyte, Megabyte, Terabyte, Petabyte und mehr"
   ],
-  "servicesP2": "We may add, modify, or remove tools at any time without prior notice.",
-
-  "conductTitle": "User Conduct",
-  "conductP1": "You agree not to misuse the Site or its Services. Prohibited activities include, but are not limited to:",
+  "servicesP2": "Wir können jederzeit ohne Vorankündigung Tools hinzufügen, ändern oder entfernen.",
+  "conductTitle": "Nutzungsverhalten",
+  "conductP1": "Sie stimmen zu, die Site oder ihre Dienste nicht zu missbrauchen. Untersagte Aktivitäten umfassen unter anderem:",
   "conductList1": [
-    "Using the Site for any unlawful purpose or in violation of any applicable laws or regulations",
-    "Attempting to gain unauthorized access to any part of the Site or its infrastructure",
-    "Interfering with or disrupting the Site's functionality, servers, or networks",
-    "Using automated scripts, bots, or scrapers to access the Site in a manner that exceeds reasonable use",
-    "Transmitting any malicious code, viruses, worms, or other harmful content",
-    "Copying, reproducing, or redistributing the Site's design, code, or content without prior written permission"
+    "Nutzung der Site für rechtswidrige Zwecke oder in Verletzung geltender Gesetze oder Vorschriften",
+    "Versuch, unbefugten Zugriff auf einen Teil der Site oder ihrer Infrastruktur zu erlangen",
+    "Störung oder Beeinträchtigung der Funktionalität, der Server oder Netzwerke der Site",
+    "Verwendung automatisierter Skripte, Bots oder Scraper in einer Weise, die die angemessene Nutzung überschreitet",
+    "Übertragung von bösartigem Code, Viren, Würmern oder anderen schädlichen Inhalten",
+    "Kopieren, Reproduzieren oder Weiterverteilen des Designs, Codes oder Inhalts der Site ohne vorherige schriftliche Genehmigung"
   ],
-  "conductP2": "We reserve the right to restrict or block access to any user who violates these Terms at our sole discretion.",
-
-  "ipTitle": "Intellectual Property",
-  "ipP1": "The Site, including its original content, features, functionality, and design, is owned by OmniKit and is protected by international copyright, trademark, and other intellectual property laws.",
-  "ipP2": "You may not reproduce, distribute, modify, create derivative works of, publicly display, or exploit any content from the Site without our express written consent. The tools are provided for your personal and commercial use, but the Site itself and its source code remain our property.",
-
-  "advertisingTitle": "Advertising",
-  "advertisingP1": "OmniKit is a free service supported by advertising. We may display advertisements on the Site provided by third-party ad networks. These partners may use cookies and similar tracking technologies to collect information about your browsing activity across different websites.",
-  "advertisingP2": "By using the Site, you acknowledge and consent to the display of advertisements and the use of tracking technologies by our advertising partners as described in our Privacy Policy. You may opt out of personalized advertising through your browser settings or by visiting the opt-out pages provided by the respective ad networks.",
-  "advertisingP3": "We are not responsible for the content, accuracy, or practices of any advertisements displayed on the Site. Interactions with advertisers are solely between you and the advertiser.",
-
-  "disclaimerTitle": "Disclaimers & Limitation of Liability",
-  "disclaimerP1": "The Services are provided \"as is\" and \"as available\" without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement.",
-  "disclaimerP2": "We do not guarantee that the Site will be uninterrupted, secure, or error-free. The results produced by our tools are provided for informational purposes only. You should independently verify any results before relying on them for security-sensitive or mission-critical applications.",
-  "disclaimerP3": "To the fullest extent permitted by law, OmniKit shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, profits, or goodwill, arising from your use of or inability to use the Site or Services.",
-
-  "changesTitle": "Changes to Terms",
-  "changesP1": "We reserve the right to update or modify these Terms at any time. Changes will be posted on this page with an updated \"Last updated\" date. Your continued use of the Site after any changes constitutes acceptance of the revised Terms. We encourage you to review this page periodically.",
-
-  "contactTitle": "Contact Us",
-  "contactP1": "If you have any questions about these Terms, please contact us."
+  "conductP2": "Wir behalten uns das Recht vor, jedem Nutzer, der gegen diese Bedingungen verstößt, den Zugriff zu beschränken oder zu blockieren.",
+  "ipTitle": "Geistiges Eigentum",
+  "ipP1": "Die Site, einschließlich ihrer ursprünglichen Inhalte, Funktionen und Designs, ist Eigentum von OmniKit und durch internationale Urheberrechts-, Marken- und andere Gesetze zum Schutz geistigen Eigentums geschützt.",
+  "ipP2": "Sie dürfen keine Inhalte der Site ohne unsere ausdrückliche schriftliche Zustimmung reproduzieren, verteilen, modifizieren, öffentlich anzeigen oder anderweitig verwerten. Die Tools stehen für Ihre persönliche und kommerzielle Nutzung zur Verfügung, aber die Site selbst und ihr Quellcode bleiben unser Eigentum.",
+  "advertisingTitle": "Werbung",
+  "advertisingP1": "OmniKit ist ein kostenloses, werbefinanziertes Angebot. Wir können Anzeigen auf der Site schalten, die von Drittanbieter-Werbenetzwerken bereitgestellt werden. Diese Partner können Cookies und ähnliche Tracking-Technologien verwenden, um Informationen über Ihre Surfaktivität auf verschiedenen Websites zu erfassen.",
+  "advertisingP2": "Durch die Nutzung der Site erkennen Sie die Einblendung von Anzeigen und die Verwendung von Tracking-Technologien durch unsere Werbepartner, wie in unserer Datenschutzerklärung beschrieben, an. Sie können personalisierte Werbung über Ihre Browsereinstellungen oder durch Besuch der Opt-out-Seiten der jeweiligen Werbenetzwerke ablehnen.",
+  "advertisingP3": "Wir sind nicht verantwortlich für den Inhalt, die Richtigkeit oder die Praktiken von Anzeigen, die auf der Site geschaltet werden. Interaktionen mit Werbetreibenden erfolgen ausschließlich zwischen Ihnen und dem Werbetreibenden.",
+  "disclaimerTitle": "Haftungsausschluss und Haftungsbeschränkung",
+  "disclaimerP1": "Die Dienste werden \"wie besehen\" und \"wie verfügbar\" ohne jegliche Gewährleistung bereitgestellt, weder ausdrücklich noch stillschweigend, einschließlich, aber nicht beschränkt auf stillschweigende Gewährleistungen der Marktgängigkeit, Eignung für einen bestimmten Zweck und Nichtverletzung von Rechten.",
+  "disclaimerP2": "Wir garantieren nicht, dass die Site ununterbrochen, sicher oder fehlerfrei ist. Die von unseren Tools erzeugten Ergebnisse dienen nur zu Informationszwecken. Sie sollten alle Ergebnisse unabhängig überprüfen, bevor Sie sich für sicherheitsrelevante oder mission-kritische Anwendungen darauf verlassen.",
+  "disclaimerP3": "Soweit gesetzlich zulässig, haftet OmniKit nicht für indirekte, zufällige, besondere, Folge- oder Strafschäden, einschließlich, aber nicht beschränkt auf Datenverlust, Gewinn- oder Goodwillverluste, die aus der Nutzung oder der Unfähigkeit zur Nutzung der Site oder der Dienste entstehen.",
+  "changesTitle": "Änderungen der Bedingungen",
+  "changesP1": "Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu aktualisieren oder zu ändern. Änderungen werden auf dieser Seite mit einem aktualisierten \"Zuletzt aktualisiert\"-Datum veröffentlicht. Ihre fortgesetzte Nutzung der Site nach Änderungen gilt als Akzeptanz der überarbeiteten Bedingungen. Wir empfehlen Ihnen, diese Seite regelmäßig zu überprüfen.",
+  "contactTitle": "Kontakt",
+  "contactP1": "Wenn Sie Fragen zu diesen Bedingungen haben, kontaktieren Sie uns bitte."
 }

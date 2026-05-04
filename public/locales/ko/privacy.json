@@ -1,83 +1,83 @@
 {
-  "title": "Privacy Policy",
-  "metaDescription": "Privacy Policy for OmniKit. Learn how we protect your data with 100% client-side processing and no server-side data transmission.",
-  "lastUpdated": "Last updated: April 23, 2026",
+  "title": "개인정보처리방침",
+  "metaDescription": "OmniKit 개인정보처리방침. 100% 클라이언트 처리와 서버 전송 없이 귀하의 데이터를 보호하는 방법을 확인하세요.",
+  "lastUpdated": "최종 업데이트: 2026년 4월 23일",
 
-  "privacyStatementTitle": "Privacy Statement",
-  "privacyStatementP1": "This Privacy Policy describes how OmniKit (\"we\", \"us\", or \"our\") collects, uses, and shares information when you visit our website (the \"Site\"). We are committed to protecting your privacy and being transparent about our data practices.",
-  "privacyStatementP2": "By using the Site, you consent to the data practices described in this policy.",
+  "privacyStatementTitle": "개인정보 보호 선언",
+  "privacyStatementP1": "이 개인정보처리방침은 OmniKit(\"당사\", \"우리\" 또는 \"저희\")가 웹사이트(\"사이트\")를 방문할 때 정보를 수집, 사용, 공유하는 방법을 설명합니다. 당사는 귀하의 개인정보를 보호하고 데이터 관행에 투명함을 약속드립니다.",
+  "privacyStatementP2": "사이트를 사용함으로써 귀하는 이 방침에 설명된 데이터 관행에 동의하게 됩니다.",
 
-  "infoCollectTitle": "Information We Collect",
-  "infoCollectP1": "We collect a limited amount of information to operate and improve our Site. The information we may collect includes:",
+  "infoCollectTitle": "수집하는 정보",
+  "infoCollectP1": "당사는 사이트 운영 및 개선을 위해 제한된 양의 정보를 수집합니다. 수집할 수 있는 정보는 다음과 같습니다:",
   "infoCollectList1": [
-    "Device Information: When you visit the Site, we may automatically collect your IP address, browser type, operating system, screen resolution, and timezone.",
-    "Usage Information: We may collect data about the pages you view, the tools you use, and general interaction patterns on the Site.",
-    "Cookie Data: We use cookies and similar tracking technologies to enhance your experience and support our advertising partners."
+    "기기 정보: 사이트를 방문할 때 IP 주소, 브라우저 유형, 운영체제, 화면 해상도, 시간대를 자동으로 수집할 수 있습니다.",
+    "사용 정보: 방문한 페이지, 사용한 도구, 사이트에서의 일반적인 상호작용 패턴에 대한 데이터를 수집할 수 있습니다.",
+    "쿠키 데이터: 경험을 향상하고 광고 파트너를 지원하기 위해 쿠키 및 유사한 추적 기술을 사용합니다."
   ],
-  "infoCollectP2": "Important: All developer tools on OmniKit run entirely in your browser. The text you encode, decode, hash, encrypt, or otherwise process using our tools is never transmitted to our servers or any third-party servers.",
+  "infoCollectP2": "중요: OmniKit의 모든 개발자 도구는 브라우저에서 완전히 실행됩니다. 도구를 사용하여 인코딩, 디코딩, 해시, 암호화 또는 기타 처리를 수행하는 텍스트는 당사 서버나 타사 서버로 절대 전송되지 않습니다.",
 
-  "infoUseTitle": "How We Use Your Information",
-  "infoUseP1": "We use the information we collect for the following purposes:",
+  "infoUseTitle": "정보 사용 방법",
+  "infoUseP1": "당사는 수집한 정보를 다음 목적으로 사용합니다:",
   "infoUseList1": [
-    "Site Analytics: To understand how visitors use our Site, identify trends, and improve our tools and user experience.",
-    "Advertising: To support our free service by displaying relevant advertisements through third-party ad networks.",
-    "Security: To detect and prevent abuse, fraud, or security issues.",
-    "Compliance: To comply with applicable legal obligations."
+    "사이트 분석: 방문자가 사이트를 어떻게 사용하는지 이해하고, 트렌드를 파악하며, 도구와 사용자 경험을 개선합니다.",
+    "광고: 타사 광고 네트워크를 통해 관련 광고를 표시하여 무료 서비스를 지원합니다.",
+    "보안: 남용, 사기 또는 보안 문제를 감지하고 예방합니다.",
+    "규정 준수: 적용 가능한 법적 의무를 준수합니다."
   ],
-  "infoUseP2": "We do not sell your personal information to third parties.",
+  "infoUseP2": "당사는 귀하의 개인정보를 제3자에게 판매하지 않습니다.",
 
-  "cookiesTitle": "Cookies and Tracking Technologies",
-  "cookiesP1": "The Site uses cookies and similar technologies for the following purposes:",
+  "cookiesTitle": "쿠키 및 추적 기술",
+  "cookiesP1": "사이트는 다음 목적으로 쿠키 및 유사한 기술을 사용합니다:",
   "cookiesList1": [
-    "Essential Cookies: Required for the Site to function properly (e.g., remembering your language preference).",
-    "Analytics Cookies: Used by services like Google Analytics to collect anonymous usage statistics.",
-    "Advertising Cookies: Used by our ad partners to deliver relevant advertisements and measure ad effectiveness."
+    "필수 쿠키: 사이트가 올바르게 작동하는 데 필요합니다 (예: 언어 기본 설정 기억).",
+    "분석 쿠키: Google Analytics와 같은 서비스에서 익명 사용 통계를 수집하는 데 사용됩니다.",
+    "광고 쿠키: 광고 파트너가 관련 광고를 제공하고 광고 효과를 측정하는 데 사용됩니다."
   ],
-  "cookiesP2": "You can manage your cookie preferences through your browser settings. Please note that disabling certain cookies may affect your experience on the Site. For more information about cookies, visit www.allaboutcookies.org.",
+  "cookiesP2": "브라우저 설정을 통해 쿠키 기본 설정을 관리할 수 있습니다. 일부 쿠키를 비활성화하면 사이트 경험에 영향을 줄 수 있습니다. 쿠키에 대한 자세한 정보는 www.allaboutcookies.org를 방문하세요.",
 
-  "advertisingTitle": "Advertising",
-  "advertisingP1": "OmniKit is a free service supported by advertising. We partner with third-party ad networks that may collect information about your browsing activity across multiple websites to display personalized advertisements.",
-  "advertisingP2": "These partners may use technologies such as cookies, web beacons, and tracking pixels to collect browsing data for ad targeting and measurement purposes. The information collected is typically anonymous and does not personally identify you.",
-  "advertisingP3": "You have the right to opt out of personalized advertising. You can exercise this right through:",
+  "advertisingTitle": "광고",
+  "advertisingP1": "OmniKit은 광고로 지원되는 무료 서비스입니다. 타사 광고 네트워크와 협력하여 여러 웹사이트에서 귀하의 브라우징 활동에 대한 정보를 수집하고 맞춤형 광고를 표시할 수 있습니다.",
+  "advertisingP2": "이러한 파트너는 광고 타겟팅 및 측정 목적으로 쿠키, 웹 비콘, 추적 픽셀과 같은 기술을 사용할 수 있습니다. 수집된 정보는 일반적으로 익명이며 귀하를 개인적으로 식별하지 않습니다.",
+  "advertisingP3": "귀하는 맞춤형 광고에 대한 옵트아웃 권리가 있습니다. 다음을 통해 이 권리를 행사할 수 있습니다:",
   "advertisingOptList": [
-    "Your browser's privacy and cookie settings",
-    "The Digital Advertising Alliance opt-out page: optout.aboutads.info",
-    "The Network Advertising Initiative opt-out page: networkadvertising.org/choices",
-    "The European Interactive Digital Advertising Alliance: youronlinechoices.com"
+    "브라우저의 개인정보 및 쿠키 설정",
+    "Digital Advertising Alliance 옵트아웃 페이지: optout.aboutads.info",
+    "Network Advertising Initiative 옵트아웃 페이지: networkadvertising.org/choices",
+    "European Interactive Digital Advertising Alliance: youronlinechoices.com"
   ],
-  "advertisingNote": "Note: Opting out of personalized advertising does not mean you will no longer see ads — it means the ads you see will be less relevant to your interests.",
+  "advertisingNote": "참고: 맞춤형 광고 옵트아웃은 광고를 더 이상 보지 않게 된다는 의미가 아니라, 보게 되는 광고가 관심사와 덜 관련된다는 의미입니다.",
 
-  "thirdPartyTitle": "Third-Party Services",
-  "thirdPartyP1": "We use Google Analytics to collect and analyze usage data for the Site. Google Analytics collects information such as how often users visit the Site, what pages they visit, and what other sites they used prior to coming to the Site. You can learn more about Google's privacy practices at google.com/intl/en/policies/privacy and opt out of Google Analytics at tools.google.com/dlpage/gaoptout.",
-  "thirdPartyP2": "We may use additional third-party services for advertising, analytics, or site functionality. Each third-party service has its own privacy policy, and we encourage you to review them.",
+  "thirdPartyTitle": "타사 서비스",
+  "thirdPartyP1": "당사는 Google Analytics를 사용하여 사이트의 사용 데이터를 수집하고 분석합니다. Google Analytics는 사용자가 사이트를 방문하는 빈도, 방문하는 페이지, 사이트 방문 전 사용한 다른 사이트 등의 정보를 수집합니다. Google의 개인정보 보호 관행에 대한 자세한 내용은 google.com/intl/en/policies/privacy에서 확인할 수 있으며, tools.google.com/dlpage/gaoptout에서 Google Analytics를 옵트아웃할 수 있습니다.",
+  "thirdPartyP2": "광고, 분석 또는 사이트 기능을 위해 추가적인 타사 서비스를 사용할 수 있습니다. 각 타사 서비스에는 자체 개인정보처리방침이 있으며, 검토하시길 권장합니다.",
 
-  "dataSecurityTitle": "Data Security",
-  "dataSecurityP1": "All developer tools on OmniKit process data entirely within your web browser using client-side JavaScript. Your data — including text, files, and cryptographic operations — never leaves your device. We do not have access to, nor do we store, any data you process using our tools.",
-  "dataSecurityP2": "We implement reasonable security measures to protect the Site and its infrastructure. However, no method of electronic transmission or storage is 100% secure, and we cannot guarantee absolute security.",
+  "dataSecurityTitle": "데이터 보안",
+  "dataSecurityP1": "OmniKit의 모든 개발자 도구는 클라이언트 측 JavaScript를 사용하여 웹 브라우저 내에서 완전히 데이터를 처리합니다. 텍스트, 파일, 암호화 작업을 포함한 귀하의 데이터는 기기를 떠나지 않습니다. 당사는 도구를 사용하여 처리하는 데이터에 접근하거나 저장하지 않습니다.",
+  "dataSecurityP2": "당사는 사이트와 인프라를 보호하기 위해 합리적인 보안 조치를 구현합니다. 그러나 전자 전송이나 저장의 어떤 방법도 100% 안전하지 않으며, 절대적인 보안을 보장할 수는 없습니다.",
 
-  "yourRightsTitle": "Your Rights",
-  "yourRightsP1": "Depending on your location, you may have certain rights regarding your personal information:",
+  "yourRightsTitle": "귀하의 권리",
+  "yourRightsP1": "거주 지역에 따라 개인정보에 대한 특정 권리가 있을 수 있습니다:",
   "yourRightsList1": [
-    "Access: You have the right to request access to the personal information we hold about you.",
-    "Correction: You have the right to request correction of inaccurate or incomplete personal information.",
-    "Deletion: You have the right to request deletion of your personal information, subject to certain legal exceptions.",
-    "Opt-Out: You have the right to opt out of personalized advertising and certain data processing activities.",
-    "Data Portability: In some jurisdictions, you have the right to receive your personal information in a structured, machine-readable format."
+    "접근: 당사가 보유한 귀하의 개인정보에 대한 접근을 요청할 권리가 있습니다.",
+    "정정: 부정확하거나 불완전한 개인정보의 정정을 요청할 권리가 있습니다.",
+    "삭제: 특정 법적 예외를 제외하고 개인정보 삭제를 요청할 권리가 있습니다.",
+    "옵트아웃: 맞춤형 광고 및 특정 데이터 처리 활동에 대한 옵트아웃 권리가 있습니다.",
+    "데이터 이동성: 일부 관할 구역에서는 구조화된 기계 판독 가능 형식으로 개인정보를 받을 권리가 있습니다."
   ],
-  "yourRightsP2": "To exercise any of these rights, please contact us. We will respond to your request in accordance with applicable laws.",
+  "yourRightsP2": "이러한 권리를 행사하려면 당사에 연락해 주세요. 적용 가능한 법률에 따라 요청에 응답하겠습니다.",
 
-  "dataRetentionTitle": "Data Retention",
-  "dataRetentionP1": "We retain analytics and advertising data only for as long as necessary to fulfill the purposes described in this policy, or as required by law. Data processed by our developer tools is never stored by us and exists only temporarily in your browser session.",
+  "dataRetentionTitle": "데이터 보유",
+  "dataRetentionP1": "당사는 이 방침에 설명된 목적을 충족하거나 법률에서 요구하는 기간 동안만 분석 및 광고 데이터를 보유합니다. 개발자 도구로 처리된 데이터는 당사가 저장하지 않으며 브라우저 세션에서만 일시적으로 존재합니다.",
 
-  "childrenTitle": "Children's Privacy",
-  "childrenP1": "The Site is not directed at children under the age of 13. We do not knowingly collect personal information from children under 13. If you believe we have inadvertently collected information from a child under 13, please contact us and we will take steps to delete such information promptly.",
+  "childrenTitle": "아동 개인정보 보호",
+  "childrenP1": "이 사이트는 13세 미만 아동을 대상으로 하지 않습니다. 당사는 13세 미만 아동의 개인정보를 고의로 수집하지 않습니다. 13세 미만 아동의 정보를 실수로 수집한 것으로 판단되는 경우 당사에 연락해 주시면 해당 정보를 즉시 삭제하겠습니다.",
 
-  "changesTitle": "Changes to This Policy",
-  "changesP1": "We may update this Privacy Policy from time to time to reflect changes in our practices, technology, or legal requirements. We will post the updated policy on this page with a revised \"Last updated\" date. Your continued use of the Site after any changes constitutes acceptance of the updated policy.",
+  "changesTitle": "방침 변경",
+  "changesP1": "당사는 관행, 기술 또는 법적 요구 사항의 변화를 반영하기 위해 이 개인정보처리방침을 수시로 업데이트할 수 있습니다. 업데이트된 방침은 이 페이지에 개정된 \"최종 업데이트\" 날짜와 함께 게시됩니다. 변경 후에도 사이트를 계속 사용하면 업데이트된 방침에 동의하는 것으로 간주됩니다.",
 
-  "linksTitle": "Links to Other Sites",
-  "linksP1": "The Site may contain links to third-party websites or services. We are not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policies of any third-party sites you visit.",
+  "linksTitle": "다른 사이트로의 링크",
+  "linksP1": "사이트에 타사 웹사이트나 서비스에 대한 링크가 포함될 수 있습니다. 당사는 이러한 외부 사이트의 개인정보 보호 관행이나 콘텐츠에 책임을 지지 않습니다. 방문하는 타사 사이트의 개인정보처리방침을 검토하시길 권장합니다.",
 
-  "contactTitle": "Contact Us",
-  "contactP1": "If you have any questions or concerns about this Privacy Policy or our data practices, please contact us."
+  "contactTitle": "문의",
+  "contactP1": "이 개인정보처리방침이나 당사의 데이터 관행에 대해 질문이나 우려 사항이 있으시면 당사에 연락해 주세요."
 }

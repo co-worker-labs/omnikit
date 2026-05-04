@@ -1,24 +1,24 @@
 {
-  "tabConverter": "Converter",
-  "tabReference": "Reference",
-  "bitWidth": "Bit Width",
-  "decimal": "Decimal",
-  "hexadecimal": "Hexadecimal",
-  "octal": "Octal",
-  "binary": "Binary",
+  "tabConverter": "Конвертер",
+  "tabReference": "Справка",
+  "bitWidth": "Разрядность",
+  "decimal": "Десятичный",
+  "hexadecimal": "Шестнадцатеричный",
+  "octal": "Восьмеричный",
+  "binary": "Двоичный",
   "asciiChar": "ASCII",
   "unicodePoint": "Unicode",
-  "invalidInput": "Invalid input",
-  "overflowWarning": "Value exceeds bit width",
-  "referenceTitle": "Base Reference (0-15)",
+  "invalidInput": "Некорректный ввод",
+  "overflowWarning": "Значение превышает разрядность",
+  "referenceTitle": "Справочная таблица (0–15)",
   "refDec": "DEC",
   "refHex": "HEX",
   "refOct": "OCT",
   "refBin": "BIN",
   "descriptions": {
-    "whatIsTitle": "What is Number Base Conversion?",
-    "whatIs": "Number base conversion transforms a number from one positional numeral system to another. Computers use binary (base 2), while humans typically work with decimal (base 10). Hexadecimal (base 16) and octal (base 8) offer compact representations of binary data, commonly used in debugging, network protocols, color codes, and file permissions.",
-    "twosComplementTitle": "Two's Complement",
-    "twosComplement": "Two's complement is the standard way to represent signed integers in binary. The most significant bit (MSB) acts as the sign bit: 0 for positive, 1 for negative. To get the negative value, invert all bits and add 1. For example, in 8-bit mode, -1 is represented as 11111111 (0xFF)."
+    "whatIsTitle": "Что такое конвертация систем счисления?",
+    "whatIs": "Конвертация систем счисления преобразует число из одной позиционной системы в другую. Компьютеры используют двоичную систему (основание 2), а люди обычно работают с десятичной (основание 10). Шестнадцатеричная (основание 16) и восьмеричная (основание 8) дают компактное представление двоичных данных, часто используются при отладке, сетевых протоколах, цветовых кодах и файловых разрешениях.",
+    "twosComplementTitle": "Дополнительный код",
+    "twosComplement": "Дополнительный код (two's complement) — стандартный способ представления знаковых целых чисел в двоичном виде. Старший бит (MSB) выступает в роли знакового: 0 для положительных, 1 для отрицательных. Чтобы получить отрицательное значение, инвертируйте все биты и прибавьте 1. Например, в 8-битном режиме -1 представляется как 11111111 (0xFF)."
   }
 }

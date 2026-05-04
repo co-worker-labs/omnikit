@@ -1,24 +1,24 @@
 {
-  "tabConverter": "Converter",
-  "tabReference": "Reference",
-  "bitWidth": "Bit Width",
-  "decimal": "Decimal",
-  "hexadecimal": "Hexadecimal",
+  "tabConverter": "Convertisseur",
+  "tabReference": "Référence",
+  "bitWidth": "Largeur de bits",
+  "decimal": "Décimal",
+  "hexadecimal": "Hexadécimal",
   "octal": "Octal",
-  "binary": "Binary",
+  "binary": "Binaire",
   "asciiChar": "ASCII",
   "unicodePoint": "Unicode",
-  "invalidInput": "Invalid input",
-  "overflowWarning": "Value exceeds bit width",
-  "referenceTitle": "Base Reference (0-15)",
-  "refDec": "DEC",
+  "invalidInput": "Entrée invalide",
+  "overflowWarning": "La valeur dépasse la largeur de bits",
+  "referenceTitle": "Référence des bases (0-15)",
+  "refDec": "DÉC",
   "refHex": "HEX",
   "refOct": "OCT",
   "refBin": "BIN",
   "descriptions": {
-    "whatIsTitle": "What is Number Base Conversion?",
-    "whatIs": "Number base conversion transforms a number from one positional numeral system to another. Computers use binary (base 2), while humans typically work with decimal (base 10). Hexadecimal (base 16) and octal (base 8) offer compact representations of binary data, commonly used in debugging, network protocols, color codes, and file permissions.",
-    "twosComplementTitle": "Two's Complement",
-    "twosComplement": "Two's complement is the standard way to represent signed integers in binary. The most significant bit (MSB) acts as the sign bit: 0 for positive, 1 for negative. To get the negative value, invert all bits and add 1. For example, in 8-bit mode, -1 is represented as 11111111 (0xFF)."
+    "whatIsTitle": "Qu'est-ce que la conversion de base numérique ?",
+    "whatIs": "La conversion de base numérique transforme un nombre d'un système de numération positionnel à un autre. Les ordinateurs utilisent le binaire (base 2), tandis que les humains travaillent généralement en décimal (base 10). L'hexadécimal (base 16) et l'octal (base 8) offrent des représentations compactes des données binaires, couramment utilisées dans le débogage, les protocoles réseau, les codes couleur et les permissions de fichiers.",
+    "twosComplementTitle": "Complément à deux",
+    "twosComplement": "Le complément à deux est la méthode standard pour représenter les entiers signés en binaire. Le bit de poids fort (MSB) sert de bit de signe : 0 pour positif, 1 pour négatif. Pour obtenir la valeur négative, inversez tous les bits et ajoutez 1. Par exemple, en mode 8 bits, -1 est représenté par 11111111 (0xFF)."
   }
 }

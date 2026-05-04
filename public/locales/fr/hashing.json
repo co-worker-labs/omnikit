@@ -1,8 +1,8 @@
 {
-  "passphrasePlaceholder": "Paste or type the secret passphrase for HMAC here",
-  "pasteToCompare": "Paste to compare",
+  "passphrasePlaceholder": "Collez ou saisissez la phrase secrète pour HMAC ici",
+  "pasteToCompare": "Coller pour comparer",
   "descriptions": {
     "hmacTitle": "HMAC",
-    "hmac": "Keyed-hash message authentication codes (HMAC) is a mechanism for message authentication using cryptographic hash functions."
+    "hmac": "HMAC (Hash-based Message Authentication Code) est un mécanisme d'authentification de messages utilisant des fonctions de hachage cryptographiques."
   }
 }

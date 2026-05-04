@@ -1,24 +1,24 @@
 {
-  "tabConverter": "Converter",
-  "tabReference": "Reference",
-  "bitWidth": "Bit Width",
-  "decimal": "Decimal",
-  "hexadecimal": "Hexadecimal",
-  "octal": "Octal",
-  "binary": "Binary",
+  "tabConverter": "変換",
+  "tabReference": "リファレンス",
+  "bitWidth": "ビット幅",
+  "decimal": "10進数",
+  "hexadecimal": "16進数",
+  "octal": "8進数",
+  "binary": "2進数",
   "asciiChar": "ASCII",
   "unicodePoint": "Unicode",
-  "invalidInput": "Invalid input",
-  "overflowWarning": "Value exceeds bit width",
-  "referenceTitle": "Base Reference (0-15)",
+  "invalidInput": "無効な入力",
+  "overflowWarning": "値がビット幅を超えています",
+  "referenceTitle": "基数リファレンス（0-15）",
   "refDec": "DEC",
   "refHex": "HEX",
   "refOct": "OCT",
   "refBin": "BIN",
   "descriptions": {
-    "whatIsTitle": "What is Number Base Conversion?",
-    "whatIs": "Number base conversion transforms a number from one positional numeral system to another. Computers use binary (base 2), while humans typically work with decimal (base 10). Hexadecimal (base 16) and octal (base 8) offer compact representations of binary data, commonly used in debugging, network protocols, color codes, and file permissions.",
-    "twosComplementTitle": "Two's Complement",
-    "twosComplement": "Two's complement is the standard way to represent signed integers in binary. The most significant bit (MSB) acts as the sign bit: 0 for positive, 1 for negative. To get the negative value, invert all bits and add 1. For example, in 8-bit mode, -1 is represented as 11111111 (0xFF)."
+    "whatIsTitle": "進数変換とは？",
+    "whatIs": "進数変換は、ある位置記数法の数値を別の位置記数法に変換します。コンピュータは2進数（基数2）を使い、人間は通常10進数（基数10）で作業します。16進数（基数16）と8進数（基数8）はバイナリデータのコンパクトな表現で、デバッグ、ネットワークプロトコル、カラーコード、ファイルパーミッションによく使われます。",
+    "twosComplementTitle": "2の補数",
+    "twosComplement": "2の補数は符号付き整数をバイナリで表現する標準的な方法です。最上位ビット（MSB）が符号ビットとして機能し、0が正、1が負を示します。負の値を得るには、すべてのビットを反転して1を加算します。例えば、8ビットモードでは-1は11111111（0xFF）として表現されます。"
   }
 }

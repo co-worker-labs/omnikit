@@ -1,10 +1,10 @@
 {
-  "dropFilesHere": "Drop files here or click to select",
-  "deselect": "Deselect ({count})",
-  "noFileChosen": "No file chosen",
-  "selectedFiles": "Selected {count} {files}",
-  "selectedFile": "Selected {count} file",
-  "checksumOutput": "Checksum Output",
-  "algoTip": "For large files, select only the algorithms you need to reduce processing time.",
-  "calculate": "Calculate"
+  "dropFilesHere": "Déposez les fichiers ici ou cliquez pour sélectionner",
+  "deselect": "Désélectionner ({count})",
+  "noFileChosen": "Aucun fichier choisi",
+  "selectedFiles": "{count} fichiers sélectionnés",
+  "selectedFile": "{count} fichier sélectionné",
+  "checksumOutput": "Résultat du checksum",
+  "algoTip": "Pour les gros fichiers, sélectionnez uniquement les algorithmes nécessaires afin de réduire le temps de traitement.",
+  "calculate": "Calculer"
 }

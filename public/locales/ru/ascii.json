@@ -1,19 +1,19 @@
 {
-  "printableCharacters": "Printable Characters",
-  "controlCodeCharts": "Control Code Charts",
+  "printableCharacters": "Печатные символы",
+  "controlCodeCharts": "Управляющие коды",
   "description": {
-    "text": "ASCII stands for American Standard Code for Information Interchange. Computers can only understand numbers, so an ASCII code is the numerical representation of a character such as 'a' or '@' or an action of some sort. ASCII was developed a long time ago and now the non-printing characters are rarely used for their original purpose. Below is the ASCII character table and this includes descriptions of the first 32 non-printing characters. ASCII was actually designed for use with teletypes and so the descriptions are somewhat obscure. If someone says they want your CV however in ASCII format, all this means is they want 'plain' text with no formatting such as tabs, bold or underscoring - the raw format that any computer can understand. This is usually so they can easily import the file into their own applications without issues. Notepad.exe creates ASCII text, or in MS Word you can save a file as 'text only'"
+    "text": "ASCII расшифровывается как American Standard Code for Information Interchange. Компьютеры понимают только числа, поэтому ASCII код — это числовое представление символа, например 'a' или '@', или某种 управляющей последовательности. ASCII был разработан давно, и сейчас непечатные символы редко используются по своему первоначальному назначению. Ниже приведена таблица символов ASCII, включая описания первых 32 непечатных символов. Изначально ASCII создавался для телетайпов, поэтому некоторые описания могут показаться непонятными. Если кто-то просит ваше резюме в формате ASCII, это значит, что нужен обычный текст без форматирования — без табуляции, жирного шрифта или подчёркивания. Простейший формат, который понимает любой компьютер. Обычно это делается для удобного импорта файла в другие приложения. Блокнот (Notepad.exe) создаёт текст в формате ASCII, а в MS Word можно сохранить файл как «только текст»."
   },
   "tableHeaders": {
-    "decimal": "Decimal",
-    "binary": "Binary",
-    "oct": "Oct",
+    "decimal": "Десятичный",
+    "binary": "Двоичный",
+    "oct": "Восьмеричный",
     "hex": "Hex",
-    "abbr": "Abbr",
-    "desc": "Desc",
-    "html": "Html",
-    "glyph": "Glyph"
+    "abbr": "Аббр.",
+    "desc": "Описание",
+    "html": "HTML",
+    "glyph": "Символ"
   },
-  "tip": "💡 Hover over any row for details. Use the search bar to quickly find characters by decimal, hex, or glyph.",
-  "searchPlaceholder": "Search by decimal, hex, or character..."
+  "tip": "💡 Наведите на строку для подробностей. Используйте поиск для быстрого поиска по десятичному, hex-коду или символу.",
+  "searchPlaceholder": "Поиск по десятичному, hex или символу..."
 }

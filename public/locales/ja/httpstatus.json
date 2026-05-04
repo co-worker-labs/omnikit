@@ -1,453 +1,453 @@
 {
   "description": {
-    "text": "Complete HTTP status code reference covering all IANA official codes from RFC 9110 and related specifications — including WebDAV (RFC 4918), additional HTTP status codes (RFC 6585), 308 Permanent Redirect (RFC 7538), 451 Unavailable For Legal Reasons (RFC 7725), and Early Hints (RFC 8297). Also includes unofficial platform extensions from Nginx, Cloudflare, and IIS. Each code shows its description, RFC reference, and commonly used codes include usage scenarios and common causes for quick troubleshooting."
+    "text": "RFC 9110と関連仕様のすべてのIANA公式コードを網羅したHTTPステータスコードリファレンスです。WebDAV（RFC 4918）、追加HTTPステータスコード（RFC 6585）、308 Permanent Redirect（RFC 7538）、451 Unavailable For Legal Reasons（RFC 7725）、Early Hints（RFC 8297）を含みます。Nginx、Cloudflare、IISの非公式プラットフォーム拡張も含まれています。各コードには説明とRFCリファレンスが表示され、よく使われるコードにはユースケースと一般的な原因も含まれています。"
   },
-  "tip": "Hover over any row on desktop or tap on mobile to see usage details and common causes.",
-  "searchPlaceholder": "Search by code, name, or description...",
-  "noResults": "No results found",
+  "tip": "デスクトップでは行にホバー、モバイルではタップして、使用方法と一般的な原因を確認できます。",
+  "searchPlaceholder": "コード、名前、説明で検索...",
+  "noResults": "結果が見つかりません",
   "categories": {
-    "all": "All",
-    "1xx": "1xx Informational",
-    "2xx": "2xx Success",
-    "3xx": "3xx Redirection",
-    "4xx": "4xx Client Error",
-    "5xx": "5xx Server Error",
-    "unofficial": "Unofficial"
+    "all": "すべて",
+    "1xx": "1xx 情報",
+    "2xx": "2xx 成功",
+    "3xx": "3xx リダイレクト",
+    "4xx": "4xx クライアントエラー",
+    "5xx": "5xx サーバーエラー",
+    "unofficial": "非公式"
   },
   "tableHeaders": {
-    "code": "Code",
-    "name": "Name",
-    "description": "Description",
-    "spec": "Spec",
-    "source": "Source"
+    "code": "コード",
+    "name": "名前",
+    "description": "説明",
+    "spec": "仕様",
+    "source": "ソース"
   },
   "detailLabels": {
-    "usage": "Usage",
-    "commonCauses": "Common Causes"
+    "usage": "用途",
+    "commonCauses": "一般的な原因"
   },
   "codes": {
     "100": {
-      "description": "The server has received the request headers and the client should proceed to send the request body."
+      "description": "サーバーがリクエストヘッダーを受信しました。クライアントはリクエストボディの送信を続行してください。"
     },
     "101": {
-      "description": "The server is switching protocols as requested by the client."
+      "description": "サーバーがクライアントの要求に応じてプロトコルを切り替えています。"
     },
     "102": {
-      "description": "The server has received and is processing the request, but no response is available yet."
+      "description": "サーバーがリクエストを受信し処理中ですが、まだレスポンスは利用できません。"
     },
     "103": {
-      "description": "Used to return some response headers before final HTTP message."
+      "description": "最終的なHTTPメッセージの前に一部のレスポンスヘッダーを返すために使用されます。"
     },
     "200": {
-      "description": "The request succeeded.",
+      "description": "リクエストが成功しました。",
       "details": {
-        "usage": "Standard response for successful HTTP requests",
+        "usage": "成功したHTTPリクエストの標準レスポンス",
         "commonCauses": [
-          "Successfully retrieved a resource via GET request",
-          "Successfully updated a resource via PUT or PATCH request",
-          "Successfully created a resource via POST request",
-          "Successfully deleted a resource via DELETE request"
+          "GETリクエストでリソースの取得に成功",
+          "PUTまたはPATCHリクエストでリソースの更新に成功",
+          "POSTリクエストでリソースの作成に成功",
+          "DELETEリクエストでリソースの削除に成功"
         ]
       }
     },
     "201": {
-      "description": "The request succeeded and a new resource was created.",
+      "description": "リクエストが成功し、新しいリソースが作成されました。",
       "details": {
-        "usage": "Response to a POST request that creates a new resource",
+        "usage": "新しいリソースを作成するPOSTリクエストへのレスポンス",
         "commonCauses": [
-          "Creating a new user account",
-          "Uploading a new file",
-          "Creating a new database record",
-          "Submitting a new order"
+          "新しいユーザーアカウントの作成",
+          "新しいファイルのアップロード",
+          "新しいデータベースレコードの作成",
+          "新しい注文の送信"
         ]
       }
     },
     "202": {
-      "description": "The request has been received but not yet acted upon."
+      "description": "リクエストは受信されましたが、まだ処理されていません。"
     },
     "203": {
-      "description": "The request was successful but the transformed metadata is not the definitive set."
+      "description": "リクエストは成功しましたが、変換されたメタデータは確定的なものではありません。"
     },
     "204": {
-      "description": "The server successfully processed the request and is not returning any content.",
+      "description": "サーバーはリクエストを正常に処理しましたが、コンテンツを返しません。",
       "details": {
-        "usage": "Response to successful requests that don't require returning a body",
+        "usage": "ボディの返却が不要な成功リクエストへのレスポンス",
         "commonCauses": [
-          "Successful DELETE request",
-          "Successful PUT request with no response body needed",
-          "Updating a resource's status without returning data",
-          "Clearing a cache or resetting a state"
+          "DELETEリクエストの成功",
+          "レスポンスボディが不要なPUTリクエストの成功",
+          "データを返さずリソースのステータスを更新",
+          "キャッシュのクリアや状態のリセット"
         ]
       }
     },
     "205": {
-      "description": "The server successfully processed the request but is not returning any content and requires the requestor to reset the document view."
+      "description": "サーバーはリクエストを正常に処理しましたが、コンテンツを返さず、リクエスト元にドキュメントビューのリセットを求めています。"
     },
     "206": {
-      "description": "The server is delivering only part of the resource due to a range header sent by the client.",
+      "description": "クライアントが送信したRangeヘッダーにより、サーバーはリソースの一部のみを配信しています。",
       "details": {
-        "usage": "Used for range requests, resumable downloads, and streaming media",
+        "usage": "Rangeリクエスト、再開可能ダウンロード、ストリーミングメディアに使用",
         "commonCauses": [
-          "Video player requesting a specific byte range for buffering",
-          "Download managers resuming interrupted downloads",
-          "Large file transfers in chunks",
-          "HTTP range requests for pagination"
+          "動画プレーヤーがバッファリングのために特定のバイト範囲をリクエスト",
+          "ダウンロードマネージャーが中断されたダウンロードを再開",
+          "大きなファイルのチャンク転送",
+          "ページネーション用のHTTP Rangeリクエスト"
         ]
       }
     },
     "207": {
-      "description": "The message body that follows is by default an XML message and can contain a number of separate response codes."
+      "description": "メッセージボディはデフォルトでXMLメッセージであり、複数の個別レスポンスコードを含むことができます。"
     },
     "208": {
-      "description": "The members of a DAV binding have already been enumerated in a preceding part of the multi-status response."
+      "description": "DAVバインディングのメンバーは、前のマルチステータスレスポンスですでに列挙されています。"
     },
     "226": {
-      "description": "The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance."
+      "description": "サーバーはリソースのGETリクエストを満たし、レスポンスは現在のインスタンスに適用された1つ以上のインスタンス操作の結果です。"
     },
     "300": {
-      "description": "The request has more than one possible response."
+      "description": "リクエストに対して複数のレスポンスが可能です。"
     },
     "301": {
-      "description": "The URL of the requested resource has been changed permanently.",
+      "description": "リクエストされたリソースのURLが永久に変更されました。",
       "details": {
-        "usage": "Permanent redirect for URL changes and content relocation",
+        "usage": "URL変更とコンテンツ移動の永久リダイレクト",
         "commonCauses": [
-          "Website domain change or migration",
-          "URL structure redesign for better SEO",
-          "Moving content to a new location",
-          "HTTP to HTTPS migration"
+          "Webサイトのドメイン変更または移行",
+          "SEO改善のためのURL構造の再設計",
+          "コンテンツの新しい場所への移動",
+          "HTTPからHTTPSへの移行"
         ]
       }
     },
     "302": {
-      "description": "The URL of the requested resource has been changed temporarily.",
+      "description": "リクエストされたリソースのURLが一時的に変更されました。",
       "details": {
-        "usage": "Temporary redirect for content that has moved or is under maintenance",
+        "usage": "移動またはメンテナンス中のコンテンツの一時的リダイレクト",
         "commonCauses": [
-          "Temporary website maintenance",
-          "A/B testing redirects",
-          "User authentication flow",
-          "Temporary content location changes"
+          "一時的なサイトメンテナンス",
+          "A/Bテストのリダイレクト",
+          "ユーザー認証フロー",
+          "コンテンツの場所の一時的変更"
         ]
       }
     },
     "303": {
-      "description": "The response to the request can be found under another URI using the GET method."
+      "description": "リクエストへのレスポンスは別のURIでGETメソッドを使って見つけることができます。"
     },
     "304": {
-      "description": "The cached version of the requested resource is still valid.",
+      "description": "リクエストされたリソースのキャッシュ版はまだ有効です。",
       "details": {
-        "usage": "Caching optimization to reduce bandwidth and improve performance",
+        "usage": "帯域幅の削減とパフォーマンス向上のためのキャッシュ最適化",
         "commonCauses": [
-          "Browser cache hit for unchanged static resources",
-          "CDN cache serving unchanged content",
-          "Conditional GET request with If-None-Match header",
-          "Server returning 304 for resources that haven't changed since last request"
+          "変更されていない静的リソースのブラウザキャッシュヒット",
+          "変更されていないコンテンツを配信するCDNキャッシュ",
+          "If-None-Matchヘッダー付きの条件付きGETリクエスト",
+          "前回リクエスト以降変更がないリソースに対する304レスポンス"
         ]
       }
     },
     "305": {
-      "description": "The requested resource is only available through a proxy."
+      "description": "リクエストされたリソースはプロキシ経由でのみ利用可能です。"
     },
     "307": {
-      "description": "The request should be repeated with another URI, but future requests should still use the original URI.",
+      "description": "リクエストを別のURIで繰り返す必要がありますが、以降のリクエストは元のURIを使用してください。",
       "details": {
-        "usage": "Temporary redirect that preserves the HTTP method",
+        "usage": "HTTPメソッドを保持する一時的リダイレクト",
         "commonCauses": [
-          "Redirecting POST requests during maintenance",
-          "Temporary URL changes for API endpoints",
-          "Load balancing and traffic distribution",
-          "Testing new features with temporary redirects"
+          "メンテナンス中のPOSTリクエストのリダイレクト",
+          "APIエンドポイントの一時的URL変更",
+          "負荷分散とトラフィック分散",
+          "一時的リダイレクトによる新機能のテスト"
         ]
       }
     },
     "308": {
-      "description": "The request and all future requests should be repeated using another URI."
+      "description": "リクエストと以降のすべてのリクエストを別のURIで繰り返す必要があります。"
     },
     "400": {
-      "description": "The server could not understand the request due to invalid syntax.",
+      "description": "無効な構文のため、サーバーがリクエストを理解できませんでした。",
       "details": {
-        "usage": "Generic client error for malformed requests",
+        "usage": "不正なリクエストに対する一般的なクライアントエラー",
         "commonCauses": [
-          "Malformed JSON in request body",
-          "Missing required request parameters",
-          "Invalid request headers or content type",
-          "Malformed URL or query parameters"
+          "リクエストボディの不正なJSON",
+          "必須リクエストパラメータの欠落",
+          "無効なリクエストヘッダーまたはContent-Type",
+          "不正なURLまたはクエリパラメータ"
         ]
       }
     },
     "401": {
-      "description": "The client must authenticate itself to get the requested response.",
+      "description": "クライアントはリクエストされたレスポンスを得るために認証する必要があります。",
       "details": {
-        "usage": "Authentication required for accessing protected resources",
+        "usage": "保護されたリソースへのアクセスに認証が必要",
         "commonCauses": [
-          "Missing or invalid authentication token",
-          "Expired JWT or session token",
-          "Failed authentication attempt",
-          "Accessing protected API without credentials"
+          "認証トークンの欠落または無効",
+          "期限切れのJWTまたはセッショントークン",
+          "認証の失敗",
+          "資格情報なしでの保護APIへのアクセス"
         ]
       }
     },
     "402": {
-      "description": "This response code is reserved for future use."
+      "description": "このレスポンスコードは将来の使用のために予約されています。"
     },
     "403": {
-      "description": "The client does not have access rights to the content.",
+      "description": "クライアントはコンテンツへのアクセス権がありません。",
       "details": {
-        "usage": "Authorization failure for authenticated but unauthorized requests",
+        "usage": "認証済みだが権限のないリクエストの認可失敗",
         "commonCauses": [
-          "User lacks permission to access the resource",
-          "IP address or region-based blocking",
-          "Accessing admin-only features without proper role",
-          "Rate limiting exceeded for authenticated user"
+          "リソースへのアクセス権限がない",
+          "IPアドレスまたはリージョンによるブロック",
+          "適切なロールなしで管理者機能にアクセス",
+          "認証済みユーザーのレート制限超過"
         ]
       }
     },
     "404": {
-      "description": "The server can not find the requested resource.",
+      "description": "サーバーがリクエストされたリソースを見つけられません。",
       "details": {
-        "usage": "Resource not found at the specified URL",
+        "usage": "指定されたURLにリソースが存在しない",
         "commonCauses": [
-          "Typo in the URL or broken link",
-          "Resource has been deleted or moved",
-          "Incorrect API endpoint path",
-          "Database record no longer exists"
+          "URLの入力ミスまたはリンク切れ",
+          "リソースが削除または移動済み",
+          "不正なAPIエンドポイントパス",
+          "データベースレコードが存在しない"
         ]
       }
     },
     "405": {
-      "description": "The request method is known by the server but is not supported by the target resource.",
+      "description": "リクエストメソッドはサーバーが認識していますが、対象リソースではサポートされていません。",
       "details": {
-        "usage": "HTTP method not supported for the requested endpoint",
+        "usage": "リクエストされたエンドポイントでHTTPメソッドがサポートされていない",
         "commonCauses": [
-          "Using GET when only POST is allowed",
-          "Trying to DELETE a read-only resource",
-          "Incorrect HTTP method for API endpoint",
-          "Unsupported method on static file resource"
+          "POSTのみ許可されているのにGETを使用",
+          "読み取り専用リソースにDELETEを試行",
+          "APIエンドポイントに不正なHTTPメソッド",
+          "静的ファイルリソースでサポートされていないメソッド"
         ]
       }
     },
     "406": {
-      "description": "The server cannot produce a response matching the list of acceptable values defined in the request's proactive content negotiation headers."
+      "description": "サーバーはリクエストのプロアクティブコンテンツネゴシエーションヘッダーで定義された許容値に一致するレスポンスを生成できません。"
     },
     "407": {
-      "description": "The client must first authenticate itself with a proxy."
+      "description": "クライアントはまずプロキシで認証する必要があります。"
     },
     "408": {
-      "description": "The server would like to shut down this unused connection.",
+      "description": "サーバーはこの未使用の接続を切断したいと考えています。",
       "details": {
-        "usage": "Server closed the connection due to client inactivity",
+        "usage": "クライアントの非アクティブによりサーバーが接続を切断",
         "commonCauses": [
-          "Client took too long to send the request body",
-          "Network timeout between client and server",
-          "Slow client connection causing server timeout",
-          "Load balancer timeout exceeded"
+          "リクエストボディの送信に時間がかかりすぎた",
+          "クライアントとサーバー間のネットワークタイムアウト",
+          "遅いクライアント接続によるサーバータイムアウト",
+          "ロードバランサーのタイムアウト超過"
         ]
       }
     },
     "409": {
-      "description": "The request conflicts with the current state of the target resource.",
+      "description": "リクエストが対象リソースの現在の状態と競合しています。",
       "details": {
-        "usage": "Request conflicts with server state or business rules",
+        "usage": "サーバーの状態やビジネスルールとリクエストが競合",
         "commonCauses": [
-          "Creating a resource that already exists",
-          "Concurrent modification conflicts",
-          "Invalid state transition for resource",
-          "Duplicate unique constraint violation"
+          "すでに存在するリソースを作成しようとした",
+          "同時変更の競合",
+          "リソースの無効な状態遷移",
+          "一意制約の違反"
         ]
       }
     },
     "410": {
-      "description": "The target resource is no longer available at the origin server."
+      "description": "対象リソースはオリジンサーバーで利用できなくなりました。"
     },
     "411": {
-      "description": "The server rejected the request because the Content-Length header field is not defined."
+      "description": "Content-Lengthヘッダーフィールドが定義されていないため、サーバーがリクエストを拒否しました。"
     },
     "412": {
-      "description": "The server does not meet one of the preconditions that the requester put on the request header fields."
+      "description": "リクエストヘッダーフィールドに設定された前提条件の1つをサーバーが満たしていません。"
     },
     "413": {
-      "description": "The request entity is larger than limits defined by the server."
+      "description": "リクエストエンティティがサーバーの定義する制限を超えています。"
     },
     "414": {
-      "description": "The URI requested by the client is longer than the server is willing to interpret."
+      "description": "クライアントがリクエストしたURIが、サーバーが解釈可能な長さを超えています。"
     },
     "415": {
-      "description": "The media format of the requested data is not supported by the server."
+      "description": "リクエストされたデータのメディア形式がサーバーでサポートされていません。"
     },
     "416": {
-      "description": "The range of bytes requested by the client cannot be fulfilled."
+      "description": "クライアントがリクエストしたバイト範囲を満たすことができません。"
     },
     "417": {
-      "description": "The expectation indicated by the Expect request header field cannot be met."
+      "description": "Expectリクエストヘッダーフィールドで示された期待に応えられません。"
     },
     "418": {
-      "description": "The server refuses to brew coffee because it is, permanently, a teapot."
+      "description": "サーバーはコーヒーを淹れることを拒否します。なぜなら、それは永遠にティーポットだからです。"
     },
     "421": {
-      "description": "The request was directed at a server that is not able to produce a response."
+      "description": "リクエストがレスポンスを生成できないサーバーに向けられました。"
     },
     "422": {
-      "description": "The request was well-formed but was unable to be followed due to semantic errors."
+      "description": "リクエストは正しい形式ですが、意味的エラーのため実行できません。"
     },
     "423": {
-      "description": "The resource that is being accessed is locked."
+      "description": "アクセスしようとしているリソースはロックされています。"
     },
     "424": {
-      "description": "The request failed because it depended on another request that failed."
+      "description": "別のリクエストが失敗したため、このリクエストも失敗しました。"
     },
     "425": {
-      "description": "The server is unwilling to risk processing a request that might be replayed."
+      "description": "サーバーは再生される可能性のあるリクエストの処理を望んでいません。"
     },
     "426": {
-      "description": "The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol."
+      "description": "サーバーは現在のプロトコルでのリクエスト実行を拒否していますが、クライアントが別のプロトコルにアップグレードすれば応じる可能性があります。"
     },
     "428": {
-      "description": "The origin server requires the request to be conditional."
+      "description": "オリジンサーバーはリクエストが条件付きであることを要求しています。"
     },
     "429": {
-      "description": "The user has sent too many requests in a given amount of time.",
+      "description": "ユーザーが一定時間内に太多のリクエストを送信しました。",
       "details": {
-        "usage": "Rate limiting to prevent abuse and ensure fair usage",
+        "usage": "乱用を防止し公正な利用を確保するためのレート制限",
         "commonCauses": [
-          "Exceeding API rate limits",
-          "Too many requests from the same IP address",
-          "Bot or scraper activity detected",
-          "User triggered rate limiter with rapid requests"
+          "APIレート制限の超過",
+          "同じIPアドレスからのリクエスト過多",
+          "ボットまたはスクレイパーの検出",
+          "急速なリクエストによるレートリミッターの発動"
         ]
       }
     },
     "431": {
-      "description": "The server is unwilling to process the request because its header fields are too large."
+      "description": "ヘッダーフィールドが大きすぎるため、サーバーはリクエストの処理を望んでいません。"
     },
     "440": {
-      "description": "The client's session has expired."
+      "description": "クライアントのセッションが期限切れです。"
     },
     "444": {
-      "description": "Nginx closes the connection without sending any response to the client."
+      "description": "Nginxがクライアントにレスポンスを送信せず接続を閉じました。"
     },
     "449": {
-      "description": "The request should be retried after doing the appropriate action."
+      "description": "適切なアクションを実行した後、リクエストを再試行してください。"
     },
     "451": {
-      "description": "The server is denying access to the resource as a consequence of a legal demand."
+      "description": "法的な要求に基づき、サーバーがリソースへのアクセスを拒否しています。"
     },
     "494": {
-      "description": "Nginx rejected the request because the request header was too large."
+      "description": "リクエストヘッダーが大きすぎるため、Nginxがリクエストを拒否しました。"
     },
     "495": {
-      "description": "Nginx client SSL certificate verification error."
+      "description": "NginxクライアントSSL証明書検証エラー。"
     },
     "496": {
-      "description": "Nginx client did not provide SSL certificate."
+      "description": "NginxクライアントがSSL証明書を提供しませんでした。"
     },
     "497": {
-      "description": "Nginx client sent HTTP request to HTTPS port."
+      "description": "NginxクライアントがHTTPSポートにHTTPリクエストを送信しました。"
     },
     "499": {
-      "description": "Nginx client closed the connection before the server could send a response."
+      "description": "Nginxクライアントがサーバーのレスポンス送信前に接続を閉じました。"
     },
     "500": {
-      "description": "The server has encountered a situation it doesn't know how to handle.",
+      "description": "サーバーが処理方法を知らない状況に遭遇しました。",
       "details": {
-        "usage": "Generic server error for unexpected conditions",
+        "usage": "予期しない状況に対する一般的なサーバーエラー",
         "commonCauses": [
-          "Uncaught exception in server code",
-          "Database connection failure",
-          "Configuration error on the server",
-          "Third-party service integration failure"
+          "サーバーコードの未処理例外",
+          "データベース接続の失敗",
+          "サーバーの設定エラー",
+          "サードパーティサービス連携の失敗"
         ]
       }
     },
     "501": {
-      "description": "The request method is not supported by the server and cannot be handled."
+      "description": "リクエストメソッドがサーバーでサポートされておらず、処理できません。"
     },
     "502": {
-      "description": "The server, while working as a gateway to get a response needed to handle the request, got an invalid response.",
+      "description": "ゲートウェイとして動作中のサーバーが、上流サーバーから無効なレスポンスを受信しました。",
       "details": {
-        "usage": "Invalid response from upstream server",
+        "usage": "上流サーバーからの無効なレスポンス",
         "commonCauses": [
-          "Upstream server is down or unreachable",
-          "Invalid response from backend service",
-          "Network connectivity issues between servers",
-          "Timeout waiting for upstream response"
+          "上流サーバーがダウンまたは到達不能",
+          "バックエンドサービスからの無効なレスポンス",
+          "サーバー間のネットワーク接続問題",
+          "上流レスポンスのタイムアウト"
         ]
       }
     },
     "503": {
-      "description": "The server is not ready to handle the request.",
+      "description": "サーバーがリクエストを処理する準備ができていません。",
       "details": {
-        "usage": "Service temporarily unavailable due to maintenance or overload",
+        "usage": "メンテナンスまたは過負荷による一時的なサービス利用不可",
         "commonCauses": [
-          "Scheduled server maintenance",
-          "Server overload due to high traffic",
-          "Database connection pool exhausted",
-          "Dependency service is temporarily down"
+          "予定されたサーバーメンテナンス",
+          "高トラフィックによるサーバー過負荷",
+          "データベース接続プールの枯渇",
+          "依存サービスの一時的なダウン"
         ]
       }
     },
     "504": {
-      "description": "The server, while working as a gateway, could not get a response in time.",
+      "description": "ゲートウェイとして動作中のサーバーが、時間内にレスポンスを取得できませんでした。",
       "details": {
-        "usage": "Timeout waiting for response from upstream server",
+        "usage": "上流サーバーからのレスポンス待ちタイムアウト",
         "commonCauses": [
-          "Upstream server took too long to respond",
-          "Slow backend service processing",
-          "Network latency between gateway and backend",
-          "Database query timeout"
+          "上流サーバーのレスポンスに時間がかかりすぎた",
+          "バックエンドサービスの処理が遅い",
+          "ゲートウェイとバックエンド間のネットワーク遅延",
+          "データベースクエリのタイムアウト"
         ]
       }
     },
     "505": {
-      "description": "The HTTP version used in the request is not supported by the server."
+      "description": "リクエストで使用されたHTTPバージョンがサーバーでサポートされていません。"
     },
     "506": {
-      "description": "The server has an internal configuration error."
+      "description": "サーバーに内部設定エラーがあります。"
     },
     "507": {
-      "description": "The server is unable to store the representation needed to complete the request."
+      "description": "サーバーはリクエスト完了に必要な表現を保存できません。"
     },
     "508": {
-      "description": "The server detected an infinite loop while processing the request."
+      "description": "サーバーがリクエスト処理中に無限ループを検出しました。"
     },
     "510": {
-      "description": "Further extensions to the request are required for the server to fulfill it."
+      "description": "サーバーがリクエストを満たすためにさらなる拡張が必要です。"
     },
     "511": {
-      "description": "The client needs to authenticate to gain network access."
+      "description": "クライアントはネットワークアクセスを得るために認証する必要があります。"
     },
     "520": {
-      "description": "The origin server returned an unexpected or unknown error."
+      "description": "オリジンサーバーが予期しないまたは不明なエラーを返しました。"
     },
     "521": {
-      "description": "The origin server refused the connection from Cloudflare."
+      "description": "オリジンサーバーがCloudflareからの接続を拒否しました。"
     },
     "522": {
-      "description": "Cloudflare could not negotiate a TCP handshake with the origin server."
+      "description": "CloudflareがオリジンサーバーとのTCPハンドシェイクに失敗しました。"
     },
     "523": {
-      "description": "Cloudflare could not reach the origin server."
+      "description": "Cloudflareがオリジンサーバーに到達できませんでした。"
     },
     "524": {
-      "description": "Cloudflare was able to complete a TCP connection to the origin server, but the origin server did not reply with an HTTP response before the connection timed out."
+      "description": "CloudflareはオリジンサーバーへのTCP接続を完了しましたが、オリジンサーバーが接続タイムアウト前にHTTPレスポンスを返しませんでした。"
     },
     "525": {
-      "description": "Cloudflare could not negotiate a SSL/TLS handshake with the origin server."
+      "description": "CloudflareがオリジンサーバーとのSSL/TLSハンドシェイクに失敗しました。"
     },
     "526": {
-      "description": "Cloudflare could not validate the SSL certificate on the origin server."
+      "description": "CloudflareがオリジンサーバーのSSL証明書を検証できませんでした。"
     },
     "527": {
-      "description": "Cloudflare Railgun was unable to reach the origin server."
+      "description": "Cloudflare Railgunがオリジンサーバーに到達できませんでした。"
     },
     "528": {
-      "description": "Cloudflare timed out contacting the origin server."
+      "description": "Cloudflareがオリジンサーバーへの接続でタイムアウトしました。"
     },
     "529": {
-      "description": "The origin server has exceeded its resource limits."
+      "description": "オリジンサーバーがリソース制限を超えました。"
     },
     "530": {
-      "description": "Cloudflare could not resolve the DNS for the origin server."
+      "description": "CloudflareがオリジンサーバーのDNSを解決できませんでした。"
     }
   }
 }

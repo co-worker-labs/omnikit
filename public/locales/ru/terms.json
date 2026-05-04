@@ -1,59 +1,59 @@
 {
-  "title": "Terms of Service",
-  "metaDescription": "Terms of Service for OmniKit. Read the terms and conditions for using our free online developer tools.",
-  "lastUpdated": "Last updated: April 23, 2026",
+  "title": "Условия использования",
+  "metaDescription": "Условия использования OmniKit. Ознакомьтесь с правилами и условиями использования наших бесплатных онлайн-инструментов для разработчиков.",
+  "lastUpdated": "Обновлено: 23 апреля 2026 г.",
 
-  "overviewTitle": "Overview",
-  "overviewP1": "Welcome to OmniKit (\"we\", \"us\", or \"our\"), operating this website (the \"Site\"). OmniKit is a free, open-source collection of browser-based developer tools designed to help you with everyday development tasks.",
-  "overviewP2": "These Terms of Service (\"Terms\") govern your access to and use of the Site and all tools, features, and services provided through it (collectively, the \"Services\"). By accessing or using the Site, you agree to be bound by these Terms.",
+  "overviewTitle": "Обзор",
+  "overviewP1": "Добро пожаловать на OmniKit («мы», «нас» или «наш»), оператор данного сайта («Сайт»). OmniKit — бесплатная коллекция браузерных инструментов для разработчиков с открытым исходным кодом, предназначенная для решения повседневных задач разработки.",
+  "overviewP2": "Эти Условия использования («Условия») регулируют ваш доступ к Сайту и использование всех инструментов, функций и сервисов, предоставляемых через него (далее совместно — «Сервисы»). Получая доступ к Сайту или используя его, вы соглашаетесь с этими Условиями.",
 
-  "acceptanceTitle": "Acceptance of Terms",
-  "acceptanceP1": "By accessing or using any part of the Site, you acknowledge that you have read, understood, and agree to be bound by these Terms. If you do not agree to all of these Terms, you must not access or use the Site.",
-  "acceptanceP2": "You represent that you are at least 13 years of age, or the age of legal majority in your jurisdiction, whichever is greater. If you are under the required age, you may only use the Site under the supervision of a parent or legal guardian who agrees to be bound by these Terms.",
+  "acceptanceTitle": "Принятие условий",
+  "acceptanceP1": "Получая доступ к любой части Сайта или используя её, вы подтверждаете, что прочитали, поняли и согласны соблюдать эти Условия. Если вы не согласны с Условиями, вы не должны получать доступ к Сайту или использовать его.",
+  "acceptanceP2": "Вы подтверждаете, что вам исполнилось 13 лет или вы достигли возраста совершеннолетия в вашей юрисдикции, в зависимости от того, что больше. Если вы моложе требуемого возраста, вы можете использовать Сайт только под наблюдением родителя или законного представителя, который соглашается с этими Условиями.",
 
-  "servicesTitle": "Description of Services",
-  "servicesP1": "OmniKit provides a suite of free, browser-based developer tools. All processing is performed locally in your web browser — no data is transmitted to our servers. Our current tools include:",
+  "servicesTitle": "Описание сервисов",
+  "servicesP1": "OmniKit предоставляет набор бесплатных браузерных инструментов для разработчиков. Вся обработка выполняется локально в вашем браузере — данные не передаются на наши серверы. Наши инструменты включают:",
   "servicesList1": [
-    "Base64 Encode/Decode — Encode and decode Base64 strings, generate Basic Authentication headers",
-    "Password Generator — Generate secure, random, and memorable passwords",
-    "Text Hashing — Compute hashes using MD5, SHA-1, SHA-256, SHA-512, SHA-3, Keccak, RIPEMD-160, and more",
-    "Text Encrypt/Decrypt — Encrypt and decrypt text using AES, DES, Triple DES, Rabbit, RC4, and other algorithms",
-    "File Checksum — Compute file checksums with support for unlimited file sizes",
-    "ASCII Table — Complete ASCII reference with conversions for hex, octal, HTML, and decimal",
-    "HTML Code — HTML special characters and entity reference",
-    "Storage Unit Conversion — Convert between byte, kilobyte, megabyte, terabyte, petabyte, and more"
+    "Base64: кодирование и декодирование строк Base64, генерация заголовков Basic Authentication",
+    "Генератор паролей: создание надёжных, случайных и запоминающихся паролей",
+    "Хеширование текста: вычисление хешей MD5, SHA-1, SHA-256, SHA-512, SHA-3, Keccak, RIPEMD-160 и других",
+    "Шифрование/дешифрование: шифрование и расшифровка текста с использованием AES, DES, Triple DES, Rabbit, RC4 и других алгоритмов",
+    "Контрольные суммы файлов: вычисление контрольных сумм файлов без ограничения размера",
+    "Таблица ASCII: полный справочник ASCII с конвертацией в hex, восьмеричный, HTML и десятичный форматы",
+    "HTML-коды: справочник специальных символов и сущностей HTML",
+    "Конвертация единиц хранения: конвертация между байтами, килобайтами, мегабайтами, терабайтами, петабайтами и другими"
   ],
-  "servicesP2": "We may add, modify, or remove tools at any time without prior notice.",
+  "servicesP2": "Мы можем добавлять, изменять или удалять инструменты в любое время без предварительного уведомления.",
 
-  "conductTitle": "User Conduct",
-  "conductP1": "You agree not to misuse the Site or its Services. Prohibited activities include, but are not limited to:",
+  "conductTitle": "Поведение пользователей",
+  "conductP1": "Вы соглашаетесь не злоупотреблять Сайтом или его Сервисами. Запрещённые действия включают, но не ограничиваются:",
   "conductList1": [
-    "Using the Site for any unlawful purpose or in violation of any applicable laws or regulations",
-    "Attempting to gain unauthorized access to any part of the Site or its infrastructure",
-    "Interfering with or disrupting the Site's functionality, servers, or networks",
-    "Using automated scripts, bots, or scrapers to access the Site in a manner that exceeds reasonable use",
-    "Transmitting any malicious code, viruses, worms, or other harmful content",
-    "Copying, reproducing, or redistributing the Site's design, code, or content without prior written permission"
+    "Использование Сайта в незаконных целях или в нарушение применимых законов и нормативных актов",
+    "Попытки несанкционированного доступа к любой части Сайта или его инфраструктуры",
+    "Вмешательство в работу Сайта, серверов или сетей",
+    "Использование автоматических скриптов, ботов или скраперов для доступа к Сайту сверх разумного использования",
+    "Передача вредоносного кода, вирусов, червей или другого опасного содержимого",
+    "Копирование, воспроизведение или распространение дизайна, кода или содержимого Сайта без письменного разрешения"
   ],
-  "conductP2": "We reserve the right to restrict or block access to any user who violates these Terms at our sole discretion.",
+  "conductP2": "Мы оставляем за собой право ограничить или заблокировать доступ любому пользователю, нарушающему эти Условия, по нашему усмотрению.",
 
-  "ipTitle": "Intellectual Property",
-  "ipP1": "The Site, including its original content, features, functionality, and design, is owned by OmniKit and is protected by international copyright, trademark, and other intellectual property laws.",
-  "ipP2": "You may not reproduce, distribute, modify, create derivative works of, publicly display, or exploit any content from the Site without our express written consent. The tools are provided for your personal and commercial use, but the Site itself and its source code remain our property.",
+  "ipTitle": "Интеллектуальная собственность",
+  "ipP1": "Сайт, включая его оригинальный контент, функции, функциональность и дизайн, принадлежит OmniKit и защищён международными законами об авторском праве, товарных знаках и других правах интеллектуальной собственности.",
+  "ipP2": "Вы не можете воспроизводить, распространять, изменять, создавать производные работы, публично отображать или использовать любой контент Сайта без нашего письменного согласия. Инструменты предоставляются для личного и коммерческого использования, но сам Сайт и его исходный код остаются нашей собственностью.",
 
-  "advertisingTitle": "Advertising",
-  "advertisingP1": "OmniKit is a free service supported by advertising. We may display advertisements on the Site provided by third-party ad networks. These partners may use cookies and similar tracking technologies to collect information about your browsing activity across different websites.",
-  "advertisingP2": "By using the Site, you acknowledge and consent to the display of advertisements and the use of tracking technologies by our advertising partners as described in our Privacy Policy. You may opt out of personalized advertising through your browser settings or by visiting the opt-out pages provided by the respective ad networks.",
-  "advertisingP3": "We are not responsible for the content, accuracy, or practices of any advertisements displayed on the Site. Interactions with advertisers are solely between you and the advertiser.",
+  "advertisingTitle": "Реклама",
+  "advertisingP1": "OmniKit — бесплатный сервис, поддерживаемый за счёт рекламы. Мы можем показывать рекламу на Сайте от сторонних рекламных сетей. Эти партнёры могут использовать cookie и аналогичные технологии для сбора информации о вашей активности на различных сайтах.",
+  "advertisingP2": "Используя Сайт, вы признаёте и соглашаетесь с показом рекламы и использованием технологий отслеживания нашими рекламными партнёрами, как описано в Политике конфиденциальности. Вы можете отказаться от персонализированной рекламы через настройки браузера или страницы отказа соответствующих рекламных сетей.",
+  "advertisingP3": "Мы не несём ответственности за содержание, точность или методы любой рекламы, отображаемой на Сайте. Взаимодействие с рекламодателями — исключительно между вами и рекламодателем.",
 
-  "disclaimerTitle": "Disclaimers & Limitation of Liability",
-  "disclaimerP1": "The Services are provided \"as is\" and \"as available\" without warranties of any kind, either express or implied, including but not limited to implied warranties of merchantability, fitness for a particular purpose, and non-infringement.",
-  "disclaimerP2": "We do not guarantee that the Site will be uninterrupted, secure, or error-free. The results produced by our tools are provided for informational purposes only. You should independently verify any results before relying on them for security-sensitive or mission-critical applications.",
-  "disclaimerP3": "To the fullest extent permitted by law, OmniKit shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, profits, or goodwill, arising from your use of or inability to use the Site or Services.",
+  "disclaimerTitle": "Отказ от ответственности и ограничение ответственности",
+  "disclaimerP1": "Сервисы предоставляются «как есть» и «как доступно» без каких-либо гарантий, явных или подразумеваемых, включая, но не ограничиваясь, подразумеваемые гарантии товарности, пригодности для конкретной цели и ненарушения прав.",
+  "disclaimerP2": "Мы не гарантируем, что Сайт будет бесперебойным, безопасным или безошибочным. Результаты, полученные с помощью наших инструментов, предоставляются исключительно в информационных целях. Вы должны самостоятельно проверять результаты перед использованием в задачах, критичных для безопасности.",
+  "disclaimerP3": "В максимально допустимой законом степени OmniKit не несёт ответственности за любые косвенные, случайные, особые, последующие или штрафные убытки, включая, но не ограничиваясь, потерю данных, прибыли или деловой репутации, возникшие в результате использования или невозможности использования Сайта или Сервисов.",
 
-  "changesTitle": "Changes to Terms",
-  "changesP1": "We reserve the right to update or modify these Terms at any time. Changes will be posted on this page with an updated \"Last updated\" date. Your continued use of the Site after any changes constitutes acceptance of the revised Terms. We encourage you to review this page periodically.",
+  "changesTitle": "Изменения условий",
+  "changesP1": "Мы оставляем за собой право обновлять или изменять эти Условия в любое время. Изменения будут опубликованы на этой странице с обновлённой датой «Обновлено». Продолжение использования Сайта после изменений означает согласие с пересмотренными Условиями. Рекомендуем периодически просматривать эту страницу.",
 
-  "contactTitle": "Contact Us",
-  "contactP1": "If you have any questions about these Terms, please contact us."
+  "contactTitle": "Связаться с нами",
+  "contactP1": "Если у вас есть вопросы об этих Условиях, пожалуйста, свяжитесь с нами."
 }

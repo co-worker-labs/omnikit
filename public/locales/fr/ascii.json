@@ -1,19 +1,19 @@
 {
-  "printableCharacters": "Printable Characters",
-  "controlCodeCharts": "Control Code Charts",
+  "printableCharacters": "Caractères imprimables",
+  "controlCodeCharts": "Tableaux des codes de contrôle",
   "description": {
-    "text": "ASCII stands for American Standard Code for Information Interchange. Computers can only understand numbers, so an ASCII code is the numerical representation of a character such as 'a' or '@' or an action of some sort. ASCII was developed a long time ago and now the non-printing characters are rarely used for their original purpose. Below is the ASCII character table and this includes descriptions of the first 32 non-printing characters. ASCII was actually designed for use with teletypes and so the descriptions are somewhat obscure. If someone says they want your CV however in ASCII format, all this means is they want 'plain' text with no formatting such as tabs, bold or underscoring - the raw format that any computer can understand. This is usually so they can easily import the file into their own applications without issues. Notepad.exe creates ASCII text, or in MS Word you can save a file as 'text only'"
+    "text": "ASCII signifie American Standard Code for Information Interchange. Les ordinateurs ne comprennent que les nombres, donc un code ASCII est la représentation numérique d'un caractère comme « a » ou « @ », ou d'une action. ASCII a été développé il y a longtemps et les caractères non imprimables sont rarement utilisés pour leur fonction d'origine. Ci-dessous se trouve la table de caractères ASCII, qui inclut les descriptions des 32 premiers caractères non imprimables. ASCII a été conçu à l'origine pour les téléscripteurs, les descriptions sont donc parfois obscures. Si quelqu'un vous demande votre CV au format ASCII, cela signifie simplement qu'il veut du texte brut sans mise en forme (pas de tabulations, pas de gras, pas de souligné), le format brut que tout ordinateur peut comprendre. Cela lui permet d'importer facilement le fichier dans ses propres applications. Le Bloc-notes crée du texte ASCII, et dans MS Word vous pouvez enregistrer un fichier en « texte seulement »."
   },
   "tableHeaders": {
-    "decimal": "Decimal",
-    "binary": "Binary",
+    "decimal": "Décimal",
+    "binary": "Binaire",
     "oct": "Oct",
     "hex": "Hex",
-    "abbr": "Abbr",
+    "abbr": "Abrév.",
     "desc": "Desc",
-    "html": "Html",
-    "glyph": "Glyph"
+    "html": "HTML",
+    "glyph": "Glyphe"
   },
-  "tip": "💡 Hover over any row for details. Use the search bar to quickly find characters by decimal, hex, or glyph.",
-  "searchPlaceholder": "Search by decimal, hex, or character..."
+  "tip": "💡 Survolez une ligne pour voir les détails. Utilisez la barre de recherche pour trouver rapidement un caractère par sa valeur décimale, hexadécimale ou son glyphe.",
+  "searchPlaceholder": "Rechercher par décimal, hex ou caractère..."
 }

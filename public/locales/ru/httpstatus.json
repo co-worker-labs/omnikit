@@ -1,453 +1,453 @@
 {
   "description": {
-    "text": "Complete HTTP status code reference covering all IANA official codes from RFC 9110 and related specifications — including WebDAV (RFC 4918), additional HTTP status codes (RFC 6585), 308 Permanent Redirect (RFC 7538), 451 Unavailable For Legal Reasons (RFC 7725), and Early Hints (RFC 8297). Also includes unofficial platform extensions from Nginx, Cloudflare, and IIS. Each code shows its description, RFC reference, and commonly used codes include usage scenarios and common causes for quick troubleshooting."
+    "text": "Полный справочник HTTP-кодов состояния, охватывающий все официальные коды IANA из RFC 9110 и связанных спецификаций: WebDAV (RFC 4918), дополнительные коды (RFC 6585), 308 Permanent Redirect (RFC 7538), 451 Unavailable For Legal Reasons (RFC 7725) и Early Hints (RFC 8297). Также включены неофициальные расширения от Nginx, Cloudflare и IIS. Для каждого кода приведено описание, ссылка на RFC, а для наиболее употребимых — сценарии использования и типичные причины для быстрой диагностики."
   },
-  "tip": "Hover over any row on desktop or tap on mobile to see usage details and common causes.",
-  "searchPlaceholder": "Search by code, name, or description...",
-  "noResults": "No results found",
+  "tip": "Наведите на строку на десктопе или нажмите на мобильном, чтобы увидеть подробности и типичные причины.",
+  "searchPlaceholder": "Поиск по коду, названию или описанию...",
+  "noResults": "Ничего не найдено",
   "categories": {
-    "all": "All",
-    "1xx": "1xx Informational",
-    "2xx": "2xx Success",
-    "3xx": "3xx Redirection",
-    "4xx": "4xx Client Error",
-    "5xx": "5xx Server Error",
-    "unofficial": "Unofficial"
+    "all": "Все",
+    "1xx": "1xx Информационные",
+    "2xx": "2xx Успех",
+    "3xx": "3xx Перенаправление",
+    "4xx": "4xx Ошибка клиента",
+    "5xx": "5xx Ошибка сервера",
+    "unofficial": "Неофициальные"
   },
   "tableHeaders": {
-    "code": "Code",
-    "name": "Name",
-    "description": "Description",
-    "spec": "Spec",
-    "source": "Source"
+    "code": "Код",
+    "name": "Название",
+    "description": "Описание",
+    "spec": "Спецификация",
+    "source": "Источник"
   },
   "detailLabels": {
-    "usage": "Usage",
-    "commonCauses": "Common Causes"
+    "usage": "Применение",
+    "commonCauses": "Типичные причины"
   },
   "codes": {
     "100": {
-      "description": "The server has received the request headers and the client should proceed to send the request body."
+      "description": "Сервер получил заголовки запроса, и клиенту следует продолжить отправку тела запроса."
     },
     "101": {
-      "description": "The server is switching protocols as requested by the client."
+      "description": "Сервер переключает протокол по запросу клиента."
     },
     "102": {
-      "description": "The server has received and is processing the request, but no response is available yet."
+      "description": "Сервер получил запрос и обрабатывает его, но ответ пока недоступен."
     },
     "103": {
-      "description": "Used to return some response headers before final HTTP message."
+      "description": "Используется для возврата некоторых заголовков ответа до финального HTTP-сообщения."
     },
     "200": {
-      "description": "The request succeeded.",
+      "description": "Запрос выполнен успешно.",
       "details": {
-        "usage": "Standard response for successful HTTP requests",
+        "usage": "Стандартный ответ для успешных HTTP-запросов",
         "commonCauses": [
-          "Successfully retrieved a resource via GET request",
-          "Successfully updated a resource via PUT or PATCH request",
-          "Successfully created a resource via POST request",
-          "Successfully deleted a resource via DELETE request"
+          "Успешное получение ресурса через GET-запрос",
+          "Успешное обновление ресурса через PUT или PATCH",
+          "Успешное создание ресурса через POST",
+          "Успешное удаление ресурса через DELETE"
         ]
       }
     },
     "201": {
-      "description": "The request succeeded and a new resource was created.",
+      "description": "Запрос выполнен успешно, и был создан новый ресурс.",
       "details": {
-        "usage": "Response to a POST request that creates a new resource",
+        "usage": "Ответ на POST-запрос, создающий новый ресурс",
         "commonCauses": [
-          "Creating a new user account",
-          "Uploading a new file",
-          "Creating a new database record",
-          "Submitting a new order"
+          "Создание новой учётной записи пользователя",
+          "Загрузка нового файла",
+          "Создание новой записи в базе данных",
+          "Оформление нового заказа"
         ]
       }
     },
     "202": {
-      "description": "The request has been received but not yet acted upon."
+      "description": "Запрос получен, но ещё не обработан."
     },
     "203": {
-      "description": "The request was successful but the transformed metadata is not the definitive set."
+      "description": "Запрос успешен, но преобразованные метаданные не являются окончательными."
     },
     "204": {
-      "description": "The server successfully processed the request and is not returning any content.",
+      "description": "Сервер успешно обработал запрос и не возвращает содержимое.",
       "details": {
-        "usage": "Response to successful requests that don't require returning a body",
+        "usage": "Ответ на успешные запросы, не требующие возврата тела",
         "commonCauses": [
-          "Successful DELETE request",
-          "Successful PUT request with no response body needed",
-          "Updating a resource's status without returning data",
-          "Clearing a cache or resetting a state"
+          "Успешный DELETE-запрос",
+          "Успешный PUT-запрос без необходимости возврата данных",
+          "Обновление статуса ресурса без возврата данных",
+          "Очистка кеша или сброс состояния"
         ]
       }
     },
     "205": {
-      "description": "The server successfully processed the request but is not returning any content and requires the requestor to reset the document view."
+      "description": "Сервер успешно обработал запрос, но не возвращает содержимое и требует от клиента сбросить представление документа."
     },
     "206": {
-      "description": "The server is delivering only part of the resource due to a range header sent by the client.",
+      "description": "Сервер возвращает только часть ресурса в соответствии с заголовком Range от клиента.",
       "details": {
-        "usage": "Used for range requests, resumable downloads, and streaming media",
+        "usage": "Используется для запросов диапазона, докачки файлов и потокового мультимедиа",
         "commonCauses": [
-          "Video player requesting a specific byte range for buffering",
-          "Download managers resuming interrupted downloads",
-          "Large file transfers in chunks",
-          "HTTP range requests for pagination"
+          "Видеоплеер запрашивает определённый диапазон байт для буферизации",
+          "Менеджеры загрузок возобновляют прерванные загрузки",
+          "Передача больших файлов частями",
+          "HTTP-запросы диапазона для пагинации"
         ]
       }
     },
     "207": {
-      "description": "The message body that follows is by default an XML message and can contain a number of separate response codes."
+      "description": "Тело сообщения по умолчанию является XML и может содержать несколько отдельных кодов ответа."
     },
     "208": {
-      "description": "The members of a DAV binding have already been enumerated in a preceding part of the multi-status response."
+      "description": "Элементы привязки DAV уже были перечислены в предыдущей части многостатусного ответа."
     },
     "226": {
-      "description": "The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance."
+      "description": "Сервер выполнил GET-запрос для ресурса, и ответ является представлением результата одной или нескольких трансформаций."
     },
     "300": {
-      "description": "The request has more than one possible response."
+      "description": "Запрос имеет более одного возможного ответа."
     },
     "301": {
-      "description": "The URL of the requested resource has been changed permanently.",
+      "description": "URL запрошенного ресурса был изменён навсегда.",
       "details": {
-        "usage": "Permanent redirect for URL changes and content relocation",
+        "usage": "Постоянное перенаправление при изменении URL и перемещении контента",
         "commonCauses": [
-          "Website domain change or migration",
-          "URL structure redesign for better SEO",
-          "Moving content to a new location",
-          "HTTP to HTTPS migration"
+          "Смена домена или миграция сайта",
+          "Изменение структуры URL для SEO",
+          "Перемещение контента на новый адрес",
+          "Миграция с HTTP на HTTPS"
         ]
       }
     },
     "302": {
-      "description": "The URL of the requested resource has been changed temporarily.",
+      "description": "URL запрошенного ресурса был изменён временно.",
       "details": {
-        "usage": "Temporary redirect for content that has moved or is under maintenance",
+        "usage": "Временное перенаправление при техобслуживании или перемещении контента",
         "commonCauses": [
-          "Temporary website maintenance",
-          "A/B testing redirects",
-          "User authentication flow",
-          "Temporary content location changes"
+          "Временное техобслуживание сайта",
+          "A/B-тестирование с перенаправлениями",
+          "Процесс аутентификации пользователя",
+          "Временное изменение расположения контента"
         ]
       }
     },
     "303": {
-      "description": "The response to the request can be found under another URI using the GET method."
+      "description": "Ответ на запрос можно найти по другому URI с использованием метода GET."
     },
     "304": {
-      "description": "The cached version of the requested resource is still valid.",
+      "description": "Кешированная версия запрошенного ресурса всё ещё актуальна.",
       "details": {
-        "usage": "Caching optimization to reduce bandwidth and improve performance",
+        "usage": "Оптимизация кеширования для снижения трафика и повышения производительности",
         "commonCauses": [
-          "Browser cache hit for unchanged static resources",
-          "CDN cache serving unchanged content",
-          "Conditional GET request with If-None-Match header",
-          "Server returning 304 for resources that haven't changed since last request"
+          "Попадание в кеш браузера для неизменённых статических ресурсов",
+          "CDN отдаёт неизменённый контент из кеша",
+          "Условный GET-запрос с заголовком If-None-Match",
+          "Сервер возвращает 304 для ресурсов, не изменившихся с прошлого запроса"
         ]
       }
     },
     "305": {
-      "description": "The requested resource is only available through a proxy."
+      "description": "Запрошенный ресурс доступен только через прокси."
     },
     "307": {
-      "description": "The request should be repeated with another URI, but future requests should still use the original URI.",
+      "description": "Запрос следует повторить с другим URI, но будущие запросы должны использовать оригинальный URI.",
       "details": {
-        "usage": "Temporary redirect that preserves the HTTP method",
+        "usage": "Временное перенаправление с сохранением HTTP-метода",
         "commonCauses": [
-          "Redirecting POST requests during maintenance",
-          "Temporary URL changes for API endpoints",
-          "Load balancing and traffic distribution",
-          "Testing new features with temporary redirects"
+          "Перенаправление POST-запросов во время техобслуживания",
+          "Временное изменение URL API-эндпоинтов",
+          "Балансировка нагрузки и распределение трафика",
+          "Тестирование новых функций с временными перенаправлениями"
         ]
       }
     },
     "308": {
-      "description": "The request and all future requests should be repeated using another URI."
+      "description": "Запрос и все будущие запросы следует повторять с использованием другого URI."
     },
     "400": {
-      "description": "The server could not understand the request due to invalid syntax.",
+      "description": "Сервер не смог понять запрос из-за некорректного синтаксиса.",
       "details": {
-        "usage": "Generic client error for malformed requests",
+        "usage": "Общая ошибка клиента для некорректных запросов",
         "commonCauses": [
-          "Malformed JSON in request body",
-          "Missing required request parameters",
-          "Invalid request headers or content type",
-          "Malformed URL or query parameters"
+          "Некорректный JSON в теле запроса",
+          "Отсутствуют обязательные параметры запроса",
+          "Неверные заголовки или Content-Type",
+          "Некорректный URL или параметры запроса"
         ]
       }
     },
     "401": {
-      "description": "The client must authenticate itself to get the requested response.",
+      "description": "Клиент должен аутентифицироваться для получения запрошенного ответа.",
       "details": {
-        "usage": "Authentication required for accessing protected resources",
+        "usage": "Требуется аутентификация для доступа к защищённым ресурсам",
         "commonCauses": [
-          "Missing or invalid authentication token",
-          "Expired JWT or session token",
-          "Failed authentication attempt",
-          "Accessing protected API without credentials"
+          "Отсутствующий или недействительный токен аутентификации",
+          "Истёкший JWT или токен сессии",
+          "Неудачная попытка аутентификации",
+          "Доступ к защищённому API без учётных данных"
         ]
       }
     },
     "402": {
-      "description": "This response code is reserved for future use."
+      "description": "Этот код зарезервирован для будущего использования."
     },
     "403": {
-      "description": "The client does not have access rights to the content.",
+      "description": "У клиента нет прав доступа к запрошенному содержимому.",
       "details": {
-        "usage": "Authorization failure for authenticated but unauthorized requests",
+        "usage": "Ошибка авторизации для аутентифицированных, но неавторизованных запросов",
         "commonCauses": [
-          "User lacks permission to access the resource",
-          "IP address or region-based blocking",
-          "Accessing admin-only features without proper role",
-          "Rate limiting exceeded for authenticated user"
+          "У пользователя нет прав на доступ к ресурсу",
+          "Блокировка по IP-адресу или региону",
+          "Доступ к функциям администратора без соответствующей роли",
+          "Превышен лимит запросов для аутентифицированного пользователя"
         ]
       }
     },
     "404": {
-      "description": "The server can not find the requested resource.",
+      "description": "Сервер не может найти запрошенный ресурс.",
       "details": {
-        "usage": "Resource not found at the specified URL",
+        "usage": "Ресурс не найден по указанному URL",
         "commonCauses": [
-          "Typo in the URL or broken link",
-          "Resource has been deleted or moved",
-          "Incorrect API endpoint path",
-          "Database record no longer exists"
+          "Опечатка в URL или неработающая ссылка",
+          "Ресурс был удалён или перемещён",
+          "Неверный путь к API-эндпоинту",
+          "Запись в базе данных больше не существует"
         ]
       }
     },
     "405": {
-      "description": "The request method is known by the server but is not supported by the target resource.",
+      "description": "Метод запроса известен серверу, но не поддерживается целевым ресурсом.",
       "details": {
-        "usage": "HTTP method not supported for the requested endpoint",
+        "usage": "HTTP-метод не поддерживается для запрошенного эндпоинта",
         "commonCauses": [
-          "Using GET when only POST is allowed",
-          "Trying to DELETE a read-only resource",
-          "Incorrect HTTP method for API endpoint",
-          "Unsupported method on static file resource"
+          "Использование GET, когда разрешён только POST",
+          "Попытка DELETE для ресурса, доступного только для чтения",
+          "Неверный HTTP-метод для API-эндпоинта",
+          "Неподдерживаемый метод для статического файла"
         ]
       }
     },
     "406": {
-      "description": "The server cannot produce a response matching the list of acceptable values defined in the request's proactive content negotiation headers."
+      "description": "Сервер не может вернуть ответ, соответствующий списку допустимых значений из заголовков Content Negotiation."
     },
     "407": {
-      "description": "The client must first authenticate itself with a proxy."
+      "description": "Клиент должен сначала аутентифицироваться через прокси."
     },
     "408": {
-      "description": "The server would like to shut down this unused connection.",
+      "description": "Сервер хочет закрыть это неиспользуемое соединение.",
       "details": {
-        "usage": "Server closed the connection due to client inactivity",
+        "usage": "Сервер закрыл соединение из-за неактивности клиента",
         "commonCauses": [
-          "Client took too long to send the request body",
-          "Network timeout between client and server",
-          "Slow client connection causing server timeout",
-          "Load balancer timeout exceeded"
+          "Клиент слишком долго отправлял тело запроса",
+          "Тайм-аут сети между клиентом и сервером",
+          "Медленное соединение клиента вызывает тайм-аут сервера",
+          "Превышен тайм-аут балансировщика нагрузки"
         ]
       }
     },
     "409": {
-      "description": "The request conflicts with the current state of the target resource.",
+      "description": "Запрос конфликтует с текущим состоянием целевого ресурса.",
       "details": {
-        "usage": "Request conflicts with server state or business rules",
+        "usage": "Запрос конфликтует с состоянием сервера или бизнес-правилами",
         "commonCauses": [
-          "Creating a resource that already exists",
-          "Concurrent modification conflicts",
-          "Invalid state transition for resource",
-          "Duplicate unique constraint violation"
+          "Создание ресурса, который уже существует",
+          "Конфликт при параллельном изменении",
+          "Недопустимый переход состояния ресурса",
+          "Нарушение уникального ограничения"
         ]
       }
     },
     "410": {
-      "description": "The target resource is no longer available at the origin server."
+      "description": "Целевой ресурс больше недоступен на сервере-источнике."
     },
     "411": {
-      "description": "The server rejected the request because the Content-Length header field is not defined."
+      "description": "Сервер отклонил запрос, так как не указан заголовок Content-Length."
     },
     "412": {
-      "description": "The server does not meet one of the preconditions that the requester put on the request header fields."
+      "description": "Сервер не выполняет одно из предварительных условий, указанных в заголовках запроса."
     },
     "413": {
-      "description": "The request entity is larger than limits defined by the server."
+      "description": "Тело запроса больше, чем допустимые лимиты сервера."
     },
     "414": {
-      "description": "The URI requested by the client is longer than the server is willing to interpret."
+      "description": "URI запроса длиннее, чем сервер готов обрабатывать."
     },
     "415": {
-      "description": "The media format of the requested data is not supported by the server."
+      "description": "Формат медиаданных запроса не поддерживается сервером."
     },
     "416": {
-      "description": "The range of bytes requested by the client cannot be fulfilled."
+      "description": "Запрошенный диапазон байт не может быть предоставлен."
     },
     "417": {
-      "description": "The expectation indicated by the Expect request header field cannot be met."
+      "description": "Ожидание, указанное в заголовке Expect, не может быть выполнено."
     },
     "418": {
-      "description": "The server refuses to brew coffee because it is, permanently, a teapot."
+      "description": "Сервер отказывается заваривать кофе, так как он является чайником."
     },
     "421": {
-      "description": "The request was directed at a server that is not able to produce a response."
+      "description": "Запрос был направлен серверу, который не может вернуть ответ."
     },
     "422": {
-      "description": "The request was well-formed but was unable to be followed due to semantic errors."
+      "description": "Запрос корректно сформирован, но не может быть обработан из-за семантических ошибок."
     },
     "423": {
-      "description": "The resource that is being accessed is locked."
+      "description": "Доступ к ресурсу заблокирован."
     },
     "424": {
-      "description": "The request failed because it depended on another request that failed."
+      "description": "Запрос не выполнен, так как зависит от другого запроса, который завершился ошибкой."
     },
     "425": {
-      "description": "The server is unwilling to risk processing a request that might be replayed."
+      "description": "Сервер не хочет рисковать, обрабатывая запрос, который может быть воспроизведён повторно."
     },
     "426": {
-      "description": "The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol."
+      "description": "Сервер отказывается выполнять запрос по текущему протоколу, но может согласиться после обновления клиентом протокола."
     },
     "428": {
-      "description": "The origin server requires the request to be conditional."
+      "description": "Сервер-источник требует, чтобы запрос был условным."
     },
     "429": {
-      "description": "The user has sent too many requests in a given amount of time.",
+      "description": "Пользователь отправил слишком много запросов за заданное время.",
       "details": {
-        "usage": "Rate limiting to prevent abuse and ensure fair usage",
+        "usage": "Ограничение частоты запросов для предотвращения злоупотреблений",
         "commonCauses": [
-          "Exceeding API rate limits",
-          "Too many requests from the same IP address",
-          "Bot or scraper activity detected",
-          "User triggered rate limiter with rapid requests"
+          "Превышены лимиты API",
+          "Слишком много запросов с одного IP-адреса",
+          "Обнаружена активность бота или скрапера",
+          "Пользователь инициировал лимитер быстрыми запросами"
         ]
       }
     },
     "431": {
-      "description": "The server is unwilling to process the request because its header fields are too large."
+      "description": "Сервер отказывается обрабатывать запрос, так как его заголовки слишком большие."
     },
     "440": {
-      "description": "The client's session has expired."
+      "description": "Сессия клиента истекла."
     },
     "444": {
-      "description": "Nginx closes the connection without sending any response to the client."
+      "description": "Nginx закрывает соединение без отправки ответа клиенту."
     },
     "449": {
-      "description": "The request should be retried after doing the appropriate action."
+      "description": "Запрос следует повторить после выполнения соответствующего действия."
     },
     "451": {
-      "description": "The server is denying access to the resource as a consequence of a legal demand."
+      "description": "Сервер отказывает в доступе к ресурсу по юридическим причинам."
     },
     "494": {
-      "description": "Nginx rejected the request because the request header was too large."
+      "description": "Nginx отклонил запрос из-за слишком большого заголовка."
     },
     "495": {
-      "description": "Nginx client SSL certificate verification error."
+      "description": "Ошибка проверки SSL-сертификата клиента Nginx."
     },
     "496": {
-      "description": "Nginx client did not provide SSL certificate."
+      "description": "Клиент не предоставил SSL-сертификат (Nginx)."
     },
     "497": {
-      "description": "Nginx client sent HTTP request to HTTPS port."
+      "description": "Клиент отправил HTTP-запрос на HTTPS-порт (Nginx)."
     },
     "499": {
-      "description": "Nginx client closed the connection before the server could send a response."
+      "description": "Клиент закрыл соединение до того, как сервер успел отправить ответ (Nginx)."
     },
     "500": {
-      "description": "The server has encountered a situation it doesn't know how to handle.",
+      "description": "Сервер столкнулся с ситуацией, которую не знает как обработать.",
       "details": {
-        "usage": "Generic server error for unexpected conditions",
+        "usage": "Общая ошибка сервера при непредвиденных условиях",
         "commonCauses": [
-          "Uncaught exception in server code",
-          "Database connection failure",
-          "Configuration error on the server",
-          "Third-party service integration failure"
+          "Необработанное исключение в коде сервера",
+          "Ошибка подключения к базе данных",
+          "Ошибка конфигурации на сервере",
+          "Сбой интеграции со сторонним сервисом"
         ]
       }
     },
     "501": {
-      "description": "The request method is not supported by the server and cannot be handled."
+      "description": "Метод запроса не поддерживается сервером."
     },
     "502": {
-      "description": "The server, while working as a gateway to get a response needed to handle the request, got an invalid response.",
+      "description": "Сервер, работая как шлюз, получил недопустимый ответ от upstream-сервера.",
       "details": {
-        "usage": "Invalid response from upstream server",
+        "usage": "Недопустимый ответ от upstream-сервера",
         "commonCauses": [
-          "Upstream server is down or unreachable",
-          "Invalid response from backend service",
-          "Network connectivity issues between servers",
-          "Timeout waiting for upstream response"
+          "Upstream-сервер недоступен или не отвечает",
+          "Недопустимый ответ от бэкенд-сервиса",
+          "Проблемы сетевой связности между серверами",
+          "Тайм-аут при ожидании ответа от upstream"
         ]
       }
     },
     "503": {
-      "description": "The server is not ready to handle the request.",
+      "description": "Сервер не готов обрабатывать запрос.",
       "details": {
-        "usage": "Service temporarily unavailable due to maintenance or overload",
+        "usage": "Сервис временно недоступен из-за техобслуживания или перегрузки",
         "commonCauses": [
-          "Scheduled server maintenance",
-          "Server overload due to high traffic",
-          "Database connection pool exhausted",
-          "Dependency service is temporarily down"
+          "Плановое техобслуживание сервера",
+          "Перегрузка сервера из-за высокого трафика",
+          "Исчерпан пул подключений к базе данных",
+          "Сервис-зависимость временно недоступен"
         ]
       }
     },
     "504": {
-      "description": "The server, while working as a gateway, could not get a response in time.",
+      "description": "Сервер, работая как шлюз, не дождался ответа вовремя.",
       "details": {
-        "usage": "Timeout waiting for response from upstream server",
+        "usage": "Тайм-аут при ожидании ответа от upstream-сервера",
         "commonCauses": [
-          "Upstream server took too long to respond",
-          "Slow backend service processing",
-          "Network latency between gateway and backend",
-          "Database query timeout"
+          "Upstream-сервер слишком долго отвечал",
+          "Медленная обработка на бэкенде",
+          "Сетевые задержки между шлюзом и бэкендом",
+          "Тайм-аут запроса к базе данных"
         ]
       }
     },
     "505": {
-      "description": "The HTTP version used in the request is not supported by the server."
+      "description": "Версия HTTP, использованная в запросе, не поддерживается сервером."
     },
     "506": {
-      "description": "The server has an internal configuration error."
+      "description": "Внутренняя ошибка конфигурации сервера."
     },
     "507": {
-      "description": "The server is unable to store the representation needed to complete the request."
+      "description": "Сервер не может сохранить представление, необходимое для выполнения запроса."
     },
     "508": {
-      "description": "The server detected an infinite loop while processing the request."
+      "description": "Сервер обнаружил бесконечный цикл при обработке запроса."
     },
     "510": {
-      "description": "Further extensions to the request are required for the server to fulfill it."
+      "description": "Для выполнения запроса требуются дополнительные расширения."
     },
     "511": {
-      "description": "The client needs to authenticate to gain network access."
+      "description": "Клиенту необходимо аутентифицироваться для получения доступа к сети."
     },
     "520": {
-      "description": "The origin server returned an unexpected or unknown error."
+      "description": "Сервер-источник вернул неожиданную или неизвестную ошибку."
     },
     "521": {
-      "description": "The origin server refused the connection from Cloudflare."
+      "description": "Сервер-источник отклонил соединение от Cloudflare."
     },
     "522": {
-      "description": "Cloudflare could not negotiate a TCP handshake with the origin server."
+      "description": "Cloudflare не смог установить TCP-соединение с сервером-источником."
     },
     "523": {
-      "description": "Cloudflare could not reach the origin server."
+      "description": "Cloudflare не смог связаться с сервером-источником."
     },
     "524": {
-      "description": "Cloudflare was able to complete a TCP connection to the origin server, but the origin server did not reply with an HTTP response before the connection timed out."
+      "description": "Cloudflare установил TCP-соединение с сервером-источником, но сервер не вернул HTTP-ответ до истечения тайм-аута."
     },
     "525": {
-      "description": "Cloudflare could not negotiate a SSL/TLS handshake with the origin server."
+      "description": "Cloudflare не смог выполнить SSL/TLS-рукопожатие с сервером-источником."
     },
     "526": {
-      "description": "Cloudflare could not validate the SSL certificate on the origin server."
+      "description": "Cloudflare не смог проверить SSL-сертификат на сервере-источнике."
     },
     "527": {
-      "description": "Cloudflare Railgun was unable to reach the origin server."
+      "description": "Cloudflare Railgun не смог связаться с сервером-источником."
     },
     "528": {
-      "description": "Cloudflare timed out contacting the origin server."
+      "description": "Cloudflare превысил тайм-аут при попытке связаться с сервером-источником."
     },
     "529": {
-      "description": "The origin server has exceeded its resource limits."
+      "description": "Сервер-источник превысил лимиты ресурсов."
     },
     "530": {
-      "description": "Cloudflare could not resolve the DNS for the origin server."
+      "description": "Cloudflare не смог разрешить DNS для сервера-источника."
     }
   }
 }

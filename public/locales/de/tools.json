@@ -1,145 +1,145 @@
 {
   "password": {
-    "title": "Secure Random Password Generator",
-    "shortTitle": "Password Generator",
-    "description": "Generate cryptographically secure, random passwords instantly. Free online password generator with customizable length and character options."
+    "title": "Sicherer Zufalls-Passwort-Generator",
+    "shortTitle": "Passwort-Generator",
+    "description": "Generieren Sie sofort kryptografisch sichere, zufällige Passwörter. Kostenloser Online-Passwort-Generator mit anpassbarer Länge und Zeichenoptionen."
   },
   "ascii": {
-    "title": "ASCII Table - Complete Character Reference",
-    "shortTitle": "ASCII Table",
-    "description": "Complete ASCII character table with hex, octal, HTML, and decimal codes. Free online ASCII reference for developers."
+    "title": "ASCII-Tabelle - Vollständige Zeichenreferenz",
+    "shortTitle": "ASCII-Tabelle",
+    "description": "Vollständige ASCII-Zeichentabelle mit Hex-, Oktal-, HTML- und Dezimalcodes. Kostenlose Online-ASCII-Referenz für Entwickler."
   },
   "htmlcode": {
-    "title": "HTML Entity Encoder & Decoder",
-    "shortTitle": "Html Code",
-    "description": "Encode and decode HTML special characters and entities. Free online HTML code converter for web developers."
+    "title": "HTML Entity Kodierer & Dekodierer",
+    "shortTitle": "HTML-Code",
+    "description": "Kodieren und dekodieren Sie HTML-Sonderzeichen und Entities. Kostenloser Online-HTML-Code-Konverter für Webentwickler."
   },
   "httpstatus": {
-    "title": "HTTP Status Code Reference - Complete Guide",
-    "shortTitle": "HTTP Status",
-    "description": "Complete HTTP status code reference with descriptions, RFC references, and usage guides. Covers IANA official and unofficial codes."
+    "title": "HTTP-Statuscode-Referenz - Vollständiger Leitfaden",
+    "shortTitle": "HTTP-Status",
+    "description": "Vollständige HTTP-Statuscode-Referenz mit Beschreibungen, RFC-Referenzen und Nutzungshinweisen. Abdeckt IANA-offizielle und inoffizielle Codes."
   },
   "base64": {
-    "title": "Base64 Encoder & Decoder",
-    "shortTitle": "Base64 Encode/Decode",
-    "description": "Encode and decode Base64 strings online. Free Base64 encoder/decoder with Basic Authentication header support. 100% client-side."
+    "title": "Base64 Kodierer & Dekodierer",
+    "shortTitle": "Base64 Kodieren/Dekodieren",
+    "description": "Base64-Zeichenfolgen online kodieren und dekodieren. Kostenloser Base64-Kodierer/Dekodierer mit Basic Authentication Header-Unterstützung. 100% clientseitig."
   },
   "hashing": {
-    "title": "Hash Generator - MD5, SHA-256, SHA-512",
-    "shortTitle": "Text Hashing",
-    "description": "Generate MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, SHA3, and RIPEMD-160 hashes. Free online hash generator, 100% browser-based."
+    "title": "Hash-Generator - MD5, SHA-256, SHA-512",
+    "shortTitle": "Text-Hashing",
+    "description": "Generieren Sie MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, SHA3 und RIPEMD-160 Hashes. Kostenloser Online-Hash-Generator, 100% browserbasiert."
   },
   "checksum": {
-    "title": "File Checksum Calculator - MD5, SHA-256",
-    "shortTitle": "File Checksum",
-    "description": "Calculate MD5, SHA-1, SHA-256, and SHA-512 checksums for any file. Supports unlimited file size, 100% client-side processing."
+    "title": "Datei-Prüfsummenrechner - MD5, SHA-256",
+    "shortTitle": "Datei-Prüfsumme",
+    "description": "Berechnen Sie MD5, SHA-1, SHA-256 und SHA-512 Prüfsummen für jede Datei. Unterstützt unbegrenzte Dateigröße, 100% clientseitige Verarbeitung."
   },
   "cipher": {
-    "title": "Text Encrypt & Decrypt - AES, DES, RC4",
-    "shortTitle": "Text Encrypt/Decrypt",
-    "description": "Encrypt and decrypt text using AES, DES, Triple DES, Rabbit, RC4, and RC4Drop. Free online cipher tool, 100% browser-based."
+    "title": "Text Ver- und Entschlüsseln - AES, DES, RC4",
+    "shortTitle": "Text Verschlüsseln/Entschlüsseln",
+    "description": "Ver- und entschlüsseln Sie Text mit AES, DES, Triple DES, Rabbit, RC4 und RC4Drop. Kostenloses Online-Chiffre-Tool, 100% browserbasiert."
   },
   "storageunit": {
-    "title": "Storage Unit Converter - Bytes to TB",
-    "shortTitle": "Storage Unit Conversion",
-    "description": "Convert between bytes, KB, MB, GB, TB, PB and more. Free online storage unit converter for developers."
+    "title": "Speichereinheit-Konverter - Bytes bis TB",
+    "shortTitle": "Speichereinheit-Konvertierung",
+    "description": "Umrechnen zwischen Bytes, KB, MB, GB, TB, PB und mehr. Kostenloser Online-Speichereinheit-Konverter für Entwickler."
   },
   "uuid": {
-    "title": "UUID Generator - v4, v7 Random UUID",
-    "shortTitle": "UUID Generator",
-    "description": "Generate v1/v3/v4/v5/v7 UUIDs in your browser. Free, fully local, no tracking."
+    "title": "UUID-Generator - v4, v7 Zufalls-UUID",
+    "shortTitle": "UUID-Generator",
+    "description": "Generieren Sie v1/v3/v4/v5/v7 UUIDs in Ihrem Browser. Kostenlos, vollständig lokal, kein Tracking."
   },
   "urlencoder": {
-    "title": "URL Encoder & Decoder",
-    "shortTitle": "URL Encoder/Decoder",
-    "description": "Encode and decode URL strings with Component, Whole URL, and Form modes. Free online URL encoder/decoder, 100% client-side."
+    "title": "URL Kodierer & Dekodierer",
+    "shortTitle": "URL Kodieren/Dekodieren",
+    "description": "URL-Zeichenfolgen kodieren und dekodieren mit Component-, Whole URL- und Form-Modi. Kostenloser Online-URL-Kodierer/Dekodierer, 100% clientseitig."
   },
   "yaml": {
-    "title": "YAML Converter - JSON to YAML & YAML to JSON",
-    "shortTitle": "JSON / YAML Converter",
-    "description": "Convert between JSON and YAML formats with full YAML 1.2 support. Handles multi-document YAML, anchors, and aliases. 100% client-side."
+    "title": "YAML-Konverter - JSON zu YAML & YAML zu JSON",
+    "shortTitle": "JSON / YAML Konverter",
+    "description": "Konvertieren zwischen JSON- und YAML-Formaten mit vollständiger YAML 1.2-Unterstützung. Verarbeitet Multi-Dokument-YAML, Anker und Aliase. 100% clientseitig."
   },
   "diff": {
-    "title": "Diff Checker - Compare Text Online",
-    "shortTitle": "Text Diff",
-    "description": "Compare two texts or code snippets with line and word-level precision. Side-by-side or inline view, 100% client-side."
+    "title": "Diff-Checker - Text online vergleichen",
+    "shortTitle": "Text-Diff",
+    "description": "Zwei Texte oder Code-Snippets mit Zeilen- und Wortgenauigkeit vergleichen. Nebeneinander- oder Inline-Ansicht, 100% clientseitig."
   },
   "markdown": {
-    "title": "Markdown Editor with Live Preview",
-    "shortTitle": "Markdown Editor",
-    "description": "Write and preview Markdown with GitHub Flavored Markdown support. Free online Markdown editor with live preview, 100% client-side."
+    "title": "Markdown-Editor mit Live-Vorschau",
+    "shortTitle": "Markdown-Editor",
+    "description": "Markdown schreiben und mit GitHub Flavored Markdown-Unterstützung vorschauen. Kostenloser Online-Markdown-Editor mit Live-Vorschau, 100% clientseitig."
   },
   "json": {
-    "title": "JSON Formatter & Validator",
-    "shortTitle": "JSON Format / Compress",
-    "description": "Format, compress, and validate JSON online. Pretty-print with configurable indentation, minify to single line, or parse JSON5. 100% client-side."
+    "title": "JSON-Formatierer & Validator",
+    "shortTitle": "JSON Formatieren / Komprimieren",
+    "description": "JSON online formatieren, komprimieren und validieren. Pretty-Print mit konfigurierbarer Einrückung, minifizieren oder JSON5 parsen. 100% clientseitig."
   },
   "dbviewer": {
-    "title": "SQLite Viewer - Browse & Query .db Files",
-    "shortTitle": "DB Viewer",
-    "description": "Open SQLite databases in your browser, browse schema, run read-only SQL with autocomplete, paginate large result sets, and export to CSV or JSON. 100% client-side."
+    "title": "SQLite-Viewer - .db-Dateien durchsuchen und abfragen",
+    "shortTitle": "DB-Viewer",
+    "description": "SQLite-Datenbanken im Browser öffnen, Schema durchsuchen, schreibgeschütztes SQL mit Autovervollständigung ausführen, große Ergebnismengen paginieren und als CSV oder JSON exportieren. 100% clientseitig."
   },
   "jwt": {
-    "title": "JWT Debugger - Encode, Decode & Verify",
+    "title": "JWT-Debugger - Kodieren, Dekodieren & Verifizieren",
     "shortTitle": "JWT",
-    "description": "Encode, decode, and verify JSON Web Tokens (JWT). Supports HS256, RS256, ES256 and more. 100% client-side."
+    "description": "JSON Web Tokens (JWT) kodieren, dekodieren und verifizieren. Unterstützt HS256, RS256, ES256 und mehr. 100% clientseitig."
   },
   "unixtime": {
-    "title": "Unix Timestamp Converter - Seconds & Milliseconds",
-    "shortTitle": "Unix Timestamp",
-    "description": "Convert between Unix timestamps and human-readable dates. Supports seconds and milliseconds, shows Local and UTC side-by-side, with a live clock. 100% client-side."
+    "title": "Unix-Timestamp-Konverter - Sekunden & Millisekunden",
+    "shortTitle": "Unix-Timestamp",
+    "description": "Zwischen Unix-Timestamps und lesbaren Daten konvertieren. Unterstützt Sekunden und Millisekunden, zeigt Lokal und UTC nebeneinander mit Live-Uhr. 100% clientseitig."
   },
   "cron": {
     "shortTitle": "Cron",
-    "title": "Cron Expression Generator & Explainer",
-    "description": "Build and decode Cron expressions for Standard, Spring, and Quartz schedulers. See human-readable explanations and the next 5 execution times."
+    "title": "Cron-Ausdruck-Generator & Erklärer",
+    "description": "Cron-Ausdrücke für Standard-, Spring- und Quartz-Scheduler erstellen und dekodieren. Lesbare Erklärungen und die nächsten 5 Ausführungszeiten anzeigen."
   },
   "qrcode": {
-    "title": "QR Code Generator - Text, URL, WiFi",
-    "shortTitle": "QR Code Generator",
-    "description": "Generate styled QR codes for text, URLs, WiFi, vCard, email, and SMS. Custom colors, logos, and dot styles. 100% client-side."
+    "title": "QR-Code-Generator - Text, URL, WiFi",
+    "shortTitle": "QR-Code-Generator",
+    "description": "Gestylte QR-Codes für Text, URLs, WiFi, vCard, E-Mail und SMS generieren. Benutzerdefinierte Farben, Logos und Punktstile. 100% clientseitig."
   },
   "textcase": {
-    "title": "Text Case Converter - camelCase, snake_case, kebab-case",
-    "shortTitle": "Text Case Converter",
-    "description": "Convert text between camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case and more. Free online text case converter, 100% client-side."
+    "title": "Text Case Konverter - camelCase, snake_case, kebab-case",
+    "shortTitle": "Text Case Konverter",
+    "description": "Text umwandeln zwischen camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case und mehr. Kostenloser Online-Text-Case-Konverter, 100% clientseitig."
   },
   "color": {
-    "title": "Color Converter & Picker - HEX, RGB, HSL, OKLCH",
-    "shortTitle": "Color Converter",
-    "description": "Convert HEX, RGB, HSL, HSV, CMYK, LAB, OKLCH. Visual picker with eyedropper, palette generator, image color extraction, WCAG + APCA contrast, and color-blindness preview. 100% client-side."
+    "title": "Farbkonverter & Picker - HEX, RGB, HSL, OKLCH",
+    "shortTitle": "Farbkonverter",
+    "description": "HEX, RGB, HSL, HSV, CMYK, LAB, OKLCH konvertieren. Visueller Picker mit Pipette, Palettengenerator, Bild-Farboxtraktion, WCAG + APCA Kontrast und Farbenblindheits-Vorschau. 100% clientseitig."
   },
   "regex": {
-    "title": "Regex Tester & Live Regex Editor",
-    "shortTitle": "Regex Tester",
-    "description": "Test regular expressions in real-time with match highlighting, capture group inspection, and replacement preview. Built-in preset library and token-level explanation. 100% client-side."
+    "title": "Regex-Tester & Live-Regex-Editor",
+    "shortTitle": "Regex-Tester",
+    "description": "Reguläre Ausdrücke in Echtzeit testen mit Match-Hervorhebung, Capture-Group-Inspektion und Ersetzungsvorschau. Integrierte Vorlagenbibliothek und Token-Erklärung. 100% clientseitig."
   },
   "csv-md": {
-    "title": "CSV ↔ Markdown Table Converter",
-    "shortTitle": "CSV / Markdown Table",
-    "description": "Convert between CSV and Markdown Table formats. Bidirectional, real-time, 100% client-side."
+    "title": "CSV ↔ Markdown-Tabellenkonverter",
+    "shortTitle": "CSV / Markdown-Tabelle",
+    "description": "Zwischen CSV- und Markdown-Tabellenformaten konvertieren. Bidirektional, in Echtzeit, 100% clientseitig."
   },
   "csv": {
-    "title": "CSV Converter - JSON to CSV Online",
-    "shortTitle": "JSON / CSV Converter",
-    "description": "Convert between JSON and CSV formats. Bidirectional, real-time, 100% client-side."
+    "title": "CSV-Konverter - JSON zu CSV Online",
+    "shortTitle": "JSON / CSV Konverter",
+    "description": "Zwischen JSON- und CSV-Formaten konvertieren. Bidirektional, in Echtzeit, 100% clientseitig."
   },
   "numbase": {
-    "title": "Number Base Converter - Binary, Octal, Hex, Decimal",
-    "shortTitle": "Number Base Converter",
-    "description": "Convert numbers between binary, octal, decimal, and hexadecimal with real-time sync. Supports 8/16/32/64-bit two's complement, bit visual editor."
+    "title": "Zahlenbasiskonverter - Binär, Oktal, Hex, Dezimal",
+    "shortTitle": "Zahlenbasiskonverter",
+    "description": "Zahlen zwischen Binär, Oktal, Dezimal und Hexadezimal mit Echtzeit-Synchronisation konvertieren. Unterstützt 8/16/32/64-Bit-Zweierkomplement, visueller Bit-Editor."
   },
   "image": {
-    "title": "Image Compressor & Format Converter - PNG, JPG, WebP",
-    "shortTitle": "Image Compressor",
-    "description": "Compress, resize, and convert images between PNG, JPG, and WebP formats. All processing runs locally in your browser."
+    "title": "Bildkompressor & Formatkonverter - PNG, JPG, WebP",
+    "shortTitle": "Bildkompressor",
+    "description": "Bilder komprimieren, verkleinern und zwischen PNG-, JPG- und WebP-Formaten konvertieren. Die gesamte Verarbeitung erfolgt lokal in Ihrem Browser."
   },
   "categories": {
-    "text": "Text Processing",
-    "encoding": "Encoding & Conversion",
-    "security": "Security & Crypto",
-    "generators": "Generators",
-    "visual": "Visual & Media",
-    "reference": "Reference & Lookup"
+    "text": "Textverarbeitung",
+    "encoding": "Kodierung & Konvertierung",
+    "security": "Sicherheit & Kryptografie",
+    "generators": "Generatoren",
+    "visual": "Visuell & Medien",
+    "reference": "Referenz & Nachschlagewerk"
   }
 }

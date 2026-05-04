@@ -1,24 +1,24 @@
 {
-  "tabConverter": "Converter",
-  "tabReference": "Reference",
-  "bitWidth": "Bit Width",
+  "tabConverter": "Conversor",
+  "tabReference": "Referência",
+  "bitWidth": "Largura de bits",
   "decimal": "Decimal",
   "hexadecimal": "Hexadecimal",
   "octal": "Octal",
-  "binary": "Binary",
+  "binary": "Binário",
   "asciiChar": "ASCII",
   "unicodePoint": "Unicode",
-  "invalidInput": "Invalid input",
-  "overflowWarning": "Value exceeds bit width",
-  "referenceTitle": "Base Reference (0-15)",
+  "invalidInput": "Entrada inválida",
+  "overflowWarning": "Valor excede a largura de bits",
+  "referenceTitle": "Referência de bases (0-15)",
   "refDec": "DEC",
   "refHex": "HEX",
   "refOct": "OCT",
   "refBin": "BIN",
   "descriptions": {
-    "whatIsTitle": "What is Number Base Conversion?",
-    "whatIs": "Number base conversion transforms a number from one positional numeral system to another. Computers use binary (base 2), while humans typically work with decimal (base 10). Hexadecimal (base 16) and octal (base 8) offer compact representations of binary data, commonly used in debugging, network protocols, color codes, and file permissions.",
-    "twosComplementTitle": "Two's Complement",
-    "twosComplement": "Two's complement is the standard way to represent signed integers in binary. The most significant bit (MSB) acts as the sign bit: 0 for positive, 1 for negative. To get the negative value, invert all bits and add 1. For example, in 8-bit mode, -1 is represented as 11111111 (0xFF)."
+    "whatIsTitle": "O que é conversão de base numérica?",
+    "whatIs": "A conversão de base numérica transforma um número de um sistema de numeração posicional para outro. Computadores usam binário (base 2), enquanto humanos tipicamente trabalham com decimal (base 10). Hexadecimal (base 16) e octal (base 8) oferecem representações compactas de dados binários, comumente usadas em depuração, protocolos de rede, códigos de cor e permissões de arquivo.",
+    "twosComplementTitle": "Complemento de dois",
+    "twosComplement": "O complemento de dois é a forma padrão de representar inteiros com sinal em binário. O bit mais significativo (MSB) atua como bit de sinal: 0 para positivo, 1 para negativo. Para obter o valor negativo, inverta todos os bits e some 1. Por exemplo, no modo 8 bits, -1 é representado como 11111111 (0xFF)."
   }
 }

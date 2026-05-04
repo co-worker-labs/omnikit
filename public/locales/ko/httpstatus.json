@@ -1,453 +1,453 @@
 {
   "description": {
-    "text": "Complete HTTP status code reference covering all IANA official codes from RFC 9110 and related specifications — including WebDAV (RFC 4918), additional HTTP status codes (RFC 6585), 308 Permanent Redirect (RFC 7538), 451 Unavailable For Legal Reasons (RFC 7725), and Early Hints (RFC 8297). Also includes unofficial platform extensions from Nginx, Cloudflare, and IIS. Each code shows its description, RFC reference, and commonly used codes include usage scenarios and common causes for quick troubleshooting."
+    "text": "RFC 9110 및 관련 사양의 모든 IANA 공식 코드를 포함하는 완전한 HTTP 상태 코드 참조입니다. WebDAV(RFC 4918), 추가 HTTP 상태 코드(RFC 6585), 308 Permanent Redirect(RFC 7538), 451 Unavailable For Legal Reasons(RFC 7725), Early Hints(RFC 8297)를 포함합니다. Nginx, Cloudflare, IIS의 비공식 플랫폼 확장도 포함됩니다. 각 코드는 설명과 RFC 참조를 보여주며, 자주 사용되는 코드에는 사용 시나리오와 일반적인 원인이 포함되어 빠른 문제 해결에 도움이 됩니다."
   },
-  "tip": "Hover over any row on desktop or tap on mobile to see usage details and common causes.",
-  "searchPlaceholder": "Search by code, name, or description...",
-  "noResults": "No results found",
+  "tip": "데스크톱에서는 행 위에 마우스를 올리고, 모바일에서는 탭하여 사용 상세와 일반적인 원인을 확인하세요.",
+  "searchPlaceholder": "코드, 이름 또는 설명으로 검색...",
+  "noResults": "검색 결과 없음",
   "categories": {
-    "all": "All",
-    "1xx": "1xx Informational",
-    "2xx": "2xx Success",
-    "3xx": "3xx Redirection",
-    "4xx": "4xx Client Error",
-    "5xx": "5xx Server Error",
-    "unofficial": "Unofficial"
+    "all": "전체",
+    "1xx": "1xx 정보",
+    "2xx": "2xx 성공",
+    "3xx": "3xx 리다이렉트",
+    "4xx": "4xx 클라이언트 오류",
+    "5xx": "5xx 서버 오류",
+    "unofficial": "비공식"
   },
   "tableHeaders": {
-    "code": "Code",
-    "name": "Name",
-    "description": "Description",
-    "spec": "Spec",
-    "source": "Source"
+    "code": "코드",
+    "name": "이름",
+    "description": "설명",
+    "spec": "사양",
+    "source": "출처"
   },
   "detailLabels": {
-    "usage": "Usage",
-    "commonCauses": "Common Causes"
+    "usage": "용도",
+    "commonCauses": "일반적인 원인"
   },
   "codes": {
     "100": {
-      "description": "The server has received the request headers and the client should proceed to send the request body."
+      "description": "서버가 요청 헤더를 받았으며, 클라이언트는 요청 본문을 계속 보내야 합니다."
     },
     "101": {
-      "description": "The server is switching protocols as requested by the client."
+      "description": "서버가 클라이언트의 요청에 따라 프로토콜을 전환하고 있습니다."
     },
     "102": {
-      "description": "The server has received and is processing the request, but no response is available yet."
+      "description": "서버가 요청을 받아 처리 중이지만, 아직 응답을 사용할 수 없습니다."
     },
     "103": {
-      "description": "Used to return some response headers before final HTTP message."
+      "description": "최종 HTTP 메시지 전에 일부 응답 헤더를 반환하는 데 사용됩니다."
     },
     "200": {
-      "description": "The request succeeded.",
+      "description": "요청이 성공했습니다.",
       "details": {
-        "usage": "Standard response for successful HTTP requests",
+        "usage": "성공적인 HTTP 요청에 대한 표준 응답",
         "commonCauses": [
-          "Successfully retrieved a resource via GET request",
-          "Successfully updated a resource via PUT or PATCH request",
-          "Successfully created a resource via POST request",
-          "Successfully deleted a resource via DELETE request"
+          "GET 요청으로 리소스를 성공적으로 가져옴",
+          "PUT 또는 PATCH 요청으로 리소스를 성공적으로 업데이트함",
+          "POST 요청으로 리소스를 성공적으로 생성함",
+          "DELETE 요청으로 리소스를 성공적으로 삭제함"
         ]
       }
     },
     "201": {
-      "description": "The request succeeded and a new resource was created.",
+      "description": "요청이 성공했으며 새 리소스가 생성되었습니다.",
       "details": {
-        "usage": "Response to a POST request that creates a new resource",
+        "usage": "새 리소스를 생성하는 POST 요청에 대한 응답",
         "commonCauses": [
-          "Creating a new user account",
-          "Uploading a new file",
-          "Creating a new database record",
-          "Submitting a new order"
+          "새 사용자 계정 생성",
+          "새 파일 업로드",
+          "새 데이터베이스 레코드 생성",
+          "새 주문 제출"
         ]
       }
     },
     "202": {
-      "description": "The request has been received but not yet acted upon."
+      "description": "요청이 접수되었지만 아직 처리되지 않았습니다."
     },
     "203": {
-      "description": "The request was successful but the transformed metadata is not the definitive set."
+      "description": "요청은 성공했지만 변환된 메타데이터가 확정 세트가 아닙니다."
     },
     "204": {
-      "description": "The server successfully processed the request and is not returning any content.",
+      "description": "서버가 요청을 성공적으로 처리했으며 콘텐츠를 반환하지 않습니다.",
       "details": {
-        "usage": "Response to successful requests that don't require returning a body",
+        "usage": "본문 반환이 필요 없는 성공 요청에 대한 응답",
         "commonCauses": [
-          "Successful DELETE request",
-          "Successful PUT request with no response body needed",
-          "Updating a resource's status without returning data",
-          "Clearing a cache or resetting a state"
+          "성공적인 DELETE 요청",
+          "응답 본문이 필요 없는 성공적인 PUT 요청",
+          "데이터 반환 없이 리소스 상태 업데이트",
+          "캐시 지우기 또는 상태 초기화"
         ]
       }
     },
     "205": {
-      "description": "The server successfully processed the request but is not returning any content and requires the requestor to reset the document view."
+      "description": "서버가 요청을 성공적으로 처리했지만 콘텐츠를 반환하지 않으며 요청자가 문서 보기를 초기화하도록 요구합니다."
     },
     "206": {
-      "description": "The server is delivering only part of the resource due to a range header sent by the client.",
+      "description": "클라이언트가 보낸 Range 헤더로 인해 서버가 리소스의 일부만 전달하고 있습니다.",
       "details": {
-        "usage": "Used for range requests, resumable downloads, and streaming media",
+        "usage": "범위 요청, 이어서 다운로드, 스트리밍 미디어에 사용",
         "commonCauses": [
-          "Video player requesting a specific byte range for buffering",
-          "Download managers resuming interrupted downloads",
-          "Large file transfers in chunks",
-          "HTTP range requests for pagination"
+          "비디오 플레이어가 버퍼링을 위해 특정 바이트 범위를 요청",
+          "다운로드 관리자가 중단된 다운로드를 이어서 진행",
+          "대용량 파일을 청크 단위로 전송",
+          "페이지네이션을 위한 HTTP 범위 요청"
         ]
       }
     },
     "207": {
-      "description": "The message body that follows is by default an XML message and can contain a number of separate response codes."
+      "description": "뒤따르는 메시지 본문은 기본적으로 XML 메시지이며 여러 개별 응답 코드를 포함할 수 있습니다."
     },
     "208": {
-      "description": "The members of a DAV binding have already been enumerated in a preceding part of the multi-status response."
+      "description": "DAV 바인딩의 멤버가 앞선 multi-status 응답에서 이미 열거되었습니다."
     },
     "226": {
-      "description": "The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance."
+      "description": "서버가 리소스에 대한 GET 요청을 이행했으며, 응답은 현재 인스턴스에 적용된 하나 이상의 인스턴스 조작 결과의 표현입니다."
     },
     "300": {
-      "description": "The request has more than one possible response."
+      "description": "요청에 둘 이상의 가능한 응답이 있습니다."
     },
     "301": {
-      "description": "The URL of the requested resource has been changed permanently.",
+      "description": "요청한 리소스의 URL이 영구적으로 변경되었습니다.",
       "details": {
-        "usage": "Permanent redirect for URL changes and content relocation",
+        "usage": "URL 변경 및 콘텐츠 이전을 위한 영구 리다이렉트",
         "commonCauses": [
-          "Website domain change or migration",
-          "URL structure redesign for better SEO",
-          "Moving content to a new location",
-          "HTTP to HTTPS migration"
+          "웹사이트 도메인 변경 또는 마이그레이션",
+          "SEO 개선을 위한 URL 구조 재설계",
+          "콘텐츠를 새 위치로 이동",
+          "HTTP에서 HTTPS로 마이그레이션"
         ]
       }
     },
     "302": {
-      "description": "The URL of the requested resource has been changed temporarily.",
+      "description": "요청한 리소스의 URL이 일시적으로 변경되었습니다.",
       "details": {
-        "usage": "Temporary redirect for content that has moved or is under maintenance",
+        "usage": "이동되었거나 유지보수 중인 콘텐츠에 대한 임시 리다이렉트",
         "commonCauses": [
-          "Temporary website maintenance",
-          "A/B testing redirects",
-          "User authentication flow",
-          "Temporary content location changes"
+          "임시 웹사이트 유지보수",
+          "A/B 테스트 리다이렉트",
+          "사용자 인증 흐름",
+          "임시 콘텐츠 위치 변경"
         ]
       }
     },
     "303": {
-      "description": "The response to the request can be found under another URI using the GET method."
+      "description": "요청에 대한 응답을 GET 메서드를 사용하여 다른 URI에서 찾을 수 있습니다."
     },
     "304": {
-      "description": "The cached version of the requested resource is still valid.",
+      "description": "요청한 리소스의 캐시된 버전이 여전히 유효합니다.",
       "details": {
-        "usage": "Caching optimization to reduce bandwidth and improve performance",
+        "usage": "대역폭 감소 및 성능 향상을 위한 캐시 최적화",
         "commonCauses": [
-          "Browser cache hit for unchanged static resources",
-          "CDN cache serving unchanged content",
-          "Conditional GET request with If-None-Match header",
-          "Server returning 304 for resources that haven't changed since last request"
+          "변경되지 않은 정적 리소스의 브라우저 캐시 적중",
+          "CDN 캐시가 변경되지 않은 콘텐츠를 서비스",
+          "If-None-Match 헤더가 포함된 조건부 GET 요청",
+          "마지막 요청 이후 변경되지 않은 리소스에 대해 서버가 304 반환"
         ]
       }
     },
     "305": {
-      "description": "The requested resource is only available through a proxy."
+      "description": "요청한 리소스는 프록시를 통해서만 사용할 수 있습니다."
     },
     "307": {
-      "description": "The request should be repeated with another URI, but future requests should still use the original URI.",
+      "description": "요청을 다른 URI로 반복해야 하지만, 향후 요청은 여전히 원래 URI를 사용해야 합니다.",
       "details": {
-        "usage": "Temporary redirect that preserves the HTTP method",
+        "usage": "HTTP 메서드를 보존하는 임시 리다이렉트",
         "commonCauses": [
-          "Redirecting POST requests during maintenance",
-          "Temporary URL changes for API endpoints",
-          "Load balancing and traffic distribution",
-          "Testing new features with temporary redirects"
+          "유지보수 중 POST 요청 리다이렉트",
+          "API 엔드포인트의 임시 URL 변경",
+          "로드 밸런싱 및 트래픽 분산",
+          "임시 리다이렉트로 새 기능 테스트"
         ]
       }
     },
     "308": {
-      "description": "The request and all future requests should be repeated using another URI."
+      "description": "요청과 모든 향후 요청을 다른 URI를 사용하여 반복해야 합니다."
     },
     "400": {
-      "description": "The server could not understand the request due to invalid syntax.",
+      "description": "서버가 잘못된 구문으로 인해 요청을 이해할 수 없습니다.",
       "details": {
-        "usage": "Generic client error for malformed requests",
+        "usage": "잘못된 형식의 요청에 대한 일반 클라이언트 오류",
         "commonCauses": [
-          "Malformed JSON in request body",
-          "Missing required request parameters",
-          "Invalid request headers or content type",
-          "Malformed URL or query parameters"
+          "요청 본문에 잘못된 형식의 JSON",
+          "필수 요청 매개변수 누락",
+          "잘못된 요청 헤더 또는 Content-Type",
+          "잘못된 형식의 URL 또는 쿼리 매개변수"
         ]
       }
     },
     "401": {
-      "description": "The client must authenticate itself to get the requested response.",
+      "description": "클라이언트는 요청한 응답을 얻기 위해 인증해야 합니다.",
       "details": {
-        "usage": "Authentication required for accessing protected resources",
+        "usage": "보호된 리소스에 접근하기 위한 인증 필요",
         "commonCauses": [
-          "Missing or invalid authentication token",
-          "Expired JWT or session token",
-          "Failed authentication attempt",
-          "Accessing protected API without credentials"
+          "인증 토큰 누락 또는 무효",
+          "JWT 또는 세션 토큰 만료",
+          "인증 시도 실패",
+          "자격 증명 없이 보호된 API에 접근"
         ]
       }
     },
     "402": {
-      "description": "This response code is reserved for future use."
+      "description": "이 응답 코드는 향후 사용을 위해 예약되어 있습니다."
     },
     "403": {
-      "description": "The client does not have access rights to the content.",
+      "description": "클라이언트에 콘텐츠에 대한 접근 권한이 없습니다.",
       "details": {
-        "usage": "Authorization failure for authenticated but unauthorized requests",
+        "usage": "인증되었지만 권한이 없는 요청에 대한 인가 실패",
         "commonCauses": [
-          "User lacks permission to access the resource",
-          "IP address or region-based blocking",
-          "Accessing admin-only features without proper role",
-          "Rate limiting exceeded for authenticated user"
+          "리소스에 접근할 권한이 없는 사용자",
+          "IP 주소 또는 지역 기반 차단",
+          "적절한 역할 없이 관리자 전용 기능에 접근",
+          "인증된 사용자의 요청 제한 초과"
         ]
       }
     },
     "404": {
-      "description": "The server can not find the requested resource.",
+      "description": "서버가 요청한 리소스를 찾을 수 없습니다.",
       "details": {
-        "usage": "Resource not found at the specified URL",
+        "usage": "지정된 URL에서 리소스를 찾을 수 없음",
         "commonCauses": [
-          "Typo in the URL or broken link",
-          "Resource has been deleted or moved",
-          "Incorrect API endpoint path",
-          "Database record no longer exists"
+          "URL 오타 또는 끊어진 링크",
+          "리소스가 삭제되거나 이동됨",
+          "잘못된 API 엔드포인트 경로",
+          "데이터베이스 레코드가 더 이상 존재하지 않음"
         ]
       }
     },
     "405": {
-      "description": "The request method is known by the server but is not supported by the target resource.",
+      "description": "서버가 요청 메서드를 알고 있지만 대상 리소스에서 지원하지 않습니다.",
       "details": {
-        "usage": "HTTP method not supported for the requested endpoint",
+        "usage": "요청된 엔드포인트에서 지원하지 않는 HTTP 메서드",
         "commonCauses": [
-          "Using GET when only POST is allowed",
-          "Trying to DELETE a read-only resource",
-          "Incorrect HTTP method for API endpoint",
-          "Unsupported method on static file resource"
+          "POST만 허용되는 곳에서 GET 사용",
+          "읽기 전용 리소스에 DELETE 시도",
+          "API 엔드포인트에 잘못된 HTTP 메서드",
+          "정적 파일 리소스에서 지원하지 않는 메서드"
         ]
       }
     },
     "406": {
-      "description": "The server cannot produce a response matching the list of acceptable values defined in the request's proactive content negotiation headers."
+      "description": "서버가 요청의 사전 콘텐츠 협상 헤더에 정의된 허용 가능한 값 목록과 일치하는 응답을 생성할 수 없습니다."
     },
     "407": {
-      "description": "The client must first authenticate itself with a proxy."
+      "description": "클라이언트는 먼저 프록시에 인증해야 합니다."
     },
     "408": {
-      "description": "The server would like to shut down this unused connection.",
+      "description": "서버가 이 미사용 연결을 종료하고자 합니다.",
       "details": {
-        "usage": "Server closed the connection due to client inactivity",
+        "usage": "클라이언트 비활성으로 인한 서버 연결 종료",
         "commonCauses": [
-          "Client took too long to send the request body",
-          "Network timeout between client and server",
-          "Slow client connection causing server timeout",
-          "Load balancer timeout exceeded"
+          "클라이언트가 요청 본문 전송에 너무 오래 걸림",
+          "클라이언트와 서버 간 네트워크 시간 초과",
+          "느린 클라이언트 연결로 인한 서버 시간 초과",
+          "로드 밸런서 시간 초과"
         ]
       }
     },
     "409": {
-      "description": "The request conflicts with the current state of the target resource.",
+      "description": "요청이 대상 리소스의 현재 상태와 충돌합니다.",
       "details": {
-        "usage": "Request conflicts with server state or business rules",
+        "usage": "서버 상태 또는 비즈니스 규칙과 충돌하는 요청",
         "commonCauses": [
-          "Creating a resource that already exists",
-          "Concurrent modification conflicts",
-          "Invalid state transition for resource",
-          "Duplicate unique constraint violation"
+          "이미 존재하는 리소스 생성 시도",
+          "동시 수정 충돌",
+          "리소스의 잘못된 상태 전환",
+          "고유 제약 조건 위반"
         ]
       }
     },
     "410": {
-      "description": "The target resource is no longer available at the origin server."
+      "description": "대상 리소스가 원본 서버에서 더 이상 사용할 수 없습니다."
     },
     "411": {
-      "description": "The server rejected the request because the Content-Length header field is not defined."
+      "description": "서버가 Content-Length 헤더 필드가 정의되지 않아 요청을 거부했습니다."
     },
     "412": {
-      "description": "The server does not meet one of the preconditions that the requester put on the request header fields."
+      "description": "서버가 요청자가 요청 헤더 필드에 설정한 사전 조건 중 하나를 충족하지 못합니다."
     },
     "413": {
-      "description": "The request entity is larger than limits defined by the server."
+      "description": "요청 엔티티가 서버에서 정의한 제한보다 큽니다."
     },
     "414": {
-      "description": "The URI requested by the client is longer than the server is willing to interpret."
+      "description": "클라이언트가 요청한 URI가 서버가 해석하려는 것보다 깁니다."
     },
     "415": {
-      "description": "The media format of the requested data is not supported by the server."
+      "description": "요청한 데이터의 미디어 형식이 서버에서 지원되지 않습니다."
     },
     "416": {
-      "description": "The range of bytes requested by the client cannot be fulfilled."
+      "description": "클라이언트가 요청한 바이트 범위를 충족할 수 없습니다."
     },
     "417": {
-      "description": "The expectation indicated by the Expect request header field cannot be met."
+      "description": "Expect 요청 헤더 필드가 나타내는 기대를 충족할 수 없습니다."
     },
     "418": {
-      "description": "The server refuses to brew coffee because it is, permanently, a teapot."
+      "description": "서버는 커피를 끓이기를 거부합니다. 왜냐하면 영구적으로 찻주전자이기 때문입니다."
     },
     "421": {
-      "description": "The request was directed at a server that is not able to produce a response."
+      "description": "요청이 응답을 생성할 수 없는 서버로 전달되었습니다."
     },
     "422": {
-      "description": "The request was well-formed but was unable to be followed due to semantic errors."
+      "description": "요청은 잘 구성되었지만 의미론적 오류로 인해 처리할 수 없습니다."
     },
     "423": {
-      "description": "The resource that is being accessed is locked."
+      "description": "접근 중인 리소스가 잠겨 있습니다."
     },
     "424": {
-      "description": "The request failed because it depended on another request that failed."
+      "description": "요청이 실패한 다른 요청에 종속되어 요청이 실패했습니다."
     },
     "425": {
-      "description": "The server is unwilling to risk processing a request that might be replayed."
+      "description": "서버가 재생될 수 있는 요청을 처리하는 위험을 감수하지 않습니다."
     },
     "426": {
-      "description": "The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol."
+      "description": "서버가 현재 프로토콜로 요청을 수행하는 것을 거부하지만, 클라이언트가 다른 프로토콜로 업그레이드한 후에는 수행할 의향이 있습니다."
     },
     "428": {
-      "description": "The origin server requires the request to be conditional."
+      "description": "원본 서버에서 요청이 조건부여야 합니다."
     },
     "429": {
-      "description": "The user has sent too many requests in a given amount of time.",
+      "description": "사용자가 주어진 시간 동안 너무 많은 요청을 보냈습니다.",
       "details": {
-        "usage": "Rate limiting to prevent abuse and ensure fair usage",
+        "usage": "남용을 방지하고 공정한 사용을 보장하기 위한 요청 제한",
         "commonCauses": [
-          "Exceeding API rate limits",
-          "Too many requests from the same IP address",
-          "Bot or scraper activity detected",
-          "User triggered rate limiter with rapid requests"
+          "API 요청 제한 초과",
+          "동일한 IP 주소에서 너무 많은 요청",
+          "봇 또는 스크래퍼 활동 감지",
+          "빠른 요청으로 인한 요청 제한기 트리거"
         ]
       }
     },
     "431": {
-      "description": "The server is unwilling to process the request because its header fields are too large."
+      "description": "서버가 헤더 필드가 너무 커서 요청을 처리하지 않겠습니다."
     },
     "440": {
-      "description": "The client's session has expired."
+      "description": "클라이언트의 세션이 만료되었습니다."
     },
     "444": {
-      "description": "Nginx closes the connection without sending any response to the client."
+      "description": "Nginx가 클라이언트에 응답을 보내지 않고 연결을 닫습니다."
     },
     "449": {
-      "description": "The request should be retried after doing the appropriate action."
+      "description": "적절한 조치를 취한 후 요청을 다시 시도해야 합니다."
     },
     "451": {
-      "description": "The server is denying access to the resource as a consequence of a legal demand."
+      "description": "서버가 법적 요구로 인해 리소스에 대한 접근을 거부하고 있습니다."
     },
     "494": {
-      "description": "Nginx rejected the request because the request header was too large."
+      "description": "Nginx가 요청 헤더가 너무 커서 요청을 거부했습니다."
     },
     "495": {
-      "description": "Nginx client SSL certificate verification error."
+      "description": "Nginx 클라이언트 SSL 인증서 확인 오류."
     },
     "496": {
-      "description": "Nginx client did not provide SSL certificate."
+      "description": "Nginx 클라이언트가 SSL 인증서를 제공하지 않았습니다."
     },
     "497": {
-      "description": "Nginx client sent HTTP request to HTTPS port."
+      "description": "Nginx 클라이언트가 HTTPS 포트에 HTTP 요청을 보냈습니다."
     },
     "499": {
-      "description": "Nginx client closed the connection before the server could send a response."
+      "description": "Nginx 서버가 응답을 보내기 전에 클라이언트가 연결을 닫았습니다."
     },
     "500": {
-      "description": "The server has encountered a situation it doesn't know how to handle.",
+      "description": "서버가 처리 방법을 모르는 상황에 직면했습니다.",
       "details": {
-        "usage": "Generic server error for unexpected conditions",
+        "usage": "예상치 못한 상태에 대한 일반 서버 오류",
         "commonCauses": [
-          "Uncaught exception in server code",
-          "Database connection failure",
-          "Configuration error on the server",
-          "Third-party service integration failure"
+          "서버 코드에서 처리되지 않은 예외",
+          "데이터베이스 연결 실패",
+          "서버 설정 오류",
+          "타사 서비스 연동 실패"
         ]
       }
     },
     "501": {
-      "description": "The request method is not supported by the server and cannot be handled."
+      "description": "서버가 요청 메서드를 지원하지 않아 처리할 수 없습니다."
     },
     "502": {
-      "description": "The server, while working as a gateway to get a response needed to handle the request, got an invalid response.",
+      "description": "게이트웨이로 작동하는 서버가 요청을 처리하는 데 필요한 응답을 받는 동안 잘못된 응답을 받았습니다.",
       "details": {
-        "usage": "Invalid response from upstream server",
+        "usage": "업스트림 서버에서의 잘못된 응답",
         "commonCauses": [
-          "Upstream server is down or unreachable",
-          "Invalid response from backend service",
-          "Network connectivity issues between servers",
-          "Timeout waiting for upstream response"
+          "업스트림 서버가 다운되었거나 연결할 수 없음",
+          "백엔드 서비스에서 잘못된 응답",
+          "서버 간 네트워크 연결 문제",
+          "업스트림 응답 대기 시간 초과"
         ]
       }
     },
     "503": {
-      "description": "The server is not ready to handle the request.",
+      "description": "서버가 요청을 처리할 준비가 되지 않았습니다.",
       "details": {
-        "usage": "Service temporarily unavailable due to maintenance or overload",
+        "usage": "유지보수 또는 과부하로 인한 일시적 서비스 불가",
         "commonCauses": [
-          "Scheduled server maintenance",
-          "Server overload due to high traffic",
-          "Database connection pool exhausted",
-          "Dependency service is temporarily down"
+          "예정된 서버 유지보수",
+          "트래픽 과부하",
+          "데이터베이스 연결 풀 고갈",
+          "종속 서비스 일시적 중단"
         ]
       }
     },
     "504": {
-      "description": "The server, while working as a gateway, could not get a response in time.",
+      "description": "게이트웨이로 작동하는 서버가 시간 내에 응답을 받지 못했습니다.",
       "details": {
-        "usage": "Timeout waiting for response from upstream server",
+        "usage": "업스트림 서버 응답 대기 시간 초과",
         "commonCauses": [
-          "Upstream server took too long to respond",
-          "Slow backend service processing",
-          "Network latency between gateway and backend",
-          "Database query timeout"
+          "업스트림 서버 응답 지연",
+          "느린 백엔드 서비스 처리",
+          "게이트웨이와 백엔드 간 네트워크 지연",
+          "데이터베이스 쿼리 시간 초과"
         ]
       }
     },
     "505": {
-      "description": "The HTTP version used in the request is not supported by the server."
+      "description": "요청에 사용된 HTTP 버전이 서버에서 지원되지 않습니다."
     },
     "506": {
-      "description": "The server has an internal configuration error."
+      "description": "서버에 내부 설정 오류가 있습니다."
     },
     "507": {
-      "description": "The server is unable to store the representation needed to complete the request."
+      "description": "서버가 요청을 완료하는 데 필요한 표현을 저장할 수 없습니다."
     },
     "508": {
-      "description": "The server detected an infinite loop while processing the request."
+      "description": "서버가 요청을 처리하는 동안 무한 루프를 감지했습니다."
     },
     "510": {
-      "description": "Further extensions to the request are required for the server to fulfill it."
+      "description": "서버가 요청을 이행하려면 요청에 대한 추가 확장이 필요합니다."
     },
     "511": {
-      "description": "The client needs to authenticate to gain network access."
+      "description": "클라이언트는 네트워크 접근 권한을 얻기 위해 인증해야 합니다."
     },
     "520": {
-      "description": "The origin server returned an unexpected or unknown error."
+      "description": "원본 서버가 예기치 않거나 알 수 없는 오류를 반환했습니다."
     },
     "521": {
-      "description": "The origin server refused the connection from Cloudflare."
+      "description": "원본 서버가 Cloudflare의 연결을 거부했습니다."
     },
     "522": {
-      "description": "Cloudflare could not negotiate a TCP handshake with the origin server."
+      "description": "Cloudflare가 원본 서버와 TCP 핸드셰이크를 협상하지 못했습니다."
     },
     "523": {
-      "description": "Cloudflare could not reach the origin server."
+      "description": "Cloudflare가 원본 서버에 도달할 수 없습니다."
     },
     "524": {
-      "description": "Cloudflare was able to complete a TCP connection to the origin server, but the origin server did not reply with an HTTP response before the connection timed out."
+      "description": "Cloudflare가 원본 서버에 TCP 연결을 완료했지만, 원본 서버가 연결 시간 초과 전에 HTTP 응답을 보내지 않았습니다."
     },
     "525": {
-      "description": "Cloudflare could not negotiate a SSL/TLS handshake with the origin server."
+      "description": "Cloudflare가 원본 서버와 SSL/TLS 핸드셰이크를 협상하지 못했습니다."
     },
     "526": {
-      "description": "Cloudflare could not validate the SSL certificate on the origin server."
+      "description": "Cloudflare가 원본 서버의 SSL 인증서를 확인하지 못했습니다."
     },
     "527": {
-      "description": "Cloudflare Railgun was unable to reach the origin server."
+      "description": "Cloudflare Railgun이 원본 서버에 도달할 수 없습니다."
     },
     "528": {
-      "description": "Cloudflare timed out contacting the origin server."
+      "description": "Cloudflare가 원본 서버 연결에 시간이 초과되었습니다."
     },
     "529": {
-      "description": "The origin server has exceeded its resource limits."
+      "description": "원본 서버가 리소스 제한을 초과했습니다."
     },
     "530": {
-      "description": "Cloudflare could not resolve the DNS for the origin server."
+      "description": "Cloudflare가 원본 서버의 DNS를 확인하지 못했습니다."
     }
   }
 }

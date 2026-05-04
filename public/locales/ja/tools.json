@@ -1,145 +1,172 @@
 {
   "password": {
-    "title": "Secure Random Password Generator",
-    "shortTitle": "Password Generator",
-    "description": "Generate cryptographically secure, random passwords instantly. Free online password generator with customizable length and character options."
+    "title": "安全なランダムパスワード生成器",
+    "shortTitle": "パスワード生成",
+    "description": "暗号論的に安全なランダムパスワードを即座に生成。無料のオンラインパスワード生成器で、長さや文字種を自由にカスタマイズ可能。",
+    "searchTerms": "pasuwaadoseisei pwseisei suiji anzen angou"
   },
   "ascii": {
-    "title": "ASCII Table - Complete Character Reference",
-    "shortTitle": "ASCII Table",
-    "description": "Complete ASCII character table with hex, octal, HTML, and decimal codes. Free online ASCII reference for developers."
+    "title": "ASCIIテーブル - 完全キャラクターリファレンス",
+    "shortTitle": "ASCIIテーブル",
+    "description": "16進数、8進数、HTML、10進数コード付きの完全なASCII文字テーブル。開発者向けの無料オンラインASCIIリファレンス。",
+    "searchTerms": "asukii teburu akitekii moji hyou"
   },
   "htmlcode": {
-    "title": "HTML Entity Encoder & Decoder",
-    "shortTitle": "Html Code",
-    "description": "Encode and decode HTML special characters and entities. Free online HTML code converter for web developers."
+    "title": "HTMLエンティティエンコーダー＆デコーダー",
+    "shortTitle": "HTMLコード",
+    "description": "HTMLの特殊文字とエンティティをエンコード・デコード。Web開発者向けの無料オンラインHTMLコード変換ツール。",
+    "searchTerms": "htmlkoodo htmlekode tokusuumoji"
   },
   "httpstatus": {
-    "title": "HTTP Status Code Reference - Complete Guide",
-    "shortTitle": "HTTP Status",
-    "description": "Complete HTTP status code reference with descriptions, RFC references, and usage guides. Covers IANA official and unofficial codes."
+    "title": "HTTPステータスコードリファレンス - 完全ガイド",
+    "shortTitle": "HTTPステータス",
+    "description": "説明、RFCリファレンス、使用ガイド付きの完全なHTTPステータスコードリファレンス。IANA公式コードと非公式コードを網羅。",
+    "searchTerms": "httpsuteetasu suteetasu HTTP koudo webu"
   },
   "base64": {
-    "title": "Base64 Encoder & Decoder",
-    "shortTitle": "Base64 Encode/Decode",
-    "description": "Encode and decode Base64 strings online. Free Base64 encoder/decoder with Basic Authentication header support. 100% client-side."
+    "title": "Base64エンコーダー＆デコーダー",
+    "shortTitle": "Base64エンコード/デコード",
+    "description": "Base64文字列をオンラインでエンコード・デコード。Basic認証ヘッダー対応の無料Base64エンコーダー/デコーダー。100%ブラウザ上で処理。",
+    "searchTerms": "base64 enkodebouseki deko-do"
   },
   "hashing": {
-    "title": "Hash Generator - MD5, SHA-256, SHA-512",
-    "shortTitle": "Text Hashing",
-    "description": "Generate MD5, SHA-1, SHA-224, SHA-256, SHA-384, SHA-512, SHA3, and RIPEMD-160 hashes. Free online hash generator, 100% browser-based."
+    "title": "ハッシュ生成 - MD5、SHA-256、SHA-512",
+    "shortTitle": "テキストハッシュ",
+    "description": "MD5、SHA-1、SHA-224、SHA-256、SHA-384、SHA-512、SHA3、RIPEMD-160のハッシュを生成。無料オンラインハッシュ生成器、100%ブラウザ上で処理。",
+    "searchTerms": "tekisutohasyu hasyu sanretu MD5 SHA"
   },
   "checksum": {
-    "title": "File Checksum Calculator - MD5, SHA-256",
-    "shortTitle": "File Checksum",
-    "description": "Calculate MD5, SHA-1, SHA-256, and SHA-512 checksums for any file. Supports unlimited file size, 100% client-side processing."
+    "title": "ファイルチェックサム計算 - MD5、SHA-256",
+    "shortTitle": "ファイルチェックサム",
+    "description": "あらゆるファイルのMD5、SHA-1、SHA-256、SHA-512チェックサムを計算。ファイルサイズ無制限、100%ブラウザ上で処理。",
+    "searchTerms": "fairutietukusamu tietukusamu kensyou MD5"
   },
   "cipher": {
-    "title": "Text Encrypt & Decrypt - AES, DES, RC4",
-    "shortTitle": "Text Encrypt/Decrypt",
-    "description": "Encrypt and decrypt text using AES, DES, Triple DES, Rabbit, RC4, and RC4Drop. Free online cipher tool, 100% browser-based."
+    "title": "テキスト暗号化・復号 - AES、DES、RC4",
+    "shortTitle": "テキスト暗号化/復号",
+    "description": "AES、DES、Triple DES、Rabbit、RC4、RC4Dropでテキストを暗号化・復号。無料オンライン暗号ツール、100%ブラウザ上で処理。",
+    "searchTerms": "tekisutoangou anngou fukugou AES"
   },
   "storageunit": {
-    "title": "Storage Unit Converter - Bytes to TB",
-    "shortTitle": "Storage Unit Conversion",
-    "description": "Convert between bytes, KB, MB, GB, TB, PB and more. Free online storage unit converter for developers."
+    "title": "ストレージ単位変換 - バイトからTBへ",
+    "shortTitle": "ストレージ単位変換",
+    "description": "バイト、KB、MB、GB、TB、PBなど相互変換。開発者向けの無料オンラインストレージ単位変換ツール。",
+    "searchTerms": "sutoreeijitani henkan baito megabaito"
   },
   "uuid": {
-    "title": "UUID Generator - v4, v7 Random UUID",
-    "shortTitle": "UUID Generator",
-    "description": "Generate v1/v3/v4/v5/v7 UUIDs in your browser. Free, fully local, no tracking."
+    "title": "UUID生成器 - v4、v7ランダムUUID",
+    "shortTitle": "UUID生成",
+    "description": "ブラウザ上でv1/v3/v4/v5/v7のUUIDを生成。無料、完全ローカル、トラッキングなし。",
+    "searchTerms": "UUID seisei yuniikuidoretifaiya"
   },
   "urlencoder": {
-    "title": "URL Encoder & Decoder",
-    "shortTitle": "URL Encoder/Decoder",
-    "description": "Encode and decode URL strings with Component, Whole URL, and Form modes. Free online URL encoder/decoder, 100% client-side."
+    "title": "URLエンコーダー＆デコーダー",
+    "shortTitle": "URLエンコード/デコード",
+    "description": "Component、Whole URL、FormモードでURL文字列をエンコード・デコード。無料オンラインURLエンコーダー/デコーダー、100%ブラウザ上で処理。",
+    "searchTerms": "URL enko-do deko-do paasento"
   },
   "yaml": {
-    "title": "YAML Converter - JSON to YAML & YAML to JSON",
-    "shortTitle": "JSON / YAML Converter",
-    "description": "Convert between JSON and YAML formats with full YAML 1.2 support. Handles multi-document YAML, anchors, and aliases. 100% client-side."
+    "title": "YAML変換 - JSON⇔YAML相互変換",
+    "shortTitle": "JSON/YAML変換",
+    "description": "JSONとYAML形式を相互変換。YAML 1.2完全対応。複数ドキュメントYAML、アンカー、エイリアスを処理。100%ブラウザ上で処理。",
+    "searchTerms": "JSONYAMLhenkan yamuru seiifu"
   },
   "diff": {
-    "title": "Diff Checker - Compare Text Online",
-    "shortTitle": "Text Diff",
-    "description": "Compare two texts or code snippets with line and word-level precision. Side-by-side or inline view, 100% client-side."
+    "title": "Diffチェッカー - オンラインテキスト比較",
+    "shortTitle": "テキストDiff",
+    "description": "2つのテキストやコードスニペットを行・単語レベルで比較。サイドバイサイドまたはインライン表示、100%ブラウザ上で処理。",
+    "searchTerms": "tekisutodiffu hikaku saiketsu"
   },
   "markdown": {
-    "title": "Markdown Editor with Live Preview",
-    "shortTitle": "Markdown Editor",
-    "description": "Write and preview Markdown with GitHub Flavored Markdown support. Free online Markdown editor with live preview, 100% client-side."
+    "title": "Markdownエディタ（ライブプレビュー付き）",
+    "shortTitle": "Markdownエディタ",
+    "description": "GitHub Flavored Markdown対応のMarkdown作成・プレビュー。無料オンラインMarkdownエディタ、ライブプレビュー付き、100%ブラウザ上で処理。",
+    "searchTerms": "markdown edita purebyu- kakou"
   },
   "json": {
-    "title": "JSON Formatter & Validator",
-    "shortTitle": "JSON Format / Compress",
-    "description": "Format, compress, and validate JSON online. Pretty-print with configurable indentation, minify to single line, or parse JSON5. 100% client-side."
+    "title": "JSONフォーマッター＆バリデーター",
+    "shortTitle": "JSON整形/圧縮",
+    "description": "JSONをオンラインで整形、圧縮、検証。インデント設定可能な整形、1行圧縮、JSON5パースに対応。100%ブラウザ上で処理。",
+    "searchTerms": "JSONseikei assyuku bari-de-to"
   },
   "dbviewer": {
-    "title": "SQLite Viewer - Browse & Query .db Files",
-    "shortTitle": "DB Viewer",
-    "description": "Open SQLite databases in your browser, browse schema, run read-only SQL with autocomplete, paginate large result sets, and export to CSV or JSON. 100% client-side."
+    "title": "SQLiteビューアー - .dbファイルの閲覧・クエリ",
+    "shortTitle": "DBビューアー",
+    "description": "ブラウザ上でSQLiteデータベースを開き、スキーマを閲覧、オートコンプリート付きの読み取り専用SQLを実行、大規模な結果セットをページネーション、CSVやJSONでエクスポート。100%ブラウザ上で処理。",
+    "searchTerms": "DBbyua- SQLite database kueri"
   },
   "jwt": {
-    "title": "JWT Debugger - Encode, Decode & Verify",
+    "title": "JWTデバッガー - エンコード、デコード、検証",
     "shortTitle": "JWT",
-    "description": "Encode, decode, and verify JSON Web Tokens (JWT). Supports HS256, RS256, ES256 and more. 100% client-side."
+    "description": "JSON Web Token（JWT）をエンコード、デコード、検証。HS256、RS256、ES256などに対応。100%ブラウザ上で処理。",
+    "searchTerms": "JWT deibatga to-ken kensyou"
   },
   "unixtime": {
-    "title": "Unix Timestamp Converter - Seconds & Milliseconds",
-    "shortTitle": "Unix Timestamp",
-    "description": "Convert between Unix timestamps and human-readable dates. Supports seconds and milliseconds, shows Local and UTC side-by-side, with a live clock. 100% client-side."
+    "title": "Unixタイムスタンプ変換 - 秒・ミリ秒",
+    "shortTitle": "Unixタイムスタンプ",
+    "description": "Unixタイムスタンプと人間が読める日付を相互変換。秒とミリ秒に対応、ローカルとUTCを並べて表示、ライブクロック付き。100%ブラウザ上で処理。",
+    "searchTerms": "unixtaimusutanpu taimu henkan byou"
   },
   "cron": {
     "shortTitle": "Cron",
-    "title": "Cron Expression Generator & Explainer",
-    "description": "Build and decode Cron expressions for Standard, Spring, and Quartz schedulers. See human-readable explanations and the next 5 execution times."
+    "title": "Cron式ジェネレーター＆解説",
+    "description": "Standard、Spring、Quartzスケジューラー向けのCron式を構築・解読。人間が読める説明と次回5回の実行時刻を表示。",
+    "searchTerms": "kuron sukejyu-ra- jikkou"
   },
   "qrcode": {
-    "title": "QR Code Generator - Text, URL, WiFi",
-    "shortTitle": "QR Code Generator",
-    "description": "Generate styled QR codes for text, URLs, WiFi, vCard, email, and SMS. Custom colors, logos, and dot styles. 100% client-side."
+    "title": "QRコード生成 - テキスト、URL、WiFi",
+    "shortTitle": "QRコード生成",
+    "description": "テキスト、URL、WiFi、vCard、メール、SMS向けのスタイル付きQRコードを生成。カスタムカラー、ロゴ、ドットスタイル。100%ブラウザ上で処理。",
+    "searchTerms": "QRko-do seisei kodu soshi"
   },
   "textcase": {
-    "title": "Text Case Converter - camelCase, snake_case, kebab-case",
-    "shortTitle": "Text Case Converter",
-    "description": "Convert text between camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case and more. Free online text case converter, 100% client-side."
+    "title": "テキストケース変換 - camelCase、snake_case、kebab-case",
+    "shortTitle": "テキストケース変換",
+    "description": "camelCase、PascalCase、snake_case、CONSTANT_CASE、kebab-case、dot.case、Title Caseなど相互変換。無料オンラインテキストケース変換、100%ブラウザ上で処理。",
+    "searchTerms": "tekisutuke-su henkan moji henshu-"
   },
   "color": {
-    "title": "Color Converter & Picker - HEX, RGB, HSL, OKLCH",
-    "shortTitle": "Color Converter",
-    "description": "Convert HEX, RGB, HSL, HSV, CMYK, LAB, OKLCH. Visual picker with eyedropper, palette generator, image color extraction, WCAG + APCA contrast, and color-blindness preview. 100% client-side."
+    "title": "カラー変換＆ピッカー - HEX、RGB、HSL、OKLCH",
+    "shortTitle": "カラー変換",
+    "description": "HEX、RGB、HSL、HSV、CMYK、LAB、OKLCHを相互変換。ビジュアルピッカー、スポイト、パレット生成、画像からカラー抽出、WCAG + APCAコントラストチェック、色覚シミュレーション。100%ブラウザ上で処理。",
+    "searchTerms": "kara-henkan iro pikku- hexu RGB"
   },
   "regex": {
-    "title": "Regex Tester & Live Regex Editor",
-    "shortTitle": "Regex Tester",
-    "description": "Test regular expressions in real-time with match highlighting, capture group inspection, and replacement preview. Built-in preset library and token-level explanation. 100% client-side."
+    "title": "正規表現テスター＆ライブエディター",
+    "shortTitle": "正規表現テスター",
+    "description": "リアルタイムで正規表現をテスト。マッチハイライト、キャプチャグループの確認、置換プレビュー。組み込みプリセットライブラリとトークンレベルの解説。100%ブラウザ上で処理。",
+    "searchTerms": "seikihyougen tesuto pahta-n macchi"
   },
   "csv-md": {
-    "title": "CSV ↔ Markdown Table Converter",
-    "shortTitle": "CSV / Markdown Table",
-    "description": "Convert between CSV and Markdown Table formats. Bidirectional, real-time, 100% client-side."
+    "title": "CSV⇔Markdownテーブル変換",
+    "shortTitle": "CSV/Markdownテーブル",
+    "description": "CSVとMarkdownテーブル形式を相互変換。双方向、リアルタイム、100%ブラウザ上で処理。",
+    "searchTerms": "CSVmakudaun te-buru henkan"
   },
   "csv": {
-    "title": "CSV Converter - JSON to CSV Online",
-    "shortTitle": "JSON / CSV Converter",
-    "description": "Convert between JSON and CSV formats. Bidirectional, real-time, 100% client-side."
+    "title": "CSV変換 - JSON⇔CSVオンライン変換",
+    "shortTitle": "JSON/CSV変換",
+    "description": "JSONとCSV形式を相互変換。双方向、リアルタイム、100%ブラウザ上で処理。",
+    "searchTerms": "CSVJSON henkan de-ta yomikomi"
   },
   "numbase": {
-    "title": "Number Base Converter - Binary, Octal, Hex, Decimal",
-    "shortTitle": "Number Base Converter",
-    "description": "Convert numbers between binary, octal, decimal, and hexadecimal with real-time sync. Supports 8/16/32/64-bit two's complement, bit visual editor."
+    "title": "進数変換 - 2進数、8進数、16進数、10進数",
+    "shortTitle": "進数変換",
+    "description": "2進数、8進数、10進数、16進数をリアルタイム同期で相互変換。8/16/32/64ビットの2の補数、ビットビジュアルエディタに対応。",
+    "searchTerms": "shinsuuhenkan nisshin hasshin jusshin"
   },
   "image": {
-    "title": "Image Compressor & Format Converter - PNG, JPG, WebP",
-    "shortTitle": "Image Compressor",
-    "description": "Compress, resize, and convert images between PNG, JPG, and WebP formats. All processing runs locally in your browser."
+    "title": "画像圧縮＆フォーマット変換 - PNG、JPG、WebP",
+    "shortTitle": "画像圧縮",
+    "description": "画像をPNG、JPG、WebP形式間で圧縮、リサイズ、変換。すべての処理はブラウザ上でローカルに実行。",
+    "searchTerms": "gazouasshuku atsushuku rizaizu PNG"
   },
   "categories": {
-    "text": "Text Processing",
-    "encoding": "Encoding & Conversion",
-    "security": "Security & Crypto",
-    "generators": "Generators",
-    "visual": "Visual & Media",
-    "reference": "Reference & Lookup"
+    "text": "テキスト処理",
+    "encoding": "エンコード・変換",
+    "security": "セキュリティ・暗号",
+    "generators": "ジェネレーター",
+    "visual": "ビジュアル・メディア",
+    "reference": "リファレンス"
   }
 }
