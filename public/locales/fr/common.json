@@ -11,7 +11,9 @@
     "exitFullscreen": "Quitter le plein écran",
     "searchTools": "Rechercher un outil… (Ctrl+K)",
     "searchToolsHint": "Outils (⌘K)",
-    "noMatchingTools": "Aucun outil correspondant"
+    "noMatchingTools": "Aucun outil correspondant",
+    "quickAccess": "Accès rapide",
+    "recentTools": "Récents"
   },
   "footer": {
     "home": "Accueil",

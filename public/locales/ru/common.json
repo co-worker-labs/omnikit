@@ -11,7 +11,9 @@
     "exitFullscreen": "Выйти из полного экрана",
     "searchTools": "Поиск инструментов… (Ctrl+K)",
     "searchToolsHint": "Инструменты (⌘K)",
-    "noMatchingTools": "Инструменты не найдены"
+    "noMatchingTools": "Инструменты не найдены",
+    "quickAccess": "Быстрый доступ",
+    "recentTools": "Недавние"
   },
   "footer": {
     "home": "Главная",

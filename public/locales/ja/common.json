@@ -11,7 +11,9 @@
     "exitFullscreen": "フルスクリーンを終了",
     "searchTools": "ツールを検索…（Ctrl+K）",
     "searchToolsHint": "ツール（⌘K）",
-    "noMatchingTools": "一致するツールが見つかりません"
+    "noMatchingTools": "一致するツールが見つかりません",
+    "quickAccess": "クイックアクセス",
+    "recentTools": "最近使用"
   },
   "footer": {
     "home": "ホーム",

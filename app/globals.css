@@ -311,6 +311,26 @@
   }
 }
 
+.animate-drawer-right {
+  animation: drawer-slide-in-right 200ms ease-out;
+}
+
+.animate-drawer-up {
+  animation: drawer-slide-in-up 200ms ease-out;
+}
+
+.animate-backdrop {
+  animation: backdrop-fade-in 200ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-drawer-right,
+  .animate-drawer-up,
+  .animate-backdrop {
+    animation: none !important;
+  }
+}
+
 /* Markdown rendered preview — minimal typography that respects OmniKit tokens. */
 .prose-md {
   color: var(--fg-primary);

@@ -11,7 +11,9 @@
     "exitFullscreen": "退出全螢幕",
     "searchTools": "搜尋工具… (Ctrl+K)",
     "searchToolsHint": "工具 (⌘K)",
-    "noMatchingTools": "沒有找到符合的工具"
+    "noMatchingTools": "沒有找到符合的工具",
+    "quickAccess": "快速存取",
+    "recentTools": "最近使用"
   },
   "footer": {
     "home": "首頁",

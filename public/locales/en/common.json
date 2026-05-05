@@ -11,7 +11,9 @@
     "exitFullscreen": "Exit fullscreen",
     "searchTools": "Search tools… (Ctrl+K)",
     "searchToolsHint": "Tools (⌘K)",
-    "noMatchingTools": "No matching tools found"
+    "noMatchingTools": "No matching tools found",
+    "quickAccess": "Quick Access",
+    "recentTools": "Recent"
   },
   "footer": {
     "home": "Home",
