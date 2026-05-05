@@ -19,5 +19,14 @@
   "addKeyword": "Add keyword",
   "add": "Add",
   "noKeywords": "No space-delimited words found for keyword analysis.",
-  "noTrackedKeywords": "Add keywords above to start tracking."
+  "noTrackedKeywords": "Add keywords above to start tracking.",
+  "keywordAdded": "Keyword added",
+  "keywordExists": "Keyword already exists",
+  "keywordRemoved": "Keyword removed",
+  "timeLessThan": "< 1 {unit}",
+  "timeHourUnit": "h",
+  "timeMinUnit": "min",
+  "timeSecUnit": "sec",
+  "timeHourFormat": "{hours}h {minutes}m",
+  "timeMinFormat": "{minutes} min {seconds} sec"
 }

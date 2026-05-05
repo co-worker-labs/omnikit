@@ -104,41 +104,41 @@ describe("analyzeText", () => {
 });
 
 describe("calculateReadingTime", () => {
-  it('shows "< 1 sec" for 0 total', () => {
-    expect(calculateReadingTime(0, 0, 200)).toBe("< 1 sec");
+  it("returns 0 for 0 total", () => {
+    expect(calculateReadingTime(0, 0, 200)).toBe(0);
   });
 
-  it("shows seconds for under 1 minute", () => {
-    expect(calculateReadingTime(50, 0, 200)).toBe("15 sec");
-    expect(calculateReadingTime(100, 0, 200)).toBe("30 sec");
+  it("returns seconds for under 1 minute", () => {
+    expect(calculateReadingTime(50, 0, 200)).toBe(15);
+    expect(calculateReadingTime(100, 0, 200)).toBe(30);
   });
 
-  it("shows min + sec for over 1 minute", () => {
-    expect(calculateReadingTime(400, 0, 200)).toBe("2 min 0 sec");
-    expect(calculateReadingTime(450, 0, 200)).toBe("2 min 15 sec");
+  it("returns seconds for over 1 minute", () => {
+    expect(calculateReadingTime(400, 0, 200)).toBe(120);
+    expect(calculateReadingTime(450, 0, 200)).toBe(135);
   });
 
-  it("shows hours for 60+ minutes", () => {
-    expect(calculateReadingTime(12000, 0, 200)).toBe("1h 0m");
-    expect(calculateReadingTime(15000, 0, 200)).toBe("1h 15m");
+  it("returns seconds for 60+ minutes", () => {
+    expect(calculateReadingTime(12000, 0, 200)).toBe(3600);
+    expect(calculateReadingTime(15000, 0, 200)).toBe(4500);
   });
 
   it("adds CJK chars to word count", () => {
-    expect(calculateReadingTime(100, 100, 200)).toBe("1 min 0 sec");
+    expect(calculateReadingTime(100, 100, 200)).toBe(60);
   });
 
   it("respects custom WPM", () => {
-    expect(calculateReadingTime(130, 0, 130)).toBe("1 min 0 sec");
+    expect(calculateReadingTime(130, 0, 130)).toBe(60);
   });
 });
 
 describe("calculateSpeakingTime", () => {
-  it('shows "< 1 sec" for 0 total', () => {
-    expect(calculateSpeakingTime(0, 0, 130)).toBe("< 1 sec");
+  it("returns 0 for 0 total", () => {
+    expect(calculateSpeakingTime(0, 0, 130)).toBe(0);
   });
 
   it("uses speaking WPM default of 130", () => {
-    expect(calculateSpeakingTime(130, 0, 130)).toBe("1 min 0 sec");
+    expect(calculateSpeakingTime(130, 0, 130)).toBe(60);
   });
 });
 

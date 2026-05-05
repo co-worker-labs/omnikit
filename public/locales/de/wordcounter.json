@@ -19,5 +19,14 @@
   "addKeyword": "Schlüsselwort hinzufügen",
   "add": "Hinzufügen",
   "noKeywords": "Keine durch Leerzeichen getrennten Wörter für die Schlüsselwortanalyse gefunden.",
-  "noTrackedKeywords": "Fügen Sie oben Schlüsselwörter hinzu, um mit dem Tracking zu beginnen."
+  "noTrackedKeywords": "Fügen Sie oben Schlüsselwörter hinzu, um mit dem Tracking zu beginnen.",
+  "keywordAdded": "Schlüsselwort hinzugefügt",
+  "keywordExists": "Dieses Schlüsselwort existiert bereits",
+  "keywordRemoved": "Schlüsselwort entfernt",
+  "timeLessThan": "< 1 {unit}",
+  "timeHourUnit": "Std.",
+  "timeMinUnit": "Min.",
+  "timeSecUnit": "Sek.",
+  "timeHourFormat": "{hours} Std. {minutes} Min.",
+  "timeMinFormat": "{minutes} Min. {seconds} Sek."
 }

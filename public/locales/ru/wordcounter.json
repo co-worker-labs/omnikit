@@ -19,5 +19,14 @@
   "addKeyword": "Добавить ключевое слово",
   "add": "Добавить",
   "noKeywords": "Не найдено слов, разделённых пробелами, для анализа ключевых слов.",
-  "noTrackedKeywords": "Добавьте ключевые слова выше, чтобы начать отслеживание."
+  "noTrackedKeywords": "Добавьте ключевые слова выше, чтобы начать отслеживание.",
+  "keywordAdded": "Ключевое слово добавлено",
+  "keywordExists": "Такое ключевое слово уже существует",
+  "keywordRemoved": "Ключевое слово удалено",
+  "timeLessThan": "< 1 {unit}",
+  "timeHourUnit": "ч",
+  "timeMinUnit": "мин",
+  "timeSecUnit": "сек",
+  "timeHourFormat": "{hours}ч {minutes}мин",
+  "timeMinFormat": "{minutes} мин {seconds} сек"
 }

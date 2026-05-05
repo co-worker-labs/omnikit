@@ -19,5 +19,14 @@
   "addKeyword": "Adicionar palavra-chave",
   "add": "Adicionar",
   "noKeywords": "Nenhuma palavra separada por espaços encontrada para análise de palavras-chave.",
-  "noTrackedKeywords": "Adicione palavras-chave acima para começar o rastreamento."
+  "noTrackedKeywords": "Adicione palavras-chave acima para começar o rastreamento.",
+  "keywordAdded": "Palavra-chave adicionada",
+  "keywordExists": "Esta palavra-chave já existe",
+  "keywordRemoved": "Palavra-chave removida",
+  "timeLessThan": "< 1 {unit}",
+  "timeHourUnit": "h",
+  "timeMinUnit": "min",
+  "timeSecUnit": "seg",
+  "timeHourFormat": "{hours}h {minutes}min",
+  "timeMinFormat": "{minutes} min {seconds} seg"
 }

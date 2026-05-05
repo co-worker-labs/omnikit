@@ -19,5 +19,14 @@
   "addKeyword": "添加关键词",
   "add": "添加",
   "noKeywords": "未找到可用于关键词分析的空格分隔词汇。",
-  "noTrackedKeywords": "请在上方添加关键词以开始追踪。"
+  "noTrackedKeywords": "请在上方添加关键词以开始追踪。",
+  "keywordAdded": "关键词已添加",
+  "keywordExists": "关键词已存在",
+  "keywordRemoved": "关键词已删除",
+  "timeLessThan": "< 1 {unit}",
+  "timeHourUnit": "小时",
+  "timeMinUnit": "分钟",
+  "timeSecUnit": "秒",
+  "timeHourFormat": "{hours}小时 {minutes}分钟",
+  "timeMinFormat": "{minutes}分 {seconds}秒"
 }

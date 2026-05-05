@@ -19,5 +19,14 @@
   "addKeyword": "Añadir palabra clave",
   "add": "Añadir",
   "noKeywords": "No se encontraron palabras separadas por espacios para el análisis de palabras clave.",
-  "noTrackedKeywords": "Añade palabras clave arriba para comenzar el seguimiento."
+  "noTrackedKeywords": "Añade palabras clave arriba para comenzar el seguimiento.",
+  "keywordAdded": "Palabra clave añadida",
+  "keywordExists": "Esta palabra clave ya existe",
+  "keywordRemoved": "Palabra clave eliminada",
+  "timeLessThan": "< 1 {unit}",
+  "timeHourUnit": "h",
+  "timeMinUnit": "min",
+  "timeSecUnit": "seg",
+  "timeHourFormat": "{hours}h {minutes}min",
+  "timeMinFormat": "{minutes} min {seconds} seg"
 }

@@ -19,5 +19,14 @@
   "addKeyword": "キーワードを追加",
   "add": "追加",
   "noKeywords": "キーワード分析に使用できるスペース区切りの単語が見つかりません。",
-  "noTrackedKeywords": "上記にキーワードを追加して追跡を開始してください。"
+  "noTrackedKeywords": "上記にキーワードを追加して追跡を開始してください。",
+  "keywordAdded": "キーワードを追加しました",
+  "keywordExists": "このキーワードは既に存在します",
+  "keywordRemoved": "キーワードを削除しました",
+  "timeLessThan": "< 1{unit}",
+  "timeHourUnit": "時間",
+  "timeMinUnit": "分",
+  "timeSecUnit": "秒",
+  "timeHourFormat": "{hours}時間 {minutes}分",
+  "timeMinFormat": "{minutes}分 {seconds}秒"
 }

@@ -59,32 +59,16 @@ export function analyzeText(text: string): TextStats {
   };
 }
 
-function formatTime(seconds: number): string {
-  if (seconds < 1) return "< 1 sec";
-  seconds = Math.round(seconds);
-  if (seconds >= 3600) {
-    const hours = Math.floor(seconds / 3600);
-    const mins = Math.floor((seconds % 3600) / 60);
-    return mins > 0 ? `${hours}h ${mins}m` : `${hours}h 0m`;
-  }
-  const mins = Math.floor(seconds / 60);
-  const secs = seconds % 60;
-  if (mins === 0) return `${secs} sec`;
-  return `${mins} min ${secs} sec`;
+export function calculateReadingTime(words: number, cjkChars: number, wpm: number): number {
+  const total = words + cjkChars;
+  if (total === 0) return 0;
+  return (total / wpm) * 60;
 }
 
-export function calculateReadingTime(words: number, cjkChars: number, wpm: number): string {
+export function calculateSpeakingTime(words: number, cjkChars: number, wpm: number): number {
   const total = words + cjkChars;
-  if (total === 0) return "< 1 sec";
-  const seconds = (total / wpm) * 60;
-  return formatTime(seconds);
-}
-
-export function calculateSpeakingTime(words: number, cjkChars: number, wpm: number): string {
-  const total = words + cjkChars;
-  if (total === 0) return "< 1 sec";
-  const seconds = (total / wpm) * 60;
-  return formatTime(seconds);
+  if (total === 0) return 0;
+  return (total / wpm) * 60;
 }
 
 export interface KeywordEntry {

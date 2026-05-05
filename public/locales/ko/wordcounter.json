@@ -19,5 +19,14 @@
   "addKeyword": "키워드 추가",
   "add": "추가",
   "noKeywords": "키워드 분석에 사용할 수 있는 공백으로 구분된 단어가 없습니다.",
-  "noTrackedKeywords": "위에 키워드를 추가하여 추적을 시작하세요."
+  "noTrackedKeywords": "위에 키워드를 추가하여 추적을 시작하세요.",
+  "keywordAdded": "키워드가 추가되었습니다",
+  "keywordExists": "이미 존재하는 키워드입니다",
+  "keywordRemoved": "키워드가 삭제되었습니다",
+  "timeLessThan": "< 1{unit}",
+  "timeHourUnit": "시간",
+  "timeMinUnit": "분",
+  "timeSecUnit": "초",
+  "timeHourFormat": "{hours}시간 {minutes}분",
+  "timeMinFormat": "{minutes}분 {seconds}초"
 }

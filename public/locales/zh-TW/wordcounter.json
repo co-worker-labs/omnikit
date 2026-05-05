@@ -19,5 +19,14 @@
   "addKeyword": "新增關鍵詞",
   "add": "新增",
   "noKeywords": "未找到可用於關鍵詞分析的空格分隔詞彙。",
-  "noTrackedKeywords": "請在上方新增關鍵詞以開始追蹤。"
+  "noTrackedKeywords": "請在上方新增關鍵詞以開始追蹤。",
+  "keywordAdded": "關鍵詞已新增",
+  "keywordExists": "關鍵詞已存在",
+  "keywordRemoved": "關鍵詞已刪除",
+  "timeLessThan": "< 1 {unit}",
+  "timeHourUnit": "小時",
+  "timeMinUnit": "分鐘",
+  "timeSecUnit": "秒",
+  "timeHourFormat": "{hours}小時 {minutes}分鐘",
+  "timeMinFormat": "{minutes}分 {seconds}秒"
 }
