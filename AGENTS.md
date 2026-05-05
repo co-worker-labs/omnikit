@@ -240,6 +240,26 @@ const ts = useTranslations("site"); // site config
 
 Translation files located in `public/locales/` directory.
 
+### Translation Workflow
+
+When adding or updating i18n keys for any tool, follow this process:
+
+1. **English first**: Always add/update the key in `public/locales/en/` first. English is the source of truth.
+2. **Analyze context**: Before translating, identify where the key is used (button label, heading, tooltip, placeholder, error message, etc.) and the surrounding UI context.
+3. **Idiomatic translations**: Translate into each locale's file using native, natural phrasing — not word-by-word translations from English. Consider:
+   - **zh-CN / zh-TW**: Use appropriate character sets and regional phrasing (e.g. "軟體" vs "软件", "儲存" vs "保存").
+   - **ja**: Use appropriate formality level for a developer tool (typically casual/polite mix, not keigo).
+   - **ko**: Use natural Korean phrasing with proper honorifics for UI context.
+   - **es / pt-BR / fr / de / ru**: Use standard technical terminology for that language's developer community (e.g., German developers say "Verschlüsseln" not "Encrypt", French developers say "Chiffrer" not "Encrypter").
+
+**Key files per locale:**
+
+| File                   | Purpose                          |
+| ---------------------- | -------------------------------- |
+| `{locale}/common.json` | Shared UI strings (copy, clear…) |
+| `{locale}/tools.json`  | Tool titles, descriptions        |
+| `{locale}/{tool}.json` | Tool-specific UI strings         |
+
 ### Tool searchTerms (`tools.json`)
 
 `searchTerms` is an **optional** field in `public/locales/{locale}/tools.json`. It powers the ToolsDrawer fuzzy search via fuzzysort, matching against both `title` and `searchTerms`.
