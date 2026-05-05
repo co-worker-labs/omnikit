@@ -30,6 +30,7 @@ import { CopyButton } from "../../../components/ui/copy-btn";
 import { Button } from "../../../components/ui/button";
 import { StyledCheckbox } from "../../../components/ui/input";
 import { NeonTabs } from "../../../components/ui/tabs";
+import { Accordion } from "../../../components/ui/accordion";
 import { analyzeStrength } from "../../../libs/password/strength";
 import type { StrengthResult } from "../../../libs/password/strength";
 
@@ -43,6 +44,7 @@ import {
   Lock,
   KeyRound,
   ShieldCheck,
+  CircleHelp,
 } from "lucide-react";
 
 const default_type = "Random";
@@ -179,7 +181,7 @@ function SavedPasswords({
           <button
             type="button"
             className="text-fg-muted hover:text-accent-cyan bg-fg-muted/10 hover:bg-accent-cyan/10 transition-colors cursor-pointer ml-1 rounded p-1"
-            title={
+            aria-label={
               list.every((r) => visibleMap[passwordHash(r.password, r.type)] === true)
                 ? t("hidePassword")
                 : t("showPassword")
@@ -187,9 +189,9 @@ function SavedPasswords({
             onClick={toggleAllVisibility}
           >
             {list.every((r) => visibleMap[passwordHash(r.password, r.type)] === true) ? (
-              <EyeOff size={14} />
+              <EyeOff size={14} aria-hidden="true" />
             ) : (
-              <Eye size={14} />
+              <Eye size={14} aria-hidden="true" />
             )}
           </button>
         </div>
@@ -213,19 +215,23 @@ function SavedPasswords({
                   <button
                     type="button"
                     className="text-fg-muted hover:text-accent-cyan transition-colors cursor-pointer p-1"
-                    title={isRecordVisible ? t("hidePassword") : t("showPassword")}
+                    aria-label={isRecordVisible ? t("hidePassword") : t("showPassword")}
                     onClick={() => setRecordVisibility(rid, !isRecordVisible)}
                   >
-                    {isRecordVisible ? <EyeOff size={14} /> : <Eye size={14} />}
+                    {isRecordVisible ? (
+                      <EyeOff size={14} aria-hidden="true" />
+                    ) : (
+                      <Eye size={14} aria-hidden="true" />
+                    )}
                   </button>
                   <CopyButton getContent={() => copyPassword(record.type, record.password)} />
                   <button
                     type="button"
                     className="text-fg-muted hover:text-danger transition-colors cursor-pointer p-1"
-                    title={tc("delete")}
+                    aria-label={tc("delete")}
                     onClick={() => onDel(index)}
                   >
-                    <Trash2 size={14} />
+                    <Trash2 size={14} aria-hidden="true" />
                   </button>
                 </div>
               </div>
@@ -282,7 +288,7 @@ function StrengthBar({ password }: { password: string }) {
           </span>
         </div>
         <div className="flex items-center gap-2">
-          <span className="text-sm text-fg-muted">{result.score} / 4</span>
+          <span className="text-sm text-fg-muted tabular-nums">{result.score} / 4</span>
         </div>
       </div>
     </>
@@ -313,6 +319,7 @@ function CrackTimeDisplay({ result }: { result: StrengthResult }) {
 
 function Checker({ initialInput }: { initialInput: string }) {
   const t = useTranslations("password");
+  const tc = useTranslations("common");
   const [input, setInput] = useState(initialInput);
   const [prevInitial, setPrevInitial] = useState(initialInput);
   if (initialInput !== prevInitial) {
@@ -340,11 +347,6 @@ function Checker({ initialInput }: { initialInput: string }) {
 
   return (
     <section>
-      <div className="flex items-start gap-2 border-l-2 border-accent-cyan bg-accent-cyan-dim/30 rounded-r-lg p-3 my-4">
-        <Lock size={18} className="text-accent-cyan mt-0.5 shrink-0" />
-        <span className="text-sm text-fg-secondary leading-relaxed">{t("localGenerated")}</span>
-      </div>
-
       <div className="relative mt-2">
         <div className="flex items-center relative py-3 px-4">
           <input
@@ -352,27 +354,35 @@ function Checker({ initialInput }: { initialInput: string }) {
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder={t("enterPassword")}
-            className="w-full text-xl font-mono bg-transparent outline-none text-fg-primary placeholder:text-fg-muted pr-20"
-            autoFocus
+            aria-label={t("enterPassword")}
+            autoComplete="off"
+            spellCheck={false}
+            className="w-full text-xl font-mono bg-transparent outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/50 rounded text-fg-primary placeholder:text-fg-muted pr-20"
           />
           <div className="flex items-center gap-1">
             {input && (
               <button
                 type="button"
                 className="text-fg-muted hover:text-danger transition-colors cursor-pointer p-1"
+                aria-label={tc("clear")}
                 onClick={() => {
                   setInput("");
                 }}
               >
-                <Trash2 size={16} />
+                <Trash2 size={16} aria-hidden="true" />
               </button>
             )}
             <button
               type="button"
               className="text-fg-muted hover:text-accent-cyan transition-colors cursor-pointer p-1"
+              aria-label={visible ? t("hidePassword") : t("showPassword")}
               onClick={() => setVisible(!visible)}
             >
-              {visible ? <EyeOff size={18} /> : <Eye size={18} />}
+              {visible ? (
+                <EyeOff size={18} aria-hidden="true" />
+              ) : (
+                <Eye size={18} aria-hidden="true" />
+              )}
             </button>
           </div>
         </div>
@@ -395,7 +405,7 @@ function Checker({ initialInput }: { initialInput: string }) {
                   {t(activeStyle.label)}
                 </span>
               </div>
-              <span className="text-sm text-fg-muted">{activeResult.score} / 4</span>
+              <span className="text-sm text-fg-muted tabular-nums">{activeResult.score} / 4</span>
             </div>
             <CrackTimeDisplay result={activeResult} />
 
@@ -446,9 +456,17 @@ function Generator({
   const [passwordLength, setPasswordLength] = useState<PasswordLength>(defaultLength(default_type));
   const [visible, setVisible] = useState<boolean>(true);
 
-  const [password, setPassword] = useState<string[]>(() =>
-    generate(default_type, defaultCharacters(default_type), defaultLength(default_type).current)
-  );
+  const [password, setPassword] = useState<string[]>([]);
+
+  const didInit = useRef(false);
+  useEffect(() => {
+    if (!didInit.current) {
+      didInit.current = true;
+      setPassword(
+        generate(default_type, defaultCharacters(default_type), defaultLength(default_type).current)
+      );
+    }
+  }, []);
 
   function onTypeChange(event: ChangeEvent<HTMLInputElement>) {
     let type: PasswordType = event.target.checked ? "Memorable" : "Random";
@@ -544,10 +562,6 @@ function Generator({
 
   return (
     <section id="generator">
-      <div className="flex items-start gap-2 border-l-2 border-accent-cyan bg-accent-cyan-dim/30 rounded-r-lg p-3 my-4">
-        <Lock size={18} className="text-accent-cyan mt-0.5 shrink-0" />
-        <span className="text-sm text-fg-secondary leading-relaxed">{t("localGenerated")}</span>
-      </div>
       <div className="relative mt-2">
         <div className="flex items-center relative py-4 sm:py-5 px-4 sm:px-5">
           <div
@@ -566,17 +580,21 @@ function Generator({
               type="button"
               className="text-fg-muted hover:text-accent-cyan transition-colors cursor-pointer p-2"
               onClick={() => setVisible(!visible)}
-              title={visible ? t("hidePassword") : t("showPassword")}
+              aria-label={visible ? t("hidePassword") : t("showPassword")}
             >
-              {visible ? <EyeOff size={18} /> : <Eye size={18} />}
+              {visible ? (
+                <EyeOff size={18} aria-hidden="true" />
+              ) : (
+                <Eye size={18} aria-hidden="true" />
+              )}
             </button>
             <button
               type="button"
               className="text-fg-muted hover:text-accent-cyan transition-colors cursor-pointer p-2"
               onClick={copyAction}
-              title={tc("copy")}
+              aria-label={tc("copy")}
             >
-              <Clipboard size={18} />
+              <Clipboard size={18} aria-hidden="true" />
             </button>
           </div>
         </div>
@@ -809,6 +827,49 @@ function parseSavedPasswords(raw: string): SavedRecord[] {
   }
 }
 
+function Description() {
+  const t = useTranslations("password");
+  const steps = [1, 2, 3, 4, 5].map((i) => ({
+    title: t(`descriptions.step${i}Title`),
+    desc: t(`descriptions.step${i}Desc`),
+  }));
+  const faqItems = [1, 2, 3, 4, 5].map((i) => ({
+    title: t(`descriptions.faq${i}Q`),
+    content: <p>{t(`descriptions.faq${i}A`)}</p>,
+  }));
+  return (
+    <section id="description" className="mt-8">
+      <div className="mb-4">
+        <h2 className="font-semibold text-fg-primary text-base text-pretty">
+          {t("descriptions.stepsTitle")}
+        </h2>
+      </div>
+      <ol className="space-y-3">
+        {steps.map((step, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="shrink-0 w-6 h-6 rounded-full bg-accent-cyan text-bg-base text-xs font-bold flex items-center justify-center">
+              {i + 1}
+            </span>
+            <div>
+              <span className="font-medium text-fg-primary text-sm">{step.title}</span>
+              <p className="text-fg-secondary text-sm leading-relaxed text-pretty">{step.desc}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <div className="mt-8">
+        <div className="flex items-center gap-2 mb-4">
+          <CircleHelp size={16} className="text-accent-cyan shrink-0" aria-hidden="true" />
+          <h2 className="font-semibold text-fg-primary text-base text-pretty">
+            {t("descriptions.faqTitle")}
+          </h2>
+        </div>
+        <Accordion items={faqItems} />
+      </div>
+    </section>
+  );
+}
+
 export default function PasswordPage() {
   const t = useTranslations("password");
   const tTools = useTranslations("tools");
@@ -830,6 +891,10 @@ export default function PasswordPage() {
   return (
     <Layout title={title}>
       <div className="container mx-auto px-4 pt-3 pb-6">
+        <div className="flex items-start gap-2 border-l-2 border-accent-cyan bg-accent-cyan-dim/30 rounded-r-lg p-3 mb-4">
+          <Lock size={18} className="text-accent-cyan mt-0.5 shrink-0" />
+          <span className="text-sm text-fg-secondary leading-relaxed">{t("localGenerated")}</span>
+        </div>
         <NeonTabs
           selectedIndex={activeTab}
           onChange={setActiveTab}
@@ -876,6 +941,7 @@ export default function PasswordPage() {
             setSaved([]);
           }}
         />
+        <Description />
       </div>
     </Layout>
   );
