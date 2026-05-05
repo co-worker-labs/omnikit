@@ -29,6 +29,7 @@ import {
   FileSpreadsheet,
   ImageDown,
   Search,
+  AlignLeft,
 } from "lucide-react";
 
 export interface ToolCard {
@@ -53,7 +54,10 @@ export interface CategoryGroup {
 }
 
 export const TOOL_CATEGORIES: CategoryGroup[] = [
-  { key: "text", tools: ["json", "regex", "diff", "markdown", "textcase", "extractor"] },
+  {
+    key: "text",
+    tools: ["json", "regex", "diff", "markdown", "textcase", "extractor", "wordcounter"],
+  },
   {
     key: "encoding",
     tools: ["base64", "urlencoder", "csv", "csv-md", "numbase", "yaml", "storageunit"],
@@ -111,6 +115,7 @@ export const TOOLS: ToolEntry[] = [
   { key: "htmlcode", path: "/htmlcode", icon: Code },
   { key: "ascii", path: "/ascii", icon: Type },
   { key: "extractor", path: "/extractor", icon: Search },
+  { key: "wordcounter", path: "/wordcounter", icon: AlignLeft },
 ] as const;
 
 export function getToolCards(t: ReturnType<typeof useTranslations>): ToolCard[] {

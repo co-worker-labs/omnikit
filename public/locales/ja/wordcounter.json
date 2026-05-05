@@ -1,0 +1,23 @@
+{
+  "textareaPlaceholder": "テキストを入力または貼り付け...",
+  "tabOverview": "概要",
+  "tabKeywords": "キーワード",
+  "tabCustomTrack": "カスタム追跡",
+  "words": "単語数",
+  "characters": "文字数",
+  "charactersNoSpaces": "文字数（スペースなし）",
+  "sentences": "文数",
+  "paragraphs": "段落",
+  "cjkCharacters": "CJK文字数",
+  "readingTime": "読書時間",
+  "speakingTime": "朗読時間",
+  "readingSpeed": "読書速度",
+  "speakingSpeed": "朗読速度",
+  "wpm": "語/分",
+  "topWords": "高頻度語",
+  "topPhrases": "高頻度フレーズ（2語）",
+  "addKeyword": "キーワードを追加",
+  "add": "追加",
+  "noKeywords": "キーワード分析に使用できるスペース区切りの単語が見つかりません。",
+  "noTrackedKeywords": "上記にキーワードを追加して追跡を開始してください。"
+}

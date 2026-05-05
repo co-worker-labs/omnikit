@@ -167,6 +167,12 @@
     "description": "テキストからメールアドレス、URL、電話番号を即座に抽出。無料オンライン抽出ツール、100%ブラウザ処理。",
     "searchTerms": "meeruchuushutsu mrchu url denwa"
   },
+  "wordcounter": {
+    "title": "文字数カウンター - 文字数、読書時間、キーワード密度",
+    "shortTitle": "文字数カウンター",
+    "description": "単語数、文字数、文、段落を数えます。読書時間と朗読時間を推定します。キーワードの出現頻度と密度を分析します。無料のオンライン文字数カウンター、100%ブラウザ上で処理。",
+    "searchTerms": "mojisukazyou dokushojikan kiwaado"
+  },
   "categories": {
     "text": "テキスト処理",
     "encoding": "エンコード・変換",

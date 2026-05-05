@@ -139,6 +139,11 @@
     "shortTitle": "Extrator Email / URL / Telefone",
     "description": "Extraia emails, URLs e números de telefone de qualquer texto instantaneamente. Ferramenta de extração gratuita, 100% no navegador."
   },
+  "wordcounter": {
+    "title": "Contador de Palavras - Caracteres, Tempo de Leitura, Densidade de Palavras-chave",
+    "shortTitle": "Contador de Palavras",
+    "description": "Conte palavras, caracteres, frases e parágrafos. Estime o tempo de leitura e fala. Analise a frequência e densidade de palavras-chave para SEO. Ferramenta gratuita, 100% no navegador."
+  },
   "categories": {
     "text": "Processamento de texto",
     "encoding": "Codificação e conversão",

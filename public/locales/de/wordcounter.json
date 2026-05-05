@@ -1,0 +1,23 @@
+{
+  "textareaPlaceholder": "Text eingeben oder einfügen...",
+  "tabOverview": "Übersicht",
+  "tabKeywords": "Schlüsselwörter",
+  "tabCustomTrack": "Benutzerdefiniertes Tracking",
+  "words": "Wörter",
+  "characters": "Zeichen",
+  "charactersNoSpaces": "Zeichen (ohne Leerzeichen)",
+  "sentences": "Sätze",
+  "paragraphs": "Absätze",
+  "cjkCharacters": "CJK-Zeichen",
+  "readingTime": "Lesezeit",
+  "speakingTime": "Sprechzeit",
+  "readingSpeed": "Lesegeschwindigkeit",
+  "speakingSpeed": "Sprechgeschwindigkeit",
+  "wpm": "WPM",
+  "topWords": "Häufige Wörter",
+  "topPhrases": "Häufige Phrasen (2 Wörter)",
+  "addKeyword": "Schlüsselwort hinzufügen",
+  "add": "Hinzufügen",
+  "noKeywords": "Keine durch Leerzeichen getrennten Wörter für die Schlüsselwortanalyse gefunden.",
+  "noTrackedKeywords": "Fügen Sie oben Schlüsselwörter hinzu, um mit dem Tracking zu beginnen."
+}

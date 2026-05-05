@@ -1,0 +1,23 @@
+{
+  "textareaPlaceholder": "Escribe o pega tu texto aquí...",
+  "tabOverview": "Resumen",
+  "tabKeywords": "Palabras clave",
+  "tabCustomTrack": "Seguimiento personalizado",
+  "words": "Palabras",
+  "characters": "Caracteres",
+  "charactersNoSpaces": "Caracteres (sin espacios)",
+  "sentences": "Oraciones",
+  "paragraphs": "Párrafos",
+  "cjkCharacters": "Caracteres CJK",
+  "readingTime": "Tiempo de lectura",
+  "speakingTime": "Tiempo de habla",
+  "readingSpeed": "Velocidad de lectura",
+  "speakingSpeed": "Velocidad de habla",
+  "wpm": "PPM",
+  "topWords": "Palabras frecuentes",
+  "topPhrases": "Frases frecuentes (2 palabras)",
+  "addKeyword": "Añadir palabra clave",
+  "add": "Añadir",
+  "noKeywords": "No se encontraron palabras separadas por espacios para el análisis de palabras clave.",
+  "noTrackedKeywords": "Añade palabras clave arriba para comenzar el seguimiento."
+}

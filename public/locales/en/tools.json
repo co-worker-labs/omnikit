@@ -139,6 +139,11 @@
     "shortTitle": "Email / URL / Phone Extractor",
     "description": "Extract emails, URLs, and phone numbers from any text instantly. Free online extraction tool, 100% client-side."
   },
+  "wordcounter": {
+    "title": "Word Counter - Character Count, Reading Time, Keyword Density",
+    "shortTitle": "Word Counter",
+    "description": "Count words, characters, sentences, and paragraphs. Estimate reading and speaking time. Analyze keyword frequency and density for SEO. Free online word counter, 100% client-side."
+  },
   "categories": {
     "text": "Text Processing",
     "encoding": "Encoding & Conversion",

@@ -167,6 +167,12 @@
     "description": "从任意文本中即时提取邮箱、URL 和电话号码。免费在线提取工具，100% 浏览器端处理。",
     "searchTerms": "youxiangtiqu yxtq url dianhua"
   },
+  "wordcounter": {
+    "title": "字数统计 - 字符计数、阅读时间、关键词密度",
+    "shortTitle": "字数统计",
+    "description": "统计字数、字符数、句子和段落。估算阅读和朗读时间。分析关键词频率和密度。免费在线字数统计工具，100% 客户端处理。",
+    "searchTerms": "zishutongji zstj guanjianci yuedushijian guanjianmidu"
+  },
   "categories": {
     "text": "文本处理",
     "encoding": "编码转换",

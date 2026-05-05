@@ -15,6 +15,7 @@ export default defineConfig({
       "libs/image/**/*.test.ts",
       "libs/extractor/**/*.test.ts",
       "libs/password/**/*.test.ts",
+      "libs/wordcounter/**/*.test.ts",
       "libs/__tests__/*.test.ts",
       "hooks/**/*.test.ts",
     ],

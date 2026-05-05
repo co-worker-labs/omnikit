@@ -139,6 +139,11 @@
     "shortTitle": "E-Mail / URL / Telefon Extraktor",
     "description": "Extrahieren Sie E-Mails, URLs und Telefonnummern aus beliebigem Text sofort. Kostenloses Online-Extraktionstool, 100% clientseitig."
   },
+  "wordcounter": {
+    "title": "Wortzähler - Zeichen, Lesezeit, Schlüsselwort-Dichte",
+    "shortTitle": "Wortzähler",
+    "description": "Zählt Wörter, Zeichen, Sätze und Absätze. Schätzt Lese- und Sprechzeit. Analysiert Schlüsselwort-Häufigkeit und -Dichte für SEO. Kostenloses Online-Tool, 100% im Browser."
+  },
   "categories": {
     "text": "Textverarbeitung",
     "encoding": "Kodierung & Konvertierung",

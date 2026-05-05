@@ -1,0 +1,23 @@
+{
+  "textareaPlaceholder": "Saisissez ou collez votre texte ici...",
+  "tabOverview": "Aperçu",
+  "tabKeywords": "Mots-clés",
+  "tabCustomTrack": "Suivi personnalisé",
+  "words": "Mots",
+  "characters": "Caractères",
+  "charactersNoSpaces": "Caractères (sans espaces)",
+  "sentences": "Phrases",
+  "paragraphs": "Paragraphes",
+  "cjkCharacters": "Caractères CJK",
+  "readingTime": "Temps de lecture",
+  "speakingTime": "Temps de parole",
+  "readingSpeed": "Vitesse de lecture",
+  "speakingSpeed": "Vitesse de parole",
+  "wpm": "MPM",
+  "topWords": "Mots fréquents",
+  "topPhrases": "Expressions fréquentes (2 mots)",
+  "addKeyword": "Ajouter un mot-clé",
+  "add": "Ajouter",
+  "noKeywords": "Aucun mot séparé par des espaces trouvé pour l'analyse des mots-clés.",
+  "noTrackedKeywords": "Ajoutez des mots-clés ci-dessus pour commencer le suivi."
+}

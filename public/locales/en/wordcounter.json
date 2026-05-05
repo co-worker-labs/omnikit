@@ -1,0 +1,23 @@
+{
+  "textareaPlaceholder": "Type or paste your text here...",
+  "tabOverview": "Overview",
+  "tabKeywords": "Keywords",
+  "tabCustomTrack": "Custom Track",
+  "words": "Words",
+  "characters": "Characters",
+  "charactersNoSpaces": "Characters (no spaces)",
+  "sentences": "Sentences",
+  "paragraphs": "Paragraphs",
+  "cjkCharacters": "CJK Characters",
+  "readingTime": "Reading Time",
+  "speakingTime": "Speaking Time",
+  "readingSpeed": "Reading speed",
+  "speakingSpeed": "Speaking speed",
+  "wpm": "WPM",
+  "topWords": "Top Words",
+  "topPhrases": "Top Phrases (2-word)",
+  "addKeyword": "Add keyword",
+  "add": "Add",
+  "noKeywords": "No space-delimited words found for keyword analysis.",
+  "noTrackedKeywords": "Add keywords above to start tracking."
+}

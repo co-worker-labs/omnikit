@@ -1,0 +1,23 @@
+{
+  "textareaPlaceholder": "Digite ou cole seu texto aqui...",
+  "tabOverview": "Visão geral",
+  "tabKeywords": "Palavras-chave",
+  "tabCustomTrack": "Rastreamento personalizado",
+  "words": "Palavras",
+  "characters": "Caracteres",
+  "charactersNoSpaces": "Caracteres (sem espaços)",
+  "sentences": "Frases",
+  "paragraphs": "Parágrafos",
+  "cjkCharacters": "Caracteres CJK",
+  "readingTime": "Tempo de leitura",
+  "speakingTime": "Tempo de fala",
+  "readingSpeed": "Velocidade de leitura",
+  "speakingSpeed": "Velocidade de fala",
+  "wpm": "PPM",
+  "topWords": "Palavras frequentes",
+  "topPhrases": "Frases frequentes (2 palavras)",
+  "addKeyword": "Adicionar palavra-chave",
+  "add": "Adicionar",
+  "noKeywords": "Nenhuma palavra separada por espaços encontrada para análise de palavras-chave.",
+  "noTrackedKeywords": "Adicione palavras-chave acima para começar o rastreamento."
+}

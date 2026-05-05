@@ -36,6 +36,7 @@ const namespaces = [
   "numbase",
   "image",
   "extractor",
+  "wordcounter",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {

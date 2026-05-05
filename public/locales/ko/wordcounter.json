@@ -1,0 +1,23 @@
+{
+  "textareaPlaceholder": "텍스트를 입력하거나 붙여넣기...",
+  "tabOverview": "개요",
+  "tabKeywords": "키워드",
+  "tabCustomTrack": "맞춤 추적",
+  "words": "단어 수",
+  "characters": "문자 수",
+  "charactersNoSpaces": "문자 수 (공백 제외)",
+  "sentences": "문장 수",
+  "paragraphs": "단락 수",
+  "cjkCharacters": "CJK 문자 수",
+  "readingTime": "읽기 시간",
+  "speakingTime": "말하기 시간",
+  "readingSpeed": "읽기 속도",
+  "speakingSpeed": "말하기 속도",
+  "wpm": "단어/분",
+  "topWords": "고빈도 단어",
+  "topPhrases": "고빈도 구 (2단어)",
+  "addKeyword": "키워드 추가",
+  "add": "추가",
+  "noKeywords": "키워드 분석에 사용할 수 있는 공백으로 구분된 단어가 없습니다.",
+  "noTrackedKeywords": "위에 키워드를 추가하여 추적을 시작하세요."
+}

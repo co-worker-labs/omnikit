@@ -1,0 +1,23 @@
+{
+  "textareaPlaceholder": "在此輸入或貼上文字...",
+  "tabOverview": "概覽",
+  "tabKeywords": "關鍵詞",
+  "tabCustomTrack": "自訂追蹤",
+  "words": "詞數",
+  "characters": "字元數",
+  "charactersNoSpaces": "字元數（不含空格）",
+  "sentences": "句子數",
+  "paragraphs": "段落数",
+  "cjkCharacters": "CJK 字元數",
+  "readingTime": "閱讀時間",
+  "speakingTime": "朗讀時間",
+  "readingSpeed": "閱讀速度",
+  "speakingSpeed": "朗讀速度",
+  "wpm": "詞/分鐘",
+  "topWords": "高頻詞",
+  "topPhrases": "高頻詞組（2詞）",
+  "addKeyword": "新增關鍵詞",
+  "add": "新增",
+  "noKeywords": "未找到可用於關鍵詞分析的空格分隔詞彙。",
+  "noTrackedKeywords": "請在上方新增關鍵詞以開始追蹤。"
+}

@@ -1,0 +1,23 @@
+{
+  "textareaPlaceholder": "Введите или вставьте текст...",
+  "tabOverview": "Обзор",
+  "tabKeywords": "Ключевые слова",
+  "tabCustomTrack": "Отслеживание",
+  "words": "Слова",
+  "characters": "Символы",
+  "charactersNoSpaces": "Символы (без пробелов)",
+  "sentences": "Предложения",
+  "paragraphs": "Абзацы",
+  "cjkCharacters": "CJK символы",
+  "readingTime": "Время чтения",
+  "speakingTime": "Время речи",
+  "readingSpeed": "Скорость чтения",
+  "speakingSpeed": "Скорость речи",
+  "wpm": "С/мин",
+  "topWords": "Частые слова",
+  "topPhrases": "Частые фразы (2 слова)",
+  "addKeyword": "Добавить ключевое слово",
+  "add": "Добавить",
+  "noKeywords": "Не найдено слов, разделённых пробелами, для анализа ключевых слов.",
+  "noTrackedKeywords": "Добавьте ключевые слова выше, чтобы начать отслеживание."
+}
