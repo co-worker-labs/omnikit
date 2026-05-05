@@ -104,6 +104,11 @@
     "shortTitle": "Conversor de mayúsculas/minúsculas",
     "description": "Convierte texto entre camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case y más. Conversor gratuito en línea, 100% del lado del cliente."
   },
+  "deduplines": {
+    "title": "Eliminar Líneas Duplicadas - Deduplicar Texto Online",
+    "shortTitle": "Deduplicar Líneas",
+    "description": "Elimina líneas duplicadas del texto. Opciones de sensibilidad a mayúsculas, espacios y líneas vacías. 100% del lado del cliente."
+  },
   "color": {
     "title": "Conversor y selector de color - HEX, RGB, HSL, OKLCH",
     "shortTitle": "Conversor de color",

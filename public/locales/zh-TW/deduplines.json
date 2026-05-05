@@ -1,0 +1,24 @@
+{
+  "inputPlaceholder": "在此貼上文字...",
+  "outputPlaceholder": "去重後的行將顯示在這裡...",
+  "stats": "{original} 行 → {result} 行（移除 {removed} 個重複行）",
+  "statsNoDupes": "{original} 行 → 未發現重複行",
+  "options": {
+    "caseSensitive": "區分大小寫",
+    "trimLines": "去除首尾空白",
+    "removeEmpty": "移除空行"
+  },
+  "descriptions": {
+    "whatIsTitle": "什麼是行去重？",
+    "whatIsP1": "行去重工具可以移除文字中的重複行，僅保留每個唯一行的首次出現，並保持原始順序。",
+    "howTitle": "使用方法",
+    "howP1": "將文字貼上到輸入區域，結果會即時更新。透過選項控制比較行為。",
+    "howCase": "區分大小寫：勾選後，'Hello' 和 'hello' 將被視為不同的行。",
+    "howTrim": "去除首尾空白：勾選後，比較時會忽略每行首尾的空格。",
+    "howEmpty": "移除空行：勾選後，空行和僅含空白的行將被移除。",
+    "useCasesTitle": "常見用途",
+    "useCasesP1": "清理日誌檔案中的重複條目。",
+    "useCasesP2": "整理含有重複指令的設定檔。",
+    "useCasesP3": "在處理前對 CSV 資料進行行去重。"
+  }
+}

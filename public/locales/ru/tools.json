@@ -125,6 +125,11 @@
     "description": "Конвертация текста между camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case и другими. Бесплатный онлайн-конвертер, 100% в браузере.",
     "searchTerms": "konverterregistra konvregistra textcase"
   },
+  "deduplines": {
+    "title": "Удаление Дублирующихся Строк - Дедупликация Текста Онлайн",
+    "shortTitle": "Дедупликация Строк",
+    "description": "Удаляет дублирующиеся строки из текста. Настройки регистра, пробелов и пустых строк. 100% в браузере."
+  },
   "color": {
     "title": "Конвертер цветов — HEX, RGB, HSL, OKLCH",
     "shortTitle": "Конвертер цветов",

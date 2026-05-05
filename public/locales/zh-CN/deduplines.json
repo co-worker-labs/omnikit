@@ -1,0 +1,24 @@
+{
+  "inputPlaceholder": "在此粘贴文本...",
+  "outputPlaceholder": "去重后的行将显示在这里...",
+  "stats": "{original} 行 → {result} 行（移除 {removed} 个重复行）",
+  "statsNoDupes": "{original} 行 → 未发现重复行",
+  "options": {
+    "caseSensitive": "区分大小写",
+    "trimLines": "去除首尾空白",
+    "removeEmpty": "移除空行"
+  },
+  "descriptions": {
+    "whatIsTitle": "什么是行去重？",
+    "whatIsP1": "行去重工具可以移除文本中的重复行，仅保留每个唯一行的首次出现，并保持原始顺序。",
+    "howTitle": "使用方法",
+    "howP1": "将文本粘贴到输入区域，结果会实时更新。通过选项控制比较行为。",
+    "howCase": "区分大小写：勾选后，'Hello' 和 'hello' 将被视为不同的行。",
+    "howTrim": "去除首尾空白：勾选后，比较时会忽略每行首尾的空格。",
+    "howEmpty": "移除空行：勾选后，空行和仅含空白的行将被移除。",
+    "useCasesTitle": "常见用例",
+    "useCasesP1": "清理日志文件中的重复条目。",
+    "useCasesP2": "整理含有重复指令的配置文件。",
+    "useCasesP3": "在处理前对 CSV 数据进行行去重。"
+  }
+}

@@ -104,6 +104,11 @@
     "shortTitle": "Convertisseur de casse",
     "description": "Convertissez du texte entre camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case et plus. Convertisseur de casse gratuit en ligne, 100% côté client."
   },
+  "deduplines": {
+    "title": "Supprimer les Lignes en Double - Dédupliquer le Texte en Ligne",
+    "shortTitle": "Dédupliquer les Lignes",
+    "description": "Supprime les lignes en double du texte. Options pour la casse, les espaces et les lignes vides. 100% côté client."
+  },
   "color": {
     "title": "Convertisseur et sélecteur de couleurs - HEX, RGB, HSL, OKLCH",
     "shortTitle": "Convertisseur de couleurs",

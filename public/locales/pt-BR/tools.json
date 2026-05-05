@@ -104,6 +104,11 @@
     "shortTitle": "Conversor de Caixa de Texto",
     "description": "Converta texto entre camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case e mais. Conversor de caixa de texto gratuito online, 100% no navegador."
   },
+  "deduplines": {
+    "title": "Remover Linhas Duplicadas - Deduplicar Texto Online",
+    "shortTitle": "Deduplicar Linhas",
+    "description": "Remove linhas duplicadas do texto. Opções de diferenciação de maiúsculas, espaços e linhas vazias. 100% no navegador."
+  },
   "color": {
     "title": "Conversor e Seletor de Cores - HEX, RGB, HSL, OKLCH",
     "shortTitle": "Conversor de Cores",

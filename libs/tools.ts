@@ -28,6 +28,7 @@ import {
   Table,
   FileSpreadsheet,
   ImageDown,
+  ListFilter,
   Search,
   AlignLeft,
 } from "lucide-react";
@@ -56,7 +57,16 @@ export interface CategoryGroup {
 export const TOOL_CATEGORIES: CategoryGroup[] = [
   {
     key: "text",
-    tools: ["json", "regex", "diff", "markdown", "textcase", "extractor", "wordcounter"],
+    tools: [
+      "json",
+      "regex",
+      "diff",
+      "markdown",
+      "textcase",
+      "extractor",
+      "wordcounter",
+      "deduplines",
+    ],
   },
   {
     key: "encoding",
@@ -102,6 +112,7 @@ export const TOOLS: ToolEntry[] = [
   { key: "markdown", path: "/markdown", icon: FileText },
   { key: "qrcode", path: "/qrcode", icon: QrCode },
   { key: "textcase", path: "/textcase", icon: CaseSensitive },
+  { key: "deduplines", path: "/deduplines", icon: ListFilter },
   { key: "csv", path: "/csv", icon: FileSpreadsheet },
   { key: "csv-md", path: "/csv-md", icon: Table },
   { key: "cipher", path: "/cipher", icon: Lock },

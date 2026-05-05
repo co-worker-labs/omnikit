@@ -1,0 +1,24 @@
+{
+  "inputPlaceholder": "Collez votre texte ici...",
+  "outputPlaceholder": "Les lignes uniques apparaîtront ici...",
+  "stats": "{original} lignes → {result} lignes (-{removed} doublons)",
+  "statsNoDupes": "{original} lignes → aucun doublon trouvé",
+  "options": {
+    "caseSensitive": "Sensible à la casse",
+    "trimLines": "Ignorer les espaces",
+    "removeEmpty": "Supprimer les lignes vides"
+  },
+  "descriptions": {
+    "whatIsTitle": "Qu'est-ce que la déduplication de lignes ?",
+    "whatIsP1": "La déduplication de lignes supprime les lignes en double du texte, en ne conservant que la première occurrence de chaque ligne unique. L'ordre original est préservé.",
+    "howTitle": "Comment utiliser",
+    "howP1": "Collez votre texte dans la zone de saisie. Le résultat se met à jour en temps réel. Utilisez les options pour contrôler le comportement de comparaison.",
+    "howCase": "Sensible à la casse : si coché, 'Bonjour' et 'bonjour' sont traités comme des lignes différentes.",
+    "howTrim": "Ignorer les espaces : si coché, les espaces en début et fin de ligne sont ignorés lors de la comparaison.",
+    "howEmpty": "Supprimer les lignes vides : si coché, les lignes vides et les lignes ne contenant que des espaces sont supprimées.",
+    "useCasesTitle": "Cas d'utilisation courants",
+    "useCasesP1": "Suppression des entrées en double dans les fichiers de journalisation.",
+    "useCasesP2": "Nettoyage des fichiers de configuration avec des directives répétées.",
+    "useCasesP3": "Déduplication des lignes dans les données CSV avant traitement."
+  }
+}

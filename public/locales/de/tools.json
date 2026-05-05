@@ -104,6 +104,11 @@
     "shortTitle": "Text Case Konverter",
     "description": "Text umwandeln zwischen camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case und mehr. Kostenloser Online-Text-Case-Konverter, 100% clientseitig."
   },
+  "deduplines": {
+    "title": "Doppelte Zeilen Entfernen - Text Online Deduplizieren",
+    "shortTitle": "Zeilen Deduplizieren",
+    "description": "Entfernt doppelte Zeilen aus Text. Optionen für Groß-/Kleinschreibung, Leerzeichen und leere Zeilen. 100% clientseitig."
+  },
   "color": {
     "title": "Farbkonverter & Picker - HEX, RGB, HSL, OKLCH",
     "shortTitle": "Farbkonverter",

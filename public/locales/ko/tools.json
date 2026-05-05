@@ -125,6 +125,12 @@
     "description": "camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case 등으로 텍스트를 변환합니다. 무료 온라인 텍스트 케이스 변환기, 100% 클라이언트 처리.",
     "searchTerms": "teukesukeiseubyeonhwangi tkcbh daemunja sosumunja"
   },
+  "deduplines": {
+    "title": "중복 행 제거 - 온라인 텍스트 중복 행 제거",
+    "shortTitle": "중복 행 제거",
+    "description": "텍스트에서 중복된 행을 제거합니다. 대소문자 구분, 공백 무시, 빈 줄 제거 옵션 제공. 100% 클라이언트 처리.",
+    "searchTerms": "jungbokhaeng jbhg jungbok jaegidoeeonaen jungbokjegeo"
+  },
   "color": {
     "title": "색상 변환기 & 피커 - HEX, RGB, HSL, OKLCH",
     "shortTitle": "색상 변환기",

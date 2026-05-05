@@ -12,6 +12,7 @@ export default defineConfig({
       "libs/regex/**/*.test.ts",
       "libs/csv/**/*.test.ts",
       "libs/numbase/**/*.test.ts",
+      "libs/deduplines/**/*.test.ts",
       "libs/image/**/*.test.ts",
       "libs/extractor/**/*.test.ts",
       "libs/password/**/*.test.ts",

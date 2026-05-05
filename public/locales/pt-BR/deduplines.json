@@ -1,0 +1,24 @@
+{
+  "inputPlaceholder": "Cole seu texto aqui...",
+  "outputPlaceholder": "As linhas únicas aparecerão aqui...",
+  "stats": "{original} linhas → {result} linhas (-{removed} duplicatas)",
+  "statsNoDupes": "{original} linhas → sem duplicatas",
+  "options": {
+    "caseSensitive": "Diferenciar maiúsculas",
+    "trimLines": "Ignorar espaços",
+    "removeEmpty": "Remover linhas vazias"
+  },
+  "descriptions": {
+    "whatIsTitle": "O que é deduplicação de linhas?",
+    "whatIsP1": "A deduplicação de linhas remove linhas duplicadas do texto, mantendo apenas a primeira ocorrência de cada linha única. A ordem original é preservada.",
+    "howTitle": "Como usar",
+    "howP1": "Cole seu texto na área de entrada. O resultado é atualizado em tempo real. Use as opções para controlar o comportamento de comparação.",
+    "howCase": "Diferenciar maiúsculas: Quando marcado, 'Olá' e 'olá' são tratados como linhas diferentes.",
+    "howTrim": "Ignorar espaços: Quando marcado, espaços no início e fim são ignorados durante a comparação.",
+    "howEmpty": "Remover linhas vazias: Quando marcado, linhas vazias e com apenas espaços são removidas.",
+    "useCasesTitle": "Casos de uso comuns",
+    "useCasesP1": "Remover entradas duplicadas em arquivos de log.",
+    "useCasesP2": "Limpar arquivos de configuração com diretivas repetidas.",
+    "useCasesP3": "Deduplicar linhas em dados CSV antes do processamento."
+  }
+}

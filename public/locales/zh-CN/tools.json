@@ -125,6 +125,12 @@
     "description": "在 camelCase、PascalCase、snake_case、CONSTANT_CASE、kebab-case、dot.case、Title Case 等 11 种命名格式之间互转。免费在线工具，100% 客户端处理。",
     "searchTerms": "wenbendaxiaoxiezhuanhuan wbdxxzh"
   },
+  "deduplines": {
+    "title": "文本行去重 - 在线去除重复行",
+    "shortTitle": "行去重",
+    "description": "移除文本中的重复行。支持大小写敏感、去除空白、移除空行等选项。100% 客户端处理。",
+    "searchTerms": "quchonghang qrch quchong chongfu wenben"
+  },
   "color": {
     "title": "颜色转换器与选择器 - HEX, RGB, HSL, OKLCH",
     "shortTitle": "颜色转换",

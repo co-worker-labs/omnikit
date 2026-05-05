@@ -125,6 +125,12 @@
     "description": "camelCase、PascalCase、snake_case、CONSTANT_CASE、kebab-case、dot.case、Title Caseなど相互変換。無料オンラインテキストケース変換、100%ブラウザ上で処理。",
     "searchTerms": "tekisutuke-su henkan moji henshu-"
   },
+  "deduplines": {
+    "title": "重複行削除 - テキストの重複行をオンラインで削除",
+    "shortTitle": "重複行削除",
+    "description": "テキストから重複行を削除。大文字小文字区別、前後空白無視、空行削除のオプション付き。100%ブラウザ上で処理。",
+    "searchTerms": "jufukudousakujyo jfkdsk joufuku dyuipuriku hairetsu"
+  },
   "color": {
     "title": "カラー変換＆ピッカー - HEX、RGB、HSL、OKLCH",
     "shortTitle": "カラー変換",

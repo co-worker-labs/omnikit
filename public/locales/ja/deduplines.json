@@ -1,0 +1,24 @@
+{
+  "inputPlaceholder": "テキストをここに貼り付け...",
+  "outputPlaceholder": "重複除去後の行がここに表示されます...",
+  "stats": "{original} 行 → {result} 行（{removed} 件の重複を除去）",
+  "statsNoDupes": "{original} 行 → 重複は見つかりませんでした",
+  "options": {
+    "caseSensitive": "大文字小文字を区別",
+    "trimLines": "前後の空白を無視",
+    "removeEmpty": "空行を削除"
+  },
+  "descriptions": {
+    "whatIsTitle": "行の重複除去とは？",
+    "whatIsP1": "行の重複除去ツールは、テキスト内の重複行を削除し、各一意行の最初の出現のみを残します。元の順序は維持されます。",
+    "howTitle": "使い方",
+    "howP1": "入力エリアにテキストを貼り付けると、リアルタイムで結果が更新されます。オプションで比較動作を制御できます。",
+    "howCase": "大文字小文字を区別：チェックすると、'Hello' と 'hello' は異なる行として扱われます。",
+    "howTrim": "前後の空白を無視：チェックすると、比較時に各行の前後のスペースを無視します。",
+    "howEmpty": "空行を削除：チェックすると、空行と空白のみの行が削除されます。",
+    "useCasesTitle": "よくある用途",
+    "useCasesP1": "ログファイルの重複エントリの削除。",
+    "useCasesP2": "重複ディレクティブを含む設定ファイルの整理。",
+    "useCasesP3": "CSVデータの処理前の重複行除去。"
+  }
+}

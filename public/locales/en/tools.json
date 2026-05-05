@@ -104,6 +104,11 @@
     "shortTitle": "Text Case Converter",
     "description": "Convert text between camelCase, PascalCase, snake_case, CONSTANT_CASE, kebab-case, dot.case, Title Case and more. Free online text case converter, 100% client-side."
   },
+  "deduplines": {
+    "title": "Remove Duplicate Lines - Deduplicate Text Online",
+    "shortTitle": "Deduplicate Lines",
+    "description": "Remove duplicate lines from text. Options for case sensitivity, trim, empty lines. 100% client-side."
+  },
   "color": {
     "title": "Color Converter & Picker - HEX, RGB, HSL, OKLCH",
     "shortTitle": "Color Converter",

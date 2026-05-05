@@ -1,0 +1,24 @@
+{
+  "inputPlaceholder": "Paste your text here...",
+  "outputPlaceholder": "Unique lines will appear here...",
+  "stats": "{original} lines → {result} lines (-{removed} duplicates)",
+  "statsNoDupes": "{original} lines → no duplicates found",
+  "options": {
+    "caseSensitive": "Case Sensitive",
+    "trimLines": "Trim Whitespace",
+    "removeEmpty": "Remove Empty Lines"
+  },
+  "descriptions": {
+    "whatIsTitle": "What is Line Deduplication?",
+    "whatIsP1": "Line deduplication removes duplicate lines from text, keeping only the first occurrence of each unique line. The original order is preserved.",
+    "howTitle": "How to Use",
+    "howP1": "Paste your text in the input area. The result updates in real time. Use the options to control comparison behavior.",
+    "howCase": "Case Sensitive: When checked, 'Hello' and 'hello' are treated as different lines.",
+    "howTrim": "Trim Whitespace: When checked, leading and trailing spaces are ignored during comparison.",
+    "howEmpty": "Remove Empty Lines: When checked, empty lines and whitespace-only lines are removed.",
+    "useCasesTitle": "Common Use Cases",
+    "useCasesP1": "Removing duplicate entries from log files.",
+    "useCasesP2": "Cleaning up configuration files with repeated directives.",
+    "useCasesP3": "Deduplicating rows in CSV data before processing."
+  }
+}

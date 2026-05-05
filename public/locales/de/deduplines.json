@@ -1,0 +1,24 @@
+{
+  "inputPlaceholder": "Text hier einfügen...",
+  "outputPlaceholder": "Einzelne Zeilen werden hier angezeigt...",
+  "stats": "{original} Zeilen → {result} Zeilen (-{removed} Duplikate)",
+  "statsNoDupes": "{original} Zeilen → keine Duplikate gefunden",
+  "options": {
+    "caseSensitive": "Groß-/Kleinschreibung",
+    "trimLines": "Leerzeichen ignorieren",
+    "removeEmpty": "Leere Zeilen entfernen"
+  },
+  "descriptions": {
+    "whatIsTitle": "Was ist Zeilendeduplizierung?",
+    "whatIsP1": "Die Zeilendeduplizierung entfernt doppelte Zeilen aus dem Text und behält nur das erste Vorkommen jeder eindeutigen Zeile. Die ursprüngliche Reihenfolge bleibt erhalten.",
+    "howTitle": "Verwendung",
+    "howP1": "Fügen Sie Ihren Text in den Eingabebereich ein. Das Ergebnis wird in Echtzeit aktualisiert. Verwenden Sie die Optionen, um das Vergleichsverhalten zu steuern.",
+    "howCase": "Groß-/Kleinschreibung: Wenn aktiviert, werden 'Hallo' und 'hallo' als unterschiedliche Zeilen behandelt.",
+    "howTrim": "Leerzeichen ignorieren: Wenn aktiviert, werden führende und nachfolgende Leerzeichen beim Vergleich ignoriert.",
+    "howEmpty": "Leere Zeilen entfernen: Wenn aktiviert, werden leere Zeilen und Zeilen mit nur Leerzeichen entfernt.",
+    "useCasesTitle": "Häufige Anwendungsfälle",
+    "useCasesP1": "Entfernen doppelter Einträge aus Protokolldateien.",
+    "useCasesP2": "Bereinigen von Konfigurationsdateien mit wiederholten Direktiven.",
+    "useCasesP3": "Deduplizierung von Zeilen in CSV-Daten vor der Verarbeitung."
+  }
+}
