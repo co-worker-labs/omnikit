@@ -8,6 +8,7 @@
   "resultsCountAll": "{total} 件の項目が見つかりました",
   "noResults": "項目が見つかりません",
   "emptyState": "上にテキストを貼り付けるか入力して、メール、URL、電話番号を抽出",
+  "dropZone": "テキストファイルをドロップ",
   "copyAll": "すべてコピー",
   "exportTxt": "TXT",
   "exportCsv": "CSV",
@@ -25,15 +26,17 @@
   "occurrences": "×{count}",
   "descriptions": {
     "formatsTitle": "対応フォーマット",
+    "formatsTableHeader": "説明",
     "formatsEmail": "メール",
     "formatsEmailDesc": "local-part@domain.tld — +タグ、サブドメイン、マルチパートTLD対応",
     "formatsUrl": "URL",
     "formatsUrlDesc": "http:// および https:// — パス、クエリ文字列、フラグメント",
     "formatsPhone": "電話",
-    "formatsPhoneDesc": "国際形式 — 国コード、括弧、ハイフン、ドット、スペース",
+    "formatsPhoneDesc": "国際形式 — 国コード、括弧、ハイフン、ドット、スペース。例：+1 (800) 555-1234、090-1234-5678、+44 20 7946 0958、202.555.0123、(02) 2345-6789",
     "tipsTitle": "ヒント",
     "tip1": "抽出は寛容であり、検証ではありません — 妥当な一致はすべて返されます",
     "tip2": "チップボタンで各タイプのオン/オフを切り替え",
-    "tip3": "デフォルトで重複排除；「重複を表示」で全一致を表示"
+    "tip3": "デフォルトで重複排除；「重複を表示」で全一致を表示",
+    "tip4": "電話番号は7桁以上の数字を含む必要があります"
   }
 }

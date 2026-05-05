@@ -25,15 +25,17 @@
   "occurrences": "×{count}",
   "descriptions": {
     "formatsTitle": "Formatos suportados",
+    "formatsTableHeader": "Descrição",
     "formatsEmail": "Email",
     "formatsEmailDesc": "local-part@domain.tld — suporta tags +, subdomínios, TLD multipartes",
     "formatsUrl": "URL",
     "formatsUrlDesc": "http:// e https:// — caminhos, query strings, fragmentos",
     "formatsPhone": "Telefone",
-    "formatsPhoneDesc": "Formatos internacionais — código do país, parênteses, hifens, pontos, espaços",
+    "formatsPhoneDesc": "Formatos internacionais — código do país, parênteses, hifens, pontos, espaços. Exemplos: +1 (800) 555-1234, 090-1234-5678, +44 20 7946 0958, 202.555.0123, (02) 2345-6789",
     "tipsTitle": "Dicas",
     "tip1": "A extração é permissiva, não validação — todas as correspondências plausíveis são retornadas",
     "tip2": "Ative/desative tipos individuais com os botões de alternância",
-    "tip3": "Resultados são deduplicados por padrão; ative \"Mostrar duplicados\" para ver todas as ocorrências"
+    "tip3": "Resultados são deduplicados por padrão; ative \"Mostrar duplicados\" para ver todas as ocorrências",
+    "tip4": "Números de telefone devem conter pelo menos 7 dígitos para serem reconhecidos"
   }
 }

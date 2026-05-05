@@ -25,15 +25,17 @@
   "occurrences": "×{count}",
   "descriptions": {
     "formatsTitle": "Unterstützte Formate",
+    "formatsTableHeader": "Beschreibung",
     "formatsEmail": "E-Mail",
     "formatsEmailDesc": "local-part@domain.tld — unterstützt +-Tags, Subdomains, mehrteilige TLDs",
     "formatsUrl": "URL",
     "formatsUrlDesc": "http:// und https:// — Pfade, Abfragezeichenfolgen, Fragmente",
     "formatsPhone": "Telefon",
-    "formatsPhoneDesc": "Internationale Formate — Ländervorwahl, Klammern, Bindestriche, Punkte, Leerzeichen",
+    "formatsPhoneDesc": "Internationale Formate — Ländervorwahl, Klammern, Bindestriche, Punkte, Leerzeichen. Beispiele: +1 (800) 555-1234, 090-1234-5678, +44 20 7946 0958, 202.555.0123, (02) 2345-6789",
     "tipsTitle": "Tipps",
     "tip1": "Die Extraktion ist permisiv, keine Validierung — alle plausiblen Treffer werden zurückgegeben",
     "tip2": "Einzelne Typen mit den Umschaltbuttons ein-/ausschalten",
-    "tip3": "Ergebnisse werden standardmäßig dedupliziert; \"Duplikate anzeigen\" aktivieren, um alle Treffer zu sehen"
+    "tip3": "Ergebnisse werden standardmäßig dedupliziert; \"Duplikate anzeigen\" aktivieren, um alle Treffer zu sehen",
+    "tip4": "Telefonnummern müssen mindestens 7 Ziffern enthalten, um erkannt zu werden"
   }
 }

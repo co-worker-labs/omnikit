@@ -77,6 +77,7 @@
   "binaryRejected": "检测到二进制文件，请上传文本文件",
   "fileLoaded": "文件已加载",
   "dropActive": "松手即可打开",
+  "loadFile": "打开文件",
   "showMore": "展开更多",
   "showLess": "收起",
   "algorithms": {

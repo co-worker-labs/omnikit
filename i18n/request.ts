@@ -35,6 +35,7 @@ const namespaces = [
   "csv-md",
   "numbase",
   "image",
+  "extractor",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {

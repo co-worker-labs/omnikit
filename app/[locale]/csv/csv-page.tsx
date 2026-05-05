@@ -320,7 +320,7 @@ function Conversion() {
             onClick={() => jsonFileRef.current?.click()}
           >
             <FolderOpen size={12} />
-            {t("loadFile")}
+            {tc("loadFile")}
           </button>
           <button
             type="button"
@@ -465,7 +465,7 @@ function Conversion() {
             onClick={() => csvFileRef.current?.click()}
           >
             <FolderOpen size={12} />
-            {t("loadFile")}
+            {tc("loadFile")}
           </button>
           <button
             type="button"

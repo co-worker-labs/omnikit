@@ -8,6 +8,7 @@
   "resultsCountAll": "找到 {total} 個項目",
   "noResults": "未找到項目",
   "emptyState": "在上方貼上或輸入文字以提取信箱、URL 和電話號碼",
+  "dropZone": "拖放文字檔案",
   "copyAll": "全部複製",
   "exportTxt": "TXT",
   "exportCsv": "CSV",
@@ -25,15 +26,17 @@
   "occurrences": "×{count}",
   "descriptions": {
     "formatsTitle": "支援的格式",
+    "formatsTableHeader": "說明",
     "formatsEmail": "信箱",
     "formatsEmailDesc": "local-part@domain.tld — 支援 +標籤、子網域、多段 TLD",
     "formatsUrl": "URL",
     "formatsUrlDesc": "http:// 和 https:// — 路徑、查詢字串、片段",
     "formatsPhone": "電話",
-    "formatsPhoneDesc": "國際格式 — 國家代碼、括號、連字號、點號、空格",
+    "formatsPhoneDesc": "國際格式 — 國家代碼、括號、連字號、點號、空格。範例：+1 (800) 555-1234、090-1234-5678、+44 20 7946 0958、202.555.0123、(02) 2345-6789",
     "tipsTitle": "提示",
     "tip1": "提取是寬鬆的，非驗證 — 所有可能的匹配都會返回",
     "tip2": "使用切換按鈕開啟/關閉單個類型",
-    "tip3": "預設去重；啟用\"顯示重複項\"查看所有匹配"
+    "tip3": "預設去重；啟用\"顯示重複項\"查看所有匹配",
+    "tip4": "電話號碼至少需要包含 7 位數字才會被識別"
   }
 }

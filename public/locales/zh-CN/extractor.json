@@ -8,6 +8,7 @@
   "resultsCountAll": "找到 {total} 个项目",
   "noResults": "未找到项目",
   "emptyState": "在上方粘贴或输入文本以提取邮箱、URL 和电话号码",
+  "dropZone": "拖放文本文件",
   "copyAll": "全部复制",
   "exportTxt": "TXT",
   "exportCsv": "CSV",
@@ -25,15 +26,17 @@
   "occurrences": "×{count}",
   "descriptions": {
     "formatsTitle": "支持的格式",
+    "formatsTableHeader": "说明",
     "formatsEmail": "邮箱",
     "formatsEmailDesc": "local-part@domain.tld — 支持 +标签、子域名、多段 TLD",
     "formatsUrl": "URL",
     "formatsUrlDesc": "http:// 和 https:// — 路径、查询字符串、片段",
     "formatsPhone": "电话",
-    "formatsPhoneDesc": "国际格式 — 国家代码、括号、连字符、点号、空格",
+    "formatsPhoneDesc": "国际格式 — 国家代码、括号、连字符、点号、空格。示例：+1 (800) 555-1234、090-1234-5678、+44 20 7946 0958、202.555.0123、(02) 2345-6789",
     "tipsTitle": "提示",
     "tip1": "提取是宽松的，非验证 — 所有可能的匹配都会返回",
     "tip2": "使用切换按钮开启/关闭单个类型",
-    "tip3": "默认去重；启用\"显示重复项\"查看所有匹配"
+    "tip3": "默认去重；启用\"显示重复项\"查看所有匹配",
+    "tip4": "电话号码至少需要包含 7 位数字才会被识别"
   }
 }

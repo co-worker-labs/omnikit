@@ -8,6 +8,7 @@
   "resultsCountAll": "{total} items found",
   "noResults": "No items found",
   "emptyState": "Paste or type text above to extract emails, URLs, and phone numbers",
+  "dropZone": "Drop any text file",
   "copyAll": "Copy All",
   "exportTxt": "TXT",
   "exportCsv": "CSV",
@@ -25,15 +26,17 @@
   "occurrences": "×{count}",
   "descriptions": {
     "formatsTitle": "Supported Formats",
+    "formatsTableHeader": "Description",
     "formatsEmail": "Email",
     "formatsEmailDesc": "local-part@domain.tld — supports +tags, subdomains, multi-part TLDs",
     "formatsUrl": "URL",
     "formatsUrlDesc": "http:// and https:// — paths, query strings, fragments",
     "formatsPhone": "Phone",
-    "formatsPhoneDesc": "International formats — country code, parentheses, dashes, dots, spaces",
+    "formatsPhoneDesc": "International formats — country code, parentheses, dashes, dots, spaces. Examples: +1 (800) 555-1234, 090-1234-5678, +44 20 7946 0958, 202.555.0123, (02) 2345-6789",
     "tipsTitle": "Tips",
     "tip1": "Extraction is permissive, not validation — all plausible matches are returned",
     "tip2": "Toggle individual types on/off with the chip buttons",
-    "tip3": "Results are deduplicated by default; enable \"Show duplicates\" to see all occurrences"
+    "tip3": "Results are deduplicated by default; enable \"Show duplicates\" to see all occurrences",
+    "tip4": "Phone numbers must contain at least 7 digits to be recognized"
   }
 }

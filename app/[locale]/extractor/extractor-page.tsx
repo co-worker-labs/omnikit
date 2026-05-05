@@ -1,13 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useTranslations } from "next-intl";
-import { Copy, FileText } from "lucide-react";
+import { Copy, FolderOpen, Upload, X } from "lucide-react";
 import Layout from "../../../components/layout";
 import { StyledTextarea, StyledCheckbox } from "../../../components/ui/input";
 import { CopyButton } from "../../../components/ui/copy-btn";
 import { Button } from "../../../components/ui/button";
 import { showToast } from "../../../libs/toast";
+import { useDropZone } from "../../../hooks/useDropZone";
 import { extract, type ExtractorType, type ExtractionResult } from "../../../libs/extractor/main";
 
 const TYPE_COLORS: Record<ExtractorType, string> = {
@@ -38,10 +39,27 @@ function Conversion() {
   const t = useTranslations("extractor");
   const tc = useTranslations("common");
   const [input, setInput] = useState("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
   const [enabledTypes, setEnabledTypes] = useState<Set<ExtractorType>>(
     new Set(["email", "url", "phone"])
   );
   const [showDuplicates, setShowDuplicates] = useState(false);
+
+  const dropZone = useDropZone(async (file) => {
+    const text = await file.text();
+    setInput(text);
+    showToast(tc("fileLoaded"), "success", 2000);
+  });
+
+  function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    file.text().then((text) => {
+      setInput(text);
+      showToast(tc("fileLoaded"), "success", 2000);
+    });
+    e.target.value = "";
+  }
 
   const rawResults = extract(input, [...enabledTypes]);
 
@@ -89,11 +107,6 @@ function Conversion() {
     showToast(t("copied"), "success");
   }
 
-  function handleExportTxt() {
-    downloadFile(getExportValues().join("\n"), "extracted.txt", "text/plain");
-    showToast(t("downloaded"), "success");
-  }
-
   function handleExportCsv() {
     const header = '"type","value"';
     const rows = displayResults.map((r) => `"${r.type}","${r.value.replace(/"/g, '""')}"`);
@@ -109,25 +122,59 @@ function Conversion() {
 
   return (
     <section id="conversion">
-      <div className="relative">
+      <div
+        className="relative"
+        onDragOver={dropZone.onDragOver}
+        onDragEnter={dropZone.onDragEnter}
+        onDragLeave={dropZone.onDragLeave}
+        onDrop={dropZone.onDrop}
+      >
+        {dropZone.isDragging && (
+          <div className="absolute inset-0 z-50 flex items-center justify-center rounded-xl border-2 border-dashed border-accent-cyan bg-accent-cyan/5 backdrop-blur-sm pointer-events-none">
+            <div className="text-center">
+              <Upload size={40} className="mx-auto mb-3 text-accent-cyan" />
+              <p className="text-lg font-semibold text-accent-cyan">{tc("dropActive")}</p>
+              <p className="text-sm text-fg-muted mt-1">{t("dropZone")}</p>
+            </div>
+          </div>
+        )}
+        <div className="flex items-center justify-between mb-1.5">
+          <button
+            type="button"
+            className="text-fg-secondary text-xs hover:text-fg-primary transition-colors cursor-pointer inline-flex items-center gap-1"
+            onClick={() => fileInputRef.current?.click()}
+          >
+            <FolderOpen size={12} />
+            {tc("loadFile")}
+          </button>
+          {input && (
+            <button
+              type="button"
+              className="text-danger text-xs hover:text-danger/80 transition-colors cursor-pointer inline-flex items-center gap-1"
+              onClick={() => {
+                setInput("");
+                showToast(tc("cleared"), "danger", 2000);
+              }}
+            >
+              <X size={12} />
+              {tc("clear")}
+            </button>
+          )}
+        </div>
         <StyledTextarea
           autoFocus
-          rows={6}
           value={input}
           placeholder={t("inputPlaceholder")}
           onChange={(e) => setInput(e.target.value)}
-          className="text-sm font-mono pr-9"
+          className="text-sm font-mono h-[30vh]"
         />
-        {input && (
-          <button
-            type="button"
-            aria-label={tc("clear")}
-            onClick={() => setInput("")}
-            className="absolute right-3 top-3 text-fg-muted hover:text-fg-primary transition-colors cursor-pointer"
-          >
-            ×
-          </button>
-        )}
+        <input
+          ref={fileInputRef}
+          type="file"
+          accept=".txt,.csv,.log,.md,.json,.html,.xml,.yaml,.yml,.text"
+          className="hidden"
+          onChange={handleFileUpload}
+        />
       </div>
 
       <div className="flex flex-wrap items-center gap-2 mt-3">
@@ -169,18 +216,24 @@ function Conversion() {
             </span>
             {hasResults && (
               <div className="flex items-center gap-1.5 ml-auto">
-                <Button variant="outline" size="sm" onClick={handleCopyAll} className="gap-1.5">
+                <Button
+                  variant="outline-cyan"
+                  size="sm"
+                  onClick={handleCopyAll}
+                  className="gap-1.5"
+                >
                   <Copy className="w-3.5 h-3.5" />
                   {t("copyAll")}
-                </Button>
-                <Button variant="outline" size="sm" onClick={handleExportTxt} className="gap-1.5">
-                  <FileText className="w-3.5 h-3.5" />
-                  {t("exportTxt")}
                 </Button>
                 <Button variant="outline" size="sm" onClick={handleExportCsv} className="gap-1.5">
                   {t("exportCsv")}
                 </Button>
-                <Button variant="outline" size="sm" onClick={handleExportJson} className="gap-1.5">
+                <Button
+                  variant="outline-purple"
+                  size="sm"
+                  onClick={handleExportJson}
+                  className="gap-1.5"
+                >
                   {t("exportJson")}
                 </Button>
               </div>
@@ -262,7 +315,7 @@ function Description() {
                 {t("descriptions.formatsTitle")}
               </th>
               <th className="py-2 px-4 text-fg-muted text-xs font-mono font-medium text-left whitespace-nowrap uppercase tracking-wider">
-                Description
+                {t("descriptions.formatsTableHeader")}
               </th>
             </tr>
           </thead>
@@ -298,6 +351,7 @@ function Description() {
           <li>• {t("descriptions.tip1")}</li>
           <li>• {t("descriptions.tip2")}</li>
           <li>• {t("descriptions.tip3")}</li>
+          <li>• {t("descriptions.tip4")}</li>
         </ul>
       </div>
     </section>

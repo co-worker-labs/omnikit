@@ -25,15 +25,17 @@
   "occurrences": "×{count}",
   "descriptions": {
     "formatsTitle": "지원 형식",
+    "formatsTableHeader": "설명",
     "formatsEmail": "이메일",
     "formatsEmailDesc": "local-part@domain.tld — +태그, 서브도메인, 다중 파트 TLD 지원",
     "formatsUrl": "URL",
     "formatsUrlDesc": "http:// 및 https:// — 경로, 쿼리 문자열, 프래그먼트",
     "formatsPhone": "전화",
-    "formatsPhoneDesc": "국제 형식 — 국가 코드, 괄호, 하이픈, 마침표, 공백",
+    "formatsPhoneDesc": "국제 형식 — 국가 코드, 괄호, 하이픈, 마침표, 공백. 예시: +1 (800) 555-1234, 090-1234-5678, +44 20 7946 0958, 202.555.0123, (02) 2345-6789",
     "tipsTitle": "팁",
     "tip1": "추출은 허용적이며, 검증이 아닙니다 — 가능한 모든 일치 항목이 반환됩니다",
     "tip2": "칩 버튼으로 각 유형을 켜고 끌 수 있습니다",
-    "tip3": "기본적으로 중복 제거; \"중복 표시\"를 활성화하여 모든 일치 항목 보기"
+    "tip3": "기본적으로 중복 제거; \"중복 표시\"를 활성화하여 모든 일치 항목 보기",
+    "tip4": "전화번호는 최소 7자리 이상의 숫자를 포함해야 인식됩니다"
   }
 }
