@@ -8,7 +8,9 @@
   "passphrasePlaceholder": "オプション（空欄で暗号化なし）",
   "commentPlaceholder": "user@host",
   "generate": "鍵ペアを生成",
-  "generating": "生成中...",
+  "generating": "生成中…",
+  "showPassphrase": "パスフレーズを表示",
+  "hidePassphrase": "パスフレーズを隠す",
   "privateKey": "秘密鍵",
   "publicKey": "公開鍵",
   "fingerprint": "フィンガープリント",
@@ -26,5 +28,25 @@
   "inspectComment": "コメント",
   "inspectInvalid": "無効な公開鍵形式。ssh-rsa と ssh-ed25519 のみサポートしています。",
   "privacyNotice": "すべての鍵生成はブラウザ内で行われます。データはサーバーに送信されません。",
-  "localGenerated": "Web Crypto API を使用してブラウザ内で SSH 鍵ペアを生成します。秘密鍵はデバイスから送信されません。"
+  "localGenerated": "Web Crypto API を使用してブラウザ内で SSH 鍵ペアを生成します。秘密鍵はデバイスから送信されません。",
+  "descriptions": {
+    "stepsTitle": "SSH 鍵の生成とデプロイ手順",
+    "step1Title": "鍵の種類を選択",
+    "step1Desc": "Ed25519（推奨 — より安全で高速）または RSA（レガシーシステムとの互換性が高い）を選択し、RSA の場合は鍵長を設定します。",
+    "step2Title": "鍵ペアを生成",
+    "step2Desc": "「鍵ペアを生成」をクリックします。鍵はブラウザ内の Web Crypto API を使って完全にローカルで生成され、秘密鍵がデバイス外に送信されることはありません。",
+    "step3Title": "公開鍵をコピー",
+    "step3Desc": "公開鍵の内容をコピーします。対象サーバー、Git プラットフォーム（GitHub、GitLab、Bitbucket）、クラウドプロバイダーにそのまま貼り付けられます。",
+    "step4Title": "サーバーにデプロイ",
+    "step4Desc": "ssh-copy-id -i ~/.ssh/id_ed25519.pub user@host を実行するか、対象マシンの ~/.ssh/authorized_keys に公開鍵を手動で追加します。",
+    "faqTitle": "よくある質問",
+    "faq1Q": "Ed25519 と RSA はどちらを使うべきですか？",
+    "faq1A": "ほとんどの用途では Ed25519 を推奨します。128 ビットのセキュリティ強度（RSA 3072 と同等）を持ち、鍵が短く、署名も高速です。RSA 4096 は Ed25519 をサポートしていない古いシステムやサービスとの互換性が必要な場合のみ使用します。GitHub、GitLab、主要なクラウドプロバイダーはすべて Ed25519 をサポートしています。",
+    "faq2Q": "SSH 鍵にパスフレーズは必要ですか？",
+    "faq2A": "必須ではありませんが、強く推奨します。パスフレーズはディスク上の秘密鍵を暗号化します。デバイスの紛失、盗難、侵害時に、パスフレーズなしでは秘密鍵を使用できません。12 文字以上の強力なパスフレーズを使用してください。",
+    "faq3Q": "SSH 公開鍵を GitHub に追加するには？",
+    "faq3A": "Settings → SSH and GPG keys → New SSH key に移動します。説明用のタイトルを入力し、公開鍵の内容（ssh-ed25519 または ssh-rsa で始まる行全体）を貼り付けて、Add SSH key をクリックします。GitHub CLI を使う場合は gh ssh-key add ~/.ssh/id_ed25519.pub も可能です。",
+    "faq4Q": "ブラウザで SSH 鍵を生成するのは安全ですか？",
+    "faq4A": "安全です。このツールは Web Crypto API を使用しており、OpenSSL や OpenSSH と同じ暗号プリミティブを提供します。鍵の生成はブラウザのメモリ内で完全に行われ、いかなるサーバーにもデータは送信されません。ページを閉じるか更新すると鍵は失われるため、離れる前にダウンロードまたはコピーしてください。"
+  }
 }

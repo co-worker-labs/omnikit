@@ -8,7 +8,9 @@
   "passphrasePlaceholder": "可选（留空表示不加密）",
   "commentPlaceholder": "user@host",
   "generate": "生成密钥对",
-  "generating": "生成中...",
+  "generating": "生成中…",
+  "showPassphrase": "显示密码短语",
+  "hidePassphrase": "隐藏密码短语",
   "privateKey": "私钥",
   "publicKey": "公钥",
   "fingerprint": "指纹",
@@ -26,5 +28,25 @@
   "inspectComment": "注释",
   "inspectInvalid": "无效的公钥格式。仅支持 ssh-rsa 和 ssh-ed25519。",
   "privacyNotice": "所有密钥生成操作均在浏览器中完成，不会向任何服务器发送数据。",
-  "localGenerated": "完全在浏览器本地使用 Web Crypto API 生成 SSH 密钥对。您的私钥永远不会离开您的设备。"
+  "localGenerated": "完全在浏览器本地使用 Web Crypto API 生成 SSH 密钥对。您的私钥永远不会离开您的设备。",
+  "descriptions": {
+    "stepsTitle": "如何生成和部署 SSH 密钥",
+    "step1Title": "选择密钥类型",
+    "step1Desc": "选择 Ed25519（推荐——更安全、生成更快）或 RSA（兼容性更广，适配旧系统）。使用 RSA 时可设置密钥长度。",
+    "step2Title": "生成密钥对",
+    "step2Desc": "点击「生成密钥对」按钮。密钥通过浏览器内置的 Web Crypto API 完全在本地生成，私钥永远不会离开你的设备。",
+    "step3Title": "复制公钥",
+    "step3Desc": "复制公钥内容，可直接粘贴到目标服务器、Git 平台（GitHub、GitLab、Bitbucket）或云服务商的配置中。",
+    "step4Title": "部署到服务器",
+    "step4Desc": "使用 ssh-copy-id -i ~/.ssh/id_ed25519.pub user@host 命令，或手动将公钥追加到目标机器的 ~/.ssh/authorized_keys 文件中。",
+    "faqTitle": "常见问题",
+    "faq1Q": "Ed25519 和 RSA 应该选哪个？",
+    "faq1A": "大多数场景推荐 Ed25519。它提供 128 位安全强度（相当于 RSA 3072），密钥更短，签名速度更快。只有在需要兼容不支持 Ed25519 的旧系统或服务时才需要 RSA 4096。GitHub、GitLab 和主流云服务商均已支持 Ed25519。",
+    "faq2Q": "SSH 密钥需要设置密码短语吗？",
+    "faq2A": "不是必须的，但强烈建议设置。密码短语会加密存储在磁盘上的私钥。如果设备丢失、被盗或被入侵，没有密码短语就无法使用私钥。建议使用 12 位以上的强密码短语。",
+    "faq3Q": "如何将 SSH 公钥添加到 GitHub？",
+    "faq3A": "进入 Settings → SSH and GPG keys → New SSH key。填写标题，粘贴公钥完整内容（以 ssh-ed25519 或 ssh-rsa 开头的整行），点击 Add SSH key。也可以使用 GitHub CLI：gh ssh-key add ~/.ssh/id_ed25519.pub。",
+    "faq4Q": "在浏览器中生成 SSH 密钥安全吗？",
+    "faq4A": "安全。本工具使用 Web Crypto API，提供与 OpenSSL 和 OpenSSH 相同的加密原语。密钥完全在浏览器内存中生成，不会发送到任何服务器。关闭或刷新页面后密钥即丢失，请务必在离开前下载或复制。"
+  }
 }

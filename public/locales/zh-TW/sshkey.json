@@ -8,7 +8,9 @@
   "passphrasePlaceholder": "可選（留空表示不加密）",
   "commentPlaceholder": "user@host",
   "generate": "產生金鑰對",
-  "generating": "產生中...",
+  "generating": "產生中…",
+  "showPassphrase": "顯示密碼短語",
+  "hidePassphrase": "隱藏密碼短語",
   "privateKey": "私鑰",
   "publicKey": "公鑰",
   "fingerprint": "指紋",
@@ -26,5 +28,25 @@
   "inspectComment": "註解",
   "inspectInvalid": "無效的公鑰格式。僅支援 ssh-rsa 和 ssh-ed25519。",
   "privacyNotice": "所有金鑰產生操作均在瀏覽器中完成，不會向任何伺服器傳送資料。",
-  "localGenerated": "完全在瀏覽器本機使用 Web Crypto API 產生 SSH 金鑰對。您的私鑰永遠不會離開您的裝置。"
+  "localGenerated": "完全在瀏覽器本機使用 Web Crypto API 產生 SSH 金鑰對。您的私鑰永遠不會離開您的裝置。",
+  "descriptions": {
+    "stepsTitle": "如何產生與部署 SSH 金鑰",
+    "step1Title": "選擇金鑰類型",
+    "step1Desc": "選擇 Ed25519（推薦——更安全、產生更快）或 RSA（相容性更廣，適配舊系統）。使用 RSA 時可設定金鑰長度。",
+    "step2Title": "產生金鑰對",
+    "step2Desc": "點擊「產生金鑰對」按鈕。金鑰透過瀏覽器內建的 Web Crypto API 完全在本機產生，私鑰永遠不會離開您的裝置。",
+    "step3Title": "複製公鑰",
+    "step3Desc": "複製公鑰內容，可直接貼到目標伺服器、Git 平台（GitHub、GitLab、Bitbucket）或雲端服務商的設定中。",
+    "step4Title": "部署到伺服器",
+    "step4Desc": "使用 ssh-copy-id -i ~/.ssh/id_ed25519.pub user@host 指令，或手動將公鑰附加到目標機器的 ~/.ssh/authorized_keys 檔案中。",
+    "faqTitle": "常見問題",
+    "faq1Q": "Ed25519 和 RSA 應該選哪個？",
+    "faq1A": "大多數情境推薦 Ed25519。它提供 128 位元安全強度（相當於 RSA 3072），金鑰更短，簽章速度更快。只有在需要相容不支援 Ed25519 的舊系統或服務時才需要 RSA 4096。GitHub、GitLab 和主流雲端服務商均已支援 Ed25519。",
+    "faq2Q": "SSH 金鑰需要設定密碼短語嗎？",
+    "faq2A": "不是必須的，但強烈建議設定。密碼短語會加密儲存在磁碟上的私鑰。如果裝置遺失、被盜或被入侵，沒有密碼短語就無法使用私鑰。建議使用 12 位以上的強密碼短語。",
+    "faq3Q": "如何將 SSH 公鑰新增到 GitHub？",
+    "faq3A": "進入 Settings → SSH and GPG keys → New SSH key。填寫標題，貼上公鑰完整內容（以 ssh-ed25519 或 ssh-rsa 開頭的整行），點擊 Add SSH key。也可以使用 GitHub CLI：gh ssh-key add ~/.ssh/id_ed25519.pub。",
+    "faq4Q": "在瀏覽器中產生 SSH 金鑰安全嗎？",
+    "faq4A": "安全。本工具使用 Web Crypto API，提供與 OpenSSL 和 OpenSSH 相同的加密基礎元件。金鑰完全在瀏覽器記憶體中產生，不會傳送到任何伺服器。關閉或重新整理頁面後金鑰即遺失，請務必在離開前下載或複製。"
+  }
 }

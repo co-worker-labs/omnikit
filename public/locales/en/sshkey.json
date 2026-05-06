@@ -8,7 +8,9 @@
   "passphrasePlaceholder": "Optional (leave empty for no encryption)",
   "commentPlaceholder": "user@host",
   "generate": "Generate Key Pair",
-  "generating": "Generating...",
+  "generating": "Generating…",
+  "showPassphrase": "Show passphrase",
+  "hidePassphrase": "Hide passphrase",
   "privateKey": "Private Key",
   "publicKey": "Public Key",
   "fingerprint": "Fingerprint",
@@ -26,5 +28,25 @@
   "inspectComment": "Comment",
   "inspectInvalid": "Invalid public key format. Only ssh-rsa and ssh-ed25519 are supported.",
   "privacyNotice": "All key generation happens entirely in your browser. No data is sent to any server.",
-  "localGenerated": "SSH key pairs generated entirely in your browser using Web Crypto API. Your private key never leaves your device."
+  "localGenerated": "SSH key pairs generated entirely in your browser using Web Crypto API. Your private key never leaves your device.",
+  "descriptions": {
+    "stepsTitle": "How to Generate & Deploy SSH Keys",
+    "step1Title": "Choose your key type",
+    "step1Desc": "Select Ed25519 (recommended — more secure, faster key generation) or RSA (broader compatibility with legacy systems), then set the key size if using RSA.",
+    "step2Title": "Generate your key pair",
+    "step2Desc": "Click Generate Key Pair. Keys are created entirely in your browser using the Web Crypto API — your private key never leaves your device.",
+    "step3Title": "Copy your public key",
+    "step3Desc": "Copy the public key content. It is ready to paste into target servers, Git platforms (GitHub, GitLab, Bitbucket), or cloud providers.",
+    "step4Title": "Deploy to your server",
+    "step4Desc": "Use ssh-copy-id -i ~/.ssh/id_ed25519.pub user@host or manually append the public key to ~/.ssh/authorized_keys on the target machine.",
+    "faqTitle": "Frequently Asked Questions",
+    "faq1Q": "Ed25519 vs RSA: Which SSH key type should I use?",
+    "faq1A": "Ed25519 is recommended for most use cases. It offers 128-bit security (comparable to RSA 3072), produces shorter keys, and generates signatures much faster. RSA 4096 is only needed for compatibility with older systems or services that do not yet support Ed25519. GitHub, GitLab, and all major cloud providers support Ed25519.",
+    "faq2Q": "Do I need a passphrase for my SSH key?",
+    "faq2A": "Not required, but strongly recommended. A passphrase encrypts your private key on disk. If your device is lost, stolen, or compromised, the private key cannot be used without the passphrase. Use a strong passphrase of 12+ characters for best protection.",
+    "faq3Q": "How do I add my SSH key to GitHub?",
+    "faq3A": "Go to Settings → SSH and GPG keys → New SSH key. Give it a descriptive title, paste your public key content (the entire line starting with ssh-ed25519 or ssh-rsa), and click Add SSH key. Alternatively, use the GitHub CLI: gh ssh-key add ~/.ssh/id_ed25519.pub.",
+    "faq4Q": "Is it safe to generate SSH keys in the browser?",
+    "faq4A": "Yes. This tool uses the Web Crypto API, which provides the same cryptographic primitives used by OpenSSL and OpenSSH. Key generation happens entirely in browser memory — no data is sent to any server. Generated keys are lost when you close or refresh the page, so download or copy them before leaving."
+  }
 }

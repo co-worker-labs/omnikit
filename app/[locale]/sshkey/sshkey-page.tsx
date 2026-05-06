@@ -1,22 +1,24 @@
 "use client";
 
-import { useState } from "react";
-import { Download, Eye, EyeOff, RefreshCw } from "lucide-react";
+import { useState, useRef } from "react";
+import { CircleHelp, Download, Eye, EyeOff, FolderOpen, RefreshCw, Upload, X } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Layout from "../../../components/layout";
 import { Button } from "../../../components/ui/button";
 import { CopyButton } from "../../../components/ui/copy-btn";
 import { NeonTabs } from "../../../components/ui/tabs";
-import { LineNumberedTextarea } from "../../../components/ui/line-numbered-textarea";
+import { StyledTextarea } from "../../../components/ui/input";
+import { Accordion } from "../../../components/ui/accordion";
 import { showToast } from "../../../libs/toast";
 import { STORAGE_KEYS } from "../../../libs/storage-keys";
 import { generateKeyPair, parsePublicKey } from "../../../libs/sshkey/main";
 import type { SshKeyResult, PublicKeyInfo } from "../../../libs/sshkey/main";
+import { useDropZone } from "../../../hooks/useDropZone";
 
 type KeyType = "rsa" | "ed25519";
 
 const INPUT_CLASS =
-  "bg-bg-input border border-border-default rounded-lg px-3 py-2 text-fg-primary placeholder:text-fg-muted focus:outline-none focus:border-accent-cyan focus:shadow-input-focus transition-all duration-200";
+  "bg-bg-input border border-border-default rounded-lg px-3 py-2 text-fg-primary placeholder:text-fg-muted focus:outline-none focus:border-accent-cyan focus:shadow-input-focus transition-colors transition-shadow duration-200";
 
 function downloadFile(content: string, filename: string) {
   const blob = new Blob([content], { type: "text/plain;charset=utf-8" });
@@ -32,6 +34,7 @@ function downloadFile(content: string, filename: string) {
 
 function GeneratePanel() {
   const t = useTranslations("sshkey");
+  const tc = useTranslations("common");
 
   const [keyType, setKeyType] = useState<KeyType>("ed25519");
   const [rsaBits, setRsaBits] = useState(4096);
@@ -47,6 +50,12 @@ function GeneratePanel() {
 
   const privFilename = keyType === "rsa" ? "id_rsa" : "id_ed25519";
   const pubFilename = keyType === "rsa" ? "id_rsa.pub" : "id_ed25519.pub";
+
+  function handleClear() {
+    setResult(null);
+    setComment("");
+    setPassphrase("");
+  }
 
   async function handleGenerate() {
     setGenerating(true);
@@ -78,13 +87,13 @@ function GeneratePanel() {
         <div className="flex rounded-lg overflow-hidden border border-border-default">
           <button
             onClick={() => setKeyType("rsa")}
-            className={`px-4 py-2 text-sm font-medium transition-colors ${keyType === "rsa" ? "bg-accent-cyan text-bg-base" : "bg-bg-surface text-fg-primary hover:bg-bg-elevated"}`}
+            className={`px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/50 ${keyType === "rsa" ? "bg-accent-cyan text-bg-base" : "bg-bg-surface text-fg-primary hover:bg-bg-elevated"}`}
           >
             RSA
           </button>
           <button
             onClick={() => setKeyType("ed25519")}
-            className={`px-4 py-2 text-sm font-medium transition-colors ${keyType === "ed25519" ? "bg-accent-cyan text-bg-base" : "bg-bg-surface text-fg-primary hover:bg-bg-elevated"}`}
+            className={`px-4 py-2 text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/50 ${keyType === "ed25519" ? "bg-accent-cyan text-bg-base" : "bg-bg-surface text-fg-primary hover:bg-bg-elevated"}`}
           >
             Ed25519
           </button>
@@ -92,6 +101,7 @@ function GeneratePanel() {
 
         {keyType === "rsa" && (
           <select
+            aria-label={t("rsaBits")}
             value={rsaBits}
             onChange={(e) => setRsaBits(Number(e.target.value))}
             className={INPUT_CLASS}
@@ -103,32 +113,48 @@ function GeneratePanel() {
         )}
 
         <input
+          aria-label={t("comment")}
           placeholder={t("commentPlaceholder")}
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           className={`${INPUT_CLASS} flex-1 min-w-[150px]`}
+          spellCheck={false}
+          autoComplete="off"
         />
 
         <div className="relative flex-1 min-w-[150px]">
           <input
+            aria-label={t("passphrase")}
             type={showPass ? "text" : "password"}
             placeholder={t("passphrasePlaceholder")}
             value={passphrase}
             onChange={(e) => setPassphrase(e.target.value)}
             className={`${INPUT_CLASS} w-full pr-8`}
+            spellCheck={false}
+            autoComplete="new-password"
           />
           <button
             type="button"
             onClick={() => setShowPass(!showPass)}
-            className="absolute right-2 top-1/2 -translate-y-1/2 text-fg-muted hover:text-fg-primary"
+            aria-label={showPass ? t("hidePassphrase") : t("showPassphrase")}
+            className="absolute right-2 top-1/2 -translate-y-1/2 text-fg-muted hover:text-fg-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/50 rounded"
           >
             {showPass ? <EyeOff size={16} /> : <Eye size={16} />}
           </button>
         </div>
 
         <Button variant="primary" onClick={handleGenerate} disabled={generating}>
-          <RefreshCw size={14} className={generating ? "animate-spin" : ""} />
+          <RefreshCw size={14} className={generating ? "motion-safe:animate-spin" : ""} />
           {generating ? t("generating") : t("generate")}
+        </Button>
+
+        <Button
+          variant="danger"
+          onClick={handleClear}
+          disabled={!result && !comment && !passphrase}
+        >
+          <X size={14} />
+          {tc("clear")}
         </Button>
       </div>
 
@@ -137,45 +163,43 @@ function GeneratePanel() {
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="text-sm font-medium text-fg-primary">{t("privateKey")}</span>
-              <CopyButton getContent={() => result.privateKey} />
               <button
                 onClick={() => downloadFile(result.privateKey + "\n", privFilename)}
-                className="text-fg-muted hover:text-accent-cyan transition-colors"
-                title={t("downloadPrivate")}
+                className="text-fg-muted hover:text-accent-cyan transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/50 rounded"
+                aria-label={t("downloadPrivate")}
               >
-                <Download size={14} />
+                <Download size={14} aria-hidden="true" />
               </button>
             </div>
-            <LineNumberedTextarea
-              value={result.privateKey}
-              readOnly
-              showLineNumbers
-              autoGrow
-              className="font-mono text-xs"
-              rows={4}
-            />
+            <div className="relative">
+              <StyledTextarea
+                value={result.privateKey}
+                readOnly
+                className="font-mono text-xs h-[30vh] resize-none"
+              />
+              <CopyButton getContent={() => result.privateKey} className="absolute end-2 top-2" />
+            </div>
           </div>
 
           <div>
             <div className="flex items-center gap-2 mb-1">
               <span className="text-sm font-medium text-fg-primary">{t("publicKey")}</span>
-              <CopyButton getContent={() => result.publicKey} />
               <button
                 onClick={() => downloadFile(result.publicKey + "\n", pubFilename)}
-                className="text-fg-muted hover:text-accent-cyan transition-colors"
-                title={t("downloadPublic")}
+                className="text-fg-muted hover:text-accent-cyan transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/50 rounded"
+                aria-label={t("downloadPublic")}
               >
-                <Download size={14} />
+                <Download size={14} aria-hidden="true" />
               </button>
             </div>
-            <LineNumberedTextarea
-              value={result.publicKey}
-              readOnly
-              showLineNumbers
-              autoGrow
-              className="font-mono text-xs"
-              rows={2}
-            />
+            <div className="relative">
+              <StyledTextarea
+                value={result.publicKey}
+                readOnly
+                className="font-mono text-xs h-[15vh] resize-none"
+              />
+              <CopyButton getContent={() => result.publicKey} className="absolute end-2 top-2" />
+            </div>
           </div>
 
           <div>
@@ -201,17 +225,13 @@ function GeneratePanel() {
 
           <div>
             <span className="text-sm font-medium text-fg-primary">{t("quickDeploy")}</span>
-            <div className="flex items-center gap-2 mt-1">
-              <code className="text-xs text-fg-secondary flex-1 break-all">
-                ssh-copy-id -i {pubFilename}{" "}
-                <input
-                  type="text"
-                  value={deployTarget}
-                  onChange={(e) => handleDeployTargetChange(e.target.value)}
-                  className="bg-transparent border-b border-border-default text-xs text-fg-secondary outline-none w-28"
-                />
-              </code>
-              <CopyButton getContent={() => deployCmd} />
+            <div className="relative mt-3 bg-bg-input border border-border-default rounded-lg px-3 py-2.5 font-mono text-sm leading-relaxed">
+              <span className="text-accent-cyan select-none">$</span>{" "}
+              <span className="text-fg-secondary">ssh-copy-id</span>{" "}
+              <span className="text-accent-purple">-i</span>{" "}
+              <span className="text-accent-cyan">{pubFilename}</span>{" "}
+              <span className="text-fg-primary">{deployTarget}</span>
+              <CopyButton getContent={() => deployCmd} className="absolute end-2 top-2" />
             </div>
           </div>
         </div>
@@ -222,9 +242,33 @@ function GeneratePanel() {
 
 function InspectPanel() {
   const t = useTranslations("sshkey");
+  const tc = useTranslations("common");
   const [input, setInput] = useState("");
   const [info, setInfo] = useState<PublicKeyInfo | null>(null);
   const [error, setError] = useState("");
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const dropZone = useDropZone(async (file) => {
+    const content = await file.text();
+    handleInput(content);
+    showToast(tc("fileLoaded"), "success", 2000);
+  });
+
+  function handleFileUpload(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    file.text().then((content) => {
+      handleInput(content);
+      showToast(tc("fileLoaded"), "success", 2000);
+    });
+    e.target.value = "";
+  }
+
+  function handleClear() {
+    setInput("");
+    setInfo(null);
+    setError("");
+  }
 
   async function handleInput(val: string) {
     setInput(val);
@@ -245,12 +289,55 @@ function InspectPanel() {
 
   return (
     <div className="space-y-4">
-      <textarea
-        value={input}
-        onChange={(e) => handleInput(e.target.value)}
-        placeholder={t("inspectPlaceholder")}
-        className="w-full bg-bg-input border border-border-default rounded-lg px-3 py-2 text-sm text-fg-primary font-mono focus:outline-none focus:border-accent-cyan"
-        rows={3}
+      <div className="flex justify-between items-center">
+        <button
+          type="button"
+          className="text-fg-secondary text-xs hover:text-fg-primary transition-colors cursor-pointer inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/50 rounded"
+          onClick={() => fileInputRef.current?.click()}
+        >
+          <FolderOpen size={12} />
+          {tc("loadFile")}
+        </button>
+        <button
+          type="button"
+          className="text-danger text-xs hover:text-danger/80 transition-colors cursor-pointer inline-flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent-cyan/50 rounded"
+          onClick={handleClear}
+          disabled={!input}
+        >
+          <X size={12} />
+          {tc("clear")}
+        </button>
+      </div>
+      <div
+        className="relative"
+        onDragOver={dropZone.onDragOver}
+        onDragEnter={dropZone.onDragEnter}
+        onDragLeave={dropZone.onDragLeave}
+        onDrop={dropZone.onDrop}
+      >
+        {dropZone.isDragging && (
+          <div className="absolute inset-0 z-50 flex items-center justify-center rounded-xl border-2 border-dashed border-accent-cyan bg-accent-cyan/5 backdrop-blur-sm pointer-events-none">
+            <div className="text-center">
+              <Upload size={40} className="mx-auto mb-3 text-accent-cyan" />
+              <p className="text-lg font-semibold text-accent-cyan">{tc("dropActive")}</p>
+            </div>
+          </div>
+        )}
+        <StyledTextarea
+          value={input}
+          onChange={(e) => handleInput(e.target.value)}
+          aria-label={t("tabInspect")}
+          placeholder={t("inspectPlaceholder")}
+          className="font-mono text-sm h-[15vh] resize-none"
+          spellCheck={false}
+        />
+      </div>
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept=".pub,.txt,.pem,.ssh"
+        className="hidden"
+        onChange={handleFileUpload}
       />
 
       {error && <p className="text-sm text-danger">{error}</p>}
@@ -298,21 +385,68 @@ function InspectPanel() {
   );
 }
 
+function Description() {
+  const t = useTranslations("sshkey");
+  const steps = [1, 2, 3, 4].map((i) => ({
+    title: t(`descriptions.step${i}Title`),
+    desc: t(`descriptions.step${i}Desc`),
+  }));
+  const faqItems = [1, 2, 3, 4].map((i) => ({
+    title: t(`descriptions.faq${i}Q`),
+    content: <p>{t(`descriptions.faq${i}A`)}</p>,
+  }));
+  return (
+    <section id="description" className="mt-8">
+      <div className="mb-4">
+        <h2 className="font-semibold text-fg-primary text-base text-pretty">
+          {t("descriptions.stepsTitle")}
+        </h2>
+      </div>
+      <ol className="space-y-3">
+        {steps.map((step, i) => (
+          <li key={i} className="flex items-start gap-3">
+            <span className="shrink-0 w-6 h-6 rounded-full bg-accent-cyan text-bg-base text-xs font-bold flex items-center justify-center">
+              {i + 1}
+            </span>
+            <div>
+              <span className="font-medium text-fg-primary text-sm">{step.title}</span>
+              <p className="text-fg-secondary text-sm leading-relaxed text-pretty">{step.desc}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <div className="mt-8">
+        <div className="flex items-center gap-2 mb-4">
+          <CircleHelp size={16} className="text-accent-cyan shrink-0" aria-hidden="true" />
+          <h2 className="font-semibold text-fg-primary text-base text-pretty">
+            {t("descriptions.faqTitle")}
+          </h2>
+        </div>
+        <Accordion items={faqItems} />
+      </div>
+    </section>
+  );
+}
+
 export default function SshKeyPage() {
   const t = useTranslations("sshkey");
   const ts = useTranslations("tools");
 
   return (
     <Layout title={ts("sshkey.shortTitle")}>
-      <div className="space-y-4">
-        <span className="text-sm text-fg-secondary leading-relaxed">{t("localGenerated")}</span>
+      <div className="container mx-auto px-4 pt-3 pb-6">
+        <div className="space-y-4">
+          <span className="text-sm text-fg-secondary leading-relaxed">{t("localGenerated")}</span>
 
-        <NeonTabs
-          tabs={[
-            { label: t("tabGenerate"), content: <GeneratePanel /> },
-            { label: t("tabInspect"), content: <InspectPanel /> },
-          ]}
-        />
+          <NeonTabs
+            tabs={[
+              { label: t("tabGenerate"), content: <GeneratePanel /> },
+              { label: t("tabInspect"), content: <InspectPanel /> },
+            ]}
+          />
+          <div className="w-full h-px bg-border-default mt-8" />
+          <Description />
+        </div>
       </div>
     </Layout>
   );

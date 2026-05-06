@@ -59,7 +59,9 @@ export async function parsePublicKey(input: string): Promise<PublicKeyInfo | { e
   } else {
     reader.readString();
     const n = reader.readString();
-    bits = n.length * 8;
+    let start = 0;
+    while (start < n.length && n[start] === 0) start++;
+    bits = start >= n.length ? 0 : (n.length - start) * 8;
   }
 
   const fpSha256 = await sha256Fingerprint(blobBytes);

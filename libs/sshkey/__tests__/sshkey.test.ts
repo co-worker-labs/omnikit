@@ -303,6 +303,39 @@ describe("Encrypted private key", () => {
     expect(cipherName).toBe("aes256-ctr");
     const kdfName = reader.readStringUtf8();
     expect(kdfName).toBe("bcrypt");
+    const kdfOpts = reader.readString();
+    expect(kdfOpts.length).toBe(20);
+    reader.readUint32();
+    const pubBlobInFile = reader.readString();
+    expect(pubBlobInFile).toEqual(pubBlob);
+  });
+
+  it("produces deterministic output for same random seed", async () => {
+    const pubKey = new Uint8Array(32).fill(0xcd);
+    const seed = new Uint8Array(32).fill(0xef);
+    const pubBlob = serializeEd25519PublicBlob(pubKey);
+    const privData = buildEd25519PrivateData(pubKey, seed);
+    const enc = await buildOpenSshPrivateKeyEncrypted({
+      publicKeyBlob: pubBlob,
+      privateKeyData: privData,
+      comment: "deterministic",
+      passphrase: "fixedpass",
+    });
+    const b64 = enc
+      .split("\n")
+      .filter((l) => !l.startsWith("-----"))
+      .join("");
+    const raw = Uint8Array.from(atob(b64), (c) => c.charCodeAt(0));
+    const reader = new SSHReader(raw.slice(15));
+    reader.readString();
+    reader.readString();
+    const kdfOpts = reader.readString();
+    expect(kdfOpts.length).toBe(20);
+    const rounds = (kdfOpts[16] << 24) | (kdfOpts[17] << 16) | (kdfOpts[18] << 8) | kdfOpts[19];
+    expect(rounds).toBe(16);
+    reader.readUint32();
+    const pubBlobInFile = reader.readString();
+    expect(pubBlobInFile).toEqual(pubBlob);
   });
 });
 
@@ -385,6 +418,83 @@ describe("generateKeyPair", () => {
     if ("error" in parsed) throw new Error(parsed.error);
     expect(parsed.fingerprintSha256).toBe(result.fingerprintSha256);
     expect(parsed.fingerprintMd5).toBe(result.fingerprintMd5);
+    expect(parsed.randomart).toBe(result.randomart);
     expect(parsed.comment).toBe("roundtrip");
+  });
+
+  it("round-trip: generate then parse RSA public key", async () => {
+    const result = await generateKeyPair({ type: "rsa", rsaBits: 2048, comment: "rsa-rt" });
+    const parsed = await parsePublicKey(result.publicKey);
+    if ("error" in parsed) throw new Error(parsed.error);
+    expect(parsed.fingerprintSha256).toBe(result.fingerprintSha256);
+    expect(parsed.fingerprintMd5).toBe(result.fingerprintMd5);
+    expect(parsed.randomart).toBe(result.randomart);
+    expect(parsed.comment).toBe("rsa-rt");
+  }, 30000);
+});
+
+describe("Test vectors against OpenSSH reference values", () => {
+  const KNOWN_PUB_KEY_BLOB_HEX =
+    "0000000b7373682d6564323535313900000020aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+
+  it("sha256Fingerprint matches known value", async () => {
+    const blob = Uint8Array.from(Buffer.from(KNOWN_PUB_KEY_BLOB_HEX, "hex"));
+    const fp = await sha256Fingerprint(blob);
+    expect(fp).toBe("SHA256:0M0y80ai0sm0JRSMIydZXsm3fAPifTYR1w3QgnI8nGM");
+  });
+
+  it("md5Fingerprint matches known value", async () => {
+    const blob = Uint8Array.from(Buffer.from(KNOWN_PUB_KEY_BLOB_HEX, "hex"));
+    const fp = await md5Fingerprint(blob);
+    expect(fp).toBe("2f:28:04:fe:e0:aa:f0:cb:41:49:57:19:04:df:61:ad");
+  });
+
+  it("randomart matches OpenSSH output for known hash (ED25519)", () => {
+    const hashHex = "425ed4e4a36b30ea21b90e21c712c649e8214c29b7eaf68089d1039c6e55384c";
+    const hash = Uint8Array.from(Buffer.from(hashHex, "hex"));
+    const art = randomart(hash, "ED25519", 256, "SHA256");
+    expect(art).toBe(
+      "+--[ED25519 256]--+\n" +
+        "|+o+E..  .o.      |\n" +
+        "|B+++.  . ..      |\n" +
+        "|*B.o. . . o      |\n" +
+        "|o*o  o . . .     |\n" +
+        "|=+=   = S        |\n" +
+        "|** o . + .       |\n" +
+        "|*.o o   o        |\n" +
+        "| +.+ . .         |\n" +
+        "|..+..            |\n" +
+        "+----[SHA256]-----+"
+    );
+  });
+
+  it("randomart matches OpenSSH output for all-zero hash (RSA 4096)", () => {
+    const hash = new Uint8Array(32);
+    const art = randomart(hash, "RSA", 4096, "SHA256");
+    expect(art).toBe(
+      "+---[RSA 4096]----+\n" +
+        "|E....            |\n" +
+        "|     .           |\n" +
+        "|      .          |\n" +
+        "|       .         |\n" +
+        "|        S        |\n" +
+        "|                 |\n" +
+        "|                 |\n" +
+        "|                 |\n" +
+        "|                 |\n" +
+        "+----[SHA256]-----+"
+    );
+  });
+
+  it("parsePublicKey returns correct fingerprints for known key", async () => {
+    const blob = Uint8Array.from(Buffer.from(KNOWN_PUB_KEY_BLOB_HEX, "hex"));
+    const b64 = btoa(String.fromCharCode(...blob));
+    const info = await parsePublicKey(`ssh-ed25519 ${b64} test@vector`);
+    if ("error" in info) throw new Error(info.error);
+    expect(info.fingerprintSha256).toBe("SHA256:0M0y80ai0sm0JRSMIydZXsm3fAPifTYR1w3QgnI8nGM");
+    expect(info.fingerprintMd5).toBe("2f:28:04:fe:e0:aa:f0:cb:41:49:57:19:04:df:61:ad");
+    expect(info.type).toBe("ssh-ed25519");
+    expect(info.bits).toBe(256);
+    expect(info.comment).toBe("test@vector");
   });
 });

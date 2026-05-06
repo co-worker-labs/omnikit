@@ -8,7 +8,9 @@
   "passphrasePlaceholder": "Opcional (dejar vacío para sin cifrado)",
   "commentPlaceholder": "user@host",
   "generate": "Generar par de claves",
-  "generating": "Generando...",
+  "generating": "Generando…",
+  "showPassphrase": "Mostrar frase de contraseña",
+  "hidePassphrase": "Ocultar frase de contraseña",
   "privateKey": "Clave privada",
   "publicKey": "Clave pública",
   "fingerprint": "Huella digital",
@@ -26,5 +28,25 @@
   "inspectComment": "Comentario",
   "inspectInvalid": "Formato de clave pública no válido. Solo se soportan ssh-rsa y ssh-ed25519.",
   "privacyNotice": "Toda la generación de claves se realiza completamente en tu navegador. No se envían datos a ningún servidor.",
-  "localGenerated": "Pares de claves SSH generados completamente en tu navegador usando Web Crypto API. Tu clave privada nunca sale de tu dispositivo."
+  "localGenerated": "Pares de claves SSH generados completamente en tu navegador usando Web Crypto API. Tu clave privada nunca sale de tu dispositivo.",
+  "descriptions": {
+    "stepsTitle": "Cómo generar y desplegar claves SSH",
+    "step1Title": "Elige el tipo de clave",
+    "step1Desc": "Selecciona Ed25519 (recomendado — más segura y rápida) o RSA (mayor compatibilidad con sistemas antiguos). Si usas RSA, configura el tamaño de clave.",
+    "step2Title": "Genera el par de claves",
+    "step2Desc": "Haz clic en Generar par de claves. Las claves se crean completamente en tu navegador mediante Web Crypto API — tu clave privada nunca sale de tu dispositivo.",
+    "step3Title": "Copia tu clave pública",
+    "step3Desc": "Copia el contenido de la clave pública. Puedes pegarlo directamente en servidores destino, plataformas Git (GitHub, GitLab, Bitbucket) o proveedores cloud.",
+    "step4Title": "Despliégalo en tu servidor",
+    "step4Desc": "Usa ssh-copy-id -i ~/.ssh/id_ed25519.pub user@host o añade manualmente la clave pública al archivo ~/.ssh/authorized_keys en el servidor destino.",
+    "faqTitle": "Preguntas frecuentes",
+    "faq1Q": "Ed25519 vs RSA: ¿Qué tipo de clave SSH debería usar?",
+    "faq1A": "Ed25519 es la opción recomendada para la mayoría de casos. Ofrece seguridad de 128 bits (equivalente a RSA 3072), produce claves más cortas y genera firmas mucho más rápido. RSA 4096 solo es necesario para compatibilidad con sistemas antiguos que no soportan Ed25519. GitHub, GitLab y todos los proveedores cloud principales soportan Ed25519.",
+    "faq2Q": "¿Necesito una frase de contraseña para mi clave SSH?",
+    "faq2A": "No es obligatoria, pero muy recomendada. Una frase de contraseña cifra tu clave privada en disco. Si tu dispositivo se pierde, es robado o comprometido, la clave privada no puede usarse sin la frase de contraseña. Usa una frase de contraseña de 12+ caracteres.",
+    "faq3Q": "¿Cómo añado mi clave SSH a GitHub?",
+    "faq3A": "Ve a Settings → SSH and GPG keys → New SSH key. Ponle un título descriptivo, pega el contenido completo de tu clave pública (la línea que empieza con ssh-ed25519 o ssh-rsa) y haz clic en Add SSH key. También puedes usar la CLI de GitHub: gh ssh-key add ~/.ssh/id_ed25519.pub.",
+    "faq4Q": "¿Es seguro generar claves SSH en el navegador?",
+    "faq4A": "Sí. Esta herramienta usa la Web Crypto API, que proporciona las mismas primitivas criptográficas que OpenSSL y OpenSSH. La generación de claves ocurre completamente en la memoria del navegador — no se envían datos a ningún servidor. Las claves generadas se pierden al cerrar o recargar la página, así que descárgalas o cópialas antes de salir."
+  }
 }

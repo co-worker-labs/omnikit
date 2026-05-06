@@ -8,7 +8,9 @@
   "passphrasePlaceholder": "Optional (leer lassen für keine Verschlüsselung)",
   "commentPlaceholder": "user@host",
   "generate": "Schlüsselpaar generieren",
-  "generating": "Wird generiert...",
+  "generating": "Wird generiert…",
+  "showPassphrase": "Passphrase anzeigen",
+  "hidePassphrase": "Passphrase ausblenden",
   "privateKey": "Privater Schlüssel",
   "publicKey": "Öffentlicher Schlüssel",
   "fingerprint": "Fingerabdruck",
@@ -26,5 +28,25 @@
   "inspectComment": "Kommentar",
   "inspectInvalid": "Ungültiges Format des öffentlichen Schlüssels. Nur ssh-rsa und ssh-ed25519 werden unterstützt.",
   "privacyNotice": "Die gesamte Schlüsselerstellung erfolgt vollständig in Ihrem Browser. Es werden keine Daten an einen Server gesendet.",
-  "localGenerated": "SSH-Schlüsselpaare werden vollständig in Ihrem Browser mit der Web Crypto API generiert. Ihr privater Schlüssel verlässt niemals Ihr Gerät."
+  "localGenerated": "SSH-Schlüsselpaare werden vollständig in Ihrem Browser mit der Web Crypto API generiert. Ihr privater Schlüssel verlässt niemals Ihr Gerät.",
+  "descriptions": {
+    "stepsTitle": "SSH-Schlüssel erstellen und bereitstellen",
+    "step1Title": "Schlüsseltyp wählen",
+    "step1Desc": "Wählen Sie Ed25519 (empfohlen — sicherer und schneller) oder RSA (bessere Kompatibilität mit älteren Systemen). Bei RSA können Sie die Schlüssellänge festlegen.",
+    "step2Title": "Schlüsselpaar generieren",
+    "step2Desc": "Klicken Sie auf Schlüsselpaar generieren. Die Schlüssel werden vollständig in Ihrem Browser über die Web Crypto API erstellt — Ihr privater Schlüssel verlässt niemals Ihr Gerät.",
+    "step3Title": "Öffentlichen Schlüssel kopieren",
+    "step3Desc": "Kopieren Sie den Inhalt des öffentlichen Schlüssels. Er kann direkt auf Zielserver, Git-Plattformen (GitHub, GitLab, Bitbucket) oder Cloud-Anbieter eingefügt werden.",
+    "step4Title": "Auf dem Server bereitstellen",
+    "step4Desc": "Verwenden Sie ssh-copy-id -i ~/.ssh/id_ed25519.pub user@host oder fügen Sie den öffentlichen Schlüssel manuell zur Datei ~/.ssh/authorized_keys auf dem Zielserver hinzu.",
+    "faqTitle": "Häufig gestellte Fragen",
+    "faq1Q": "Ed25519 vs RSA: Welchen SSH-Schlüsseltyp sollte ich verwenden?",
+    "faq1A": "Ed25519 wird für die meisten Anwendungsfälle empfohlen. Es bietet 128-Bit-Sicherheit (vergleichbar mit RSA 3072), erzeugt kürzere Schlüssel und erstellt Signaturen deutlich schneller. RSA 4096 wird nur für die Kompatibilität mit älteren Systemen benötigt, die Ed25519 nicht unterstützen. GitHub, GitLab und alle großen Cloud-Anbieter unterstützen Ed25519.",
+    "faq2Q": "Brauche ich eine Passphrase für meinen SSH-Schlüssel?",
+    "faq2A": "Nicht zwingend, aber dringend empfohlen. Eine Passphrase verschlüsselt Ihren privaten Schlüssel auf der Festplatte. Wenn Ihr Gerät verloren geht, gestohlen oder kompromittiert wird, kann der private Schlüssel ohne Passphrase nicht verwendet werden. Verwenden Sie eine starke Passphrase mit 12+ Zeichen.",
+    "faq3Q": "Wie füge ich meinen SSH-Schlüssel zu GitHub hinzu?",
+    "faq3A": "Gehen Sie zu Settings → SSH and GPG keys → New SSH key. Geben Sie einen beschreibenden Titel ein, fügen Sie den vollständigen Inhalt Ihres öffentlichen Schlüssels ein (die gesamte Zeile beginnend mit ssh-ed25519 oder ssh-rsa) und klicken Sie auf Add SSH key. Alternativ können Sie die GitHub CLI verwenden: gh ssh-key add ~/.ssh/id_ed25519.pub.",
+    "faq4Q": "Ist es sicher, SSH-Schlüssel im Browser zu generieren?",
+    "faq4A": "Ja. Dieses Tool verwendet die Web Crypto API, die dieselben kryptografischen Primitiven wie OpenSSL und OpenSSH bietet. Die Schlüsselgenerierung erfolgt vollständig im Arbeitsspeicher des Browsers — es werden keine Daten an einen Server gesendet. Generierte Schlüssel gehen beim Schließen oder Neuladen der Seite verloren, also laden Sie sie herunter oder kopieren Sie sie vor dem Verlassen."
+  }
 }
