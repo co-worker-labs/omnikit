@@ -62,7 +62,7 @@ export default function Footer({ position }: { position: FooterPosition }) {
           >
             {t("footer.privacy")}
           </Link>
-          <a
+          {/* <a
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
@@ -70,7 +70,7 @@ export default function Footer({ position }: { position: FooterPosition }) {
             aria-label={t("footer.github")}
           >
             <GithubIcon className="w-4 h-4" />
-          </a>
+          </a> */}
         </nav>
       </div>
     </footer>
