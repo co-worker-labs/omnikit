@@ -1,4 +1,6 @@
 {
+  "inputTitle": "Ввод",
+  "outputTitle": "Вывод",
   "inputPlaceholder": "Вставьте текст сюда...",
   "outputPlaceholder": "Уникальные строки появятся здесь...",
   "stats": "{original} строк → {result} строк (-{removed} дубликатов)",

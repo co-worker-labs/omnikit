@@ -22,15 +22,15 @@ export function dedupLines(input: string, options: DedupOptions): DedupResult {
   const allLines = normalized.split("\n");
   const originalCount = allLines.length;
 
-  let lines = allLines;
-  if (options.removeEmpty) {
-    lines = lines.filter((line) => line.trim() !== "");
-  }
-
   const seen = new Set<string>();
-  const result: string[] = [];
+  const deduped: string[] = [];
 
-  for (const line of lines) {
+  for (const line of allLines) {
+    const isEmpty = line.trim() === "";
+    if (isEmpty) {
+      deduped.push(line);
+      continue;
+    }
     let key = line;
     if (options.trimLines) {
       key = key.trim();
@@ -40,9 +40,11 @@ export function dedupLines(input: string, options: DedupOptions): DedupResult {
     }
     if (!seen.has(key)) {
       seen.add(key);
-      result.push(line);
+      deduped.push(options.trimLines ? line.trim() : line);
     }
   }
+
+  const result = options.removeEmpty ? deduped.filter((line) => line.trim() !== "") : deduped;
 
   const resultCount = result.length;
   return {

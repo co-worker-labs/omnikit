@@ -1,4 +1,6 @@
 {
+  "inputTitle": "Eingabe",
+  "outputTitle": "Ausgabe",
   "inputPlaceholder": "Text hier einfügen...",
   "outputPlaceholder": "Einzelne Zeilen werden hier angezeigt...",
   "stats": "{original} Zeilen → {result} Zeilen (-{removed} Duplikate)",

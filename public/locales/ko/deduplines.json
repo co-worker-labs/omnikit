@@ -1,4 +1,6 @@
 {
+  "inputTitle": "입력",
+  "outputTitle": "출력",
   "inputPlaceholder": "여기에 텍스트를 붙여넣으세요...",
   "outputPlaceholder": "중복 제거된 행이 여기에 표시됩니다...",
   "stats": "{original}행 → {result}행 ({removed}개 중복 제거)",

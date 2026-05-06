@@ -1,4 +1,6 @@
 {
+  "inputTitle": "Entrée",
+  "outputTitle": "Résultat",
   "inputPlaceholder": "Collez votre texte ici...",
   "outputPlaceholder": "Les lignes uniques apparaîtront ici...",
   "stats": "{original} lignes → {result} lignes (-{removed} doublons)",

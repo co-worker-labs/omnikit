@@ -1,4 +1,6 @@
 {
+  "inputTitle": "Input",
+  "outputTitle": "Output",
   "inputPlaceholder": "Paste your text here...",
   "outputPlaceholder": "Unique lines will appear here...",
   "stats": "{original} lines → {result} lines (-{removed} duplicates)",

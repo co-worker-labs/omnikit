@@ -57,10 +57,10 @@ describe("dedupLines", () => {
     expect(result.resultCount).toBe(2);
   });
 
-  it("preserves original text in output even when trimLines=true", () => {
+  it("trims output when trimLines=true", () => {
     const input = "  hello  \nhello";
     const result = dedupLines(input, { ...defaultOptions, trimLines: true });
-    expect(result.output).toBe("  hello  ");
+    expect(result.output).toBe("hello");
   });
 
   it("removes empty lines when removeEmpty=true", () => {
@@ -115,5 +115,21 @@ describe("dedupLines", () => {
     const result = dedupLines(input, { ...defaultOptions, removeEmpty: false, trimLines: false });
     expect(result.output).toBe("apple\nbanana\n");
     expect(result.resultCount).toBe(3);
+  });
+
+  it("keeps all empty lines when removeEmpty=false even with multiple consecutive empty lines", () => {
+    const input = "apple\n\n\nbanana";
+    const result = dedupLines(input, { ...defaultOptions, removeEmpty: false, trimLines: false });
+    expect(result.output).toBe("apple\n\n\nbanana");
+    expect(result.resultCount).toBe(4);
+    expect(result.removedCount).toBe(0);
+  });
+
+  it("deduplicates non-empty lines but preserves all empty lines when removeEmpty=false", () => {
+    const input = "apple\n\napple\nbanana\n\nbanana";
+    const result = dedupLines(input, { ...defaultOptions, removeEmpty: false, trimLines: false });
+    expect(result.output).toBe("apple\n\nbanana\n");
+    expect(result.resultCount).toBe(4);
+    expect(result.removedCount).toBe(2);
   });
 });

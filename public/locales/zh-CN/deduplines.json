@@ -1,4 +1,6 @@
 {
+  "inputTitle": "输入",
+  "outputTitle": "输出",
   "inputPlaceholder": "在此粘贴文本...",
   "outputPlaceholder": "去重后的行将显示在这里...",
   "stats": "{original} 行 → {result} 行（移除 {removed} 个重复行）",

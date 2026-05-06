@@ -37,6 +37,7 @@ const namespaces = [
   "image",
   "extractor",
   "wordcounter",
+  "deduplines",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {

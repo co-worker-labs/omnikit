@@ -1,4 +1,6 @@
 {
+  "inputTitle": "入力",
+  "outputTitle": "出力",
   "inputPlaceholder": "テキストをここに貼り付け...",
   "outputPlaceholder": "重複除去後の行がここに表示されます...",
   "stats": "{original} 行 → {result} 行（{removed} 件の重複を除去）",

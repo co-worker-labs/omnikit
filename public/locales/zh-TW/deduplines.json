@@ -1,4 +1,6 @@
 {
+  "inputTitle": "輸入",
+  "outputTitle": "輸出",
   "inputPlaceholder": "在此貼上文字...",
   "outputPlaceholder": "去重後的行將顯示在這裡...",
   "stats": "{original} 行 → {result} 行（移除 {removed} 個重複行）",
