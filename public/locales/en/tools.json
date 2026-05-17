@@ -230,6 +230,11 @@
     "shortTitle": "PDF Merger",
     "description": "Merge multiple PDF files into a single document. Drag-and-drop reorder, thumbnail preview, and instant download. All processing runs in your browser."
   },
+  "pdf-split": {
+    "title": "PDF Split - Split PDF into Pages or Ranges",
+    "shortTitle": "PDF Split",
+    "description": "Split a PDF into separate pages, custom ranges, or hand-picked selections. Thumbnail preview, ZIP download. All processing runs in your browser."
+  },
   "image-watermark": {
     "title": "Image Watermark - Add Text or Logo Watermark",
     "shortTitle": "Image Watermark",

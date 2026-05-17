@@ -17,6 +17,7 @@ export default defineConfig({
       "libs/extractor/**/*.test.ts",
       "libs/password/**/*.test.ts",
       "libs/pdf-merge/**/*.test.ts",
+      "libs/pdf-split/**/*.test.ts",
       "libs/wordcounter/**/*.test.ts",
       "libs/token-counter/**/*.test.ts",
       "libs/sshkey/**/*.test.ts",

@@ -230,6 +230,11 @@
     "shortTitle": "PDF Zusammenführen",
     "description": "Führen Sie mehrere PDF-Dateien zu einem Dokument zusammen. Drag-and-Drop-Sortierung, Vorschaubilder und sofortiger Download. Die gesamte Verarbeitung läuft in Ihrem Browser."
   },
+  "pdf-split": {
+    "title": "PDF Aufteilen - PDF nach Seiten oder Bereichen aufteilen",
+    "shortTitle": "PDF Aufteilen",
+    "description": "Teilen Sie ein PDF in einzelne Seiten, benutzerdefinierte Bereiche oder Handauswahl auf. Vorschaubilder, ZIP-Download. Die gesamte Verarbeitung läuft in Ihrem Browser."
+  },
   "image-watermark": {
     "title": "Bildwasserzeichen - Text oder Logo hinzufügen",
     "shortTitle": "Wasserzeichen",

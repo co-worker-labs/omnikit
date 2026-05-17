@@ -276,6 +276,12 @@
     "description": "複数の PDF ファイルを1つのドキュメントに結合。ドラッグ＆ドロップで並べ替え、サムネイルプレビュー、即座にダウンロード。すべての処理はブラウザで実行されます。",
     "searchTerms": "pdfgattai pdfgt gattai pdf bunnsyo"
   },
+  "pdf-split": {
+    "title": "PDF 分割ツール - PDF をページまたは範囲ごとに分割",
+    "shortTitle": "PDF 分割",
+    "description": "PDF を個別ページ、カスタム範囲、または手動選択で分割。サムネイルプレビュー、ZIP ダウンロード。すべての処理はブラウザで実行されます。",
+    "searchTerms": "pdfbunkatsu pdfbs bunkatsu pdf"
+  },
   "image-watermark": {
     "title": "画像ウォーターマーク - テキスト・ロゴ透かし追加",
     "shortTitle": "画像ウォーターマーク",

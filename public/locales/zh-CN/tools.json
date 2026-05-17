@@ -276,6 +276,12 @@
     "description": "将多个 PDF 文件合并为一个文档。支持拖拽排序、缩略图预览、即时下载。所有处理在浏览器本地完成。",
     "searchTerms": "pdfhebing pdfhb hebing pdf wenjian"
   },
+  "pdf-split": {
+    "title": "PDF 拆分工具 - 在线拆分 PDF 页面或范围",
+    "shortTitle": "PDF 拆分",
+    "description": "将 PDF 拆分为单独页面、自定义范围或手动选择。缩略图预览、ZIP 下载。所有处理在浏览器本地完成。",
+    "searchTerms": "pdfchaifen pdfcf chaifen fenye chaiye"
+  },
   "image-watermark": {
     "title": "图片水印 - 添加文字或 Logo 水印",
     "shortTitle": "图片水印",

@@ -230,6 +230,11 @@
     "shortTitle": "Mesclar PDF",
     "description": "Mescle vários arquivos PDF em um único documento. Reordenação por arrastar e soltar, pré-visualização de miniaturas e download instantâneo. Todo o processamento é feito no seu navegador."
   },
+  "pdf-split": {
+    "title": "Dividir PDF - Separar PDF por Páginas ou Intervalos",
+    "shortTitle": "Dividir PDF",
+    "description": "Divida um PDF em páginas individuais, intervalos personalizados ou seleções manuais. Pré-visualização de miniaturas, download em ZIP. Todo o processamento é feito no seu navegador."
+  },
   "image-watermark": {
     "title": "Marca d'Água - Adicionar Texto ou Logo",
     "shortTitle": "Marca d'Água",

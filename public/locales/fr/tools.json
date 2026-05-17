@@ -230,6 +230,11 @@
     "shortTitle": "Fusionner PDF",
     "description": "Fusionnez plusieurs fichiers PDF en un seul document. Réorganisation par glisser-déposer, aperçu des miniatures et téléchargement instantané. Tout le traitement s'exécute dans votre navigateur."
   },
+  "pdf-split": {
+    "title": "Découper PDF - Séparer un PDF par pages ou plages",
+    "shortTitle": "Découper PDF",
+    "description": "Découpez un PDF en pages individuelles, plages personnalisées ou sélections manuelles. Aperçu des miniatures, téléchargement ZIP. Tout le traitement s'exécute dans votre navigateur."
+  },
   "image-watermark": {
     "title": "Filigrane - Ajouter un Texte ou Logo sur Image",
     "shortTitle": "Filigrane",

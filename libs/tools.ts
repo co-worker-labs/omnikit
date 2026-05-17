@@ -44,6 +44,7 @@ import {
   Network,
   FlaskConical,
   Layers,
+  Scissors,
   FileStack,
   Droplets,
 } from "lucide-react";
@@ -134,6 +135,7 @@ export const TOOL_CATEGORIES: CategoryGroup[] = [
       "image-crop",
       "image-rotate",
       "pdf-merge",
+      "pdf-split",
     ],
   },
   {
@@ -202,6 +204,7 @@ export const TOOL_RELATIONS: Record<string, string[]> = {
     "image-crop",
     "image-rotate",
     "pdf-merge",
+    "pdf-split",
     "image-watermark",
   ],
   "image-convert": [
@@ -210,6 +213,7 @@ export const TOOL_RELATIONS: Record<string, string[]> = {
     "image-crop",
     "image-rotate",
     "pdf-merge",
+    "pdf-split",
     "image-watermark",
   ],
   "image-rotate": [
@@ -238,7 +242,8 @@ export const TOOL_RELATIONS: Record<string, string[]> = {
   subnet: ["numbase", "httpstatus", "ascii"],
   recipe: ["json", "base64", "hashing"],
   batch: ["recipe", "hashing", "base64", "image-resize", "image-compress"],
-  "pdf-merge": ["image-compress", "image-convert", "checksum"],
+  "pdf-merge": ["pdf-split", "image-compress", "image-convert", "checksum"],
+  "pdf-split": ["pdf-merge", "image-compress", "image-convert"],
 };
 
 const PALETTE_SIZE = 20;
@@ -496,6 +501,13 @@ export const TOOLS: ToolEntry[] = [
       "https://en.wikipedia.org/wiki/PDF",
       "https://developer.mozilla.org/en-US/docs/Glossary/PDF",
     ],
+  },
+  {
+    key: "pdf-split",
+    path: "/pdf-split",
+    icon: Scissors,
+    emoji: "✂️",
+    sameAs: ["https://www.adobe.com/acrobat/online/split-pdf.html"],
   },
   {
     key: "image-watermark",

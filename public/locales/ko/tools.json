@@ -276,6 +276,12 @@
     "description": "여러 PDF 파일을 하나의 문서로 병합합니다. 드래그 앤 드롭으로 순서 변경, 썸네일 미리보기, 즉시 다운로드. 모든 처리는 브라우저에서 실행됩니다.",
     "searchTerms": "pdfhapche pdfhc hapche pdf moonseo"
   },
+  "pdf-split": {
+    "title": "PDF 분할 도구 - PDF를 페이지 또는 범위별로 분할",
+    "shortTitle": "PDF 분할",
+    "description": "PDF를 개별 페이지, 사용자 정의 범위 또는 수동 선택으로 분할합니다. 썸네일 미리보기, ZIP 다운로드. 모든 처리는 브라우저에서 실행됩니다.",
+    "searchTerms": "pdfbunhal pdfbh bunhal pdf"
+  },
   "image-watermark": {
     "title": "이미지 워터마크 - 텍스트 또는 로고 워터마크 추가",
     "shortTitle": "이미지 워터마크",
