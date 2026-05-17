@@ -30,6 +30,12 @@
   "encryptedPdf": "此 PDF 已加密，可能無法正確拆分",
   "corruptedPdf": "此 PDF 檔案已損毀，無法讀取",
   "splitFailed": "拆分失敗，請檢查 PDF 檔案後重試。",
+  "groupLabel": "分組 {num}",
+  "pageSingular": "頁",
+  "pagePlural": "頁",
+  "activeGroup": "目前",
+  "removeGroup": "刪除分組",
+  "emptyGroup": "點選上方頁面縮圖加入此分組",
   "descriptions": {
     "title": "關於 PDF 拆分工具",
     "aeoDefinition": "PDF 拆分工具是一款免費的線上工具，可將 PDF 拆分為單獨頁面、自訂範圍或手動選擇。縮圖預覽、單獨或批次下載。所有處理均在瀏覽器本機完成。",

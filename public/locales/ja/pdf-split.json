@@ -30,6 +30,12 @@
   "encryptedPdf": "この PDF は暗号化されており、正しく分割できない場合があります",
   "corruptedPdf": "この PDF ファイルは破損しており、読み取れません",
   "splitFailed": "分割に失敗しました。PDF ファイルを確認して再試行してください。",
+  "groupLabel": "グループ {num}",
+  "pageSingular": "ページ",
+  "pagePlural": "ページ",
+  "activeGroup": "選択中",
+  "removeGroup": "グループを削除",
+  "emptyGroup": "上のページサムネイルをクリックして追加",
   "descriptions": {
     "title": "PDF 分割ツールについて",
     "aeoDefinition": "PDF 分割ツールは、PDF ファイルを個別ページ、カスタム範囲、または手動選択で分割する無料のオンラインツールです。サムネイルプレビュー、個別または ZIP ダウンロード。すべての処理はブラウザ内でローカルに実行されます。",

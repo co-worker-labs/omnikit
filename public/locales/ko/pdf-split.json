@@ -30,6 +30,12 @@
   "encryptedPdf": "이 PDF는 암호화되어 올바르게 분할되지 않을 수 있습니다",
   "corruptedPdf": "이 PDF 파일이 손상되어 읽을 수 없습니다",
   "splitFailed": "분할에 실패했습니다. PDF 파일을 확인하고 다시 시도하세요.",
+  "groupLabel": "그룹 {num}",
+  "pageSingular": "페이지",
+  "pagePlural": "페이지",
+  "activeGroup": "선택됨",
+  "removeGroup": "그룹 삭제",
+  "emptyGroup": "위의 페이지 썸네일을 클릭하여 추가",
   "descriptions": {
     "title": "PDF 분할 도구 소개",
     "aeoDefinition": "PDF 분할 도구는 PDF 파일을 개별 페이지, 사용자 정의 범위 또는 수동 선택으로 분할하는 무료 온라인 도구입니다. 썸네일 미리보기, 개별 또는 ZIP 다운로드. 모든 처리는 브라우저에서 로컬로 실행됩니다.",

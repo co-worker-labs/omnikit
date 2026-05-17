@@ -30,6 +30,12 @@
   "encryptedPdf": "This PDF is encrypted and may not split correctly",
   "corruptedPdf": "This PDF file is corrupted and cannot be read",
   "splitFailed": "Split failed. Please check your PDF file and try again.",
+  "groupLabel": "Group {num}",
+  "pageSingular": "page",
+  "pagePlural": "pages",
+  "activeGroup": "Active",
+  "removeGroup": "Remove Group",
+  "emptyGroup": "Click pages above to add them to this group",
   "descriptions": {
     "title": "About PDF Splitter",
     "aeoDefinition": "PDF Splitter is a free online tool for splitting PDF files into separate pages, custom page ranges, or hand-picked selections. Preview thumbnails, download individually or as ZIP. All processing runs locally in your browser.",

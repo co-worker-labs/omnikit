@@ -30,6 +30,12 @@
   "encryptedPdf": "Este PDF está cifrado y puede no dividirse correctamente",
   "corruptedPdf": "Este archivo PDF está dañado y no se puede leer",
   "splitFailed": "Error al dividir. Comprueba tu archivo PDF e inténtalo de nuevo.",
+  "groupLabel": "Grupo {num}",
+  "pageSingular": "página",
+  "pagePlural": "páginas",
+  "activeGroup": "Activo",
+  "removeGroup": "Eliminar grupo",
+  "emptyGroup": "Haz clic en las miniaturas de arriba para añadir páginas",
   "descriptions": {
     "title": "Sobre Dividir PDF",
     "aeoDefinition": "Dividir PDF es una herramienta online gratuita para dividir archivos PDF en páginas individuales, rangos personalizados o selecciones manuales. Vista previa de miniaturas, descarga individual o en ZIP. Todo el procesamiento se ejecuta localmente en tu navegador.",

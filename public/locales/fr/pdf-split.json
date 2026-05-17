@@ -30,6 +30,12 @@
   "encryptedPdf": "Ce PDF est chiffré et peut ne pas être découpé correctement",
   "corruptedPdf": "Ce fichier PDF est corrompu et ne peut pas être lu",
   "splitFailed": "Échec du découpage. Vérifiez votre fichier PDF et réessayez.",
+  "groupLabel": "Groupe {num}",
+  "pageSingular": "page",
+  "pagePlural": "pages",
+  "activeGroup": "Actif",
+  "removeGroup": "Supprimer le groupe",
+  "emptyGroup": "Cliquez sur les miniatures ci-dessus pour ajouter des pages",
   "descriptions": {
     "title": "À propos de Découper PDF",
     "aeoDefinition": "Découper PDF est un outil en ligne gratuit pour découper des fichiers PDF en pages individuelles, plages personnalisées ou sélections manuelles. Aperçu des miniatures, téléchargement individuel ou en ZIP. Tout le traitement s'exécute localement dans votre navigateur.",

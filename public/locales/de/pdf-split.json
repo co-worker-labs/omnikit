@@ -30,6 +30,12 @@
   "encryptedPdf": "Dieses PDF ist verschlüsselt und wird möglicherweise nicht korrekt aufgeteilt",
   "corruptedPdf": "Diese PDF-Datei ist beschädigt und kann nicht gelesen werden",
   "splitFailed": "Aufteilung fehlgeschlagen. Überprüfen Sie Ihre PDF-Datei und versuchen Sie es erneut.",
+  "groupLabel": "Gruppe {num}",
+  "pageSingular": "Seite",
+  "pagePlural": "Seiten",
+  "activeGroup": "Aktiv",
+  "removeGroup": "Gruppe entfernen",
+  "emptyGroup": "Klicken Sie auf die Vorschaubilder oben, um Seiten hinzuzufügen",
   "descriptions": {
     "title": "Über PDF Aufteilen",
     "aeoDefinition": "PDF Aufteilen ist ein kostenloses Online-Tool zum Aufteilen von PDF-Dateien in einzelne Seiten, benutzerdefinierte Bereiche oder Handauswahl. Vorschaubilder, einzelner oder ZIP-Download. Die gesamte Verarbeitung läuft lokal in Ihrem Browser.",

@@ -55,6 +55,7 @@ const namespaces = [
   "recipe",
   "batch",
   "pdf-merge",
+  "pdf-split",
   "image-watermark",
 ];
 

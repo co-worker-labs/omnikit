@@ -23,6 +23,22 @@ import { zipSync } from "fflate";
 
 const THUMBNAIL_CONCURRENCY = 3;
 
+const GROUP_COLORS = [
+  { bg: "bg-cyan-500", border: "border-cyan-500", text: "text-cyan-500", label: "Cyan" },
+  { bg: "bg-violet-500", border: "border-violet-500", text: "text-violet-500", label: "Violet" },
+  { bg: "bg-amber-500", border: "border-amber-500", text: "text-amber-500", label: "Amber" },
+  { bg: "bg-rose-500", border: "border-rose-500", text: "text-rose-500", label: "Rose" },
+  {
+    bg: "bg-emerald-500",
+    border: "border-emerald-500",
+    text: "text-emerald-500",
+    label: "Emerald",
+  },
+  { bg: "bg-blue-500", border: "border-blue-500", text: "text-blue-500", label: "Blue" },
+  { bg: "bg-orange-500", border: "border-orange-500", text: "text-orange-500", label: "Orange" },
+  { bg: "bg-pink-500", border: "border-pink-500", text: "text-pink-500", label: "Pink" },
+];
+
 function downloadFile(file: SplitResult) {
   const blob = new Blob([new Uint8Array(file.bytes)], { type: "application/pdf" });
   const url = URL.createObjectURL(blob);
@@ -98,6 +114,7 @@ function Conversion() {
   const [ranges, setRanges] = useState<{ from: number; to: number }[]>([{ from: 1, to: 1 }]);
   const [selectedPages, setSelectedPages] = useState<Set<number>>(new Set());
   const [groups, setGroups] = useState<number[][]>([[]]);
+  const [activeGroupIndex, setActiveGroupIndex] = useState(0);
 
   // Processing
   const [processing, setProcessing] = useState(false);
@@ -166,6 +183,7 @@ function Conversion() {
       setRanges([{ from: 1, to: count }]);
       setSelectedPages(new Set());
       setGroups([[]]);
+      setActiveGroupIndex(0);
       setResults([]);
       setError(null);
       setThumbnails(new Map());
@@ -212,6 +230,19 @@ function Conversion() {
 
   // Select pages helpers
   function togglePage(pageIndex: number) {
+    setGroups((prevGroups) => {
+      const updated = prevGroups.map((g) => [...g]);
+      const inActive = updated[activeGroupIndex]?.includes(pageIndex);
+      if (inActive) {
+        updated[activeGroupIndex] = updated[activeGroupIndex].filter((p) => p !== pageIndex);
+      } else {
+        for (let i = 0; i < updated.length; i++) {
+          updated[i] = updated[i].filter((p) => p !== pageIndex);
+        }
+        updated[activeGroupIndex] = [...updated[activeGroupIndex], pageIndex].sort((a, b) => a - b);
+      }
+      return updated;
+    });
     setSelectedPages((prev) => {
       const next = new Set(prev);
       if (next.has(pageIndex)) {
@@ -221,59 +252,50 @@ function Conversion() {
       }
       return next;
     });
-    // Auto-sync to groups: group 0 = all selected pages
-    setGroups((prevGroups) => {
-      const selected = new Set(selectedPages);
-      if (selected.has(pageIndex)) {
-        selected.delete(pageIndex);
-      } else {
-        selected.add(pageIndex);
-      }
-      const newGroups = [...prevGroups];
-      newGroups[0] = Array.from(selected).sort((a, b) => a - b);
-      return newGroups;
-    });
   }
 
   function selectAll() {
     const all = Array.from({ length: pageCount }, (_, i) => i);
     setSelectedPages(new Set(all));
     setGroups((prev) => {
-      const updated = [...prev];
-      updated[0] = all;
+      const updated = prev.map((g) => [...g]);
+      updated[activeGroupIndex] = all;
       return updated;
     });
   }
 
   function deselectAll() {
     setSelectedPages(new Set());
-    setGroups((prev) => {
-      const updated = [...prev];
-      updated[0] = [];
-      return updated;
-    });
+    setGroups((prev) => prev.map((g) => []));
   }
 
   function addGroup() {
     setGroups((prev) => [...prev, []]);
+    setActiveGroupIndex(groups.length);
   }
 
   function removeGroup(index: number) {
     if (groups.length <= 1) return;
     setGroups((prev) => prev.filter((_, i) => i !== index));
+    if (activeGroupIndex >= groups.length - 1) {
+      setActiveGroupIndex(Math.max(0, groups.length - 2));
+    }
   }
 
-  function assignPageToGroup(pageIndex: number, groupIndex: number) {
+  function removePageFromGroup(pageIndex: number, groupIndex: number) {
     setGroups((prev) => {
-      const updated = prev.map((g) => g.filter((p) => p !== pageIndex));
-      updated[groupIndex] = [...updated[groupIndex], pageIndex].sort((a, b) => a - b);
+      const updated = prev.map((g) => [...g]);
+      updated[groupIndex] = updated[groupIndex].filter((p) => p !== pageIndex);
       return updated;
     });
-    setSelectedPages((prev) => {
-      const next = new Set(prev);
-      next.add(pageIndex);
-      return next;
-    });
+    const stillAssigned = groups.some((g, i) => i !== groupIndex && g.includes(pageIndex));
+    if (!stillAssigned) {
+      setSelectedPages((prev) => {
+        const next = new Set(prev);
+        next.delete(pageIndex);
+        return next;
+      });
+    }
   }
 
   // Build split options from current state
@@ -328,6 +350,7 @@ function Conversion() {
     setRanges([{ from: 1, to: 1 }]);
     setSelectedPages(new Set());
     setGroups([[]]);
+    setActiveGroupIndex(0);
     setResults([]);
     setError(null);
     setProgress(null);
@@ -444,6 +467,10 @@ function Conversion() {
           const isSelected = selectedPages.has(i);
           const inRange =
             mode === "by-range" && ranges.some((r) => i >= r.from - 1 && i <= r.to - 1);
+          const assignedGroup =
+            mode === "select-pages" ? groups.findIndex((g) => g.includes(i)) : -1;
+          const groupColor =
+            assignedGroup >= 0 ? GROUP_COLORS[assignedGroup % GROUP_COLORS.length] : null;
 
           return (
             /* eslint-disable-next-line jsx-a11y/no-static-element-interactions -- thumbnail page selection */
@@ -453,11 +480,15 @@ function Conversion() {
                 if (mode === "select-pages") togglePage(i);
               }}
               onKeyDown={() => {}}
-              className={`relative rounded-lg border overflow-hidden cursor-pointer transition-all ${
-                isSelected || inRange
-                  ? "border-accent-cyan ring-2 ring-accent-cyan/30"
-                  : "border-border-default hover:border-accent-cyan/50"
-              } ${mode === "select-pages" ? "" : "cursor-default"}`}
+              className={`relative rounded-lg border overflow-hidden transition-all ${
+                mode === "select-pages" ? "cursor-pointer" : "cursor-default"
+              } ${
+                mode === "select-pages" && groupColor
+                  ? `${groupColor.border} ring-2 ring-current/30 ${groupColor.text}`
+                  : isSelected || inRange
+                    ? "border-accent-cyan ring-2 ring-accent-cyan/30"
+                    : "border-border-default hover:border-accent-cyan/50"
+              }`}
             >
               <div className="aspect-[3/4] bg-bg-input flex items-center justify-center">
                 {thumbnails.has(i) ? (
@@ -472,9 +503,16 @@ function Conversion() {
                 )}
               </div>
               <div className="px-2 py-1 text-xs text-fg-muted text-center truncate">{i + 1}</div>
-              {mode === "select-pages" && isSelected && (
-                <div className="absolute top-1 right-1 w-5 h-5 rounded-full bg-accent-cyan text-bg-base flex items-center justify-center text-xs font-bold">
-                  ✓
+              {mode === "select-pages" && groupColor && (
+                <div
+                  className={`absolute top-1 right-1 w-5 h-5 rounded-full ${groupColor.bg} text-white flex items-center justify-center text-xs font-bold`}
+                >
+                  {assignedGroup + 1}
+                </div>
+              )}
+              {mode === "select-pages" && !groupColor && isSelected && (
+                <div className="absolute top-1 right-1 w-5 h-5 rounded-full bg-fg-muted/30 text-fg-primary flex items-center justify-center text-xs font-bold">
+                  ?
                 </div>
               )}
             </div>
@@ -527,17 +565,113 @@ function Conversion() {
       )}
 
       {mode === "select-pages" && (
-        <div className="flex gap-2 mb-4">
-          <Button variant="outline" size="sm" onClick={selectAll}>
-            {t("selectAll")}
-          </Button>
-          <Button variant="outline" size="sm" onClick={deselectAll}>
-            {t("deselectAll")}
-          </Button>
-          <Button variant="outline" size="sm" onClick={addGroup}>
-            <Plus size={14} className="me-1" />
-            {t("newGroup")}
-          </Button>
+        <div className="mb-4">
+          <div className="flex gap-2 mb-3">
+            <Button variant="outline" size="sm" onClick={selectAll}>
+              {t("selectAll")}
+            </Button>
+            <Button variant="outline" size="sm" onClick={deselectAll}>
+              {t("deselectAll")}
+            </Button>
+            <Button variant="outline" size="sm" onClick={addGroup}>
+              <Plus size={14} className="me-1" />
+              {t("newGroup")}
+            </Button>
+          </div>
+
+          <div className="space-y-2">
+            {groups.map((groupPages, gi) => {
+              const color = GROUP_COLORS[gi % GROUP_COLORS.length];
+              const isActive = gi === activeGroupIndex;
+              return (
+                <div
+                  key={gi}
+                  role="button"
+                  tabIndex={0}
+                  onClick={() => setActiveGroupIndex(gi)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") setActiveGroupIndex(gi);
+                  }}
+                  className={`rounded-lg border p-3 cursor-pointer transition-all ${
+                    isActive
+                      ? `${color.border} border-2 ${color.text} bg-bg-surface`
+                      : "border-border-default bg-bg-surface hover:border-border-subtle"
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <span className={`inline-block w-3 h-3 rounded-full ${color.bg}`} />
+                      <span className="text-sm font-medium text-fg-primary">
+                        {t("groupLabel", { num: gi + 1 })}
+                      </span>
+                      <span className="text-xs text-fg-muted">
+                        ({groupPages.length}{" "}
+                        {groupPages.length === 1 ? t("pageSingular") : t("pagePlural")})
+                      </span>
+                      {isActive && (
+                        <span className="text-xs px-1.5 py-0.5 rounded bg-accent-cyan/15 text-accent-cyan font-medium">
+                          {t("activeGroup")}
+                        </span>
+                      )}
+                    </div>
+                    {groups.length > 1 && (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          removeGroup(gi);
+                        }}
+                        className="text-fg-muted hover:text-danger transition-colors p-1"
+                        title={t("removeGroup")}
+                      >
+                        <X size={14} />
+                      </button>
+                    )}
+                  </div>
+                  {groupPages.length > 0 ? (
+                    <div className="flex flex-wrap gap-1.5">
+                      {groupPages.map((pi) => {
+                        const thumbUrl = thumbnails.get(pi);
+                        return (
+                          <div
+                            key={pi}
+                            className="relative group/thumb rounded border border-border-default overflow-hidden"
+                            style={{ width: 40, height: 52 }}
+                          >
+                            {thumbUrl ? (
+                              /* eslint-disable-next-line @next/next/no-img-element */
+                              <img
+                                src={thumbUrl}
+                                alt={t("page", { num: pi + 1 })}
+                                className="w-full h-full object-cover"
+                              />
+                            ) : (
+                              <div className="w-full h-full bg-bg-input" />
+                            )}
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                removePageFromGroup(pi, gi);
+                              }}
+                              className="absolute inset-0 flex items-center justify-center bg-bg-base/70 opacity-0 group-hover/thumb:opacity-100 transition-opacity"
+                            >
+                              <X size={12} className="text-danger" />
+                            </button>
+                            <span className="absolute bottom-0 left-0 right-0 text-center text-[9px] text-fg-muted bg-bg-base/80">
+                              {pi + 1}
+                            </span>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <p className="text-xs text-fg-muted italic">{t("emptyGroup")}</p>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       )}
 
