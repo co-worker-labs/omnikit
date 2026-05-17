@@ -245,6 +245,10 @@
     "shortTitle": "Wasserzeichen",
     "description": "Fügen Sie Text- oder Logo-Wasserzeichen zu Bildern hinzu. Passen Sie Position, Deckkraft, Drehung und Kachelung an. Unterstützt PNG, JPG, WebP. Die gesamte Verarbeitung erfolgt in Ihrem Browser."
   },
+  "pdf-watermark": {
+    "shortTitle": "PDF-Wasserzeichen",
+    "description": "Fügen Sie Text- oder Bildwasserzeichen zu PDF-Dateien hinzu. Passen Sie Schriftart, Farbe, Deckkraft, Drehung und Kachelung an."
+  },
   "categories": {
     "text": "Textverarbeitung",
     "encoding": "Kodierung & Konvertierung",

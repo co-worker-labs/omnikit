@@ -294,6 +294,11 @@
     "description": "이미지에 텍스트 또는 로고 워터마크를 추가합니다. 위치, 투명도, 회전, 타일 배치를 맞춤 설정. PNG, JPG, WebP 지원. 모든 처리는 브라우저에서 실행됩니다.",
     "searchTerms": "imijiwoteomakeu ijwtk sutakka ugin rogo"
   },
+  "pdf-watermark": {
+    "shortTitle": "PDF 워터마크",
+    "searchTerms": "pdfwoteomakeu pdfwtm mulleuteu jeojakken",
+    "description": "PDF 파일에 텍스트 또는 이미지 워터마크를 추가합니다. 글꼴, 색상, 불투명도, 회전, 타일링을 사용자 정의할 수 있습니다."
+  },
   "categories": {
     "text": "텍스트 처리",
     "encoding": "인코딩 & 변환",

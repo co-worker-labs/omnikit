@@ -245,6 +245,10 @@
     "shortTitle": "Filigrane",
     "description": "Ajoutez des filigranes texte ou logo sur vos images. Personnalisez position, opacité, rotation et motif en mosaïque. Supporte PNG, JPG, WebP. Tout le traitement s'exécute dans votre navigateur."
   },
+  "pdf-watermark": {
+    "shortTitle": "Filigrane PDF",
+    "description": "Ajoutez des filigranes texte ou image aux fichiers PDF. Personnalisez la police, la couleur, l'opacité, la rotation et le pavage."
+  },
   "categories": {
     "text": "Traitement de texte",
     "encoding": "Encodage et conversion",

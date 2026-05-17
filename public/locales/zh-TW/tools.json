@@ -294,6 +294,11 @@
     "description": "為圖片新增文字或 Logo 浮水印，自訂位置、透明度、旋轉和拼貼。支援 PNG、JPG、WebP。所有處理在瀏覽器本機完成。",
     "searchTerms": "tupianfushuiyin tpfyy fushuiyin yinji banquan"
   },
+  "pdf-watermark": {
+    "shortTitle": "PDF 浮水印",
+    "searchTerms": "pdffuyin pdfsy fuyin yinji banquan",
+    "description": "為 PDF 檔案添加文字或圖片浮水印。自訂字型、顏色、透明度、旋轉角度和平鋪方式。"
+  },
   "categories": {
     "text": "文本處理",
     "encoding": "編碼轉換",

@@ -294,6 +294,11 @@
     "description": "画像にテキストまたはロゴのウォーターマークを追加。位置、透明度、回転、タイル配置をカスタマイズ。PNG、JPG、WebP対応。全ての処理はブラウザで実行。",
     "searchTerms": "gazouotamaku gotmk mizushi shomei rogo"
   },
+  "pdf-watermark": {
+    "shortTitle": "PDF 透かし",
+    "searchTerms": "pdfsukaisi pdfsks mizuashi shirushi chosakuken",
+    "description": "PDFファイルにテキストまたは画像の透かしを追加。フォント、色、不透明度、回転、タイル表示をカスタマイズ。"
+  },
   "categories": {
     "text": "テキスト処理",
     "encoding": "エンコード・変換",

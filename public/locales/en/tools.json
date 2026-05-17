@@ -245,6 +245,11 @@
     "shortTitle": "Image Watermark",
     "description": "Add text or logo watermarks to images. Customize position, opacity, rotation, and tiling. Supports PNG, JPG, WebP. All processing runs in your browser."
   },
+  "pdf-watermark": {
+    "title": "PDF Watermark - Add Text & Image Watermarks to PDF",
+    "shortTitle": "PDF Watermark",
+    "description": "Add text or image watermarks to PDF files. Customize font, color, opacity, rotation, and tiling. All processing runs in your browser."
+  },
   "categories": {
     "text": "Text Processing",
     "encoding": "Encoding & Conversion",

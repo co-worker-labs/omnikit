@@ -47,6 +47,7 @@ import {
   Scissors,
   FileStack,
   Droplets,
+  Stamp,
 } from "lucide-react";
 
 export interface ToolCard {
@@ -137,6 +138,7 @@ export const TOOL_CATEGORIES: CategoryGroup[] = [
       "pdf-merge",
       "pdf-split",
       "pdf-compress",
+      "pdf-watermark",
     ],
   },
   {
@@ -233,6 +235,7 @@ export const TOOL_RELATIONS: Record<string, string[]> = {
     "image-crop",
     "image-rotate",
     "color",
+    "pdf-watermark",
   ],
   htmlcode: ["ascii", "httpstatus", "markdown"],
   ascii: ["htmlcode", "numbase", "httpstatus", "subnet"],
@@ -245,9 +248,17 @@ export const TOOL_RELATIONS: Record<string, string[]> = {
   subnet: ["numbase", "httpstatus", "ascii"],
   recipe: ["json", "base64", "hashing"],
   batch: ["recipe", "hashing", "base64", "image-resize", "image-compress"],
-  "pdf-merge": ["pdf-split", "pdf-compress", "image-compress", "image-convert", "checksum"],
+  "pdf-merge": [
+    "pdf-split",
+    "pdf-compress",
+    "image-compress",
+    "image-convert",
+    "checksum",
+    "pdf-watermark",
+  ],
   "pdf-split": ["pdf-merge", "image-compress", "image-convert"],
   "pdf-compress": ["pdf-merge", "image-compress", "checksum"],
+  "pdf-watermark": ["image-watermark", "pdf-merge", "image-compress", "image-convert", "color"],
 };
 
 const PALETTE_SIZE = 20;
@@ -529,6 +540,13 @@ export const TOOLS: ToolEntry[] = [
     icon: Droplets,
     emoji: "💧",
     sameAs: [],
+  },
+  {
+    key: "pdf-watermark",
+    path: "/pdf-watermark",
+    icon: Stamp,
+    emoji: "🔏",
+    sameAs: ["https://en.wikipedia.org/wiki/Watermark"],
   },
 ];
 
