@@ -292,6 +292,7 @@ function ThumbnailList({
 
   const virtualize = images.length > VIRTUALIZATION_THRESHOLD;
 
+  // eslint-disable-next-line react-hooks/incompatible-library -- TanStack Virtual's useVirtualizer returns functions that cannot be auto-memoized by React Compiler
   const virtualizer = useVirtualizer({
     count: virtualize ? images.length : 0,
     getScrollElement: () => listRef.current,
