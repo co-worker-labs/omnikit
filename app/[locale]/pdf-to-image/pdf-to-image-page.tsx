@@ -330,54 +330,57 @@ function Conversion() {
   if (results.length > 0) {
     const totalSize = results.reduce((sum, r) => sum + r.blob.size, 0);
     return (
-      <section className="mt-4">
+      <section className="mt-4 flex flex-col gap-4">
         <div className="rounded-xl border border-accent-cyan/30 bg-accent-cyan-dim/10 p-6 text-center">
           <div className="text-2xl mb-2">✅</div>
           <p className="text-fg-primary font-semibold text-lg mb-2">{t("convertSuccess")}</p>
-          <p className="text-fg-secondary text-sm mb-6">
+          <p className="text-fg-secondary text-sm">
             {t("totalPages", { count: results.length })} —{" "}
             {t("totalSize", { size: formatBytes(totalSize) })}
           </p>
+        </div>
 
-          <div className="space-y-2 max-w-lg mx-auto text-left">
-            {results.map((result, i) => {
-              const ext = FORMAT_EXTENSIONS[format];
-              const filename = `page_${i + 1}${ext}`;
-              return (
-                <div
-                  key={i}
-                  className="flex items-center justify-between gap-3 rounded-lg border border-border-default bg-bg-surface p-3"
-                >
-                  <div className="flex-1 min-w-0">
-                    <p className="text-sm font-medium text-fg-primary truncate">{filename}</p>
-                    <p className="text-xs text-fg-muted">
-                      {t("dimensions", { width: result.width, height: result.height })} —{" "}
-                      {formatBytes(result.blob.size)}
-                    </p>
-                  </div>
-                  <Button
-                    variant="outline"
-                    size="sm"
-                    onClick={() => downloadBlob(result.blob, filename)}
-                  >
-                    <Download size={14} className="me-1" />
-                    {t("download")}
-                  </Button>
+        <div
+          className="max-h-[70vh] overflow-y-auto space-y-2"
+          style={{ scrollbarGutter: "stable" }}
+        >
+          {results.map((result, i) => {
+            const ext = FORMAT_EXTENSIONS[format];
+            const filename = `page_${i + 1}${ext}`;
+            return (
+              <div
+                key={i}
+                className="flex items-center justify-between gap-3 rounded-lg border border-border-default bg-bg-surface p-3"
+              >
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-medium text-fg-primary truncate">{filename}</p>
+                  <p className="text-xs text-fg-muted">
+                    {t("dimensions", { width: result.width, height: result.height })} —{" "}
+                    {formatBytes(result.blob.size)}
+                  </p>
                 </div>
-              );
-            })}
-          </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => downloadBlob(result.blob, filename)}
+                >
+                  <Download size={14} className="me-1" />
+                  {t("download")}
+                </Button>
+              </div>
+            );
+          })}
+        </div>
 
-          <div className="flex items-center justify-center gap-3 mt-6">
-            <Button variant="primary" size="md" onClick={() => downloadAsZip(results, format)}>
-              <Download size={16} className="me-1.5" />
-              {t("downloadZip")}
-            </Button>
-            <Button variant="outline" size="md" onClick={handleStartOver}>
-              <RotateCw size={16} className="me-1.5" />
-              {t("startOver")}
-            </Button>
-          </div>
+        <div className="flex items-center justify-center gap-3">
+          <Button variant="primary" size="md" onClick={() => downloadAsZip(results, format)}>
+            <Download size={16} className="me-1.5" />
+            {t("downloadZip")}
+          </Button>
+          <Button variant="outline" size="md" onClick={handleStartOver}>
+            <RotateCw size={16} className="me-1.5" />
+            {t("startOver")}
+          </Button>
         </div>
       </section>
     );
