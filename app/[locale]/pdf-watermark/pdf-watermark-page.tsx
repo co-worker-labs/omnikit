@@ -384,19 +384,11 @@ function Conversion() {
       <div className="grid grid-cols-1 md:grid-cols-[280px_1fr] gap-6">
         {/* Controls panel */}
         <div className="flex flex-col gap-4">
-          {/* File info + reselect */}
-          <div className="flex items-center justify-between px-1">
-            <span className="text-sm text-fg-secondary truncate" title={pdfName}>
+          {/* File info */}
+          <div className="px-1">
+            <span className="text-sm text-fg-secondary truncate block" title={pdfName}>
               {t("fileName", { name: pdfName, pages: pageCount })}
             </span>
-            <button
-              type="button"
-              onClick={handleReselect}
-              className="shrink-0 text-fg-muted hover:text-fg-secondary transition-colors"
-              title={t("reselect")}
-            >
-              <RefreshCw size={14} />
-            </button>
           </div>
 
           {/* Watermark type tabs */}

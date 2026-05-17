@@ -246,6 +246,7 @@
     "description": "Adicione marcas d'água de texto ou logo em imagens. Personalize posição, opacidade, rotação e mosaico. Suporta PNG, JPG, WebP. Todo o processamento é feito no seu navegador."
   },
   "pdf-watermark": {
+    "title": "Marca d'água PDF - Adicione marcas d'água de texto e imagem ao PDF",
     "shortTitle": "Marca d'água PDF",
     "description": "Adicione marcas d'água de texto ou imagem a arquivos PDF. Personalize a fonte, cor, opacidade, rotação e blocagem."
   },

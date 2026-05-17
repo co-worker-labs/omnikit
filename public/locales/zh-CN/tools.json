@@ -295,6 +295,7 @@
     "searchTerms": "tupianshuiyin tpsy shuiyin yinji banquan"
   },
   "pdf-watermark": {
+    "title": "PDF 水印 - 为 PDF 添加文字和图片水印",
     "shortTitle": "PDF 水印",
     "searchTerms": "pdfshuiyin pdfsy shuiyin yinji banquan",
     "description": "为 PDF 文件添加文字或图片水印。自定义字体、颜色、透明度、旋转角度和平铺方式。"

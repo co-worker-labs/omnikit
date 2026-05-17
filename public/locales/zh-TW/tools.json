@@ -295,6 +295,7 @@
     "searchTerms": "tupianfushuiyin tpfyy fushuiyin yinji banquan"
   },
   "pdf-watermark": {
+    "title": "PDF 浮水印 - 為 PDF 添加文字與圖片浮水印",
     "shortTitle": "PDF 浮水印",
     "searchTerms": "pdffuyin pdfsy fuyin yinji banquan",
     "description": "為 PDF 檔案添加文字或圖片浮水印。自訂字型、顏色、透明度、旋轉角度和平鋪方式。"

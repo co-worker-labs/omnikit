@@ -295,6 +295,7 @@
     "searchTerms": "gazouotamaku gotmk mizushi shomei rogo"
   },
   "pdf-watermark": {
+    "title": "PDF 透かし - テキストと画像の透かしを追加",
     "shortTitle": "PDF 透かし",
     "searchTerms": "pdfsukaisi pdfsks mizuashi shirushi chosakuken",
     "description": "PDFファイルにテキストまたは画像の透かしを追加。フォント、色、不透明度、回転、タイル表示をカスタマイズ。"

@@ -58,6 +58,8 @@ const namespaces = [
   "pdf-merge",
   "pdf-split",
   "image-watermark",
+  "pdf-watermark",
+  "image-to-pdf",
 ];
 
 export default getRequestConfig(async ({ requestLocale }) => {
