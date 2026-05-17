@@ -21,7 +21,6 @@ export async function getPdfPageCount(data: ArrayBuffer): Promise<number> {
  * Does NOT call pdf.destroy() — caller manages the PDF lifecycle.
  */
 async function renderPage(
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   pdf: any,
   pageIndex: number,
   options: RenderOptions
