@@ -443,7 +443,17 @@ function Conversion() {
           <button
             key={m}
             type="button"
-            onClick={() => setMode(m)}
+            onClick={() => {
+              if (m !== "select-pages") {
+                setSelectedPages(new Set());
+                setGroups([[]]);
+                setActiveGroupIndex(0);
+              }
+              if (m !== "by-range") {
+                setRanges([{ from: 1, to: pageCount }]);
+              }
+              setMode(m);
+            }}
             className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
               mode === m
                 ? "bg-accent-cyan text-bg-base"
