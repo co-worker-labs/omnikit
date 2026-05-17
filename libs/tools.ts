@@ -46,6 +46,7 @@ import {
   Layers,
   FileStack,
   Droplets,
+  FileImage,
 } from "lucide-react";
 
 export interface ToolCard {
@@ -133,6 +134,7 @@ export const TOOL_CATEGORIES: CategoryGroup[] = [
       "image-watermark",
       "image-crop",
       "image-rotate",
+      "image-to-pdf",
       "pdf-merge",
     ],
   },
@@ -195,6 +197,7 @@ export const TOOL_RELATIONS: Record<string, string[]> = {
     "image-crop",
     "image-rotate",
     "image-watermark",
+    "image-to-pdf",
   ],
   "image-compress": [
     "image-resize",
@@ -203,6 +206,7 @@ export const TOOL_RELATIONS: Record<string, string[]> = {
     "image-rotate",
     "pdf-merge",
     "image-watermark",
+    "image-to-pdf",
   ],
   "image-convert": [
     "image-resize",
@@ -211,6 +215,7 @@ export const TOOL_RELATIONS: Record<string, string[]> = {
     "image-rotate",
     "pdf-merge",
     "image-watermark",
+    "image-to-pdf",
   ],
   "image-rotate": [
     "image-resize",
@@ -238,7 +243,8 @@ export const TOOL_RELATIONS: Record<string, string[]> = {
   subnet: ["numbase", "httpstatus", "ascii"],
   recipe: ["json", "base64", "hashing"],
   batch: ["recipe", "hashing", "base64", "image-resize", "image-compress"],
-  "pdf-merge": ["image-compress", "image-convert", "checksum"],
+  "image-to-pdf": ["image-resize", "image-compress", "image-convert", "pdf-merge"],
+  "pdf-merge": ["image-compress", "image-convert", "checksum", "image-to-pdf"],
 };
 
 const PALETTE_SIZE = 20;
@@ -503,6 +509,16 @@ export const TOOLS: ToolEntry[] = [
     icon: Droplets,
     emoji: "💧",
     sameAs: [],
+  },
+  {
+    key: "image-to-pdf",
+    path: "/image-to-pdf",
+    icon: FileImage,
+    emoji: "🖼️",
+    sameAs: [
+      "https://en.wikipedia.org/wiki/PDF",
+      "https://developer.mozilla.org/en-US/docs/Glossary/PDF",
+    ],
   },
 ];
 
