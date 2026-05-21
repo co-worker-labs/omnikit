@@ -5,7 +5,7 @@ import { useTranslations } from "next-intl";
 
 export type FooterPosition = "sticky" | "fixed" | "none" | "hidden";
 
-const GITHUB_URL = "https://github.com/co-worker-labs/OmniKit";
+const GITHUB_URL = "https://github.com/co-worker-labs/omnikit";
 
 function GithubIcon({ className }: { className?: string }) {
   return (
@@ -62,7 +62,7 @@ export default function Footer({ position }: { position: FooterPosition }) {
           >
             {t("footer.privacy")}
           </Link>
-          {/* <a
+          <a
             href={GITHUB_URL}
             target="_blank"
             rel="noopener noreferrer"
@@ -70,7 +70,7 @@ export default function Footer({ position }: { position: FooterPosition }) {
             aria-label={t("footer.github")}
           >
             <GithubIcon className="w-4 h-4" />
-          </a> */}
+          </a>
         </nav>
       </div>
     </footer>
