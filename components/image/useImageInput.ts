@@ -34,7 +34,9 @@ export function useImageInput({ t }: UseImageInputOptions): UseImageInputReturn 
     }
 
     try {
-      const bitmap = await createImageBitmap(file);
+      // createImageBitmap does not support SVG blobs — rasterize via <img> first
+      const bitmap =
+        file.type === "image/svg+xml" ? await rasterizeSVG(file) : await createImageBitmap(file);
       setSourceBitmap(bitmap);
       setSourceFile(file);
 
@@ -112,6 +114,35 @@ export function useImageInput({ t }: UseImageInputOptions): UseImageInputReturn 
     dropZoneRef: dropZoneRef as React.RefObject<HTMLDivElement>,
     fileInputRef: fileInputRef as React.RefObject<HTMLInputElement>,
   };
+}
+
+const SVG_RASTER_TARGET = 2048;
+
+async function rasterizeSVG(file: File): Promise<ImageBitmap> {
+  const url = URL.createObjectURL(file);
+  try {
+    const img = new Image();
+    await new Promise<void>((resolve, reject) => {
+      img.onload = () => resolve();
+      img.onerror = () => reject(new Error("Failed to load SVG"));
+      img.src = url;
+    });
+
+    const nw = img.naturalWidth || 300;
+    const nh = img.naturalHeight || 150;
+    const longest = Math.max(nw, nh);
+    const scale = longest < SVG_RASTER_TARGET ? SVG_RASTER_TARGET / longest : 1;
+    const w = Math.round(nw * scale);
+    const h = Math.round(nh * scale);
+
+    const canvas = document.createElement("canvas");
+    canvas.width = w;
+    canvas.height = h;
+    canvas.getContext("2d")!.drawImage(img, 0, 0, w, h);
+    return createImageBitmap(canvas);
+  } finally {
+    URL.revokeObjectURL(url);
+  }
 }
 
 /** Heuristic: check for ANIM chunk in WebP file header. */
